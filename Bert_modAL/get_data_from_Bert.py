@@ -1,0 +1,169 @@
+# general imports 
+import torch
+from torch.utils.data import DataLoader
+import numpy 
+from transformers import BertTokenizer, PreTrainedTokenizer
+from typing import Set, Union
+from functools import reduce
+import re 
+from dataclasses import replace
+from collections import Counter, defaultdict
+from operator import attrgetter
+
+
+
+
+# special imports from maximilians code 
+from data import (BertQASampler, MRQADataset, SlidingWindowHandler,
+                  normalize_answer, pad_batch, Dataset, SharedTaskDatasetReader)
+from agent import MRQAAgent
+
+# special imports from our side 
+#from bert_test import BertQA, loss_function
+
+
+
+reader = SharedTaskDatasetReader(answer_first_occurence_only = True)
+
+DATASETS = [
+Dataset('SQuAD-train', 'train/SQuAD.jsonl.gz', reader),
+Dataset('SQuAD-dev', 'dev/SQuAD.jsonl.gz', reader),
+Dataset('HotpotQA-train', 'train/HotpotQA.jsonl.gz', reader),
+Dataset('HotpotQA-dev', 'dev/HotpotQA.jsonl.gz', reader),
+Dataset('TriviaQA-train', 'train/TriviaQA.jsonl.gz', reader),
+Dataset('TriviaQA-dev', 'dev/TriviaQA.jsonl.gz', reader),
+Dataset('NewsQA-train', 'train/NewsQA.jsonl.gz', reader),
+Dataset('NewsQA-dev', 'dev/NewsQA.jsonl.gz', reader),
+Dataset('SearchQA-train', 'train/SearchQA.jsonl.gz', reader),
+Dataset('SearchQA-dev', 'dev/SearchQA.jsonl.gz', reader),
+Dataset('NaturalQuestionsShort-train', 'train/NaturalQuestions.jsonl.gz', reader),
+Dataset('NaturalQuestionsShort-dev', 'dev/NaturalQuestions.jsonl.gz', reader),
+Dataset('DROP-dev', 'dev/DROP.jsonl.gz', reader),
+Dataset('RACE-dev', 'dev/RACE.jsonl.gz', reader),
+Dataset('BioASQ-dev', 'dev/BioASQ.jsonl.gz', reader),
+Dataset('TextbookQA-dev', 'dev/TextbookQA.jsonl.gz', reader),
+Dataset('RelationExtraction-dev', 'dev/RelationExtraction.jsonl.gz', reader),
+Dataset('DuoRC-dev', 'dev/DuoRC.jsonl.gz', reader),
+]
+
+def get_datasets(data_dir: str, cache_dir: str, sample_processor: callable, tokenizer: PreTrainedTokenizer, datasets: Set[Dataset], seed: int = None, force_preprocess: bool = False):
+    data, data_split = [], []
+
+    for dataset in datasets:
+        _data = MRQADataset.load(data_dir, cache_dir, dataset, sample_processor, tokenizer, force_preprocess=force_preprocess)
+        num_samples_eval = dataset.num_samples_eval
+        if num_samples_eval is not None:
+            rng = numpy.random.RandomState(eval_seed)
+            data_split.append(_data.sample_split(num_samples_eval, shuffle_fn=rng.shuffle, remove_samples=True, seed=eval_seed))
+        if dataset.num_samples > 0:
+            data.append(_data.sample_split(dataset.num_samples, seed=seed))
+        elif dataset.num_samples == -1:
+            data.append(_data)
+
+    return data, data_split
+
+def match_datasets(data_dir: str, search: Union[None, str], no_checks: bool = False, eval_samples: int = None):
+    if search is None:
+        return []
+    
+    datasets = set()
+    for given in search:
+        for dataset in DATASETS:
+            if given == 'all':
+                datasets.add(dataset)
+            elif re.match(given.split('/')[0], dataset.name, re.IGNORECASE):
+                split = given.split('/')
+                num_samples = -1
+                num_samples_eval = eval_samples
+                samples_total = 0
+                if len(split) > 1:
+                    # there is a number of samples given
+                    try:
+                        num_samples = int(split[1])
+                        samples_total += num_samples
+                    except:
+                        pass
+                if len(split) > 2:
+                    # there is a number of samples for evaluation given
+                    try:
+                        num_samples_eval = int(split[2])
+                    except:
+                        pass
+                samples_total += num_samples_eval if num_samples_eval is not None else 0
+                if len(split) > 1:
+                    # check whether requested samples exceed total samples
+                    dataset_num_samples = dataset.get_total_samples(data_dir)
+                    if samples_total > dataset_num_samples:
+                        continue
+
+                datasets.add(replace(dataset, num_samples=num_samples, num_samples_eval=num_samples_eval))
+    dataset_names_duplicates = [name for name, count in Counter(map(attrgetter('name'), datasets)).items() if count > 1]
+    return datasets
+
+
+eval_seed = 1234
+seed = 3957113738
+model="/Users/maxkeller/Documents/Uni/Softwaretechnik/Projektarbeiten/mrqa-baseline/models/test"
+cache_dir = "/Users/maxkeller/Documents/Uni/Softwaretechnik/Projektarbeiten/mrqa-baseline/cache"
+pretrained_model = None
+nocuda = False
+results = "results"
+datasets = ['SQuAD-train']
+data_dir = "/Users/maxkeller/Documents/Uni/Softwaretechnik/Projektarbeiten/mrqa-baseline/datasets"
+pre_process = False
+
+training_steps = 10
+train_steps = 5
+device = "cuda" if torch.cuda.is_available() else "cpu"
+batch_size = 1
+
+"""
+#maybe later
+# set up tensorboard writer for interactive visualization
+writer = setup_writer(args.logdir, seed, purge_step=agent.training_steps, debug=args.debug)
+agent.add_tb_writer(writer)
+"""
+
+
+agent = MRQAAgent(model, cache_dir, pretrained_model_dir=pretrained_model, disable_cuda=nocuda, results=results)
+datasets_train = match_datasets(data_dir, datasets)
+
+
+data_train, data_split = get_datasets(data_dir, cache_dir, agent.sample_processor, agent.tokenizer, datasets_train, seed=seed, force_preprocess=pre_process)
+
+# merge train data
+data_train = reduce(lambda x, y: x + y, data_train)
+
+
+data_train: MRQADataset # needs still to be added
+
+batch_sampler = BertQASampler(data_source=data_train, batch_size=batch_size, training=True, shuffle=True, drop_last=False, fill_last=True, repeat=True)
+batch_sampler_iterator = iter(batch_sampler)
+dataloader = DataLoader(data_train, batch_sampler=batch_sampler_iterator, collate_fn=pad_batch)
+
+data_iter = iter(dataloader) # create iterator so that the same can be used in all function calls (also working with zip)
+
+
+
+#model = BertQA(cache_dir=cache_dir)
+
+y_pool = ""
+input_batch = ""
+
+for batch in data_iter:
+    input_batch = batch
+    y_pool = batch['label'] 
+    y_pool, label_end = y_pool.to(device).split(1, dim=1)
+    break
+
+labels = y_pool.squeeze(1)
+
+"""
+print(batch['input'].to(device))
+print(batch['label'].to(device))
+input_batch = batch
+labels = batch['label'] 
+#start_logits, end_logits = forward(batch['input'].to(device), batch['segments'].to(device), batch['mask'].to(device))
+output = model(batch)
+print(loss_function(output, batch['label']))
+"""
