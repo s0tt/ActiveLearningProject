@@ -8,6 +8,6 @@
 
 ## How to use the Bert_modAl part
 * set the variables: model, cache_dir, data_dir in the modAl file 
-* take care that all files from mrqa-baseline which get imported are available ... (Sry that it is not so clear)
+* take care that all files from mrqa-baseline which get imported are available ... (Sry that it is not so clear )
 
 

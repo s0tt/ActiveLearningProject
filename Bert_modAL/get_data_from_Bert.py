@@ -115,7 +115,7 @@ pre_process = False
 training_steps = 10
 train_steps = 5
 device = "cuda" if torch.cuda.is_available() else "cpu"
-batch_size = 1
+batch_size = 10
 
 """
 #maybe later
@@ -126,12 +126,27 @@ agent.add_tb_writer(writer)
 
 
 agent = MRQAAgent(model, cache_dir, pretrained_model_dir=pretrained_model, disable_cuda=nocuda, results=results)
-datasets_train = match_datasets(data_dir, datasets)
+datasets_train = match_datasets(data_dir, datasets) # returns just a set where the Dataset is inside!
 
 
+# loads the dataset into data_train, data_split is not further needed 
+"""
+In the metadata there is the full SQAD sample
+additional we will hava a: 
+mask (1, were there is real data, 0 when it is just a padding),
+segments, 
+label_multi, 
+segments, 
+wordpiece_to_token_idx, 
+token_to_context_idx, 
+input, 
+label (Maybe token-ids but I do not know this in detail ...), 
+"""
 data_train, data_split = get_datasets(data_dir, cache_dir, agent.sample_processor, agent.tokenizer, datasets_train, seed=seed, force_preprocess=pre_process)
 
-# merge train data
+
+
+# merge train data (When more training datasets are used --> creates a single MEQADataset class)
 data_train = reduce(lambda x, y: x + y, data_train)
 
 
@@ -145,25 +160,3 @@ data_iter = iter(dataloader) # create iterator so that the same can be used in a
 
 
 
-#model = BertQA(cache_dir=cache_dir)
-
-y_pool = ""
-input_batch = ""
-
-for batch in data_iter:
-    input_batch = batch
-    y_pool = batch['label'] 
-    y_pool, label_end = y_pool.to(device).split(1, dim=1)
-    break
-
-labels = y_pool.squeeze(1)
-
-"""
-print(batch['input'].to(device))
-print(batch['label'].to(device))
-input_batch = batch
-labels = batch['label'] 
-#start_logits, end_logits = forward(batch['input'].to(device), batch['segments'].to(device), batch['mask'].to(device))
-output = model(batch)
-print(loss_function(output, batch['label']))
-"""
