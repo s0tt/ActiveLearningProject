@@ -1,0 +1,12 @@
+mrqa-baseline/
+MNIST
+.vscode
+Bert_modAL/__pycache__/
+Bert_modAL/agent.py
+Bert_modAL/data.py
+Bert_modAL/model.py
+Bert_modAL/utils.py
+cache/*
+datasets/*
+!datasets/.gitkeep
+!cache/.gitkeep 
