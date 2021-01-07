@@ -22,7 +22,7 @@ from torchvision.datasets import MNIST
 
 from transformers import AdamW, BertTokenizer, get_linear_schedule_with_warmup
 
-from get_data_from_Bert import data_iter
+from get_data_from_Bert import get_dataloader
 
 labels='single' # at the moment this is just set by hand ... 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -150,6 +150,9 @@ learner = ActiveLearner(
         ValueError: all the input array dimensions for the concatenation axis must match exactly, but along dimension 1, the array at index 0 has size 209 and the array at index 1 has size 266
 
 """
+
+data_loader = get_dataloader()
+data_iter = iter(data_loader) # create iterator so that the same can be used in all function calls (also working with zip)
 
 for batch in data_iter:
     inputs = batch['input']

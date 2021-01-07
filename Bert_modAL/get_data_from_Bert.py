@@ -103,13 +103,13 @@ def match_datasets(data_dir: str, search: Union[None, str], no_checks: bool = Fa
 
 eval_seed = 1234
 seed = 3957113738
-model="/Users/maxkeller/Documents/Uni/Softwaretechnik/Projektarbeiten/mrqa-baseline/models/test"
-cache_dir = "/Users/maxkeller/Documents/Uni/Softwaretechnik/Projektarbeiten/mrqa-baseline/cache"
+model="models"
+cache_dir = "cache"
 pretrained_model = None
 nocuda = False
 results = "results"
 datasets = ['SQuAD-train']
-data_dir = "/Users/maxkeller/Documents/Uni/Softwaretechnik/Projektarbeiten/mrqa-baseline/datasets"
+data_dir = "datasets"
 pre_process = False
 
 training_steps = 10
@@ -125,10 +125,6 @@ agent.add_tb_writer(writer)
 """
 
 
-agent = MRQAAgent(model, cache_dir, pretrained_model_dir=pretrained_model, disable_cuda=nocuda, results=results)
-datasets_train = match_datasets(data_dir, datasets) # returns just a set where the Dataset is inside!
-
-
 # loads the dataset into data_train, data_split is not further needed 
 """
 In the metadata there is the full SQAD sample
@@ -142,21 +138,24 @@ token_to_context_idx,
 input, 
 label (Maybe token-ids but I do not know this in detail ...), 
 """
-data_train, data_split = get_datasets(data_dir, cache_dir, agent.sample_processor, agent.tokenizer, datasets_train, seed=seed, force_preprocess=pre_process)
+
+def get_dataloader():
+    agent = MRQAAgent(model, cache_dir, pretrained_model_dir=pretrained_model, disable_cuda=nocuda, results=results)
+    datasets_train = match_datasets(data_dir, datasets) # returns just a set where the Dataset is inside!
+    data_train, data_split = get_datasets(data_dir, cache_dir, agent.sample_processor, agent.tokenizer, datasets_train, seed=seed, force_preprocess=pre_process)
+    # merge train data (When more training datasets are used --> creates a single MEQADataset class)
+    data_train = reduce(lambda x, y: x + y, data_train)
 
 
+    #data_train: MRQADataset # needs still to be added
 
-# merge train data (When more training datasets are used --> creates a single MEQADataset class)
-data_train = reduce(lambda x, y: x + y, data_train)
+    batch_sampler = BertQASampler(data_source=data_train, batch_size=batch_size, training=True, shuffle=True, drop_last=False, fill_last=True, repeat=True)
+    batch_sampler_iterator = iter(batch_sampler)
+    dataloader = DataLoader(data_train, batch_sampler=batch_sampler_iterator, collate_fn=pad_batch)
 
+    #data_iter = iter(dataloader) # create iterator so that the same can be used in all function calls (also working with zip)
 
-data_train: MRQADataset # needs still to be added
-
-batch_sampler = BertQASampler(data_source=data_train, batch_size=batch_size, training=True, shuffle=True, drop_last=False, fill_last=True, repeat=True)
-batch_sampler_iterator = iter(batch_sampler)
-dataloader = DataLoader(data_train, batch_sampler=batch_sampler_iterator, collate_fn=pad_batch)
-
-data_iter = iter(dataloader) # create iterator so that the same can be used in all function calls (also working with zip)
+    return dataloader
 
 
 
