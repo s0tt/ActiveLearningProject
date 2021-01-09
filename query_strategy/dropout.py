@@ -10,7 +10,7 @@ import sys
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 
-def mc_dropout(classifier: BaseEstimator, X, nr_cycles : int = 50,
+def mc_dropout(classifier: BaseEstimator, X, num_cycles : int = 50,
                          **mc_dropout_kwargs) -> np.ndarray:
     """
     MVP Query strategy
@@ -18,31 +18,32 @@ def mc_dropout(classifier: BaseEstimator, X, nr_cycles : int = 50,
     """ 
 
     # set dropout layers to train mode
-    if not classifier.estimator.initialized_:
-        classifier.estimator.initialize()
-        logging.getLogger().info("Dropout: Initialized classifier manually")
-
     set_dropout_mode(classifier.estimator.module_, train_mode=True)
 
-    #iterate for each sample
-    pred_list = []
-    #for idx, sample in enumerate(X):
-        #run nr_cycles NN inference
     predictions = []
-    for i in range(nr_cycles):
+
+    #for each batch run num_cycles forward passes
+    for i in range(num_cycles):
         logging.getLogger().info("Dropout: start prediction forward pass")
-        prediction = classifier.estimator.predict_proba(X)
+        #call Skorch infer function to perform model forward pass
+        #In comparison to: predict(), predict_proba() the infer() 
+        # does not change train/eval mode of other layers 
+        prediction = classifier.estimator.infer(X)
         predictions.append(prediction)
-    pred_list.append(predictions)
-    
 
     # set dropout layers to eval
     set_dropout_mode(classifier.estimator.module_, train_mode=False)
+
+    #TODO: implement querye selection measure (e.g. BALD (Bayesian active learning divergence))
+
+    #TODO: format selected query as modAL tuple to fix current data format issues
+
+    #to inspect MC Dropout forward passes you can set a breakpoint here
     return pred_list
 
 
 def set_dropout_mode(model, train_mode: bool):
-    """ Function to enable the dropout layers by setting them to train mode """
+    """ Function to enable the dropout layers by setting them to user specified mode (bool: train_mode)"""
     for m in model.modules():
         if m.__class__.__name__.startswith('Dropout'):
             if True == train_mode:
