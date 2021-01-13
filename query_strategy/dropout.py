@@ -45,22 +45,15 @@ def mc_dropout(classifier: BaseEstimator, X, n_instances: int = 1, dropout_layer
 def set_dropout_mode(model, dropout_layer_indexes: list, train_mode: bool):
     """ 
         Function to enable the dropout layers by setting them to user specified mode (bool: train_mode)
-        TODO: Reduce complexity
-        TODO: Decide if even something like Sequential should be removed from the layer_list 
-            def get_layer_list(model):
-                return list(model.modules())
+        TODO: Reduce maybe complexity
+        TODO: Keras support
     """
 
-    def get_layer_list(model):
-        layer_list = [module for module in model.modules() if not module.__class__.__name__.startswith("Sequential")]
-        del layer_list[0]
-        return layer_list
-
-    layer_list = get_layer_list(model)
+    modules = list(model.modules()) # list of all modules in the network.
     
     if len(dropout_layer_indexes) != 0:  
         for index in dropout_layer_indexes: 
-            layer = layer_list[index]
+            layer = modules[index]
             if layer.__class__.__name__.startswith('Dropout'): 
                 if True == train_mode:
                     layer.train()
@@ -70,11 +63,11 @@ def set_dropout_mode(model, dropout_layer_indexes: list, train_mode: bool):
                 raise KeyError("The passed index: {} is not a Dropout layer".format(index))
 
     else: 
-        for layer in layer_list:
-            if layer.__class__.__name__.startswith('Dropout'):
+        for module in modules:
+            if module.__class__.__name__.startswith('Dropout'):
                 if True == train_mode:
-                    layer.train()
-                    logging.getLogger().info("Dropout: set mode of " + str(layer.__class__.__name__) + " to train")
+                    module.train()
+                    logging.getLogger().info("Dropout: set mode of " + str(module.__class__.__name__) + " to train")
                 elif False == train_mode:
-                    layer.eval()
-                    logging.getLogger().info("Dropout: set mode of " + str(layer.__class__.__name__) + " to eval")
+                    module.eval()
+                    logging.getLogger().info("Dropout: set mode of " + str(module.__class__.__name__) + " to eval")

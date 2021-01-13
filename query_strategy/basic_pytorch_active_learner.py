@@ -85,7 +85,7 @@ print(learner.score(X_pool, y_pool)) # shows us how good the model works!
 n_queries = 10
 for idx in range(n_queries):
     print('Query no. %d' % (idx + 1))
-    pred_list = learner.query(X_pool, dropout_layer_indexes=[5, 9], num_cycles = 5)
+    pred_list = learner.query(X_pool, dropout_layer_indexes=[7, 11], num_cycles = 5)
     print("Stop")
     # We have a problem at the moment: The learner does reinitialize our model... 
     # learner.teach(

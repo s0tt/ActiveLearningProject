@@ -10,3 +10,8 @@ cache/*
 datasets/*
 !datasets/.gitkeep
 !cache/.gitkeep 
+
+query_strategy/__pycache__
+query_strategy/processed
+query_strategy/raw
+
