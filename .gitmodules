@@ -1,0 +1,3 @@
+[submodule "modAL"]
+	path = modAL
+	url = https://github.com/s0tt/modAL.git
