@@ -1,9 +1,7 @@
 # delay evaluation of annotation
 from __future__ import annotations
 
-#import sys
-#sys.stdout = None
-
+import sys
 import os
 import re
 import numpy as np
