@@ -10,3 +10,5 @@ cache/*
 datasets/*
 !datasets/.gitkeep
 !cache/.gitkeep 
+processed 
+raw
