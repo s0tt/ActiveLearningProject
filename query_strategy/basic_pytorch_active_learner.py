@@ -43,6 +43,9 @@ classifier = NeuralNetClassifier(Torch_Model,
                                  verbose=1,
                                  device=device)
 
+torch_model = Torch_Model()
+
+layer_list = list(torch_model.modules())
 
 mnist_data = MNIST('.', download=True, transform=ToTensor())
 dataloader = DataLoader(mnist_data, shuffle=True, batch_size=60000)
@@ -82,7 +85,7 @@ print(learner.score(X_pool, y_pool)) # shows us how good the model works!
 n_queries = 10
 for idx in range(n_queries):
     print('Query no. %d' % (idx + 1))
-    pred_list = learner.query(X_pool, nr_cycles = 5)
+    pred_list = learner.query(X_pool, dropout_layer_indexes=[7, 11], num_cycles = 5)
     print("Stop")
     # We have a problem at the moment: The learner does reinitialize our model... 
     # learner.teach(

@@ -11,15 +11,15 @@ import sys
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 
-def mc_dropout(classifier: BaseEstimator, X, num_cycles : int = 50,
-                         **mc_dropout_kwargs) -> np.ndarray:
+def mc_dropout(classifier: BaseEstimator, X, n_instances: int = 1, dropout_layer_indexes: list = [], 
+                num_cycles : int = 50, **mc_dropout_kwargs) -> np.ndarray:
     """
     MVP Query strategy
-
+    TODO: Add n_instances support
     """ 
 
     # set dropout layers to train mode
-    set_dropout_mode(classifier.estimator.module_, train_mode=True)
+    set_dropout_mode(classifier.estimator.module_, dropout_layer_indexes, train_mode=True)
 
     predictions = []
 
@@ -33,7 +33,7 @@ def mc_dropout(classifier: BaseEstimator, X, num_cycles : int = 50,
         predictions.append(prediction)
 
     # set dropout layers to eval
-    set_dropout_mode(classifier.estimator.module_, train_mode=False)
+    set_dropout_mode(classifier.estimator.module_, dropout_layer_indexes, train_mode=False)
 
     #TODO: implement querye selection measure (e.g. BALD (Bayesian active learning divergence))
     bald = _bald_divergence(predictions)
@@ -41,8 +41,7 @@ def mc_dropout(classifier: BaseEstimator, X, num_cycles : int = 50,
     #TODO: format selected query as modAL tuple to fix current data format issues
 
     #to inspect MC Dropout forward passes you can set a breakpoint here
-    return pred_list
-
+    return predictions
 
 def _bald_divergence(proba) -> np.ndarray:
     accumulated_score = np.zeros(shape=proba[0].shape)
@@ -62,13 +61,32 @@ def _bald_divergence(proba) -> np.ndarray:
     u_x = g_x - f_x
     return u_x
 
-def set_dropout_mode(model, train_mode: bool):
-    """ Function to enable the dropout layers by setting them to user specified mode (bool: train_mode)"""
-    for m in model.modules():
-        if m.__class__.__name__.startswith('Dropout'):
-            if True == train_mode:
-                m.train()
-                logging.getLogger().info("Dropout: set mode of " + str(m.__class__.__name__) + " to train")
-            elif False == train_mode:
-                m.eval()
-                logging.getLogger().info("Dropout: set mode of " + str(m.__class__.__name__) + " to eval")
+def set_dropout_mode(model, dropout_layer_indexes: list, train_mode: bool):
+    """ 
+        Function to enable the dropout layers by setting them to user specified mode (bool: train_mode)
+        TODO: Reduce maybe complexity
+        TODO: Keras support
+    """
+
+    modules = list(model.modules()) # list of all modules in the network.
+    
+    if len(dropout_layer_indexes) != 0:  
+        for index in dropout_layer_indexes: 
+            layer = modules[index]
+            if layer.__class__.__name__.startswith('Dropout'): 
+                if True == train_mode:
+                    layer.train()
+                elif False == train_mode:
+                    layer.eval()
+            else: 
+                raise KeyError("The passed index: {} is not a Dropout layer".format(index))
+
+    else: 
+        for module in modules:
+            if module.__class__.__name__.startswith('Dropout'):
+                if True == train_mode:
+                    module.train()
+                    logging.getLogger().info("Dropout: set mode of " + str(module.__class__.__name__) + " to train")
+                elif False == train_mode:
+                    module.eval()
+                    logging.getLogger().info("Dropout: set mode of " + str(module.__class__.__name__) + " to eval")
