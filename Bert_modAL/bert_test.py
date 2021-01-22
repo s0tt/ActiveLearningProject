@@ -1,9 +1,7 @@
 # delay evaluation of annotation
 from __future__ import annotations
 
-#import sys
-#sys.stdout = None
-
+import sys
 import os
 import re
 import numpy as np
@@ -13,6 +11,9 @@ from typing import Dict, OrderedDict, Tuple, Union
 import torch 
 from skorch import NeuralNetClassifier
 from skorch import NeuralNet
+
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
+
 from modAL.models import ActiveLearner
 from transformers import BertModel
 

@@ -1,6 +1,10 @@
+import sys
+import os
 import torch
 from torch import nn
 from skorch import NeuralNetClassifier
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
+
 from modAL.models import ActiveLearner
 
 import numpy as np
@@ -47,6 +51,10 @@ mnist_data = MNIST('.', download=True, transform=ToTensor())
 dataloader = DataLoader(mnist_data, shuffle=True, batch_size=60000)
 X, y = next(iter(dataloader))
 
+# pytorch array to numpy array: 
+X = torch.Tensor.cpu(X).detach().numpy()
+y = torch.Tensor.cpu(y).detach().numpy()
+
 # read training data
 X_train, X_test, y_train, y_test = X[:50000], X[50000:], y[:50000], y[50000:]
 X_train = X_train.reshape(50000, 1, 28, 28)
@@ -57,6 +65,7 @@ n_initial = 1000
 initial_idx = np.random.choice(range(len(X_train)), size=n_initial, replace=False)
 X_initial = X_train[initial_idx]
 y_initial = y_train[initial_idx]
+
 
 # generate the pool
 # remove the initial data from the training dataset
@@ -69,10 +78,6 @@ learner = ActiveLearner(
     estimator=classifier 
      ,X_training=X_initial, y_training=y_initial,
 )
-
-# pytorch array to numpy array: 
-y_pool = torch.Tensor.cpu(y_pool).detach().numpy()
-X_pool = torch.Tensor.cpu(X_pool).detach().numpy()
 
 print(learner.score(X_pool, y_pool)) # shows us how good the model works!
 
