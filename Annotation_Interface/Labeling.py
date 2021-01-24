@@ -57,11 +57,10 @@ def label(question, text):
         csvreader = csv.reader(codecs.iterdecode(csvfile, 'utf-8'))
         header = next(csvreader)
         
-        answerIndex = header.index("answer")
-        weightingIndex = header.index("weighting")
-        
         if "answer" not in header:
             return None
+
+        answerIndex = header.index("answer")
         
         exportString = next(csvreader)
         answerList = exportString[answerIndex][1:-1].replace("},","};").split(";")
@@ -76,6 +75,7 @@ def label(question, text):
         resultDict["charSpans"] = charSpans
         resultDict["texts"] = answerTexts
         if "weighting" in header:
+            weightingIndex = header.index("weighting")
             weightingDict = json.loads(exportString[weightingIndex][1:-1])
             resultDict["weighting"] = weightingDict["rating"]
         return resultDict
