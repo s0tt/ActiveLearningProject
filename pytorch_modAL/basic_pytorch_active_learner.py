@@ -6,6 +6,7 @@ from skorch import NeuralNetClassifier
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
 
 from modAL.models import ActiveLearner
+from modAL.dropout import mc_dropout
 
 import numpy as np
 from torch.utils.data import DataLoader
@@ -37,6 +38,10 @@ class Torch_Model(nn.Module):
         out = out.view(-1,12*12*64)
         out = self.fcs(out)
         return out
+
+torch_model = Torch_Model()
+
+layer_list = list(torch_model.modules())
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 classifier = NeuralNetClassifier(Torch_Model,
@@ -75,8 +80,9 @@ y_pool = np.delete(y_train, initial_idx, axis=0)[:5000]
 
 # initialize ActiveLearner
 learner = ActiveLearner(
-    estimator=classifier 
-     ,X_training=X_initial, y_training=y_initial,
+    estimator=classifier, 
+    query_strategy=mc_dropout,  
+    X_training=X_initial, y_training=y_initial,
 )
 
 print(learner.score(X_pool, y_pool)) # shows us how good the model works!
@@ -85,7 +91,7 @@ print(learner.score(X_pool, y_pool)) # shows us how good the model works!
 n_queries = 10
 for idx in range(n_queries):
     print('Query no. %d' % (idx + 1))
-    query_idx, query_instance = learner.query(X_pool, n_instances=100)
+    query_idx, query_instance = learner.query(X_pool, n_instances=100, num_cycles=5)
     # We have a problem at the moment: The learner does reinitialize our model... 
     learner.teach(
         X=X_pool[query_idx], y=y_pool[query_idx], only_new=False,

@@ -1,7 +1,7 @@
 # delay evaluation of annotation
 from __future__ import annotations
 
-import sys
+import sys 
 import os
 import re
 import numpy as np
@@ -14,6 +14,7 @@ from skorch import NeuralNet
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
 
+from modAL.dropout import mc_dropout
 from modAL.models import ActiveLearner
 from transformers import BertModel
 
@@ -65,9 +66,11 @@ class BertQA(torch.nn.Module):
         super(BertQA, self).__init__()
         self.embedder = BertModel.from_pretrained('bert-base-uncased', cache_dir=cache_dir)
         self.qa_outputs = torch.nn.Linear(self.embedder.config.hidden_size, 2, bias=True) # TODO include bias?
+        self.soft_max = torch.nn.Softmax(dim=1)
         self.qa_outputs.apply(self.embedder._init_weights)
 
-    def forward(self, token_ids): # return type also modified
+
+    def forward(self, input): 
         
         """
             I modified the input as well as the output of the forward function so that it can match with the input of my loss function and that it can accept the full batch
@@ -89,34 +92,18 @@ class BertQA(torch.nn.Module):
                 The first sequence, the “context” used for the question, has all its tokens represented by a 0,
                 whereas the second sequence, corresponding to the “question”, has all its tokens represented by a 1.
         """
+
+        mask_tensor = input[:, 2]
+        segment_tensor = input[:, 1] 
+        token_ids = input[:, 0]  
+
         # input is batch x sequence
         # NOTE the order of the arguments changed from the pytorch pretrained bert package to the transformers package
         embedding, _ = self.embedder(token_ids, token_type_ids=segment_tensor, attention_mask=mask_tensor)
         # only use context tokens for span prediction
         logits = self.qa_outputs(embedding)
-
-        """
-        # split last dim to get separate vectors for start and end
-        start_logits, end_logits = logits.split(1, dim=-1)
-        start_logits, end_logits = start_logits.squeeze(-1), end_logits.squeeze(-1)
-
-
-
-        # set padded values in output to small value # TODO consider the same for question + tokens?
-        mask = (1-lengths).bool()
-
-        start_logits.masked_fill_(mask, -1e7)
-
-        end_logits.masked_fill_(mask, -1e7)
-        
-        # modification of the output 
-        #output = [start_logits, end_logits]
-
-        print("one forward pass finished")
-        print(start_logits)
-        """
-
-        return logits
+        probabilities = self.soft_max(logits)
+        return probabilities
 
 
 # Wrap pytorch class --> to give it an scikit-learn interface! 
@@ -132,10 +119,13 @@ classifier = NeuralNetClassifier(BertQA,
 
 learner = ActiveLearner(
     estimator=classifier, 
-    #query_strategy=uncertainty_sampling
-    #X_training=some_data, y_training=some_data, 
+    criterion=torch.nn.NLLLoss,
+    accept_different_dim=True,
+    query_strategy=mc_dropout
 )
 
+bert_qa = BertQA()
+modules = list(bert_qa.modules()) # pick from here the Dopout indexes
 
 """
     At the moment the active learner requires that:  
@@ -156,37 +146,37 @@ data_loader = get_dataloader()
 data_iter = iter(data_loader) # create iterator so that the same can be used in all function calls (also working with zip)
 
 for batch in data_iter:
+
     inputs = batch['input']
     labels = batch['label']
     segments = batch['segments']
     masks = batch['mask']
 
-    for (input, label, segment, mask) in zip(inputs, labels, segments, masks):
-        input_list = [input]
-        input_tensor = torch.stack(input_list)
-        label_list = [label]
-        label_tensor = torch.stack(label_list)
-        mask_list = [mask]
-        mask_tensor = torch.stack(mask_list)
-        segment_list = [segment]
-        segment_tensor = torch.stack(segment_list)
-
-        learner.teach(X=input_tensor, y=label_tensor, only_new=False,)
-
-        print(learner.score(input_tensor, label_tensor))
-
-        break 
-
+    
     inputs = torch.Tensor.cpu(inputs).detach().numpy()
     labels = torch.Tensor.cpu(labels).detach().numpy()
+    segments = torch.Tensor.cpu(segments).detach().numpy()
+    masks = torch.Tensor.cpu(masks).detach().numpy()
 
-    query_idx, query_instance = learner.query(inputs, n_instances=1)
+    special_input_array = np.array([])
+    
+    i = 0
+    for (input, label, segment, mask) in zip(inputs, labels, segments, masks):
+        if i == 0: 
+            special_input_array = np.array([[input, segment, mask]])
+        else: 
+            one_row = np.array([[input, segment, mask]])
+            special_input_array = np.append(special_input_array, one_row, axis=0)
+        i +=1 
 
+
+    learner.teach(X=special_input_array, y=labels, only_new=False,)
+    #print(learner.score(special_input_array, labels))
+ 
+    
+    query_idx, query_instance = learner.query(special_input_array, n_instances=1, dropout_layer_indexes=[7, 16], num_cycles=10)
+    learner.teach(X=special_input_array[query_idx], y=labels[query_idx], only_new=False,)
     print(query_idx)
-
-    #learner.teach(X=inputs[query_idx], y=labels[query_idx], only_new=False,)
-
 
     break
 
-#print(learner.score(input_data, max_label_test))

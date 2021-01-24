@@ -9,18 +9,15 @@ import re
 from dataclasses import replace
 from collections import Counter, defaultdict
 from operator import attrgetter
+import sys 
+import os
 
-
-
-
+# change this to the location where your files from mrqa-basline are placed
+sys.path.append("/Users/maxkeller/Documents/Uni/Softwaretechnik/Projektarbeiten/mrqa-baseline/modAL_prototype_test/get_bert_data_test")
 # special imports from maximilians code 
 from data import (BertQASampler, MRQADataset, SlidingWindowHandler,
                   normalize_answer, pad_batch, Dataset, SharedTaskDatasetReader)
 from agent import MRQAAgent
-
-# special imports from our side 
-#from bert_test import BertQA, loss_function
-
 
 
 reader = SharedTaskDatasetReader(answer_first_occurence_only = True)
@@ -44,7 +41,9 @@ Dataset('BioASQ-dev', 'dev/BioASQ.jsonl.gz', reader),
 Dataset('TextbookQA-dev', 'dev/TextbookQA.jsonl.gz', reader),
 Dataset('RelationExtraction-dev', 'dev/RelationExtraction.jsonl.gz', reader),
 Dataset('DuoRC-dev', 'dev/DuoRC.jsonl.gz', reader),
+
 ]
+
 
 def get_datasets(data_dir: str, cache_dir: str, sample_processor: callable, tokenizer: PreTrainedTokenizer, datasets: Set[Dataset], seed: int = None, force_preprocess: bool = False):
     data, data_split = [], []
@@ -104,18 +103,18 @@ def match_datasets(data_dir: str, search: Union[None, str], no_checks: bool = Fa
 eval_seed = 1234
 seed = 3957113738
 model="models"
-cache_dir = "cache"
+cache_dir = "../cache"
 pretrained_model = None
 nocuda = False
 results = "results"
 datasets = ['SQuAD-train']
-data_dir = "datasets"
+data_dir = "../datasets"
 pre_process = False
 
 training_steps = 10
 train_steps = 5
 device = "cuda" if torch.cuda.is_available() else "cpu"
-batch_size = 10
+batch_size = 2
 
 """
 #maybe later
