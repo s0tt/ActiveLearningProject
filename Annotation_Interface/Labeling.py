@@ -1,12 +1,5 @@
 import requests
-from io import BytesIO
-import csv
-import codecs
-import time
 import json
-import webbrowser
-
-from zipfile import ZipFile
 
 
 def label(question, text):
@@ -31,51 +24,39 @@ def label(question, text):
     data = '[{"text": "' + editText + '", "question": "' + question + '"}]'
     
     # Sends the request to Label Studio with the text to be annotated
-    response = requests.post('http://localhost:'+port+'/api/project/import', headers=headers, data=data)
-    
-    # Just an interim solution until the label page updates automatically.
-    url = 'http://localhost:'+port+'/tasks?tab=1&labeling=1'
-    webbrowser.open_new(url) # opens in default browser
+    response = requests.post('http://localhost:'+port+'/api/project/sendTask', headers=headers, data=data)
     
     if not response.ok:
         print("Something went wrong")
         return None
     
-    params = (
-        ('format', 'CSV'),
-    )
+    response = requests.get('http://localhost:'+port+'/api/project/getLabel')
 
-    response = requests.get('http://localhost:'+port+'/api/project/getLabel', params=params)
     if not response.ok:
         print("Something went wrong")
         return None
-    
-    # The answer is a CSV file in a ZIP archive, that is read in and data is extracted
-    zip_file = ZipFile(BytesIO(response.content))
-    files = zip_file.namelist()
-    with zip_file.open(files[0], 'r') as csvfile:
-        csvreader = csv.reader(codecs.iterdecode(csvfile, 'utf-8'))
-        header = next(csvreader)
-        
-        if "answer" not in header:
+
+    responseDict = json.loads(response.content)
+    resultList = responseDict["completions"][0]["result"]
+    charSpans = []
+    answerTexts = []
+    weighting=-1
+
+    for result in resultList:
+        if result["from_name"]=="answer":
+            # With the charspans, the end index is the last character that is inclusive
+            charSpans.append((result["value"]["start"], result["value"]["end"]-1))
+            answerTexts.append(result["value"]["text"])
+        elif  result["from_name"]=="weighting":
+            weighting=result["value"]["rating"]
+
+    if len(answerTexts)<1:
             return None
 
-        answerIndex = header.index("answer")
-        
-        exportString = next(csvreader)
-        answerList = exportString[answerIndex][1:-1].replace("},","};").split(";")
-        charSpans = []
-        answerTexts = []
-        for answer in answerList:
-            answerDict = json.loads(answer)
-            # With the charspans, the end index is the last character that is inclusive
-            charSpans.append((answerDict["start"], answerDict["end"]-1))
-            answerTexts.append(answerDict["text"])
-        resultDict = {}
-        resultDict["charSpans"] = charSpans
-        resultDict["texts"] = answerTexts
-        if "weighting" in header:
-            weightingIndex = header.index("weighting")
-            weightingDict = json.loads(exportString[weightingIndex][1:-1])
-            resultDict["weighting"] = weightingDict["rating"]
-        return resultDict
+    resultDict = {}
+    resultDict["charSpans"] = charSpans
+    resultDict["texts"] = answerTexts
+    if weighting>=0:
+        resultDict["weighting"] = weighting
+
+    return resultDict
