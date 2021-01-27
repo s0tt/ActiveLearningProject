@@ -103,12 +103,12 @@ def match_datasets(data_dir: str, search: Union[None, str], no_checks: bool = Fa
 eval_seed = 1234
 seed = 3957113738
 model="models"
-cache_dir = "../cache"
+cache_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../cache')
 pretrained_model = None
 nocuda = False
 results = "results"
 datasets = ['SQuAD-train']
-data_dir = "../datasets"
+data_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../datasets')
 pre_process = False
 
 training_steps = 10
