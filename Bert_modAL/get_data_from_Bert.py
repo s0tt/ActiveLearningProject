@@ -13,7 +13,7 @@ import sys
 import os
 
 # change this to the location where your files from mrqa-basline are placed
-sys.path.append("/Users/maxkeller/Documents/Uni/Softwaretechnik/Projektarbeiten/mrqa-baseline/modAL_prototype_test/get_bert_data_test")
+#sys.path.append("/Users/maxkeller/Documents/Uni/Softwaretechnik/Projektarbeiten/mrqa-baseline/modAL_prototype_test/get_bert_data_test")
 # special imports from maximilians code 
 from data import (BertQASampler, MRQADataset, SlidingWindowHandler,
                   normalize_answer, pad_batch, Dataset, SharedTaskDatasetReader)
