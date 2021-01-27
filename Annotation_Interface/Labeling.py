@@ -24,7 +24,7 @@ def label(question, text):
     data = '[{"text": "' + editText + '", "question": "' + question + '"}]'
     
     # Sends the request to Label Studio with the text to be annotated
-    response = requests.post('http://localhost:'+port+'/api/project/sendTask', headers=headers, data=data)
+    response = requests.post('http://localhost:'+port+'/api/project/sendTask', headers=headers, data=data.encode('utf-8'))
     
     if not response.ok:
         print("Something went wrong")

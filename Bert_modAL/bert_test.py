@@ -13,6 +13,7 @@ from skorch import NeuralNetClassifier
 from skorch import NeuralNet
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../Annotation_Interface'))
 
 from modAL.dropout import mc_dropout
 from modAL.models import ActiveLearner
@@ -25,6 +26,8 @@ from torchvision.datasets import MNIST
 from transformers import AdamW, BertTokenizer, get_linear_schedule_with_warmup
 
 from get_data_from_Bert import get_dataloader
+
+from Labeling import label as getLabelStudioLabel
 
 labels='single' # at the moment this is just set by hand ... 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -175,8 +178,17 @@ for batch in data_iter:
  
     
     query_idx, query_instance = learner.query(special_input_array, n_instances=1, dropout_layer_indexes=[7, 16], num_cycles=10)
-    learner.teach(X=special_input_array[query_idx], y=labels[query_idx], only_new=False,)
-    print(query_idx)
+  
+    question = batch['metadata']['question']
+    context = batch['metadata']['context']
+    question_at_idx = question[query_idx[0]]
+    context_at_idx = context[query_idx[0]]
+    print("Send instance to label-studio... ")
+    label_queryIdx = getLabelStudioLabel(question_at_idx, context_at_idx)
+    
+    #learner.teach(X=special_input_array[query_idx], y=labels[query_idx], only_new=False,)
+    print("Question: ", question_at_idx)
+    print("Oracle provided label:", label_queryIdx)
 
     break
 
