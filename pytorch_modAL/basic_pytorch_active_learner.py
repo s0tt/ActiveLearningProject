@@ -91,7 +91,7 @@ print(learner.score(X_pool, y_pool)) # shows us how good the model works!
 n_queries = 10
 for idx in range(n_queries):
     print('Query no. %d' % (idx + 1))
-    query_idx, query_instance = learner.query(X_pool, n_instances=100, num_cycles=5)
+    query_idx, query_instance, metric = learner.query(X_pool, n_instances=100, num_cycles=5)
     # We have a problem at the moment: The learner does reinitialize our model... 
     learner.teach(
         X=X_pool[query_idx], y=y_pool[query_idx], only_new=False,

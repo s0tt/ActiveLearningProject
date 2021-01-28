@@ -177,7 +177,7 @@ for batch in data_iter:
     #print(learner.score(special_input_array, labels))
  
     
-    query_idx, query_instance = learner.query(special_input_array, n_instances=1, dropout_layer_indexes=[7, 16], num_cycles=10)
+    query_idx, query_instance, metric = learner.query(special_input_array, n_instances=1, dropout_layer_indexes=[7, 16], num_cycles=10)
   
     question = batch['metadata']['question']
     context = batch['metadata']['context']
