@@ -5,7 +5,7 @@ from torch import nn
 from skorch import NeuralNetClassifier
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
 
-from modAL.models import ActiveLearner
+from modAL.models import DeepActiveLearner, ActiveLearner
 from modAL.dropout import mc_dropout
 
 import numpy as np
@@ -79,11 +79,12 @@ y_pool = np.delete(y_train, initial_idx, axis=0)[:5000]
 
 
 # initialize ActiveLearner
-learner = ActiveLearner(
+learner = DeepActiveLearner(
     estimator=classifier, 
     query_strategy=mc_dropout,  
     X_training=X_initial, y_training=y_initial,
 )
+#learner.teach(X_initial, y_initial)
 
 print(learner.score(X_pool, y_pool)) # shows us how good the model works!
 
@@ -94,8 +95,7 @@ for idx in range(n_queries):
     query_idx, query_instance, metric = learner.query(X_pool, n_instances=100, num_cycles=5)
     # We have a problem at the moment: The learner does reinitialize our model... 
     learner.teach(
-        X=X_pool[query_idx], y=y_pool[query_idx], only_new=False,
-    )
+        X=X_pool[query_idx], y=y_pool[query_idx])
     # remove queried instance from pool
     X_pool = np.delete(X_pool, query_idx, axis=0)
     y_pool = np.delete(y_pool, query_idx, axis=0)

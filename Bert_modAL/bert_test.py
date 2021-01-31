@@ -16,7 +16,7 @@ sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../mod
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../Annotation_Interface'))
 
 from modAL.dropout import mc_dropout
-from modAL.models import ActiveLearner
+from modAL.models import DeepActiveLearner
 from transformers import BertModel
 
 from torch.utils.data import DataLoader
@@ -120,7 +120,7 @@ classifier = NeuralNetClassifier(BertQA,
 
 # initialize ActiveLearner
 
-learner = ActiveLearner(
+learner = DeepActiveLearner(
     estimator=classifier, 
     criterion=torch.nn.NLLLoss,
     accept_different_dim=True,
@@ -173,8 +173,8 @@ for batch in data_iter:
         i +=1 
 
 
-    learner.teach(X=special_input_array, y=labels, only_new=False,)
-    #print(learner.score(special_input_array, labels))
+    learner.teach(X=special_input_array, y=labels)
+    print(learner.score(special_input_array, labels))
  
     
     query_idx, query_instance, metric = learner.query(special_input_array, n_instances=1, dropout_layer_indexes=[7, 16], num_cycles=10)
