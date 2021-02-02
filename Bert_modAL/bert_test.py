@@ -173,7 +173,12 @@ for batch in data_iter:
         i +=1 
 
 
+    special_input_array = torch.from_numpy(special_input_array)
+    labels = torch.from_numpy(labels)
+
+
     learner.teach(X=special_input_array, y=labels)
+
     print(learner.score(special_input_array, labels))
  
     

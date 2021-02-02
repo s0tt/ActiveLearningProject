@@ -57,8 +57,8 @@ dataloader = DataLoader(mnist_data, shuffle=True, batch_size=60000)
 X, y = next(iter(dataloader))
 
 # pytorch array to numpy array: 
-X = torch.Tensor.cpu(X).detach().numpy()
-y = torch.Tensor.cpu(y).detach().numpy()
+#X = torch.Tensor.cpu(X).detach().numpy()
+#y = torch.Tensor.cpu(y).detach().numpy()
 
 # read training data
 X_train, X_test, y_train, y_test = X[:50000], X[50000:], y[:50000], y[50000:]
@@ -84,7 +84,7 @@ learner = DeepActiveLearner(
     query_strategy=mc_dropout,  
     X_training=X_initial, y_training=y_initial,
 )
-#learner.teach(X_initial, y_initial)
+learner.teach(X_initial, y_initial)
 
 print(learner.score(X_pool, y_pool)) # shows us how good the model works!
 
