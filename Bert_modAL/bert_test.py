@@ -15,7 +15,7 @@ from skorch import NeuralNet
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../Annotation_Interface'))
 
-from modAL.dropout import mc_dropout
+from modAL.dropout import mc_dropout_bald
 from modAL.models import DeepActiveLearner
 from transformers import BertModel
 
@@ -124,7 +124,7 @@ learner = DeepActiveLearner(
     estimator=classifier, 
     criterion=torch.nn.NLLLoss,
     accept_different_dim=True,
-    query_strategy=mc_dropout
+    query_strategy=mc_dropout_bald
 )
 
 bert_qa = BertQA()
