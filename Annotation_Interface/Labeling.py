@@ -1,5 +1,6 @@
 import requests
 import json
+import numpy as np
 
 
 class mydict(dict):
@@ -37,7 +38,7 @@ def extractData(dataDict):
     return results[0]
 
 
-def getLabelList(contextAll: list, questionsAll: list, metrics: list, queryIdx: list) -> list:
+def getLabelList(contextAll: list, questionsAll: list,  queryIdx: list, metrics: dict = None, metricNames:list = None) -> list:
     """
     Function to build the list for the LabelStudio API from the active learning framework output
     :params: 
@@ -45,12 +46,31 @@ def getLabelList(contextAll: list, questionsAll: list, metrics: list, queryIdx: 
         - questionsAll: list of all question data from all samples
         - metrics: list of the metrics for the n-queried samples
         - queryIdx: list of indices in regard to all data for the n-queried samples
+        - metricNames: list of metric name strings to show on dashboard
     :return: labelStructure: 2-dim list with rows as data for a sample containing question, context and metrics
              e.g. [['Context 2', 'Q 2', {'BALD': '5'}], ['Context 3', 'Q 3', {'BALD': '10'}]]
     """ 
     labelStructure = []
-    for i, queryIdx in enumerate(queryIdx):
-        labelStructure.append([contextAll[queryIdx], questionsAll[queryIdx], {"BALD": str(metrics[i])}])
+    metricDict = {}
+    useMetrics = True
+
+    #build dict for each sample with every metric available for each sample
+    if metrics is not None and metricNames is not None:
+        for idx_outer, idx_sample_list in enumerate(queryIdx):
+                for idx_inner, idx_sample in enumerate(idx_sample_list):
+                    if idx_sample in list(metricDict.keys()):
+                        metricDict[idx_sample][metricNames[idx_outer]] = metrics[idx_outer][idx_inner]
+                    else:
+                        metricDict[idx_sample] = {metricNames[idx_outer]:metrics[idx_outer][idx_inner]}
+        index_iteratable = list(metricDict.keys())
+
+    #if no metrics and metric names are passed assume normal labeling with data indices
+    else:
+        useMetrics = False
+        index_iteratable = queryIdx
+
+    for queryIdx in index_iteratable:
+        labelStructure.append([contextAll[queryIdx], questionsAll[queryIdx], metricDict[queryIdx] if useMetrics else {}])
     return labelStructure
 
 

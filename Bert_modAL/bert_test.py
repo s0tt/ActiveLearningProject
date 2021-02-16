@@ -15,7 +15,7 @@ from skorch import NeuralNet
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../Annotation_Interface'))
 
-from modAL.dropout import mc_dropout_bald
+from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st
 from modAL.models import DeepActiveLearner
 from transformers import BertModel
 
@@ -121,11 +121,18 @@ classifier = NeuralNetClassifier(BertQA,
 
 # initialize ActiveLearner
 
-learner = DeepActiveLearner(
+learnerBald = DeepActiveLearner(
     estimator=classifier, 
     criterion=torch.nn.NLLLoss,
     accept_different_dim=True,
     query_strategy=mc_dropout_bald
+)
+
+learnerMean = DeepActiveLearner(
+    estimator=classifier, 
+    criterion=torch.nn.NLLLoss,
+    accept_different_dim=True,
+    query_strategy=mc_dropout_mean_st
 )
 
 bert_qa = BertQA()
@@ -178,20 +185,23 @@ for batch in data_iter:
     labels = torch.from_numpy(labels)
 
 
-    learner.teach(X=special_input_array, y=labels)
+    learnerBald.teach(X=special_input_array, y=labels)
+    learnerMean.teach(X=special_input_array, y=labels)
 
-    print(learner.score(special_input_array, labels))
+    print("Bald Learner:", learnerBald.score(special_input_array, labels))
+    print("Mean Learner:", learnerMean.score(special_input_array, labels))
  
     
-    query_idx, query_instance, metric = learner.query(special_input_array, n_instances=5, dropout_layer_indexes=[7, 16], num_cycles=10)
-  
+    bald_idx, bald_instance, bald_metric = learnerBald.query(special_input_array, n_instances=5, dropout_layer_indexes=[7, 16], num_cycles=10)
+    mean_idx, mean_instance, mean_metric = learnerMean.query(special_input_array, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=2)
+
     question = batch['metadata']['question']
     context = batch['metadata']['context']
-    question_at_idx = question[query_idx[0]]
-    context_at_idx = context[query_idx[0]]
+    question_at_idx = question[bald_idx[0]]
+    context_at_idx = context[bald_idx[0]]
 
     print("Send instance to label-studio... ")
-    labelList = getLabelList(context, question, metric, query_idx)
+    labelList = getLabelList(context, question, [bald_idx, mean_idx], [bald_metric, mean_metric], ["bald", "mean stddev"])
     label_queryIdx = getLabelStudioLabel(labelList)
     
     #learner.teach(X=special_input_array[query_idx], y=labels[query_idx], only_new=False,)
