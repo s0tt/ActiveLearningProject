@@ -6,7 +6,7 @@ from skorch import NeuralNetClassifier
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
 
 from modAL.models import DeepActiveLearner, ActiveLearner
-from modAL.dropout import mc_dropout
+from modAL.dropout import mc_dropout_bald
 
 import numpy as np
 from torch.utils.data import DataLoader
@@ -80,7 +80,7 @@ y_pool = np.delete(y_train, initial_idx, axis=0)[:5000]
 # initialize ActiveLearner
 learner = DeepActiveLearner(
     estimator=classifier, 
-    query_strategy=mc_dropout,  
+    query_strategy=mc_dropout_bald,  
 )
 learner.teach(X_initial, y_initial) # not necessary anymore now
 
