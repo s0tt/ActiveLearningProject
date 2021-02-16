@@ -28,6 +28,7 @@ from transformers import AdamW, BertTokenizer, get_linear_schedule_with_warmup
 from get_data_from_Bert import get_dataloader
 
 from Labeling import label as getLabelStudioLabel
+from Labeling import getLabelList
 
 labels='single' # at the moment this is just set by hand ... 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -182,14 +183,16 @@ for batch in data_iter:
     print(learner.score(special_input_array, labels))
  
     
-    query_idx, query_instance, metric = learner.query(special_input_array, n_instances=1, dropout_layer_indexes=[7, 16], num_cycles=10)
+    query_idx, query_instance, metric = learner.query(special_input_array, n_instances=5, dropout_layer_indexes=[7, 16], num_cycles=10)
   
     question = batch['metadata']['question']
     context = batch['metadata']['context']
     question_at_idx = question[query_idx[0]]
     context_at_idx = context[query_idx[0]]
+
     print("Send instance to label-studio... ")
-    label_queryIdx = getLabelStudioLabel(question_at_idx, context_at_idx)
+    labelList = getLabelList(context, question, metric, query_idx)
+    label_queryIdx = getLabelStudioLabel(labelList)
     
     #learner.teach(X=special_input_array[query_idx], y=labels[query_idx], only_new=False,)
     print("Question: ", question_at_idx)
