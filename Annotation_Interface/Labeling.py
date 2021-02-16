@@ -36,6 +36,24 @@ def extractData(dataDict):
         results.append(resultDict)
     return results[0]
 
+
+def getLabelList(contextAll: list, questionsAll: list, metrics: list, queryIdx: list) -> list:
+    """
+    Function to build the list for the LabelStudio API from the active learning framework output
+    :params: 
+        - contextAll: list of all context data from all samples
+        - questionsAll: list of all question data from all samples
+        - metrics: list of the metrics for the n-queried samples
+        - queryIdx: list of indices in regard to all data for the n-queried samples
+    :return: labelStructure: 2-dim list with rows as data for a sample containing question, context and metrics
+             e.g. [['Context 2', 'Q 2', {'BALD': '5'}], ['Context 3', 'Q 3', {'BALD': '10'}]]
+    """ 
+    labelStructure = []
+    for i, queryIdx in enumerate(queryIdx):
+        labelStructure.append([contextAll[queryIdx], questionsAll[queryIdx], {"BALD": str(metrics[i])}])
+    return labelStructure
+
+
 def label(instances):
     """
     Method sends the question and the text for labeling to the annotation framework and returns a list dictionaries with the text and the char spans. If necessary, there is also a weighting.
