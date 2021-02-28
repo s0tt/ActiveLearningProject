@@ -74,8 +74,8 @@ class BertQA(torch.nn.Module):
         self.qa_outputs.apply(self.embedder._init_weights)
 
 
-    def forward(self, input): 
-        
+    def forward(self, inputs, segments, masks): 
+
         """
             I modified the input as well as the output of the forward function so that it can match with the input of my loss function and that it can accept the full batch
 
@@ -97,17 +97,12 @@ class BertQA(torch.nn.Module):
                 whereas the second sequence, corresponding to the “question”, has all its tokens represented by a 1.
         """
 
-        mask_tensor = input[:, 2]
-        segment_tensor = input[:, 1] 
-        token_ids = input[:, 0]  
-
         # input is batch x sequence
         # NOTE the order of the arguments changed from the pytorch pretrained bert package to the transformers package
-        embedding, _ = self.embedder(token_ids, token_type_ids=segment_tensor, attention_mask=mask_tensor)
+        embedding, _ = self.embedder(inputs, token_type_ids=segments, attention_mask=masks)
         # only use context tokens for span prediction
         logits = self.qa_outputs(embedding)
-        probabilities = self.soft_max(logits)
-        return probabilities
+        return logits
 
 
 # Wrap pytorch class --> to give it an scikit-learn interface! 
@@ -162,38 +157,21 @@ for batch in data_iter:
     labels = batch['label']
     segments = batch['segments']
     masks = batch['mask']
+    train_batch = {'inputs' : inputs, 'segments': segments, 'masks': masks}
+
+    learnerBald.teach(X=train_batch, y=labels)
+    learnerMean.teach(X=train_batch, y=labels)
+
+    print("Bald Learner:", learnerBald.score(train_batch, labels))
+    print("Mean Learner:", learnerMean.score(train_batch, labels))
+    
+
+    print("Bald learner predict proba:", learnerBald.predict_proba(train_batch))
+    print("Bald learner predict:", learnerBald.predict(train_batch))
 
     
-    inputs = torch.Tensor.cpu(inputs).detach().numpy()
-    labels = torch.Tensor.cpu(labels).detach().numpy()
-    segments = torch.Tensor.cpu(segments).detach().numpy()
-    masks = torch.Tensor.cpu(masks).detach().numpy()
-
-    special_input_array = np.array([])
-    
-    i = 0
-    for (input, label, segment, mask) in zip(inputs, labels, segments, masks):
-        if i == 0: 
-            special_input_array = np.array([[input, segment, mask]])
-        else: 
-            one_row = np.array([[input, segment, mask]])
-            special_input_array = np.append(special_input_array, one_row, axis=0)
-        i +=1 
-
-
-    special_input_array = torch.from_numpy(special_input_array)
-    labels = torch.from_numpy(labels)
-
-
-    learnerBald.teach(X=special_input_array, y=labels)
-    learnerMean.teach(X=special_input_array, y=labels)
-
-    print("Bald Learner:", learnerBald.score(special_input_array, labels))
-    print("Mean Learner:", learnerMean.score(special_input_array, labels))
- 
-    
-    bald_idx, bald_instance, bald_metric = learnerBald.query(special_input_array, n_instances=5, dropout_layer_indexes=[7, 16], num_cycles=10)
-    mean_idx, mean_instance, mean_metric = learnerMean.query(special_input_array, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=2)
+    bald_idx, bald_instance, bald_metric = learnerBald.query(train_batch, n_instances=5, dropout_layer_indexes=[7, 16], num_cycles=10)
+    mean_idx, mean_instance, mean_metric = learnerMean.query(train_batch, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=2)
 
     question = batch['metadata']['question']
     context = batch['metadata']['context']
@@ -204,7 +182,7 @@ for batch in data_iter:
     labelList = getLabelList(context, question, [bald_idx, mean_idx], [bald_metric, mean_metric], ["bald", "mean stddev"])
     label_queryIdx = getLabelStudioLabel(labelList)
     
-    #learner.teach(X=special_input_array[query_idx], y=labels[query_idx], only_new=False,)
+    #learner.teach(X=special_input_array[mean_idx], y=labels[query_idx], only_new=False,)
     print("Question: ", question_at_idx)
     print("Oracle provided label:", label_queryIdx)
 
