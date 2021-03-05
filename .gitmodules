@@ -1,6 +1,8 @@
 [submodule "modAL"]
 	path = modAL
 	url = https://github.com/s0tt/modAL.git
+	branch = master
 [submodule "label-studio"]
 	path = label-studio
 	url = https://github.com/s0tt/label-studio
+	branch = master
