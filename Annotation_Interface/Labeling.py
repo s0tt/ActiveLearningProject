@@ -43,12 +43,12 @@ def getLabelList(contextAll: list, questionsAll: list,  queryIdx: list, metrics:
     Function to build the list for the LabelStudio API from the active learning framework output
     :params: 
         - contextAll: list of all context data from all samples
-        - questionsAll: list of all question data from all samples
+        - questionsAll: list of all question data from all samples, use None if not needed TODO: make this optional
         - metrics: list of the metrics for the n-queried samples
         - queryIdx: list of indices in regard to all data for the n-queried samples
         - metricNames: list of metric name strings to show on dashboard
     :return: labelStructure: 2-dim list with rows as data for a sample containing question, context and metrics
-             e.g. [['Context 2', 'Q 2', {'BALD': '5'}], ['Context 3', 'Q 3', {'BALD': '10'}]]
+             e.g. [['Context 2', 'Q 2', {'BALD': '5', 'Max Mean': '0.2'}], ['Context 3', 'Q 3', {'BALD': '10'}]]
     """ 
     labelStructure = []
     metricDict = {}
@@ -70,7 +70,10 @@ def getLabelList(contextAll: list, questionsAll: list,  queryIdx: list, metrics:
         index_iteratable = queryIdx
 
     for queryIdx in index_iteratable:
-        labelStructure.append([contextAll[queryIdx], questionsAll[queryIdx], metricDict[queryIdx] if useMetrics else {}])
+        if questionsAll is not None:
+            labelStructure.append([contextAll[queryIdx], questionsAll[queryIdx], metricDict[queryIdx] if useMetrics else {}])
+        else:
+            labelStructure.append([contextAll[queryIdx], metricDict[queryIdx] if useMetrics else {}])
     return labelStructure
 
 
