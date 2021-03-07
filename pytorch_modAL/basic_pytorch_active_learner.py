@@ -6,7 +6,7 @@ from skorch import NeuralNetClassifier
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
 
 from modAL.models import DeepActiveLearner, ActiveLearner
-from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st
+from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st, mc_dropout_max_variationRatios, mc_dropout_max_entropy
 from modAL.uncertainty import margin_sampling
 
 import numpy as np

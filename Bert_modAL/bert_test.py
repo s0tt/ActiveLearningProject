@@ -15,7 +15,7 @@ from skorch import NeuralNet
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../Annotation_Interface'))
 
-from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st
+from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st, mc_dropout_max_variationRatios, mc_dropout_max_entropy
 from modAL.models import DeepActiveLearner
 from transformers import BertModel
 
