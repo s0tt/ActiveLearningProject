@@ -97,7 +97,7 @@ print("Score from sklearn: {}".format(learner.estimator.score(X_pool, y_pool)))
 
 # the active learning loop
 n_queries = 10
-n_poolSamples = 1000
+n_poolSamples = 250
 X_teach = X_initial
 y_teach = y_initial
 
@@ -124,8 +124,9 @@ for idx in range(n_queries):
 
     _,_, metric_dict = learner.query(data, n_instances=100, num_cycles=5)
 
-    labelStructure = getLabelList(contextAll=imgList, questionsAll= None, queryIdx=[query_idx, query_idx, query_idx], 
-                    metrics=[metric_dict["bald"], metric_dict["mean_st"], metric_dict["max_entropy"]], metricNames=["bald", "mean_st", "max_entropy"])
+    labelStructure = getLabelList(contextAll=imgList, questionsAll= None, queryIdx=[query_idx, query_idx, query_idx, query_idx], 
+                    metrics=[metric_dict["bald"], metric_dict["mean_st"], metric_dict["max_entropy"], metric_dict["max_var"]], 
+                    metricNames=["bald", "mean_st", "max_entropy", "max_var"])
 
     #inputList = ["C:/Bilder/test.jpg", "C:/Bilder/test2.jpg", "C:/Bilder/test3.jpg"]
     #image = [[inputList[0], {"metric_1":14, "metric_2":1.2}],[inputList[1],{"metric_1":23, "metric_2":2.3}],[inputList[2], {"metric_1":8, "metric_2":7}]]
@@ -138,11 +139,11 @@ for idx in range(n_queries):
     y_teach  = torch.cat((y_teach, y_pool[query_idx]))
 
     print("\nTeaching basic MNIST Model with new labeled data")
-    learner.teach(X_teach, y_teach)
+    learner.teach(X_teach, y_teach, warm_start=False)
 
     #remove queried instance from pool
     X_pool = np.delete(X_pool, query_idx, axis=0)
     y_pool = np.delete(y_pool, query_idx, axis=0)
     
-    print("Model score: {}".format(learner.score(X_test, y_test))) # give us the model performance 
+    print("Model score: {}".format(learner.estimator.score(X_test, y_test))) # give us the model performance 
     #print("Model prediction: {}".format(learner.predict_proba(X_test)))
