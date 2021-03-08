@@ -56,7 +56,23 @@ class LabelInstance:
         _thread.start_new_thread(serverStart, (project_name, self.port))
     except:
        print("Error: unable to start thread")
-    time.sleep(15)
+    time.sleep(10)
+    
+    # Set filters
+    headers = {
+        'Content-Type': 'application/json',
+    }
+    
+    data = []
+    data.append('{"id":1,"title":"New_Data","ordering":["tasks:id"],"type":"list","target":"tasks","filters":{"conjunction":"and","items":[{"filter":"filter:tasks:completed_at","operator":"empty","value":true,"type":"Datetime"},{"filter":"filter:tasks:data.new","operator":"equal","value":"True","type":"String"}]},"hiddenColumns":{"explore":["tasks:completions_results","tasks:predictions_score","tasks:predictions_results","tasks:data.new","tasks:total_predictions","tasks:cancelled_completions","tasks:total_completions"],"labeling":["tasks:data.text","tasks:data.new","tasks:total_completions","tasks:cancelled_completions","tasks:total_predictions","tasks:completions_results","tasks:predictions_score","tasks:predictions_results"]},"selectedItems":{"all":false,"included":[]},"columnsWidth":{},"columnsDisplayType":{},"gridWidth":4}')
+    data.append('{"id":2,"title":"Uncompleted","ordering":["tasks:id"],"type":"list","target":"tasks","filters":{"conjunction":"and","items":[{"filter":"filter:tasks:completed_at","operator":"empty","value":true,"type":"Datetime"}]},"hiddenColumns":{"explore":["tasks:completions_results","tasks:predictions_score","tasks:predictions_results","tasks:total_completions","tasks:cancelled_completions","tasks:total_predictions"],"labeling":["tasks:data.text","tasks:data.new","tasks:total_completions","tasks:cancelled_completions","tasks:total_predictions","tasks:completions_results","tasks:predictions_score","tasks:predictions_results"]},"selectedItems":{"all":false,"included":[]},"columnsWidth":{},"columnsDisplayType":{},"gridWidth":4}')
+    data.append('{"id":3,"title":"All","ordering":["tasks:id"],"type":"list","target":"tasks","filters":{"conjunction":"and","items":[]},"hiddenColumns":{"explore":["tasks:completions_results","tasks:predictions_score","tasks:predictions_results"],"labeling":["tasks:data.text","tasks:data.new","tasks:total_completions","tasks:cancelled_completions","tasks:total_predictions","tasks:completions_results","tasks:predictions_score","tasks:predictions_results"]},"selectedItems":{"all":false,"included":[]},"columnsWidth":{},"columnsDisplayType":{},"gridWidth":4}')
+    
+    for i in range(len(data)):   
+        response = requests.post('http://localhost:' + str(self.port) + '/api/project/tabs/'+str(i+1)+'?interaction=filter', headers=headers, data=data[i].encode('utf-8'))
+        if not response.ok:
+            print("Something went wrong")
+    time.sleep(2)
     
   def stopServer(self):
     """
