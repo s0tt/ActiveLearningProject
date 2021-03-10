@@ -52,7 +52,7 @@ torch_model = Torch_Model()
 
 layer_list = list(torch_model.modules())
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = "cpu" #"cuda" if torch.cuda.is_available() else "cpu"
 classifier = NeuralNetClassifier(Torch_Model,
                                  criterion=torch.nn.CrossEntropyLoss,
                                  optimizer=torch.optim.Adam,
@@ -100,6 +100,7 @@ metric_name = 'bald'
 learner.num_epochs = 10
 num_model_training = 5
 n_queries = 100
+forward_cycles_per_query = 50
 output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'accuracies_{}.txt'.format(metric_name))
 
 
@@ -124,7 +125,7 @@ for idx_model_training in range(num_model_training):
 
     for idx_query in range(n_queries):
         print('Query no. %d' % (idx_query + 1))
-        query_idx, query_instance, metric = learner.query(X_pool, n_instances=10, num_cycles=1)
+        query_idx, query_instance, metric = learner.query(X_pool, n_instances=10, num_cycles=forward_cycles_per_query)
         # Add queried instances
         X_teach  = torch.cat((X_teach, X_pool[query_idx]))
         y_teach  = torch.cat((y_teach, y_pool[query_idx]))
