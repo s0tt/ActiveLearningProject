@@ -14,10 +14,10 @@ from torch.utils.data import DataLoader
 from torchvision.transforms import ToTensor
 from torchvision.datasets import MNIST
 
-torch.cuda.manual_seed_all(2)
-torch.manual_seed(2)
-random.seed(2)
-np.random.seed(2)
+torch.cuda.manual_seed_all(1)
+torch.manual_seed(1)
+random.seed(1)
+np.random.seed(1)
 
 
 # build class for the skorch API
