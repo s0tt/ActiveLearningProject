@@ -51,7 +51,7 @@ torch_model = Torch_Model()
 
 layer_list = list(torch_model.modules())
 
-device = "cpu" #"cuda" if torch.cuda.is_available() else "cpu"
+device = "cuda" if torch.cuda.is_available() else "cpu"
 classifier = NeuralNetClassifier(Torch_Model,
                                  criterion=torch.nn.CrossEntropyLoss,
                                  optimizer=torch.optim.Adam,
