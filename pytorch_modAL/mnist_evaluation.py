@@ -2,9 +2,12 @@ import sys
 import os
 import torch
 import random
+import logging 
+
 from torch import nn
 from skorch import NeuralNetClassifier
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
+
 from modAL.models import DeepActiveLearner, ActiveLearner
 from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st, mc_dropout_max_variationRatios, mc_dropout_max_entropy
 from modAL.uncertainty import margin_sampling
@@ -13,6 +16,8 @@ import numpy as np
 from torch.utils.data import DataLoader
 from torchvision.transforms import ToTensor
 from torchvision.datasets import MNIST
+
+logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_mnist_evaluation.log')    , level=logging.INFO)
 
 torch.cuda.manual_seed_all(1)
 torch.manual_seed(1)
@@ -91,9 +96,9 @@ learner = DeepActiveLearner(
     query_strategy=mc_dropout_bald,  
 )
 
-print("Pool size x {}".format(X_pool.size()))
-print("Test size x {}".format(X_test.size()))
-print("Initial size x {}".format(X_initial.size()))
+logging.info("Pool size x {}".format(X_pool.size()))
+logging.info("Test size x {}".format(X_test.size()))
+logging.info("Initial size x {}".format(X_initial.size()))
 
 metric_name = 'bald'
 learner.num_epochs = 10
@@ -120,7 +125,7 @@ for idx_model_training in range(num_model_training):
 
     accuracy = learner.estimator.score(X_test, y_test)
     accuracies.append(accuracy)
-    print(accuracy)
+    logging.info("Metric name: {}, model training run: {}, initial accuracy: {}".format(metric_name, idx_model_training, accuracy))
 
     for idx_query in range(n_queries):
         print('Query no. %d' % (idx_query + 1))
@@ -137,10 +142,11 @@ for idx_model_training in range(num_model_training):
         # scoring part
         accuracy = learner.estimator.score(X_test, y_test)
         accuracies.append(accuracy) 
-        print("Accuracy: {}".format(accuracy))
+        logging.info("Metric name: {}, model training run: {}, query number: {}, accuracy: {}".format(metric_name, idx_model_training, idx_query, accuracy))
 
     model_training_accuracies.append(np.array(accuracies).T)
 
 
+logging.info("Result: {}".format(model_training_accuracies))
 np.savetxt(output_file, np.array(model_training_accuracies).T, delimiter=' ')
 
