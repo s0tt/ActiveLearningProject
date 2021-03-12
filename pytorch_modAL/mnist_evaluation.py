@@ -73,7 +73,7 @@ X_test, y_test = next(iter(dataloader))
 X_test = X_test.reshape(10000, 1, 28, 28)
 
 # assemble initial data
-n_initial = 500
+n_initial = 400
 initial_idx = np.random.choice(range(len(X_train)), size=n_initial, replace=False)
 X_initial = X_train[initial_idx]
 y_initial = y_train[initial_idx]
