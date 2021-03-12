@@ -4,7 +4,6 @@ import torch
 import random
 from torch import nn
 from skorch import NeuralNetClassifier
-print(os.getcwd())
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
 from modAL.models import DeepActiveLearner, ActiveLearner
 from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st, mc_dropout_max_variationRatios, mc_dropout_max_entropy
@@ -74,7 +73,7 @@ X_test, y_test = next(iter(dataloader))
 X_test = X_test.reshape(10000, 1, 28, 28)
 
 # assemble initial data
-n_initial = 1000
+n_initial = 500
 initial_idx = np.random.choice(range(len(X_train)), size=n_initial, replace=False)
 X_initial = X_train[initial_idx]
 y_initial = y_train[initial_idx]
