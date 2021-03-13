@@ -17,15 +17,14 @@ from torch.utils.data import DataLoader
 from torchvision.transforms import ToTensor
 from torchvision.datasets import MNIST
 
-logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_mnist_evaluation.log')    , level=logging.INFO)
+metric_name = sys.argv[1]
+
+logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_mnist_evaluation_{}.log'.format(metric_name))    , level=logging.INFO)
 
 torch.cuda.manual_seed_all(1)
 torch.manual_seed(1)
 random.seed(1)
 np.random.seed(1)
-
-metric_name = sys.argv[1]
-
 
 # build class for the skorch API
 class Torch_Model(nn.Module):
