@@ -24,6 +24,8 @@ torch.manual_seed(1)
 random.seed(1)
 np.random.seed(1)
 
+metric_name = sys.argv[1]
+
 
 # build class for the skorch API
 class Torch_Model(nn.Module):
@@ -90,17 +92,29 @@ X_pool = np.delete(X_train, initial_idx, axis=0)
 y_pool = np.delete(y_train, initial_idx, axis=0)
 
 
+if metric_name == 'bald': 
+    query_strategy = mc_dropout_bald
+elif metric_name == 'mean_std': 
+    query_strategy = mc_dropout_mean_st
+elif metric_name == 'max_variation': 
+    query_strategy = mc_dropout_max_variationRatios
+elif metric_name == 'mean_entropy': 
+    query_strategy = mc_dropout_max_entropy
+elif metric_name == 'random': 
+    query_strategy = mc_dropout_bald # just to pass something (will not be used)
+
+
+
 # initialize ActiveLearner
 learner = DeepActiveLearner(
     estimator=classifier, 
-    query_strategy=mc_dropout_bald,  
+    query_strategy=query_strategy,  
 )
 
 logging.info("Pool size x {}".format(X_pool.size()))
 logging.info("Test size x {}".format(X_test.size()))
 logging.info("Initial size x {}".format(X_initial.size()))
 
-metric_name = 'bald'
 learner.num_epochs = 10
 num_model_training = 5
 n_queries = 100
@@ -129,7 +143,12 @@ for idx_model_training in range(num_model_training):
 
     for idx_query in range(n_queries):
         print('Query no. %d' % (idx_query + 1))
-        query_idx, query_instance, metric = learner.query(X_pool, n_instances=10, num_cycles=forward_cycles_per_query)
+
+        if metric_name != 'random': 
+            query_idx, query_instance, metric = learner.query(X_pool, n_instances=10, num_cycles=forward_cycles_per_query)
+        else: 
+            query_idx = np.random.choice(range(len(X_pool)), size=10, replace=False)
+
         # Add queried instances
         X_teach  = torch.cat((X_teach, X_pool[query_idx]))
         y_teach  = torch.cat((y_teach, y_pool[query_idx]))
