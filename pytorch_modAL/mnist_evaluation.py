@@ -87,8 +87,8 @@ y_initial = y_train[initial_idx]
 
 # generate the pool
 # remove the initial data from the training dataset
-X_pool = np.delete(X_train, initial_idx, axis=0)
-y_pool = np.delete(y_train, initial_idx, axis=0)
+X_pool_initial = np.delete(X_train, initial_idx, axis=0)
+y_pool_initial = np.delete(y_train, initial_idx, axis=0)
 
 
 if metric_name == 'bald': 
@@ -110,19 +110,20 @@ learner = DeepActiveLearner(
     query_strategy=query_strategy,  
 )
 
-logging.info("Pool size x {}".format(X_pool.size()))
-logging.info("Test size x {}".format(X_test.size()))
+logging.info("Pool size x {}".format(X_pool_initial.size()))
+logging.info("Test size x {}".format(y_pool_initial.size()))
 logging.info("Initial size x {}".format(X_initial.size()))
 
 learner.num_epochs = 10
 num_model_training = 5
 n_queries = 100
+drawn_sampley_per_query = 10
 forward_cycles_per_query = 50
 output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'accuracies_{}.txt'.format(metric_name))
 
 
 model_training_accuracies = []
-x_axis = np.arange(1000, 2001, 10)
+x_axis = np.arange(n_initial, n_initial + n_queries*drawn_sampley_per_query + 1, drawn_sampley_per_query)
 model_training_accuracies.append(x_axis)
 
 
@@ -134,6 +135,8 @@ for idx_model_training in range(num_model_training):
     # the active learning loop
     X_teach = X_initial
     y_teach = y_initial
+    X_pool = X_pool_initial
+    y_pool = y_pool_initial
     accuracies = []
 
     accuracy = learner.estimator.score(X_test, y_test)
@@ -144,9 +147,9 @@ for idx_model_training in range(num_model_training):
         print('Query no. %d' % (idx_query + 1))
 
         if metric_name != 'random': 
-            query_idx, query_instance, metric = learner.query(X_pool, n_instances=10, num_cycles=forward_cycles_per_query)
+            query_idx, query_instance, metric = learner.query(X_pool, n_instances=drawn_sampley_per_query, num_cycles=forward_cycles_per_query)
         else: 
-            query_idx = np.random.choice(range(len(X_pool)), size=10, replace=False)
+            query_idx = np.random.choice(range(len(X_pool)), size=drawn_sampley_per_query, replace=False)
 
         # Add queried instances
         X_teach  = torch.cat((X_teach, X_pool[query_idx]))
