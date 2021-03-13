@@ -97,7 +97,7 @@ elif metric_name == 'mean_std':
     query_strategy = mc_dropout_mean_st
 elif metric_name == 'max_variation': 
     query_strategy = mc_dropout_max_variationRatios
-elif metric_name == 'mean_entropy': 
+elif metric_name == 'max_entropy': 
     query_strategy = mc_dropout_max_entropy
 elif metric_name == 'random': 
     query_strategy = mc_dropout_bald # just to pass something (will not be used)
