@@ -1,0 +1,578 @@
+INFO:root:Pool size x torch.Size([59750, 1, 28, 28])
+INFO:root:Test size x torch.Size([59750])
+INFO:root:Initial size x torch.Size([250, 1, 28, 28])
+INFO:root:Metric name: max_entropy, model training run: 0, initial accuracy: 0.7986
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 0, accuracy: 0.7884
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 1, accuracy: 0.7896
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 2, accuracy: 0.8387
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 3, accuracy: 0.8355
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 4, accuracy: 0.8407
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 5, accuracy: 0.8004
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 6, accuracy: 0.8174
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 7, accuracy: 0.8362
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 8, accuracy: 0.8333
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 9, accuracy: 0.855
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 10, accuracy: 0.8478
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 11, accuracy: 0.8372
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 12, accuracy: 0.8402
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 13, accuracy: 0.8528
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 14, accuracy: 0.8573
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 15, accuracy: 0.8638
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 16, accuracy: 0.8593
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 17, accuracy: 0.838
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 18, accuracy: 0.8701
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 19, accuracy: 0.8756
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 20, accuracy: 0.8751
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 21, accuracy: 0.8756
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 22, accuracy: 0.8802
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 23, accuracy: 0.8626
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 24, accuracy: 0.8802
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 25, accuracy: 0.8819
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 26, accuracy: 0.8412
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 27, accuracy: 0.8648
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 28, accuracy: 0.8768
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 29, accuracy: 0.8836
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 30, accuracy: 0.8975
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 31, accuracy: 0.9016
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 32, accuracy: 0.9034
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 33, accuracy: 0.8991
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 34, accuracy: 0.9013
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 35, accuracy: 0.8753
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 36, accuracy: 0.8962
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 37, accuracy: 0.8916
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 38, accuracy: 0.8879
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 39, accuracy: 0.8731
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 40, accuracy: 0.8862
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 41, accuracy: 0.9053
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 42, accuracy: 0.8788
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 43, accuracy: 0.8905
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 44, accuracy: 0.9023
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 45, accuracy: 0.9016
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 46, accuracy: 0.9181
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 47, accuracy: 0.898
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 48, accuracy: 0.8969
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 49, accuracy: 0.8952
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 50, accuracy: 0.9136
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 51, accuracy: 0.8977
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 52, accuracy: 0.904
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 53, accuracy: 0.9039
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 54, accuracy: 0.9129
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 55, accuracy: 0.9095
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 56, accuracy: 0.9031
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 57, accuracy: 0.9176
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 58, accuracy: 0.9241
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 59, accuracy: 0.9032
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 60, accuracy: 0.9366
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 61, accuracy: 0.9266
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 62, accuracy: 0.9212
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 63, accuracy: 0.9066
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 64, accuracy: 0.9143
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 65, accuracy: 0.9092
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 66, accuracy: 0.9084
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 67, accuracy: 0.9406
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 68, accuracy: 0.9238
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 69, accuracy: 0.9392
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 70, accuracy: 0.94
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 71, accuracy: 0.9386
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 72, accuracy: 0.9452
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 73, accuracy: 0.941
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 74, accuracy: 0.9436
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 75, accuracy: 0.9377
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 76, accuracy: 0.931
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 77, accuracy: 0.9365
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 78, accuracy: 0.9415
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 79, accuracy: 0.945
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 80, accuracy: 0.9419
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 81, accuracy: 0.9364
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 82, accuracy: 0.945
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 83, accuracy: 0.9443
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 84, accuracy: 0.9474
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 85, accuracy: 0.9546
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 86, accuracy: 0.942
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 87, accuracy: 0.9484
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 88, accuracy: 0.9546
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 89, accuracy: 0.9555
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 90, accuracy: 0.9373
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 91, accuracy: 0.9441
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 92, accuracy: 0.953
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 93, accuracy: 0.952
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 94, accuracy: 0.9358
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 95, accuracy: 0.9599
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 96, accuracy: 0.9457
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 97, accuracy: 0.9591
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 98, accuracy: 0.9496
+INFO:root:Metric name: max_entropy, model training run: 0, query number: 99, accuracy: 0.9491
+INFO:root:Metric name: max_entropy, model training run: 1, initial accuracy: 0.8092
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 0, accuracy: 0.7531
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 1, accuracy: 0.7907
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 2, accuracy: 0.8105
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 3, accuracy: 0.82
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 4, accuracy: 0.8348
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 5, accuracy: 0.83
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 6, accuracy: 0.8335
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 7, accuracy: 0.8218
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 8, accuracy: 0.8478
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 9, accuracy: 0.8448
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 10, accuracy: 0.8412
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 11, accuracy: 0.8509
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 12, accuracy: 0.8602
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 13, accuracy: 0.8298
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 14, accuracy: 0.8259
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 15, accuracy: 0.8428
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 16, accuracy: 0.8493
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 17, accuracy: 0.812
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 18, accuracy: 0.8547
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 19, accuracy: 0.8634
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 20, accuracy: 0.856
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 21, accuracy: 0.8647
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 22, accuracy: 0.8648
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 23, accuracy: 0.8709
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 24, accuracy: 0.863
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 25, accuracy: 0.8667
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 26, accuracy: 0.8614
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 27, accuracy: 0.8593
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 28, accuracy: 0.8451
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 29, accuracy: 0.8741
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 30, accuracy: 0.864
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 31, accuracy: 0.8801
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 32, accuracy: 0.888
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 33, accuracy: 0.8978
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 34, accuracy: 0.8817
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 35, accuracy: 0.8854
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 36, accuracy: 0.8983
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 37, accuracy: 0.9015
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 38, accuracy: 0.8901
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 39, accuracy: 0.9047
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 40, accuracy: 0.9012
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 41, accuracy: 0.8963
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 42, accuracy: 0.8769
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 43, accuracy: 0.8977
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 44, accuracy: 0.9017
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 45, accuracy: 0.9025
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 46, accuracy: 0.8977
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 47, accuracy: 0.9114
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 48, accuracy: 0.9018
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 49, accuracy: 0.9055
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 50, accuracy: 0.9223
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 51, accuracy: 0.9156
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 52, accuracy: 0.9045
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 53, accuracy: 0.92
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 54, accuracy: 0.9196
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 55, accuracy: 0.9303
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 56, accuracy: 0.9047
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 57, accuracy: 0.9304
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 58, accuracy: 0.9271
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 59, accuracy: 0.9335
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 60, accuracy: 0.9198
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 61, accuracy: 0.9009
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 62, accuracy: 0.9036
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 63, accuracy: 0.9274
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 64, accuracy: 0.9169
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 65, accuracy: 0.9038
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 66, accuracy: 0.8991
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 67, accuracy: 0.928
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 68, accuracy: 0.9393
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 69, accuracy: 0.9382
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 70, accuracy: 0.9346
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 71, accuracy: 0.9331
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 72, accuracy: 0.9372
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 73, accuracy: 0.9213
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 74, accuracy: 0.9415
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 75, accuracy: 0.9374
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 76, accuracy: 0.9395
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 77, accuracy: 0.9378
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 78, accuracy: 0.9369
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 79, accuracy: 0.9371
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 80, accuracy: 0.9243
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 81, accuracy: 0.9265
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 82, accuracy: 0.9385
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 83, accuracy: 0.9474
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 84, accuracy: 0.9381
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 85, accuracy: 0.9306
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 86, accuracy: 0.9442
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 87, accuracy: 0.9542
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 88, accuracy: 0.9518
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 89, accuracy: 0.9425
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 90, accuracy: 0.9405
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 91, accuracy: 0.9466
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 92, accuracy: 0.9592
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 93, accuracy: 0.9498
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 94, accuracy: 0.9551
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 95, accuracy: 0.9425
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 96, accuracy: 0.9601
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 97, accuracy: 0.952
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 98, accuracy: 0.9483
+INFO:root:Metric name: max_entropy, model training run: 1, query number: 99, accuracy: 0.95
+INFO:root:Metric name: max_entropy, model training run: 2, initial accuracy: 0.784
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 0, accuracy: 0.7815
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 1, accuracy: 0.8036
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 2, accuracy: 0.8241
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 3, accuracy: 0.8135
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 4, accuracy: 0.8369
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 5, accuracy: 0.829
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 6, accuracy: 0.856
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 7, accuracy: 0.8383
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 8, accuracy: 0.8449
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 9, accuracy: 0.8316
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 10, accuracy: 0.8503
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 11, accuracy: 0.8451
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 12, accuracy: 0.8507
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 13, accuracy: 0.8527
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 14, accuracy: 0.8345
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 15, accuracy: 0.851
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 16, accuracy: 0.8618
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 17, accuracy: 0.8564
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 18, accuracy: 0.8635
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 19, accuracy: 0.8841
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 20, accuracy: 0.8688
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 21, accuracy: 0.8661
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 22, accuracy: 0.878
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 23, accuracy: 0.8673
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 24, accuracy: 0.8728
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 25, accuracy: 0.8593
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 26, accuracy: 0.8776
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 27, accuracy: 0.8846
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 28, accuracy: 0.8901
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 29, accuracy: 0.8854
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 30, accuracy: 0.895
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 31, accuracy: 0.8905
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 32, accuracy: 0.8815
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 33, accuracy: 0.894
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 34, accuracy: 0.884
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 35, accuracy: 0.9028
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 36, accuracy: 0.9066
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 37, accuracy: 0.9053
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 38, accuracy: 0.8957
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 39, accuracy: 0.8965
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 40, accuracy: 0.8624
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 41, accuracy: 0.8858
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 42, accuracy: 0.9021
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 43, accuracy: 0.8812
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 44, accuracy: 0.8882
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 45, accuracy: 0.8979
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 46, accuracy: 0.9039
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 47, accuracy: 0.916
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 48, accuracy: 0.9143
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 49, accuracy: 0.9039
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 50, accuracy: 0.9005
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 51, accuracy: 0.9132
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 52, accuracy: 0.9091
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 53, accuracy: 0.9128
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 54, accuracy: 0.8871
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 55, accuracy: 0.8964
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 56, accuracy: 0.9202
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 57, accuracy: 0.9104
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 58, accuracy: 0.9197
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 59, accuracy: 0.924
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 60, accuracy: 0.9224
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 61, accuracy: 0.9269
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 62, accuracy: 0.9112
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 63, accuracy: 0.936
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 64, accuracy: 0.9031
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 65, accuracy: 0.928
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 66, accuracy: 0.9266
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 67, accuracy: 0.9368
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 68, accuracy: 0.9378
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 69, accuracy: 0.9296
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 70, accuracy: 0.9387
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 71, accuracy: 0.9338
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 72, accuracy: 0.9195
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 73, accuracy: 0.9418
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 74, accuracy: 0.9343
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 75, accuracy: 0.9288
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 76, accuracy: 0.9342
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 77, accuracy: 0.9384
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 78, accuracy: 0.9336
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 79, accuracy: 0.9454
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 80, accuracy: 0.9301
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 81, accuracy: 0.947
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 82, accuracy: 0.9385
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 83, accuracy: 0.9393
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 84, accuracy: 0.9452
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 85, accuracy: 0.9326
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 86, accuracy: 0.9536
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 87, accuracy: 0.945
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 88, accuracy: 0.9462
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 89, accuracy: 0.9425
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 90, accuracy: 0.9394
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 91, accuracy: 0.9428
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 92, accuracy: 0.9363
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 93, accuracy: 0.9337
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 94, accuracy: 0.9457
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 95, accuracy: 0.9539
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 96, accuracy: 0.9507
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 97, accuracy: 0.9515
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 98, accuracy: 0.9534
+INFO:root:Metric name: max_entropy, model training run: 2, query number: 99, accuracy: 0.9527
+INFO:root:Metric name: max_entropy, model training run: 3, initial accuracy: 0.8004
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 0, accuracy: 0.7431
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 1, accuracy: 0.7643
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 2, accuracy: 0.8129
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 3, accuracy: 0.8186
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 4, accuracy: 0.8355
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 5, accuracy: 0.823
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 6, accuracy: 0.8484
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 7, accuracy: 0.8441
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 8, accuracy: 0.8196
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 9, accuracy: 0.8455
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 10, accuracy: 0.8408
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 11, accuracy: 0.8486
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 12, accuracy: 0.8479
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 13, accuracy: 0.8326
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 14, accuracy: 0.8476
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 15, accuracy: 0.8515
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 16, accuracy: 0.8635
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 17, accuracy: 0.863
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 18, accuracy: 0.8659
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 19, accuracy: 0.8663
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 20, accuracy: 0.8718
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 21, accuracy: 0.8572
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 22, accuracy: 0.8672
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 23, accuracy: 0.8784
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 24, accuracy: 0.855
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 25, accuracy: 0.89
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 26, accuracy: 0.8718
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 27, accuracy: 0.8786
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 28, accuracy: 0.8821
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 29, accuracy: 0.8763
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 30, accuracy: 0.8796
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 31, accuracy: 0.8957
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 32, accuracy: 0.8717
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 33, accuracy: 0.8859
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 34, accuracy: 0.8734
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 35, accuracy: 0.8716
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 36, accuracy: 0.8831
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 37, accuracy: 0.8759
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 38, accuracy: 0.8913
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 39, accuracy: 0.8831
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 40, accuracy: 0.9024
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 41, accuracy: 0.8837
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 42, accuracy: 0.8913
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 43, accuracy: 0.9118
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 44, accuracy: 0.9021
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 45, accuracy: 0.9054
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 46, accuracy: 0.9221
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 47, accuracy: 0.8965
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 48, accuracy: 0.9153
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 49, accuracy: 0.9075
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 50, accuracy: 0.9138
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 51, accuracy: 0.8628
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 52, accuracy: 0.9021
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 53, accuracy: 0.9266
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 54, accuracy: 0.9044
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 55, accuracy: 0.9271
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 56, accuracy: 0.929
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 57, accuracy: 0.9174
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 58, accuracy: 0.9223
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 59, accuracy: 0.9194
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 60, accuracy: 0.9321
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 61, accuracy: 0.9082
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 62, accuracy: 0.9223
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 63, accuracy: 0.9302
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 64, accuracy: 0.9202
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 65, accuracy: 0.9315
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 66, accuracy: 0.9366
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 67, accuracy: 0.9221
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 68, accuracy: 0.9348
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 69, accuracy: 0.9341
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 70, accuracy: 0.9405
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 71, accuracy: 0.9318
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 72, accuracy: 0.9409
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 73, accuracy: 0.9383
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 74, accuracy: 0.9429
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 75, accuracy: 0.9402
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 76, accuracy: 0.9385
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 77, accuracy: 0.9254
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 78, accuracy: 0.9339
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 79, accuracy: 0.924
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 80, accuracy: 0.9334
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 81, accuracy: 0.9511
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 82, accuracy: 0.9513
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 83, accuracy: 0.9371
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 84, accuracy: 0.9398
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 85, accuracy: 0.9399
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 86, accuracy: 0.9502
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 87, accuracy: 0.9501
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 88, accuracy: 0.9457
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 89, accuracy: 0.946
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 90, accuracy: 0.9348
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 91, accuracy: 0.9439
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 92, accuracy: 0.9481
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 93, accuracy: 0.9365
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 94, accuracy: 0.9384
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 95, accuracy: 0.9543
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 96, accuracy: 0.9505
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 97, accuracy: 0.9519
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 98, accuracy: 0.9476
+INFO:root:Metric name: max_entropy, model training run: 3, query number: 99, accuracy: 0.9531
+INFO:root:Metric name: max_entropy, model training run: 4, initial accuracy: 0.7987
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 0, accuracy: 0.7566
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 1, accuracy: 0.8061
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 2, accuracy: 0.8071
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 3, accuracy: 0.8276
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 4, accuracy: 0.8302
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 5, accuracy: 0.8283
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 6, accuracy: 0.8174
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 7, accuracy: 0.8399
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 8, accuracy: 0.8358
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 9, accuracy: 0.848
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 10, accuracy: 0.8509
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 11, accuracy: 0.8492
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 12, accuracy: 0.8596
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 13, accuracy: 0.8669
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 14, accuracy: 0.8287
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 15, accuracy: 0.8584
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 16, accuracy: 0.8792
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 17, accuracy: 0.8567
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 18, accuracy: 0.8683
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 19, accuracy: 0.8803
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 20, accuracy: 0.8689
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 21, accuracy: 0.8622
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 22, accuracy: 0.8723
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 23, accuracy: 0.8808
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 24, accuracy: 0.8888
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 25, accuracy: 0.8888
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 26, accuracy: 0.8641
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 27, accuracy: 0.8844
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 28, accuracy: 0.8618
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 29, accuracy: 0.8825
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 30, accuracy: 0.9015
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 31, accuracy: 0.8842
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 32, accuracy: 0.8943
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 33, accuracy: 0.8921
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 34, accuracy: 0.8975
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 35, accuracy: 0.8983
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 36, accuracy: 0.8879
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 37, accuracy: 0.8955
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 38, accuracy: 0.886
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 39, accuracy: 0.8699
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 40, accuracy: 0.9016
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 41, accuracy: 0.9
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 42, accuracy: 0.9113
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 43, accuracy: 0.8864
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 44, accuracy: 0.911
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 45, accuracy: 0.9049
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 46, accuracy: 0.8956
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 47, accuracy: 0.9174
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 48, accuracy: 0.907
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 49, accuracy: 0.9135
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 50, accuracy: 0.9107
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 51, accuracy: 0.9079
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 52, accuracy: 0.9076
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 53, accuracy: 0.9075
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 54, accuracy: 0.8961
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 55, accuracy: 0.9184
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 56, accuracy: 0.924
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 57, accuracy: 0.9051
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 58, accuracy: 0.9097
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 59, accuracy: 0.9367
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 60, accuracy: 0.9237
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 61, accuracy: 0.9279
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 62, accuracy: 0.9341
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 63, accuracy: 0.9336
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 64, accuracy: 0.9104
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 65, accuracy: 0.9306
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 66, accuracy: 0.9185
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 67, accuracy: 0.9214
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 68, accuracy: 0.9354
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 69, accuracy: 0.9393
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 70, accuracy: 0.9364
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 71, accuracy: 0.9407
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 72, accuracy: 0.9325
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 73, accuracy: 0.935
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 74, accuracy: 0.9472
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 75, accuracy: 0.928
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 76, accuracy: 0.9371
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 77, accuracy: 0.9334
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 78, accuracy: 0.9478
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 79, accuracy: 0.9367
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 80, accuracy: 0.9431
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 81, accuracy: 0.9441
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 82, accuracy: 0.9393
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 83, accuracy: 0.9483
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 84, accuracy: 0.9425
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 85, accuracy: 0.9416
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 86, accuracy: 0.9508
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 87, accuracy: 0.9442
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 88, accuracy: 0.9494
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 89, accuracy: 0.9517
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 90, accuracy: 0.9262
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 91, accuracy: 0.9399
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 92, accuracy: 0.9375
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 93, accuracy: 0.9478
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 94, accuracy: 0.9506
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 95, accuracy: 0.941
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 96, accuracy: 0.9534
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 97, accuracy: 0.9556
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 98, accuracy: 0.9435
+INFO:root:Metric name: max_entropy, model training run: 4, query number: 99, accuracy: 0.9533
+INFO:root:Result: [array([ 250,  260,  270,  280,  290,  300,  310,  320,  330,  340,  350,
+        360,  370,  380,  390,  400,  410,  420,  430,  440,  450,  460,
+        470,  480,  490,  500,  510,  520,  530,  540,  550,  560,  570,
+        580,  590,  600,  610,  620,  630,  640,  650,  660,  670,  680,
+        690,  700,  710,  720,  730,  740,  750,  760,  770,  780,  790,
+        800,  810,  820,  830,  840,  850,  860,  870,  880,  890,  900,
+        910,  920,  930,  940,  950,  960,  970,  980,  990, 1000, 1010,
+       1020, 1030, 1040, 1050, 1060, 1070, 1080, 1090, 1100, 1110, 1120,
+       1130, 1140, 1150, 1160, 1170, 1180, 1190, 1200, 1210, 1220, 1230,
+       1240, 1250]), array([0.7986, 0.7884, 0.7896, 0.8387, 0.8355, 0.8407, 0.8004, 0.8174,
+       0.8362, 0.8333, 0.855 , 0.8478, 0.8372, 0.8402, 0.8528, 0.8573,
+       0.8638, 0.8593, 0.838 , 0.8701, 0.8756, 0.8751, 0.8756, 0.8802,
+       0.8626, 0.8802, 0.8819, 0.8412, 0.8648, 0.8768, 0.8836, 0.8975,
+       0.9016, 0.9034, 0.8991, 0.9013, 0.8753, 0.8962, 0.8916, 0.8879,
+       0.8731, 0.8862, 0.9053, 0.8788, 0.8905, 0.9023, 0.9016, 0.9181,
+       0.898 , 0.8969, 0.8952, 0.9136, 0.8977, 0.904 , 0.9039, 0.9129,
+       0.9095, 0.9031, 0.9176, 0.9241, 0.9032, 0.9366, 0.9266, 0.9212,
+       0.9066, 0.9143, 0.9092, 0.9084, 0.9406, 0.9238, 0.9392, 0.94  ,
+       0.9386, 0.9452, 0.941 , 0.9436, 0.9377, 0.931 , 0.9365, 0.9415,
+       0.945 , 0.9419, 0.9364, 0.945 , 0.9443, 0.9474, 0.9546, 0.942 ,
+       0.9484, 0.9546, 0.9555, 0.9373, 0.9441, 0.953 , 0.952 , 0.9358,
+       0.9599, 0.9457, 0.9591, 0.9496, 0.9491]), array([0.8092, 0.7531, 0.7907, 0.8105, 0.82  , 0.8348, 0.83  , 0.8335,
+       0.8218, 0.8478, 0.8448, 0.8412, 0.8509, 0.8602, 0.8298, 0.8259,
+       0.8428, 0.8493, 0.812 , 0.8547, 0.8634, 0.856 , 0.8647, 0.8648,
+       0.8709, 0.863 , 0.8667, 0.8614, 0.8593, 0.8451, 0.8741, 0.864 ,
+       0.8801, 0.888 , 0.8978, 0.8817, 0.8854, 0.8983, 0.9015, 0.8901,
+       0.9047, 0.9012, 0.8963, 0.8769, 0.8977, 0.9017, 0.9025, 0.8977,
+       0.9114, 0.9018, 0.9055, 0.9223, 0.9156, 0.9045, 0.92  , 0.9196,
+       0.9303, 0.9047, 0.9304, 0.9271, 0.9335, 0.9198, 0.9009, 0.9036,
+       0.9274, 0.9169, 0.9038, 0.8991, 0.928 , 0.9393, 0.9382, 0.9346,
+       0.9331, 0.9372, 0.9213, 0.9415, 0.9374, 0.9395, 0.9378, 0.9369,
+       0.9371, 0.9243, 0.9265, 0.9385, 0.9474, 0.9381, 0.9306, 0.9442,
+       0.9542, 0.9518, 0.9425, 0.9405, 0.9466, 0.9592, 0.9498, 0.9551,
+       0.9425, 0.9601, 0.952 , 0.9483, 0.95  ]), array([0.784 , 0.7815, 0.8036, 0.8241, 0.8135, 0.8369, 0.829 , 0.856 ,
+       0.8383, 0.8449, 0.8316, 0.8503, 0.8451, 0.8507, 0.8527, 0.8345,
+       0.851 , 0.8618, 0.8564, 0.8635, 0.8841, 0.8688, 0.8661, 0.878 ,
+       0.8673, 0.8728, 0.8593, 0.8776, 0.8846, 0.8901, 0.8854, 0.895 ,
+       0.8905, 0.8815, 0.894 , 0.884 , 0.9028, 0.9066, 0.9053, 0.8957,
+       0.8965, 0.8624, 0.8858, 0.9021, 0.8812, 0.8882, 0.8979, 0.9039,
+       0.916 , 0.9143, 0.9039, 0.9005, 0.9132, 0.9091, 0.9128, 0.8871,
+       0.8964, 0.9202, 0.9104, 0.9197, 0.924 , 0.9224, 0.9269, 0.9112,
+       0.936 , 0.9031, 0.928 , 0.9266, 0.9368, 0.9378, 0.9296, 0.9387,
+       0.9338, 0.9195, 0.9418, 0.9343, 0.9288, 0.9342, 0.9384, 0.9336,
+       0.9454, 0.9301, 0.947 , 0.9385, 0.9393, 0.9452, 0.9326, 0.9536,
+       0.945 , 0.9462, 0.9425, 0.9394, 0.9428, 0.9363, 0.9337, 0.9457,
+       0.9539, 0.9507, 0.9515, 0.9534, 0.9527]), array([0.8004, 0.7431, 0.7643, 0.8129, 0.8186, 0.8355, 0.823 , 0.8484,
+       0.8441, 0.8196, 0.8455, 0.8408, 0.8486, 0.8479, 0.8326, 0.8476,
+       0.8515, 0.8635, 0.863 , 0.8659, 0.8663, 0.8718, 0.8572, 0.8672,
+       0.8784, 0.855 , 0.89  , 0.8718, 0.8786, 0.8821, 0.8763, 0.8796,
+       0.8957, 0.8717, 0.8859, 0.8734, 0.8716, 0.8831, 0.8759, 0.8913,
+       0.8831, 0.9024, 0.8837, 0.8913, 0.9118, 0.9021, 0.9054, 0.9221,
+       0.8965, 0.9153, 0.9075, 0.9138, 0.8628, 0.9021, 0.9266, 0.9044,
+       0.9271, 0.929 , 0.9174, 0.9223, 0.9194, 0.9321, 0.9082, 0.9223,
+       0.9302, 0.9202, 0.9315, 0.9366, 0.9221, 0.9348, 0.9341, 0.9405,
+       0.9318, 0.9409, 0.9383, 0.9429, 0.9402, 0.9385, 0.9254, 0.9339,
+       0.924 , 0.9334, 0.9511, 0.9513, 0.9371, 0.9398, 0.9399, 0.9502,
+       0.9501, 0.9457, 0.946 , 0.9348, 0.9439, 0.9481, 0.9365, 0.9384,
+       0.9543, 0.9505, 0.9519, 0.9476, 0.9531]), array([0.7987, 0.7566, 0.8061, 0.8071, 0.8276, 0.8302, 0.8283, 0.8174,
+       0.8399, 0.8358, 0.848 , 0.8509, 0.8492, 0.8596, 0.8669, 0.8287,
+       0.8584, 0.8792, 0.8567, 0.8683, 0.8803, 0.8689, 0.8622, 0.8723,
+       0.8808, 0.8888, 0.8888, 0.8641, 0.8844, 0.8618, 0.8825, 0.9015,
+       0.8842, 0.8943, 0.8921, 0.8975, 0.8983, 0.8879, 0.8955, 0.886 ,
+       0.8699, 0.9016, 0.9   , 0.9113, 0.8864, 0.911 , 0.9049, 0.8956,
+       0.9174, 0.907 , 0.9135, 0.9107, 0.9079, 0.9076, 0.9075, 0.8961,
+       0.9184, 0.924 , 0.9051, 0.9097, 0.9367, 0.9237, 0.9279, 0.9341,
+       0.9336, 0.9104, 0.9306, 0.9185, 0.9214, 0.9354, 0.9393, 0.9364,
+       0.9407, 0.9325, 0.935 , 0.9472, 0.928 , 0.9371, 0.9334, 0.9478,
+       0.9367, 0.9431, 0.9441, 0.9393, 0.9483, 0.9425, 0.9416, 0.9508,
+       0.9442, 0.9494, 0.9517, 0.9262, 0.9399, 0.9375, 0.9478, 0.9506,
+       0.941 , 0.9534, 0.9556, 0.9435, 0.9533])]
