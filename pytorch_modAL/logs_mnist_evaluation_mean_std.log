@@ -1,0 +1,578 @@
+INFO:root:Pool size x torch.Size([59750, 1, 28, 28])
+INFO:root:Test size x torch.Size([59750])
+INFO:root:Initial size x torch.Size([250, 1, 28, 28])
+INFO:root:Metric name: mean_std, model training run: 0, initial accuracy: 0.7986
+INFO:root:Metric name: mean_std, model training run: 0, query number: 0, accuracy: 0.7502
+INFO:root:Metric name: mean_std, model training run: 0, query number: 1, accuracy: 0.7896
+INFO:root:Metric name: mean_std, model training run: 0, query number: 2, accuracy: 0.8074
+INFO:root:Metric name: mean_std, model training run: 0, query number: 3, accuracy: 0.8152
+INFO:root:Metric name: mean_std, model training run: 0, query number: 4, accuracy: 0.7986
+INFO:root:Metric name: mean_std, model training run: 0, query number: 5, accuracy: 0.8049
+INFO:root:Metric name: mean_std, model training run: 0, query number: 6, accuracy: 0.8192
+INFO:root:Metric name: mean_std, model training run: 0, query number: 7, accuracy: 0.8288
+INFO:root:Metric name: mean_std, model training run: 0, query number: 8, accuracy: 0.8318
+INFO:root:Metric name: mean_std, model training run: 0, query number: 9, accuracy: 0.8189
+INFO:root:Metric name: mean_std, model training run: 0, query number: 10, accuracy: 0.8367
+INFO:root:Metric name: mean_std, model training run: 0, query number: 11, accuracy: 0.8282
+INFO:root:Metric name: mean_std, model training run: 0, query number: 12, accuracy: 0.8264
+INFO:root:Metric name: mean_std, model training run: 0, query number: 13, accuracy: 0.82
+INFO:root:Metric name: mean_std, model training run: 0, query number: 14, accuracy: 0.8156
+INFO:root:Metric name: mean_std, model training run: 0, query number: 15, accuracy: 0.8493
+INFO:root:Metric name: mean_std, model training run: 0, query number: 16, accuracy: 0.8438
+INFO:root:Metric name: mean_std, model training run: 0, query number: 17, accuracy: 0.8399
+INFO:root:Metric name: mean_std, model training run: 0, query number: 18, accuracy: 0.8589
+INFO:root:Metric name: mean_std, model training run: 0, query number: 19, accuracy: 0.8626
+INFO:root:Metric name: mean_std, model training run: 0, query number: 20, accuracy: 0.8503
+INFO:root:Metric name: mean_std, model training run: 0, query number: 21, accuracy: 0.8494
+INFO:root:Metric name: mean_std, model training run: 0, query number: 22, accuracy: 0.8617
+INFO:root:Metric name: mean_std, model training run: 0, query number: 23, accuracy: 0.8559
+INFO:root:Metric name: mean_std, model training run: 0, query number: 24, accuracy: 0.8734
+INFO:root:Metric name: mean_std, model training run: 0, query number: 25, accuracy: 0.8659
+INFO:root:Metric name: mean_std, model training run: 0, query number: 26, accuracy: 0.8538
+INFO:root:Metric name: mean_std, model training run: 0, query number: 27, accuracy: 0.8767
+INFO:root:Metric name: mean_std, model training run: 0, query number: 28, accuracy: 0.8824
+INFO:root:Metric name: mean_std, model training run: 0, query number: 29, accuracy: 0.8953
+INFO:root:Metric name: mean_std, model training run: 0, query number: 30, accuracy: 0.8947
+INFO:root:Metric name: mean_std, model training run: 0, query number: 31, accuracy: 0.8931
+INFO:root:Metric name: mean_std, model training run: 0, query number: 32, accuracy: 0.9068
+INFO:root:Metric name: mean_std, model training run: 0, query number: 33, accuracy: 0.9009
+INFO:root:Metric name: mean_std, model training run: 0, query number: 34, accuracy: 0.9018
+INFO:root:Metric name: mean_std, model training run: 0, query number: 35, accuracy: 0.8788
+INFO:root:Metric name: mean_std, model training run: 0, query number: 36, accuracy: 0.8999
+INFO:root:Metric name: mean_std, model training run: 0, query number: 37, accuracy: 0.8827
+INFO:root:Metric name: mean_std, model training run: 0, query number: 38, accuracy: 0.8865
+INFO:root:Metric name: mean_std, model training run: 0, query number: 39, accuracy: 0.8468
+INFO:root:Metric name: mean_std, model training run: 0, query number: 40, accuracy: 0.8771
+INFO:root:Metric name: mean_std, model training run: 0, query number: 41, accuracy: 0.9201
+INFO:root:Metric name: mean_std, model training run: 0, query number: 42, accuracy: 0.8891
+INFO:root:Metric name: mean_std, model training run: 0, query number: 43, accuracy: 0.9018
+INFO:root:Metric name: mean_std, model training run: 0, query number: 44, accuracy: 0.9202
+INFO:root:Metric name: mean_std, model training run: 0, query number: 45, accuracy: 0.9189
+INFO:root:Metric name: mean_std, model training run: 0, query number: 46, accuracy: 0.9212
+INFO:root:Metric name: mean_std, model training run: 0, query number: 47, accuracy: 0.9155
+INFO:root:Metric name: mean_std, model training run: 0, query number: 48, accuracy: 0.9117
+INFO:root:Metric name: mean_std, model training run: 0, query number: 49, accuracy: 0.9154
+INFO:root:Metric name: mean_std, model training run: 0, query number: 50, accuracy: 0.9255
+INFO:root:Metric name: mean_std, model training run: 0, query number: 51, accuracy: 0.9105
+INFO:root:Metric name: mean_std, model training run: 0, query number: 52, accuracy: 0.9091
+INFO:root:Metric name: mean_std, model training run: 0, query number: 53, accuracy: 0.9095
+INFO:root:Metric name: mean_std, model training run: 0, query number: 54, accuracy: 0.9336
+INFO:root:Metric name: mean_std, model training run: 0, query number: 55, accuracy: 0.9316
+INFO:root:Metric name: mean_std, model training run: 0, query number: 56, accuracy: 0.9336
+INFO:root:Metric name: mean_std, model training run: 0, query number: 57, accuracy: 0.9431
+INFO:root:Metric name: mean_std, model training run: 0, query number: 58, accuracy: 0.9438
+INFO:root:Metric name: mean_std, model training run: 0, query number: 59, accuracy: 0.9199
+INFO:root:Metric name: mean_std, model training run: 0, query number: 60, accuracy: 0.9368
+INFO:root:Metric name: mean_std, model training run: 0, query number: 61, accuracy: 0.9342
+INFO:root:Metric name: mean_std, model training run: 0, query number: 62, accuracy: 0.9376
+INFO:root:Metric name: mean_std, model training run: 0, query number: 63, accuracy: 0.9215
+INFO:root:Metric name: mean_std, model training run: 0, query number: 64, accuracy: 0.9294
+INFO:root:Metric name: mean_std, model training run: 0, query number: 65, accuracy: 0.9246
+INFO:root:Metric name: mean_std, model training run: 0, query number: 66, accuracy: 0.9388
+INFO:root:Metric name: mean_std, model training run: 0, query number: 67, accuracy: 0.948
+INFO:root:Metric name: mean_std, model training run: 0, query number: 68, accuracy: 0.9406
+INFO:root:Metric name: mean_std, model training run: 0, query number: 69, accuracy: 0.9479
+INFO:root:Metric name: mean_std, model training run: 0, query number: 70, accuracy: 0.948
+INFO:root:Metric name: mean_std, model training run: 0, query number: 71, accuracy: 0.9515
+INFO:root:Metric name: mean_std, model training run: 0, query number: 72, accuracy: 0.9579
+INFO:root:Metric name: mean_std, model training run: 0, query number: 73, accuracy: 0.9563
+INFO:root:Metric name: mean_std, model training run: 0, query number: 74, accuracy: 0.9533
+INFO:root:Metric name: mean_std, model training run: 0, query number: 75, accuracy: 0.9535
+INFO:root:Metric name: mean_std, model training run: 0, query number: 76, accuracy: 0.9503
+INFO:root:Metric name: mean_std, model training run: 0, query number: 77, accuracy: 0.9522
+INFO:root:Metric name: mean_std, model training run: 0, query number: 78, accuracy: 0.9548
+INFO:root:Metric name: mean_std, model training run: 0, query number: 79, accuracy: 0.9505
+INFO:root:Metric name: mean_std, model training run: 0, query number: 80, accuracy: 0.9531
+INFO:root:Metric name: mean_std, model training run: 0, query number: 81, accuracy: 0.9474
+INFO:root:Metric name: mean_std, model training run: 0, query number: 82, accuracy: 0.9541
+INFO:root:Metric name: mean_std, model training run: 0, query number: 83, accuracy: 0.9526
+INFO:root:Metric name: mean_std, model training run: 0, query number: 84, accuracy: 0.9602
+INFO:root:Metric name: mean_std, model training run: 0, query number: 85, accuracy: 0.9594
+INFO:root:Metric name: mean_std, model training run: 0, query number: 86, accuracy: 0.9521
+INFO:root:Metric name: mean_std, model training run: 0, query number: 87, accuracy: 0.9581
+INFO:root:Metric name: mean_std, model training run: 0, query number: 88, accuracy: 0.9591
+INFO:root:Metric name: mean_std, model training run: 0, query number: 89, accuracy: 0.9613
+INFO:root:Metric name: mean_std, model training run: 0, query number: 90, accuracy: 0.9592
+INFO:root:Metric name: mean_std, model training run: 0, query number: 91, accuracy: 0.9522
+INFO:root:Metric name: mean_std, model training run: 0, query number: 92, accuracy: 0.9584
+INFO:root:Metric name: mean_std, model training run: 0, query number: 93, accuracy: 0.9614
+INFO:root:Metric name: mean_std, model training run: 0, query number: 94, accuracy: 0.9567
+INFO:root:Metric name: mean_std, model training run: 0, query number: 95, accuracy: 0.967
+INFO:root:Metric name: mean_std, model training run: 0, query number: 96, accuracy: 0.9651
+INFO:root:Metric name: mean_std, model training run: 0, query number: 97, accuracy: 0.9618
+INFO:root:Metric name: mean_std, model training run: 0, query number: 98, accuracy: 0.9594
+INFO:root:Metric name: mean_std, model training run: 0, query number: 99, accuracy: 0.9621
+INFO:root:Metric name: mean_std, model training run: 1, initial accuracy: 0.8092
+INFO:root:Metric name: mean_std, model training run: 1, query number: 0, accuracy: 0.7374
+INFO:root:Metric name: mean_std, model training run: 1, query number: 1, accuracy: 0.8055
+INFO:root:Metric name: mean_std, model training run: 1, query number: 2, accuracy: 0.8041
+INFO:root:Metric name: mean_std, model training run: 1, query number: 3, accuracy: 0.7939
+INFO:root:Metric name: mean_std, model training run: 1, query number: 4, accuracy: 0.7812
+INFO:root:Metric name: mean_std, model training run: 1, query number: 5, accuracy: 0.8055
+INFO:root:Metric name: mean_std, model training run: 1, query number: 6, accuracy: 0.8165
+INFO:root:Metric name: mean_std, model training run: 1, query number: 7, accuracy: 0.8299
+INFO:root:Metric name: mean_std, model training run: 1, query number: 8, accuracy: 0.8352
+INFO:root:Metric name: mean_std, model training run: 1, query number: 9, accuracy: 0.8323
+INFO:root:Metric name: mean_std, model training run: 1, query number: 10, accuracy: 0.8333
+INFO:root:Metric name: mean_std, model training run: 1, query number: 11, accuracy: 0.8374
+INFO:root:Metric name: mean_std, model training run: 1, query number: 12, accuracy: 0.8498
+INFO:root:Metric name: mean_std, model training run: 1, query number: 13, accuracy: 0.82
+INFO:root:Metric name: mean_std, model training run: 1, query number: 14, accuracy: 0.7846
+INFO:root:Metric name: mean_std, model training run: 1, query number: 15, accuracy: 0.8282
+INFO:root:Metric name: mean_std, model training run: 1, query number: 16, accuracy: 0.8483
+INFO:root:Metric name: mean_std, model training run: 1, query number: 17, accuracy: 0.8251
+INFO:root:Metric name: mean_std, model training run: 1, query number: 18, accuracy: 0.8751
+INFO:root:Metric name: mean_std, model training run: 1, query number: 19, accuracy: 0.8769
+INFO:root:Metric name: mean_std, model training run: 1, query number: 20, accuracy: 0.8667
+INFO:root:Metric name: mean_std, model training run: 1, query number: 21, accuracy: 0.8616
+INFO:root:Metric name: mean_std, model training run: 1, query number: 22, accuracy: 0.8688
+INFO:root:Metric name: mean_std, model training run: 1, query number: 23, accuracy: 0.8612
+INFO:root:Metric name: mean_std, model training run: 1, query number: 24, accuracy: 0.8644
+INFO:root:Metric name: mean_std, model training run: 1, query number: 25, accuracy: 0.8816
+INFO:root:Metric name: mean_std, model training run: 1, query number: 26, accuracy: 0.8724
+INFO:root:Metric name: mean_std, model training run: 1, query number: 27, accuracy: 0.8595
+INFO:root:Metric name: mean_std, model training run: 1, query number: 28, accuracy: 0.859
+INFO:root:Metric name: mean_std, model training run: 1, query number: 29, accuracy: 0.8927
+INFO:root:Metric name: mean_std, model training run: 1, query number: 30, accuracy: 0.8943
+INFO:root:Metric name: mean_std, model training run: 1, query number: 31, accuracy: 0.8957
+INFO:root:Metric name: mean_std, model training run: 1, query number: 32, accuracy: 0.8907
+INFO:root:Metric name: mean_std, model training run: 1, query number: 33, accuracy: 0.9083
+INFO:root:Metric name: mean_std, model training run: 1, query number: 34, accuracy: 0.8968
+INFO:root:Metric name: mean_std, model training run: 1, query number: 35, accuracy: 0.9112
+INFO:root:Metric name: mean_std, model training run: 1, query number: 36, accuracy: 0.9134
+INFO:root:Metric name: mean_std, model training run: 1, query number: 37, accuracy: 0.8957
+INFO:root:Metric name: mean_std, model training run: 1, query number: 38, accuracy: 0.8932
+INFO:root:Metric name: mean_std, model training run: 1, query number: 39, accuracy: 0.8944
+INFO:root:Metric name: mean_std, model training run: 1, query number: 40, accuracy: 0.8973
+INFO:root:Metric name: mean_std, model training run: 1, query number: 41, accuracy: 0.8927
+INFO:root:Metric name: mean_std, model training run: 1, query number: 42, accuracy: 0.8913
+INFO:root:Metric name: mean_std, model training run: 1, query number: 43, accuracy: 0.9164
+INFO:root:Metric name: mean_std, model training run: 1, query number: 44, accuracy: 0.9139
+INFO:root:Metric name: mean_std, model training run: 1, query number: 45, accuracy: 0.9083
+INFO:root:Metric name: mean_std, model training run: 1, query number: 46, accuracy: 0.9236
+INFO:root:Metric name: mean_std, model training run: 1, query number: 47, accuracy: 0.9264
+INFO:root:Metric name: mean_std, model training run: 1, query number: 48, accuracy: 0.9091
+INFO:root:Metric name: mean_std, model training run: 1, query number: 49, accuracy: 0.915
+INFO:root:Metric name: mean_std, model training run: 1, query number: 50, accuracy: 0.9385
+INFO:root:Metric name: mean_std, model training run: 1, query number: 51, accuracy: 0.9171
+INFO:root:Metric name: mean_std, model training run: 1, query number: 52, accuracy: 0.9199
+INFO:root:Metric name: mean_std, model training run: 1, query number: 53, accuracy: 0.9319
+INFO:root:Metric name: mean_std, model training run: 1, query number: 54, accuracy: 0.9286
+INFO:root:Metric name: mean_std, model training run: 1, query number: 55, accuracy: 0.9453
+INFO:root:Metric name: mean_std, model training run: 1, query number: 56, accuracy: 0.917
+INFO:root:Metric name: mean_std, model training run: 1, query number: 57, accuracy: 0.9434
+INFO:root:Metric name: mean_std, model training run: 1, query number: 58, accuracy: 0.9362
+INFO:root:Metric name: mean_std, model training run: 1, query number: 59, accuracy: 0.945
+INFO:root:Metric name: mean_std, model training run: 1, query number: 60, accuracy: 0.9227
+INFO:root:Metric name: mean_std, model training run: 1, query number: 61, accuracy: 0.9045
+INFO:root:Metric name: mean_std, model training run: 1, query number: 62, accuracy: 0.9312
+INFO:root:Metric name: mean_std, model training run: 1, query number: 63, accuracy: 0.9467
+INFO:root:Metric name: mean_std, model training run: 1, query number: 64, accuracy: 0.939
+INFO:root:Metric name: mean_std, model training run: 1, query number: 65, accuracy: 0.9068
+INFO:root:Metric name: mean_std, model training run: 1, query number: 66, accuracy: 0.9328
+INFO:root:Metric name: mean_std, model training run: 1, query number: 67, accuracy: 0.9425
+INFO:root:Metric name: mean_std, model training run: 1, query number: 68, accuracy: 0.9468
+INFO:root:Metric name: mean_std, model training run: 1, query number: 69, accuracy: 0.9497
+INFO:root:Metric name: mean_std, model training run: 1, query number: 70, accuracy: 0.9431
+INFO:root:Metric name: mean_std, model training run: 1, query number: 71, accuracy: 0.9356
+INFO:root:Metric name: mean_std, model training run: 1, query number: 72, accuracy: 0.9413
+INFO:root:Metric name: mean_std, model training run: 1, query number: 73, accuracy: 0.9423
+INFO:root:Metric name: mean_std, model training run: 1, query number: 74, accuracy: 0.9479
+INFO:root:Metric name: mean_std, model training run: 1, query number: 75, accuracy: 0.9414
+INFO:root:Metric name: mean_std, model training run: 1, query number: 76, accuracy: 0.9348
+INFO:root:Metric name: mean_std, model training run: 1, query number: 77, accuracy: 0.9447
+INFO:root:Metric name: mean_std, model training run: 1, query number: 78, accuracy: 0.9407
+INFO:root:Metric name: mean_std, model training run: 1, query number: 79, accuracy: 0.9505
+INFO:root:Metric name: mean_std, model training run: 1, query number: 80, accuracy: 0.9496
+INFO:root:Metric name: mean_std, model training run: 1, query number: 81, accuracy: 0.947
+INFO:root:Metric name: mean_std, model training run: 1, query number: 82, accuracy: 0.9522
+INFO:root:Metric name: mean_std, model training run: 1, query number: 83, accuracy: 0.9597
+INFO:root:Metric name: mean_std, model training run: 1, query number: 84, accuracy: 0.955
+INFO:root:Metric name: mean_std, model training run: 1, query number: 85, accuracy: 0.9597
+INFO:root:Metric name: mean_std, model training run: 1, query number: 86, accuracy: 0.9612
+INFO:root:Metric name: mean_std, model training run: 1, query number: 87, accuracy: 0.9614
+INFO:root:Metric name: mean_std, model training run: 1, query number: 88, accuracy: 0.965
+INFO:root:Metric name: mean_std, model training run: 1, query number: 89, accuracy: 0.9565
+INFO:root:Metric name: mean_std, model training run: 1, query number: 90, accuracy: 0.9551
+INFO:root:Metric name: mean_std, model training run: 1, query number: 91, accuracy: 0.9595
+INFO:root:Metric name: mean_std, model training run: 1, query number: 92, accuracy: 0.964
+INFO:root:Metric name: mean_std, model training run: 1, query number: 93, accuracy: 0.9607
+INFO:root:Metric name: mean_std, model training run: 1, query number: 94, accuracy: 0.9581
+INFO:root:Metric name: mean_std, model training run: 1, query number: 95, accuracy: 0.9566
+INFO:root:Metric name: mean_std, model training run: 1, query number: 96, accuracy: 0.9675
+INFO:root:Metric name: mean_std, model training run: 1, query number: 97, accuracy: 0.9646
+INFO:root:Metric name: mean_std, model training run: 1, query number: 98, accuracy: 0.9604
+INFO:root:Metric name: mean_std, model training run: 1, query number: 99, accuracy: 0.9668
+INFO:root:Metric name: mean_std, model training run: 2, initial accuracy: 0.784
+INFO:root:Metric name: mean_std, model training run: 2, query number: 0, accuracy: 0.7834
+INFO:root:Metric name: mean_std, model training run: 2, query number: 1, accuracy: 0.7812
+INFO:root:Metric name: mean_std, model training run: 2, query number: 2, accuracy: 0.7954
+INFO:root:Metric name: mean_std, model training run: 2, query number: 3, accuracy: 0.8102
+INFO:root:Metric name: mean_std, model training run: 2, query number: 4, accuracy: 0.8302
+INFO:root:Metric name: mean_std, model training run: 2, query number: 5, accuracy: 0.8157
+INFO:root:Metric name: mean_std, model training run: 2, query number: 6, accuracy: 0.8296
+INFO:root:Metric name: mean_std, model training run: 2, query number: 7, accuracy: 0.8184
+INFO:root:Metric name: mean_std, model training run: 2, query number: 8, accuracy: 0.8193
+INFO:root:Metric name: mean_std, model training run: 2, query number: 9, accuracy: 0.812
+INFO:root:Metric name: mean_std, model training run: 2, query number: 10, accuracy: 0.8319
+INFO:root:Metric name: mean_std, model training run: 2, query number: 11, accuracy: 0.8197
+INFO:root:Metric name: mean_std, model training run: 2, query number: 12, accuracy: 0.8431
+INFO:root:Metric name: mean_std, model training run: 2, query number: 13, accuracy: 0.8358
+INFO:root:Metric name: mean_std, model training run: 2, query number: 14, accuracy: 0.8358
+INFO:root:Metric name: mean_std, model training run: 2, query number: 15, accuracy: 0.8515
+INFO:root:Metric name: mean_std, model training run: 2, query number: 16, accuracy: 0.8435
+INFO:root:Metric name: mean_std, model training run: 2, query number: 17, accuracy: 0.8569
+INFO:root:Metric name: mean_std, model training run: 2, query number: 18, accuracy: 0.8633
+INFO:root:Metric name: mean_std, model training run: 2, query number: 19, accuracy: 0.8722
+INFO:root:Metric name: mean_std, model training run: 2, query number: 20, accuracy: 0.8651
+INFO:root:Metric name: mean_std, model training run: 2, query number: 21, accuracy: 0.8533
+INFO:root:Metric name: mean_std, model training run: 2, query number: 22, accuracy: 0.8672
+INFO:root:Metric name: mean_std, model training run: 2, query number: 23, accuracy: 0.8683
+INFO:root:Metric name: mean_std, model training run: 2, query number: 24, accuracy: 0.8719
+INFO:root:Metric name: mean_std, model training run: 2, query number: 25, accuracy: 0.8334
+INFO:root:Metric name: mean_std, model training run: 2, query number: 26, accuracy: 0.8492
+INFO:root:Metric name: mean_std, model training run: 2, query number: 27, accuracy: 0.8568
+INFO:root:Metric name: mean_std, model training run: 2, query number: 28, accuracy: 0.8792
+INFO:root:Metric name: mean_std, model training run: 2, query number: 29, accuracy: 0.8898
+INFO:root:Metric name: mean_std, model training run: 2, query number: 30, accuracy: 0.8931
+INFO:root:Metric name: mean_std, model training run: 2, query number: 31, accuracy: 0.8865
+INFO:root:Metric name: mean_std, model training run: 2, query number: 32, accuracy: 0.8644
+INFO:root:Metric name: mean_std, model training run: 2, query number: 33, accuracy: 0.8806
+INFO:root:Metric name: mean_std, model training run: 2, query number: 34, accuracy: 0.8875
+INFO:root:Metric name: mean_std, model training run: 2, query number: 35, accuracy: 0.8842
+INFO:root:Metric name: mean_std, model training run: 2, query number: 36, accuracy: 0.8967
+INFO:root:Metric name: mean_std, model training run: 2, query number: 37, accuracy: 0.8916
+INFO:root:Metric name: mean_std, model training run: 2, query number: 38, accuracy: 0.8976
+INFO:root:Metric name: mean_std, model training run: 2, query number: 39, accuracy: 0.8939
+INFO:root:Metric name: mean_std, model training run: 2, query number: 40, accuracy: 0.8718
+INFO:root:Metric name: mean_std, model training run: 2, query number: 41, accuracy: 0.8786
+INFO:root:Metric name: mean_std, model training run: 2, query number: 42, accuracy: 0.9097
+INFO:root:Metric name: mean_std, model training run: 2, query number: 43, accuracy: 0.8902
+INFO:root:Metric name: mean_std, model training run: 2, query number: 44, accuracy: 0.8982
+INFO:root:Metric name: mean_std, model training run: 2, query number: 45, accuracy: 0.914
+INFO:root:Metric name: mean_std, model training run: 2, query number: 46, accuracy: 0.8965
+INFO:root:Metric name: mean_std, model training run: 2, query number: 47, accuracy: 0.9232
+INFO:root:Metric name: mean_std, model training run: 2, query number: 48, accuracy: 0.9291
+INFO:root:Metric name: mean_std, model training run: 2, query number: 49, accuracy: 0.9288
+INFO:root:Metric name: mean_std, model training run: 2, query number: 50, accuracy: 0.9313
+INFO:root:Metric name: mean_std, model training run: 2, query number: 51, accuracy: 0.91
+INFO:root:Metric name: mean_std, model training run: 2, query number: 52, accuracy: 0.91
+INFO:root:Metric name: mean_std, model training run: 2, query number: 53, accuracy: 0.9142
+INFO:root:Metric name: mean_std, model training run: 2, query number: 54, accuracy: 0.9131
+INFO:root:Metric name: mean_std, model training run: 2, query number: 55, accuracy: 0.9069
+INFO:root:Metric name: mean_std, model training run: 2, query number: 56, accuracy: 0.9099
+INFO:root:Metric name: mean_std, model training run: 2, query number: 57, accuracy: 0.9177
+INFO:root:Metric name: mean_std, model training run: 2, query number: 58, accuracy: 0.9239
+INFO:root:Metric name: mean_std, model training run: 2, query number: 59, accuracy: 0.921
+INFO:root:Metric name: mean_std, model training run: 2, query number: 60, accuracy: 0.9371
+INFO:root:Metric name: mean_std, model training run: 2, query number: 61, accuracy: 0.9312
+INFO:root:Metric name: mean_std, model training run: 2, query number: 62, accuracy: 0.9366
+INFO:root:Metric name: mean_std, model training run: 2, query number: 63, accuracy: 0.9437
+INFO:root:Metric name: mean_std, model training run: 2, query number: 64, accuracy: 0.9293
+INFO:root:Metric name: mean_std, model training run: 2, query number: 65, accuracy: 0.9368
+INFO:root:Metric name: mean_std, model training run: 2, query number: 66, accuracy: 0.9413
+INFO:root:Metric name: mean_std, model training run: 2, query number: 67, accuracy: 0.9432
+INFO:root:Metric name: mean_std, model training run: 2, query number: 68, accuracy: 0.9439
+INFO:root:Metric name: mean_std, model training run: 2, query number: 69, accuracy: 0.9286
+INFO:root:Metric name: mean_std, model training run: 2, query number: 70, accuracy: 0.9538
+INFO:root:Metric name: mean_std, model training run: 2, query number: 71, accuracy: 0.9492
+INFO:root:Metric name: mean_std, model training run: 2, query number: 72, accuracy: 0.9429
+INFO:root:Metric name: mean_std, model training run: 2, query number: 73, accuracy: 0.9517
+INFO:root:Metric name: mean_std, model training run: 2, query number: 74, accuracy: 0.9437
+INFO:root:Metric name: mean_std, model training run: 2, query number: 75, accuracy: 0.938
+INFO:root:Metric name: mean_std, model training run: 2, query number: 76, accuracy: 0.9522
+INFO:root:Metric name: mean_std, model training run: 2, query number: 77, accuracy: 0.9503
+INFO:root:Metric name: mean_std, model training run: 2, query number: 78, accuracy: 0.949
+INFO:root:Metric name: mean_std, model training run: 2, query number: 79, accuracy: 0.9558
+INFO:root:Metric name: mean_std, model training run: 2, query number: 80, accuracy: 0.9513
+INFO:root:Metric name: mean_std, model training run: 2, query number: 81, accuracy: 0.9614
+INFO:root:Metric name: mean_std, model training run: 2, query number: 82, accuracy: 0.9573
+INFO:root:Metric name: mean_std, model training run: 2, query number: 83, accuracy: 0.953
+INFO:root:Metric name: mean_std, model training run: 2, query number: 84, accuracy: 0.9588
+INFO:root:Metric name: mean_std, model training run: 2, query number: 85, accuracy: 0.9555
+INFO:root:Metric name: mean_std, model training run: 2, query number: 86, accuracy: 0.9627
+INFO:root:Metric name: mean_std, model training run: 2, query number: 87, accuracy: 0.947
+INFO:root:Metric name: mean_std, model training run: 2, query number: 88, accuracy: 0.9629
+INFO:root:Metric name: mean_std, model training run: 2, query number: 89, accuracy: 0.9569
+INFO:root:Metric name: mean_std, model training run: 2, query number: 90, accuracy: 0.9572
+INFO:root:Metric name: mean_std, model training run: 2, query number: 91, accuracy: 0.9587
+INFO:root:Metric name: mean_std, model training run: 2, query number: 92, accuracy: 0.9588
+INFO:root:Metric name: mean_std, model training run: 2, query number: 93, accuracy: 0.9482
+INFO:root:Metric name: mean_std, model training run: 2, query number: 94, accuracy: 0.9599
+INFO:root:Metric name: mean_std, model training run: 2, query number: 95, accuracy: 0.968
+INFO:root:Metric name: mean_std, model training run: 2, query number: 96, accuracy: 0.9636
+INFO:root:Metric name: mean_std, model training run: 2, query number: 97, accuracy: 0.9651
+INFO:root:Metric name: mean_std, model training run: 2, query number: 98, accuracy: 0.9658
+INFO:root:Metric name: mean_std, model training run: 2, query number: 99, accuracy: 0.9664
+INFO:root:Metric name: mean_std, model training run: 3, initial accuracy: 0.8004
+INFO:root:Metric name: mean_std, model training run: 3, query number: 0, accuracy: 0.7376
+INFO:root:Metric name: mean_std, model training run: 3, query number: 1, accuracy: 0.8013
+INFO:root:Metric name: mean_std, model training run: 3, query number: 2, accuracy: 0.7916
+INFO:root:Metric name: mean_std, model training run: 3, query number: 3, accuracy: 0.8229
+INFO:root:Metric name: mean_std, model training run: 3, query number: 4, accuracy: 0.8173
+INFO:root:Metric name: mean_std, model training run: 3, query number: 5, accuracy: 0.8139
+INFO:root:Metric name: mean_std, model training run: 3, query number: 6, accuracy: 0.8313
+INFO:root:Metric name: mean_std, model training run: 3, query number: 7, accuracy: 0.825
+INFO:root:Metric name: mean_std, model training run: 3, query number: 8, accuracy: 0.8266
+INFO:root:Metric name: mean_std, model training run: 3, query number: 9, accuracy: 0.8353
+INFO:root:Metric name: mean_std, model training run: 3, query number: 10, accuracy: 0.835
+INFO:root:Metric name: mean_std, model training run: 3, query number: 11, accuracy: 0.8451
+INFO:root:Metric name: mean_std, model training run: 3, query number: 12, accuracy: 0.8371
+INFO:root:Metric name: mean_std, model training run: 3, query number: 13, accuracy: 0.8461
+INFO:root:Metric name: mean_std, model training run: 3, query number: 14, accuracy: 0.849
+INFO:root:Metric name: mean_std, model training run: 3, query number: 15, accuracy: 0.8461
+INFO:root:Metric name: mean_std, model training run: 3, query number: 16, accuracy: 0.8665
+INFO:root:Metric name: mean_std, model training run: 3, query number: 17, accuracy: 0.8637
+INFO:root:Metric name: mean_std, model training run: 3, query number: 18, accuracy: 0.8598
+INFO:root:Metric name: mean_std, model training run: 3, query number: 19, accuracy: 0.8768
+INFO:root:Metric name: mean_std, model training run: 3, query number: 20, accuracy: 0.8922
+INFO:root:Metric name: mean_std, model training run: 3, query number: 21, accuracy: 0.8776
+INFO:root:Metric name: mean_std, model training run: 3, query number: 22, accuracy: 0.8799
+INFO:root:Metric name: mean_std, model training run: 3, query number: 23, accuracy: 0.8853
+INFO:root:Metric name: mean_std, model training run: 3, query number: 24, accuracy: 0.8837
+INFO:root:Metric name: mean_std, model training run: 3, query number: 25, accuracy: 0.8947
+INFO:root:Metric name: mean_std, model training run: 3, query number: 26, accuracy: 0.8655
+INFO:root:Metric name: mean_std, model training run: 3, query number: 27, accuracy: 0.8813
+INFO:root:Metric name: mean_std, model training run: 3, query number: 28, accuracy: 0.8863
+INFO:root:Metric name: mean_std, model training run: 3, query number: 29, accuracy: 0.8929
+INFO:root:Metric name: mean_std, model training run: 3, query number: 30, accuracy: 0.8831
+INFO:root:Metric name: mean_std, model training run: 3, query number: 31, accuracy: 0.909
+INFO:root:Metric name: mean_std, model training run: 3, query number: 32, accuracy: 0.8865
+INFO:root:Metric name: mean_std, model training run: 3, query number: 33, accuracy: 0.8886
+INFO:root:Metric name: mean_std, model training run: 3, query number: 34, accuracy: 0.9003
+INFO:root:Metric name: mean_std, model training run: 3, query number: 35, accuracy: 0.8905
+INFO:root:Metric name: mean_std, model training run: 3, query number: 36, accuracy: 0.9032
+INFO:root:Metric name: mean_std, model training run: 3, query number: 37, accuracy: 0.9124
+INFO:root:Metric name: mean_std, model training run: 3, query number: 38, accuracy: 0.9106
+INFO:root:Metric name: mean_std, model training run: 3, query number: 39, accuracy: 0.9068
+INFO:root:Metric name: mean_std, model training run: 3, query number: 40, accuracy: 0.9107
+INFO:root:Metric name: mean_std, model training run: 3, query number: 41, accuracy: 0.8997
+INFO:root:Metric name: mean_std, model training run: 3, query number: 42, accuracy: 0.9016
+INFO:root:Metric name: mean_std, model training run: 3, query number: 43, accuracy: 0.9313
+INFO:root:Metric name: mean_std, model training run: 3, query number: 44, accuracy: 0.9108
+INFO:root:Metric name: mean_std, model training run: 3, query number: 45, accuracy: 0.9199
+INFO:root:Metric name: mean_std, model training run: 3, query number: 46, accuracy: 0.9306
+INFO:root:Metric name: mean_std, model training run: 3, query number: 47, accuracy: 0.925
+INFO:root:Metric name: mean_std, model training run: 3, query number: 48, accuracy: 0.9344
+INFO:root:Metric name: mean_std, model training run: 3, query number: 49, accuracy: 0.9237
+INFO:root:Metric name: mean_std, model training run: 3, query number: 50, accuracy: 0.9221
+INFO:root:Metric name: mean_std, model training run: 3, query number: 51, accuracy: 0.91
+INFO:root:Metric name: mean_std, model training run: 3, query number: 52, accuracy: 0.9262
+INFO:root:Metric name: mean_std, model training run: 3, query number: 53, accuracy: 0.9344
+INFO:root:Metric name: mean_std, model training run: 3, query number: 54, accuracy: 0.9182
+INFO:root:Metric name: mean_std, model training run: 3, query number: 55, accuracy: 0.9346
+INFO:root:Metric name: mean_std, model training run: 3, query number: 56, accuracy: 0.9459
+INFO:root:Metric name: mean_std, model training run: 3, query number: 57, accuracy: 0.9379
+INFO:root:Metric name: mean_std, model training run: 3, query number: 58, accuracy: 0.932
+INFO:root:Metric name: mean_std, model training run: 3, query number: 59, accuracy: 0.9352
+INFO:root:Metric name: mean_std, model training run: 3, query number: 60, accuracy: 0.9445
+INFO:root:Metric name: mean_std, model training run: 3, query number: 61, accuracy: 0.9296
+INFO:root:Metric name: mean_std, model training run: 3, query number: 62, accuracy: 0.9383
+INFO:root:Metric name: mean_std, model training run: 3, query number: 63, accuracy: 0.9363
+INFO:root:Metric name: mean_std, model training run: 3, query number: 64, accuracy: 0.9321
+INFO:root:Metric name: mean_std, model training run: 3, query number: 65, accuracy: 0.9494
+INFO:root:Metric name: mean_std, model training run: 3, query number: 66, accuracy: 0.9465
+INFO:root:Metric name: mean_std, model training run: 3, query number: 67, accuracy: 0.9418
+INFO:root:Metric name: mean_std, model training run: 3, query number: 68, accuracy: 0.9477
+INFO:root:Metric name: mean_std, model training run: 3, query number: 69, accuracy: 0.9406
+INFO:root:Metric name: mean_std, model training run: 3, query number: 70, accuracy: 0.9477
+INFO:root:Metric name: mean_std, model training run: 3, query number: 71, accuracy: 0.9439
+INFO:root:Metric name: mean_std, model training run: 3, query number: 72, accuracy: 0.9571
+INFO:root:Metric name: mean_std, model training run: 3, query number: 73, accuracy: 0.9575
+INFO:root:Metric name: mean_std, model training run: 3, query number: 74, accuracy: 0.9564
+INFO:root:Metric name: mean_std, model training run: 3, query number: 75, accuracy: 0.9551
+INFO:root:Metric name: mean_std, model training run: 3, query number: 76, accuracy: 0.9543
+INFO:root:Metric name: mean_std, model training run: 3, query number: 77, accuracy: 0.926
+INFO:root:Metric name: mean_std, model training run: 3, query number: 78, accuracy: 0.9567
+INFO:root:Metric name: mean_std, model training run: 3, query number: 79, accuracy: 0.9538
+INFO:root:Metric name: mean_std, model training run: 3, query number: 80, accuracy: 0.9498
+INFO:root:Metric name: mean_std, model training run: 3, query number: 81, accuracy: 0.9553
+INFO:root:Metric name: mean_std, model training run: 3, query number: 82, accuracy: 0.96
+INFO:root:Metric name: mean_std, model training run: 3, query number: 83, accuracy: 0.9581
+INFO:root:Metric name: mean_std, model training run: 3, query number: 84, accuracy: 0.9587
+INFO:root:Metric name: mean_std, model training run: 3, query number: 85, accuracy: 0.9556
+INFO:root:Metric name: mean_std, model training run: 3, query number: 86, accuracy: 0.965
+INFO:root:Metric name: mean_std, model training run: 3, query number: 87, accuracy: 0.9594
+INFO:root:Metric name: mean_std, model training run: 3, query number: 88, accuracy: 0.9626
+INFO:root:Metric name: mean_std, model training run: 3, query number: 89, accuracy: 0.9667
+INFO:root:Metric name: mean_std, model training run: 3, query number: 90, accuracy: 0.9544
+INFO:root:Metric name: mean_std, model training run: 3, query number: 91, accuracy: 0.958
+INFO:root:Metric name: mean_std, model training run: 3, query number: 92, accuracy: 0.9634
+INFO:root:Metric name: mean_std, model training run: 3, query number: 93, accuracy: 0.958
+INFO:root:Metric name: mean_std, model training run: 3, query number: 94, accuracy: 0.9656
+INFO:root:Metric name: mean_std, model training run: 3, query number: 95, accuracy: 0.9662
+INFO:root:Metric name: mean_std, model training run: 3, query number: 96, accuracy: 0.9664
+INFO:root:Metric name: mean_std, model training run: 3, query number: 97, accuracy: 0.9647
+INFO:root:Metric name: mean_std, model training run: 3, query number: 98, accuracy: 0.9619
+INFO:root:Metric name: mean_std, model training run: 3, query number: 99, accuracy: 0.9695
+INFO:root:Metric name: mean_std, model training run: 4, initial accuracy: 0.7987
+INFO:root:Metric name: mean_std, model training run: 4, query number: 0, accuracy: 0.7668
+INFO:root:Metric name: mean_std, model training run: 4, query number: 1, accuracy: 0.7877
+INFO:root:Metric name: mean_std, model training run: 4, query number: 2, accuracy: 0.8228
+INFO:root:Metric name: mean_std, model training run: 4, query number: 3, accuracy: 0.8096
+INFO:root:Metric name: mean_std, model training run: 4, query number: 4, accuracy: 0.8254
+INFO:root:Metric name: mean_std, model training run: 4, query number: 5, accuracy: 0.8466
+INFO:root:Metric name: mean_std, model training run: 4, query number: 6, accuracy: 0.8256
+INFO:root:Metric name: mean_std, model training run: 4, query number: 7, accuracy: 0.8211
+INFO:root:Metric name: mean_std, model training run: 4, query number: 8, accuracy: 0.8254
+INFO:root:Metric name: mean_std, model training run: 4, query number: 9, accuracy: 0.8352
+INFO:root:Metric name: mean_std, model training run: 4, query number: 10, accuracy: 0.8546
+INFO:root:Metric name: mean_std, model training run: 4, query number: 11, accuracy: 0.8497
+INFO:root:Metric name: mean_std, model training run: 4, query number: 12, accuracy: 0.8194
+INFO:root:Metric name: mean_std, model training run: 4, query number: 13, accuracy: 0.8366
+INFO:root:Metric name: mean_std, model training run: 4, query number: 14, accuracy: 0.8085
+INFO:root:Metric name: mean_std, model training run: 4, query number: 15, accuracy: 0.8346
+INFO:root:Metric name: mean_std, model training run: 4, query number: 16, accuracy: 0.8567
+INFO:root:Metric name: mean_std, model training run: 4, query number: 17, accuracy: 0.8553
+INFO:root:Metric name: mean_std, model training run: 4, query number: 18, accuracy: 0.8705
+INFO:root:Metric name: mean_std, model training run: 4, query number: 19, accuracy: 0.8704
+INFO:root:Metric name: mean_std, model training run: 4, query number: 20, accuracy: 0.838
+INFO:root:Metric name: mean_std, model training run: 4, query number: 21, accuracy: 0.8665
+INFO:root:Metric name: mean_std, model training run: 4, query number: 22, accuracy: 0.8666
+INFO:root:Metric name: mean_std, model training run: 4, query number: 23, accuracy: 0.8809
+INFO:root:Metric name: mean_std, model training run: 4, query number: 24, accuracy: 0.8922
+INFO:root:Metric name: mean_std, model training run: 4, query number: 25, accuracy: 0.8746
+INFO:root:Metric name: mean_std, model training run: 4, query number: 26, accuracy: 0.8637
+INFO:root:Metric name: mean_std, model training run: 4, query number: 27, accuracy: 0.8801
+INFO:root:Metric name: mean_std, model training run: 4, query number: 28, accuracy: 0.8666
+INFO:root:Metric name: mean_std, model training run: 4, query number: 29, accuracy: 0.8633
+INFO:root:Metric name: mean_std, model training run: 4, query number: 30, accuracy: 0.8889
+INFO:root:Metric name: mean_std, model training run: 4, query number: 31, accuracy: 0.8851
+INFO:root:Metric name: mean_std, model training run: 4, query number: 32, accuracy: 0.9043
+INFO:root:Metric name: mean_std, model training run: 4, query number: 33, accuracy: 0.9029
+INFO:root:Metric name: mean_std, model training run: 4, query number: 34, accuracy: 0.8829
+INFO:root:Metric name: mean_std, model training run: 4, query number: 35, accuracy: 0.8883
+INFO:root:Metric name: mean_std, model training run: 4, query number: 36, accuracy: 0.8877
+INFO:root:Metric name: mean_std, model training run: 4, query number: 37, accuracy: 0.8914
+INFO:root:Metric name: mean_std, model training run: 4, query number: 38, accuracy: 0.8772
+INFO:root:Metric name: mean_std, model training run: 4, query number: 39, accuracy: 0.8743
+INFO:root:Metric name: mean_std, model training run: 4, query number: 40, accuracy: 0.9024
+INFO:root:Metric name: mean_std, model training run: 4, query number: 41, accuracy: 0.9049
+INFO:root:Metric name: mean_std, model training run: 4, query number: 42, accuracy: 0.9141
+INFO:root:Metric name: mean_std, model training run: 4, query number: 43, accuracy: 0.901
+INFO:root:Metric name: mean_std, model training run: 4, query number: 44, accuracy: 0.9244
+INFO:root:Metric name: mean_std, model training run: 4, query number: 45, accuracy: 0.917
+INFO:root:Metric name: mean_std, model training run: 4, query number: 46, accuracy: 0.9111
+INFO:root:Metric name: mean_std, model training run: 4, query number: 47, accuracy: 0.93
+INFO:root:Metric name: mean_std, model training run: 4, query number: 48, accuracy: 0.9216
+INFO:root:Metric name: mean_std, model training run: 4, query number: 49, accuracy: 0.9357
+INFO:root:Metric name: mean_std, model training run: 4, query number: 50, accuracy: 0.9331
+INFO:root:Metric name: mean_std, model training run: 4, query number: 51, accuracy: 0.9155
+INFO:root:Metric name: mean_std, model training run: 4, query number: 52, accuracy: 0.9266
+INFO:root:Metric name: mean_std, model training run: 4, query number: 53, accuracy: 0.9221
+INFO:root:Metric name: mean_std, model training run: 4, query number: 54, accuracy: 0.9151
+INFO:root:Metric name: mean_std, model training run: 4, query number: 55, accuracy: 0.9323
+INFO:root:Metric name: mean_std, model training run: 4, query number: 56, accuracy: 0.9287
+INFO:root:Metric name: mean_std, model training run: 4, query number: 57, accuracy: 0.9254
+INFO:root:Metric name: mean_std, model training run: 4, query number: 58, accuracy: 0.9152
+INFO:root:Metric name: mean_std, model training run: 4, query number: 59, accuracy: 0.9463
+INFO:root:Metric name: mean_std, model training run: 4, query number: 60, accuracy: 0.938
+INFO:root:Metric name: mean_std, model training run: 4, query number: 61, accuracy: 0.9422
+INFO:root:Metric name: mean_std, model training run: 4, query number: 62, accuracy: 0.9372
+INFO:root:Metric name: mean_std, model training run: 4, query number: 63, accuracy: 0.9467
+INFO:root:Metric name: mean_std, model training run: 4, query number: 64, accuracy: 0.9362
+INFO:root:Metric name: mean_std, model training run: 4, query number: 65, accuracy: 0.9467
+INFO:root:Metric name: mean_std, model training run: 4, query number: 66, accuracy: 0.9425
+INFO:root:Metric name: mean_std, model training run: 4, query number: 67, accuracy: 0.9376
+INFO:root:Metric name: mean_std, model training run: 4, query number: 68, accuracy: 0.9378
+INFO:root:Metric name: mean_std, model training run: 4, query number: 69, accuracy: 0.9546
+INFO:root:Metric name: mean_std, model training run: 4, query number: 70, accuracy: 0.9494
+INFO:root:Metric name: mean_std, model training run: 4, query number: 71, accuracy: 0.9442
+INFO:root:Metric name: mean_std, model training run: 4, query number: 72, accuracy: 0.9439
+INFO:root:Metric name: mean_std, model training run: 4, query number: 73, accuracy: 0.9529
+INFO:root:Metric name: mean_std, model training run: 4, query number: 74, accuracy: 0.9611
+INFO:root:Metric name: mean_std, model training run: 4, query number: 75, accuracy: 0.9494
+INFO:root:Metric name: mean_std, model training run: 4, query number: 76, accuracy: 0.9531
+INFO:root:Metric name: mean_std, model training run: 4, query number: 77, accuracy: 0.9504
+INFO:root:Metric name: mean_std, model training run: 4, query number: 78, accuracy: 0.9563
+INFO:root:Metric name: mean_std, model training run: 4, query number: 79, accuracy: 0.9473
+INFO:root:Metric name: mean_std, model training run: 4, query number: 80, accuracy: 0.952
+INFO:root:Metric name: mean_std, model training run: 4, query number: 81, accuracy: 0.9602
+INFO:root:Metric name: mean_std, model training run: 4, query number: 82, accuracy: 0.9609
+INFO:root:Metric name: mean_std, model training run: 4, query number: 83, accuracy: 0.961
+INFO:root:Metric name: mean_std, model training run: 4, query number: 84, accuracy: 0.956
+INFO:root:Metric name: mean_std, model training run: 4, query number: 85, accuracy: 0.9574
+INFO:root:Metric name: mean_std, model training run: 4, query number: 86, accuracy: 0.9564
+INFO:root:Metric name: mean_std, model training run: 4, query number: 87, accuracy: 0.9509
+INFO:root:Metric name: mean_std, model training run: 4, query number: 88, accuracy: 0.9564
+INFO:root:Metric name: mean_std, model training run: 4, query number: 89, accuracy: 0.9623
+INFO:root:Metric name: mean_std, model training run: 4, query number: 90, accuracy: 0.9522
+INFO:root:Metric name: mean_std, model training run: 4, query number: 91, accuracy: 0.9586
+INFO:root:Metric name: mean_std, model training run: 4, query number: 92, accuracy: 0.9582
+INFO:root:Metric name: mean_std, model training run: 4, query number: 93, accuracy: 0.9577
+INFO:root:Metric name: mean_std, model training run: 4, query number: 94, accuracy: 0.9588
+INFO:root:Metric name: mean_std, model training run: 4, query number: 95, accuracy: 0.9612
+INFO:root:Metric name: mean_std, model training run: 4, query number: 96, accuracy: 0.9656
+INFO:root:Metric name: mean_std, model training run: 4, query number: 97, accuracy: 0.9699
+INFO:root:Metric name: mean_std, model training run: 4, query number: 98, accuracy: 0.9578
+INFO:root:Metric name: mean_std, model training run: 4, query number: 99, accuracy: 0.9657
+INFO:root:Result: [array([ 250,  260,  270,  280,  290,  300,  310,  320,  330,  340,  350,
+        360,  370,  380,  390,  400,  410,  420,  430,  440,  450,  460,
+        470,  480,  490,  500,  510,  520,  530,  540,  550,  560,  570,
+        580,  590,  600,  610,  620,  630,  640,  650,  660,  670,  680,
+        690,  700,  710,  720,  730,  740,  750,  760,  770,  780,  790,
+        800,  810,  820,  830,  840,  850,  860,  870,  880,  890,  900,
+        910,  920,  930,  940,  950,  960,  970,  980,  990, 1000, 1010,
+       1020, 1030, 1040, 1050, 1060, 1070, 1080, 1090, 1100, 1110, 1120,
+       1130, 1140, 1150, 1160, 1170, 1180, 1190, 1200, 1210, 1220, 1230,
+       1240, 1250]), array([0.7986, 0.7502, 0.7896, 0.8074, 0.8152, 0.7986, 0.8049, 0.8192,
+       0.8288, 0.8318, 0.8189, 0.8367, 0.8282, 0.8264, 0.82  , 0.8156,
+       0.8493, 0.8438, 0.8399, 0.8589, 0.8626, 0.8503, 0.8494, 0.8617,
+       0.8559, 0.8734, 0.8659, 0.8538, 0.8767, 0.8824, 0.8953, 0.8947,
+       0.8931, 0.9068, 0.9009, 0.9018, 0.8788, 0.8999, 0.8827, 0.8865,
+       0.8468, 0.8771, 0.9201, 0.8891, 0.9018, 0.9202, 0.9189, 0.9212,
+       0.9155, 0.9117, 0.9154, 0.9255, 0.9105, 0.9091, 0.9095, 0.9336,
+       0.9316, 0.9336, 0.9431, 0.9438, 0.9199, 0.9368, 0.9342, 0.9376,
+       0.9215, 0.9294, 0.9246, 0.9388, 0.948 , 0.9406, 0.9479, 0.948 ,
+       0.9515, 0.9579, 0.9563, 0.9533, 0.9535, 0.9503, 0.9522, 0.9548,
+       0.9505, 0.9531, 0.9474, 0.9541, 0.9526, 0.9602, 0.9594, 0.9521,
+       0.9581, 0.9591, 0.9613, 0.9592, 0.9522, 0.9584, 0.9614, 0.9567,
+       0.967 , 0.9651, 0.9618, 0.9594, 0.9621]), array([0.8092, 0.7374, 0.8055, 0.8041, 0.7939, 0.7812, 0.8055, 0.8165,
+       0.8299, 0.8352, 0.8323, 0.8333, 0.8374, 0.8498, 0.82  , 0.7846,
+       0.8282, 0.8483, 0.8251, 0.8751, 0.8769, 0.8667, 0.8616, 0.8688,
+       0.8612, 0.8644, 0.8816, 0.8724, 0.8595, 0.859 , 0.8927, 0.8943,
+       0.8957, 0.8907, 0.9083, 0.8968, 0.9112, 0.9134, 0.8957, 0.8932,
+       0.8944, 0.8973, 0.8927, 0.8913, 0.9164, 0.9139, 0.9083, 0.9236,
+       0.9264, 0.9091, 0.915 , 0.9385, 0.9171, 0.9199, 0.9319, 0.9286,
+       0.9453, 0.917 , 0.9434, 0.9362, 0.945 , 0.9227, 0.9045, 0.9312,
+       0.9467, 0.939 , 0.9068, 0.9328, 0.9425, 0.9468, 0.9497, 0.9431,
+       0.9356, 0.9413, 0.9423, 0.9479, 0.9414, 0.9348, 0.9447, 0.9407,
+       0.9505, 0.9496, 0.947 , 0.9522, 0.9597, 0.955 , 0.9597, 0.9612,
+       0.9614, 0.965 , 0.9565, 0.9551, 0.9595, 0.964 , 0.9607, 0.9581,
+       0.9566, 0.9675, 0.9646, 0.9604, 0.9668]), array([0.784 , 0.7834, 0.7812, 0.7954, 0.8102, 0.8302, 0.8157, 0.8296,
+       0.8184, 0.8193, 0.812 , 0.8319, 0.8197, 0.8431, 0.8358, 0.8358,
+       0.8515, 0.8435, 0.8569, 0.8633, 0.8722, 0.8651, 0.8533, 0.8672,
+       0.8683, 0.8719, 0.8334, 0.8492, 0.8568, 0.8792, 0.8898, 0.8931,
+       0.8865, 0.8644, 0.8806, 0.8875, 0.8842, 0.8967, 0.8916, 0.8976,
+       0.8939, 0.8718, 0.8786, 0.9097, 0.8902, 0.8982, 0.914 , 0.8965,
+       0.9232, 0.9291, 0.9288, 0.9313, 0.91  , 0.91  , 0.9142, 0.9131,
+       0.9069, 0.9099, 0.9177, 0.9239, 0.921 , 0.9371, 0.9312, 0.9366,
+       0.9437, 0.9293, 0.9368, 0.9413, 0.9432, 0.9439, 0.9286, 0.9538,
+       0.9492, 0.9429, 0.9517, 0.9437, 0.938 , 0.9522, 0.9503, 0.949 ,
+       0.9558, 0.9513, 0.9614, 0.9573, 0.953 , 0.9588, 0.9555, 0.9627,
+       0.947 , 0.9629, 0.9569, 0.9572, 0.9587, 0.9588, 0.9482, 0.9599,
+       0.968 , 0.9636, 0.9651, 0.9658, 0.9664]), array([0.8004, 0.7376, 0.8013, 0.7916, 0.8229, 0.8173, 0.8139, 0.8313,
+       0.825 , 0.8266, 0.8353, 0.835 , 0.8451, 0.8371, 0.8461, 0.849 ,
+       0.8461, 0.8665, 0.8637, 0.8598, 0.8768, 0.8922, 0.8776, 0.8799,
+       0.8853, 0.8837, 0.8947, 0.8655, 0.8813, 0.8863, 0.8929, 0.8831,
+       0.909 , 0.8865, 0.8886, 0.9003, 0.8905, 0.9032, 0.9124, 0.9106,
+       0.9068, 0.9107, 0.8997, 0.9016, 0.9313, 0.9108, 0.9199, 0.9306,
+       0.925 , 0.9344, 0.9237, 0.9221, 0.91  , 0.9262, 0.9344, 0.9182,
+       0.9346, 0.9459, 0.9379, 0.932 , 0.9352, 0.9445, 0.9296, 0.9383,
+       0.9363, 0.9321, 0.9494, 0.9465, 0.9418, 0.9477, 0.9406, 0.9477,
+       0.9439, 0.9571, 0.9575, 0.9564, 0.9551, 0.9543, 0.926 , 0.9567,
+       0.9538, 0.9498, 0.9553, 0.96  , 0.9581, 0.9587, 0.9556, 0.965 ,
+       0.9594, 0.9626, 0.9667, 0.9544, 0.958 , 0.9634, 0.958 , 0.9656,
+       0.9662, 0.9664, 0.9647, 0.9619, 0.9695]), array([0.7987, 0.7668, 0.7877, 0.8228, 0.8096, 0.8254, 0.8466, 0.8256,
+       0.8211, 0.8254, 0.8352, 0.8546, 0.8497, 0.8194, 0.8366, 0.8085,
+       0.8346, 0.8567, 0.8553, 0.8705, 0.8704, 0.838 , 0.8665, 0.8666,
+       0.8809, 0.8922, 0.8746, 0.8637, 0.8801, 0.8666, 0.8633, 0.8889,
+       0.8851, 0.9043, 0.9029, 0.8829, 0.8883, 0.8877, 0.8914, 0.8772,
+       0.8743, 0.9024, 0.9049, 0.9141, 0.901 , 0.9244, 0.917 , 0.9111,
+       0.93  , 0.9216, 0.9357, 0.9331, 0.9155, 0.9266, 0.9221, 0.9151,
+       0.9323, 0.9287, 0.9254, 0.9152, 0.9463, 0.938 , 0.9422, 0.9372,
+       0.9467, 0.9362, 0.9467, 0.9425, 0.9376, 0.9378, 0.9546, 0.9494,
+       0.9442, 0.9439, 0.9529, 0.9611, 0.9494, 0.9531, 0.9504, 0.9563,
+       0.9473, 0.952 , 0.9602, 0.9609, 0.961 , 0.956 , 0.9574, 0.9564,
+       0.9509, 0.9564, 0.9623, 0.9522, 0.9586, 0.9582, 0.9577, 0.9588,
+       0.9612, 0.9656, 0.9699, 0.9578, 0.9657])]
