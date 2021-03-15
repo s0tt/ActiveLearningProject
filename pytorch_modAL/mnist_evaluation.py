@@ -149,6 +149,7 @@ for idx_model_training in range(num_model_training):
         if metric_name != 'random': 
             query_idx, query_instance, metric = learner.query(X_pool, n_instances=drawn_sampley_per_query, num_cycles=forward_cycles_per_query)
         else: 
+            query_idx, query_instance, metric = learner.query(X_pool, n_instances=drawn_sampley_per_query, num_cycles=forward_cycles_per_query)
             query_idx = np.random.choice(range(len(X_pool)), size=drawn_sampley_per_query, replace=False)
 
         # Add queried instances
