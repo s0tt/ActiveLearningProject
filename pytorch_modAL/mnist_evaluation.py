@@ -19,12 +19,7 @@ from torchvision.datasets import MNIST
 
 metric_name = sys.argv[1]
 
-logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_mnist_evaluation_{}.log'.format(metric_name))    , level=logging.INFO)
-
-torch.cuda.manual_seed_all(1)
-torch.manual_seed(1)
-random.seed(1)
-np.random.seed(1)
+logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_mnist_evaluation_{}.log'.format(metric_name)), level=logging.INFO)
 
 # build class for the skorch API
 class Torch_Model(nn.Module):
@@ -78,17 +73,6 @@ dataloader = DataLoader(mnist_data, shuffle=True, batch_size=10000)
 X_test, y_test = next(iter(dataloader))
 X_test = X_test.reshape(10000, 1, 28, 28)
 
-# assemble initial data
-n_initial = 250
-initial_idx = np.random.choice(range(len(X_train)), size=n_initial, replace=False)
-X_initial = X_train[initial_idx]
-y_initial = y_train[initial_idx]
-
-
-# generate the pool
-# remove the initial data from the training dataset
-X_pool_initial = np.delete(X_train, initial_idx, axis=0)
-y_pool_initial = np.delete(y_train, initial_idx, axis=0)
 
 
 if metric_name == 'bald': 
@@ -110,10 +94,7 @@ learner = DeepActiveLearner(
     query_strategy=query_strategy,  
 )
 
-logging.info("Pool size x {}".format(X_pool_initial.size()))
-logging.info("Test size x {}".format(y_pool_initial.size()))
-logging.info("Initial size x {}".format(X_initial.size()))
-
+n_initial = 250 # number of initial chosen samples for the training
 learner.num_epochs = 10
 num_model_training = 5
 n_queries = 100
@@ -128,6 +109,28 @@ model_training_accuracies.append(x_axis)
 
 
 for idx_model_training in range(num_model_training): 
+
+
+    torch.cuda.manual_seed_all(idx_model_training)
+    torch.manual_seed(idx_model_training)
+    random.seed(idx_model_training)
+    np.random.seed(idx_model_training)
+
+
+    # assemble initial data
+    initial_idx = np.random.choice(range(len(X_train)), size=n_initial, replace=False)
+    X_initial = X_train[initial_idx]
+    y_initial = y_train[initial_idx]
+
+    # generate the pool
+    # remove the initial data from the training dataset
+    X_pool_initial = np.delete(X_train, initial_idx, axis=0)
+    y_pool_initial = np.delete(y_train, initial_idx, axis=0)
+
+
+    logging.info("Pool size x {}".format(X_pool_initial.size()))
+    logging.info("Test size x {}".format(y_pool_initial.size()))
+    logging.info("Initial size x {}".format(X_initial.size()))
 
 
     learner.teach(X_initial, y_initial, warm_start=False) # Initial teaching --> resets parameters
