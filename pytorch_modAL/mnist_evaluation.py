@@ -21,6 +21,13 @@ metric_name = sys.argv[1]
 
 logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_mnist_evaluation_{}.log'.format(metric_name)), level=logging.INFO)
 
+
+torch.cuda.manual_seed_all(0)
+torch.manual_seed(0)
+random.seed(0)
+np.random.seed(0)
+
+
 # build class for the skorch API
 class Torch_Model(nn.Module):
     def __init__(self,):
@@ -63,13 +70,13 @@ classifier = NeuralNetClassifier(Torch_Model,
 
 
 mnist_data = MNIST('.', download=True, transform=ToTensor())
-dataloader = DataLoader(mnist_data, shuffle=True, batch_size=60000)
+dataloader = DataLoader(mnist_data, shuffle=False, batch_size=60000)
 X_train, y_train = next(iter(dataloader))
 X_train = X_train.reshape(60000, 1, 28, 28)
 
 
 mnist_data = MNIST('.', train=False, download=True, transform=ToTensor())
-dataloader = DataLoader(mnist_data, shuffle=True, batch_size=10000)
+dataloader = DataLoader(mnist_data, shuffle=False, batch_size=10000)
 X_test, y_test = next(iter(dataloader))
 X_test = X_test.reshape(10000, 1, 28, 28)
 
