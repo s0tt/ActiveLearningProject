@@ -124,6 +124,9 @@ for idx_model_training in range(num_model_training):
     np.random.seed(idx_model_training)
 
 
+    X_pool_initial = X_train
+    y_pool_initial = y_train
+
     logging.info("Pool size x {}".format(X_pool_initial.size()))
     logging.info("Test size x {}".format(y_pool_initial.size()))
     logging.info("Initial size x: 0")
