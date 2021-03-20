@@ -45,8 +45,8 @@ plt.xlabel("Number of queried samples")
 plt.xlim(0, 1000)
 plt.ylabel("Accuracy")
 
+plt.legend()
 
 plt.savefig("mnist_evaluation_diff_initial_data.pdf" , format='pdf')
-plt.legend()
 
 plt.show()
