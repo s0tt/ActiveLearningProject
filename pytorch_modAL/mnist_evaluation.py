@@ -101,7 +101,7 @@ learner = DeepActiveLearner(
     query_strategy=query_strategy,  
 )
 
-n_initial = 250 # number of initial chosen samples for the training
+n_initial = 0 # number of initial chosen samples for the training
 learner.num_epochs = 10
 num_model_training = 5
 n_queries = 100
@@ -124,27 +124,14 @@ for idx_model_training in range(num_model_training):
     np.random.seed(idx_model_training)
 
 
-    # assemble initial data
-    initial_idx = np.random.choice(range(len(X_train)), size=n_initial, replace=False)
-    X_initial = X_train[initial_idx]
-    y_initial = y_train[initial_idx]
-
-    # generate the pool
-    # remove the initial data from the training dataset
-    X_pool_initial = np.delete(X_train, initial_idx, axis=0)
-    y_pool_initial = np.delete(y_train, initial_idx, axis=0)
-
-
     logging.info("Pool size x {}".format(X_pool_initial.size()))
     logging.info("Test size x {}".format(y_pool_initial.size()))
-    logging.info("Initial size x {}".format(X_initial.size()))
+    logging.info("Initial size x: 0")
 
-
-    learner.teach(X_initial, y_initial, warm_start=False) # Initial teaching --> resets parameters
 
     # the active learning loop
-    X_teach = X_initial
-    y_teach = y_initial
+    X_teach = []
+    y_teach = []
     X_pool = X_pool_initial
     y_pool = y_pool_initial
     accuracies = []
@@ -165,8 +152,13 @@ for idx_model_training in range(num_model_training):
             query_idx = np.random.choice(range(len(X_pool)), size=drawn_sampley_per_query, replace=False)
 
         # Add queried instances
-        X_teach  = torch.cat((X_teach, X_pool[query_idx]))
-        y_teach  = torch.cat((y_teach, y_pool[query_idx]))
+        if type(X_teach) == list: 
+            X_teach = X_pool[query_idx]
+            y_teach = y_pool[query_idx]
+        else: 
+            X_teach  = torch.cat((X_teach, X_pool[query_idx]))
+            y_teach  = torch.cat((y_teach, y_pool[query_idx]))
+
         learner.teach(X_teach, y_teach, warm_start=False)
 
         # remove queried instance from pool
