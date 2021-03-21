@@ -95,14 +95,9 @@ elif metric_name == 'random':
 
 
 
-# initialize ActiveLearner
-learner = DeepActiveLearner(
-    estimator=classifier, 
-    query_strategy=query_strategy,  
-)
+
 
 n_initial = 0 # number of initial chosen samples for the training
-learner.num_epochs = 10
 num_model_training = 5
 n_queries = 100
 drawn_sampley_per_query = 10
@@ -117,6 +112,13 @@ model_training_accuracies.append(x_axis)
 
 for idx_model_training in range(num_model_training): 
 
+    # initialize ActiveLearner
+    learner = DeepActiveLearner(
+        estimator=classifier, 
+        query_strategy=query_strategy,  
+    )
+
+    learner.num_epochs = 10
 
     torch.cuda.manual_seed_all(idx_model_training)
     torch.manual_seed(idx_model_training)
