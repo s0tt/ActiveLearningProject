@@ -155,6 +155,7 @@ for idx_model_training in range(num_model_training):
             query_idx, query_instance, metric = learner.query(X_pool, n_instances=drawn_sampley_per_query, num_cycles=forward_cycles_per_query, 
                                                             sample_per_forward_pass=100)
             query_idx = np.random.choice(range(len(X_pool)), size=drawn_sampley_per_query, replace=False)
+            print(query_idx.shape)
 
         # Add queried instances
         if type(X_teach) == list: 
