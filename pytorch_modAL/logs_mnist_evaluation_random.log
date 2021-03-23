@@ -1,0 +1,590 @@
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: random, model training run: 0, initial accuracy: 0.1433
+INFO:root:Metric name: random, model training run: 0, query number: 0, accuracy: 0.1737
+INFO:root:Metric name: random, model training run: 0, query number: 1, accuracy: 0.2333
+INFO:root:Metric name: random, model training run: 0, query number: 2, accuracy: 0.34
+INFO:root:Metric name: random, model training run: 0, query number: 3, accuracy: 0.3101
+INFO:root:Metric name: random, model training run: 0, query number: 4, accuracy: 0.4684
+INFO:root:Metric name: random, model training run: 0, query number: 5, accuracy: 0.6266
+INFO:root:Metric name: random, model training run: 0, query number: 6, accuracy: 0.589
+INFO:root:Metric name: random, model training run: 0, query number: 7, accuracy: 0.6627
+INFO:root:Metric name: random, model training run: 0, query number: 8, accuracy: 0.7121
+INFO:root:Metric name: random, model training run: 0, query number: 9, accuracy: 0.691
+INFO:root:Metric name: random, model training run: 0, query number: 10, accuracy: 0.6899
+INFO:root:Metric name: random, model training run: 0, query number: 11, accuracy: 0.682
+INFO:root:Metric name: random, model training run: 0, query number: 12, accuracy: 0.6872
+INFO:root:Metric name: random, model training run: 0, query number: 13, accuracy: 0.6723
+INFO:root:Metric name: random, model training run: 0, query number: 14, accuracy: 0.6961
+INFO:root:Metric name: random, model training run: 0, query number: 15, accuracy: 0.7563
+INFO:root:Metric name: random, model training run: 0, query number: 16, accuracy: 0.7546
+INFO:root:Metric name: random, model training run: 0, query number: 17, accuracy: 0.7582
+INFO:root:Metric name: random, model training run: 0, query number: 18, accuracy: 0.7833
+INFO:root:Metric name: random, model training run: 0, query number: 19, accuracy: 0.7623
+INFO:root:Metric name: random, model training run: 0, query number: 20, accuracy: 0.78
+INFO:root:Metric name: random, model training run: 0, query number: 21, accuracy: 0.7944
+INFO:root:Metric name: random, model training run: 0, query number: 22, accuracy: 0.7717
+INFO:root:Metric name: random, model training run: 0, query number: 23, accuracy: 0.796
+INFO:root:Metric name: random, model training run: 0, query number: 24, accuracy: 0.7867
+INFO:root:Metric name: random, model training run: 0, query number: 25, accuracy: 0.7988
+INFO:root:Metric name: random, model training run: 0, query number: 26, accuracy: 0.746
+INFO:root:Metric name: random, model training run: 0, query number: 27, accuracy: 0.775
+INFO:root:Metric name: random, model training run: 0, query number: 28, accuracy: 0.7746
+INFO:root:Metric name: random, model training run: 0, query number: 29, accuracy: 0.8171
+INFO:root:Metric name: random, model training run: 0, query number: 30, accuracy: 0.7911
+INFO:root:Metric name: random, model training run: 0, query number: 31, accuracy: 0.7966
+INFO:root:Metric name: random, model training run: 0, query number: 32, accuracy: 0.8203
+INFO:root:Metric name: random, model training run: 0, query number: 33, accuracy: 0.8145
+INFO:root:Metric name: random, model training run: 0, query number: 34, accuracy: 0.8207
+INFO:root:Metric name: random, model training run: 0, query number: 35, accuracy: 0.8154
+INFO:root:Metric name: random, model training run: 0, query number: 36, accuracy: 0.8356
+INFO:root:Metric name: random, model training run: 0, query number: 37, accuracy: 0.8303
+INFO:root:Metric name: random, model training run: 0, query number: 38, accuracy: 0.8096
+INFO:root:Metric name: random, model training run: 0, query number: 39, accuracy: 0.8339
+INFO:root:Metric name: random, model training run: 0, query number: 40, accuracy: 0.8461
+INFO:root:Metric name: random, model training run: 0, query number: 41, accuracy: 0.8395
+INFO:root:Metric name: random, model training run: 0, query number: 42, accuracy: 0.842
+INFO:root:Metric name: random, model training run: 0, query number: 43, accuracy: 0.8325
+INFO:root:Metric name: random, model training run: 0, query number: 44, accuracy: 0.8562
+INFO:root:Metric name: random, model training run: 0, query number: 45, accuracy: 0.8404
+INFO:root:Metric name: random, model training run: 0, query number: 46, accuracy: 0.8636
+INFO:root:Metric name: random, model training run: 0, query number: 47, accuracy: 0.8665
+INFO:root:Metric name: random, model training run: 0, query number: 48, accuracy: 0.8626
+INFO:root:Metric name: random, model training run: 0, query number: 49, accuracy: 0.8682
+INFO:root:Metric name: random, model training run: 0, query number: 50, accuracy: 0.8636
+INFO:root:Metric name: random, model training run: 0, query number: 51, accuracy: 0.8532
+INFO:root:Metric name: random, model training run: 0, query number: 52, accuracy: 0.8774
+INFO:root:Metric name: random, model training run: 0, query number: 53, accuracy: 0.8735
+INFO:root:Metric name: random, model training run: 0, query number: 54, accuracy: 0.866
+INFO:root:Metric name: random, model training run: 0, query number: 55, accuracy: 0.8763
+INFO:root:Metric name: random, model training run: 0, query number: 56, accuracy: 0.8875
+INFO:root:Metric name: random, model training run: 0, query number: 57, accuracy: 0.881
+INFO:root:Metric name: random, model training run: 0, query number: 58, accuracy: 0.8797
+INFO:root:Metric name: random, model training run: 0, query number: 59, accuracy: 0.8656
+INFO:root:Metric name: random, model training run: 0, query number: 60, accuracy: 0.8829
+INFO:root:Metric name: random, model training run: 0, query number: 61, accuracy: 0.877
+INFO:root:Metric name: random, model training run: 0, query number: 62, accuracy: 0.8822
+INFO:root:Metric name: random, model training run: 0, query number: 63, accuracy: 0.8796
+INFO:root:Metric name: random, model training run: 0, query number: 64, accuracy: 0.8682
+INFO:root:Metric name: random, model training run: 0, query number: 65, accuracy: 0.8897
+INFO:root:Metric name: random, model training run: 0, query number: 66, accuracy: 0.8911
+INFO:root:Metric name: random, model training run: 0, query number: 67, accuracy: 0.8948
+INFO:root:Metric name: random, model training run: 0, query number: 68, accuracy: 0.8959
+INFO:root:Metric name: random, model training run: 0, query number: 69, accuracy: 0.898
+INFO:root:Metric name: random, model training run: 0, query number: 70, accuracy: 0.8759
+INFO:root:Metric name: random, model training run: 0, query number: 71, accuracy: 0.9042
+INFO:root:Metric name: random, model training run: 0, query number: 72, accuracy: 0.8947
+INFO:root:Metric name: random, model training run: 0, query number: 73, accuracy: 0.8982
+INFO:root:Metric name: random, model training run: 0, query number: 74, accuracy: 0.905
+INFO:root:Metric name: random, model training run: 0, query number: 75, accuracy: 0.8984
+INFO:root:Metric name: random, model training run: 0, query number: 76, accuracy: 0.8852
+INFO:root:Metric name: random, model training run: 0, query number: 77, accuracy: 0.8983
+INFO:root:Metric name: random, model training run: 0, query number: 78, accuracy: 0.8945
+INFO:root:Metric name: random, model training run: 0, query number: 79, accuracy: 0.899
+INFO:root:Metric name: random, model training run: 0, query number: 80, accuracy: 0.9032
+INFO:root:Metric name: random, model training run: 0, query number: 81, accuracy: 0.8935
+INFO:root:Metric name: random, model training run: 0, query number: 82, accuracy: 0.9095
+INFO:root:Metric name: random, model training run: 0, query number: 83, accuracy: 0.9043
+INFO:root:Metric name: random, model training run: 0, query number: 84, accuracy: 0.9
+INFO:root:Metric name: random, model training run: 0, query number: 85, accuracy: 0.8971
+INFO:root:Metric name: random, model training run: 0, query number: 86, accuracy: 0.9018
+INFO:root:Metric name: random, model training run: 0, query number: 87, accuracy: 0.8927
+INFO:root:Metric name: random, model training run: 0, query number: 88, accuracy: 0.9078
+INFO:root:Metric name: random, model training run: 0, query number: 89, accuracy: 0.9005
+INFO:root:Metric name: random, model training run: 0, query number: 90, accuracy: 0.8994
+INFO:root:Metric name: random, model training run: 0, query number: 91, accuracy: 0.9038
+INFO:root:Metric name: random, model training run: 0, query number: 92, accuracy: 0.9027
+INFO:root:Metric name: random, model training run: 0, query number: 93, accuracy: 0.9058
+INFO:root:Metric name: random, model training run: 0, query number: 94, accuracy: 0.9093
+INFO:root:Metric name: random, model training run: 0, query number: 95, accuracy: 0.9148
+INFO:root:Metric name: random, model training run: 0, query number: 96, accuracy: 0.9127
+INFO:root:Metric name: random, model training run: 0, query number: 97, accuracy: 0.914
+INFO:root:Metric name: random, model training run: 0, query number: 98, accuracy: 0.9094
+INFO:root:Metric name: random, model training run: 0, query number: 99, accuracy: 0.9169
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: random, model training run: 1, initial accuracy: 0.101
+INFO:root:Metric name: random, model training run: 1, query number: 0, accuracy: 0.2606
+INFO:root:Metric name: random, model training run: 1, query number: 1, accuracy: 0.3549
+INFO:root:Metric name: random, model training run: 1, query number: 2, accuracy: 0.5021
+INFO:root:Metric name: random, model training run: 1, query number: 3, accuracy: 0.5181
+INFO:root:Metric name: random, model training run: 1, query number: 4, accuracy: 0.4705
+INFO:root:Metric name: random, model training run: 1, query number: 5, accuracy: 0.5027
+INFO:root:Metric name: random, model training run: 1, query number: 6, accuracy: 0.6294
+INFO:root:Metric name: random, model training run: 1, query number: 7, accuracy: 0.5827
+INFO:root:Metric name: random, model training run: 1, query number: 8, accuracy: 0.6096
+INFO:root:Metric name: random, model training run: 1, query number: 9, accuracy: 0.6229
+INFO:root:Metric name: random, model training run: 1, query number: 10, accuracy: 0.6809
+INFO:root:Metric name: random, model training run: 1, query number: 11, accuracy: 0.5966
+INFO:root:Metric name: random, model training run: 1, query number: 12, accuracy: 0.6966
+INFO:root:Metric name: random, model training run: 1, query number: 13, accuracy: 0.6693
+INFO:root:Metric name: random, model training run: 1, query number: 14, accuracy: 0.6976
+INFO:root:Metric name: random, model training run: 1, query number: 15, accuracy: 0.7411
+INFO:root:Metric name: random, model training run: 1, query number: 16, accuracy: 0.7198
+INFO:root:Metric name: random, model training run: 1, query number: 17, accuracy: 0.7537
+INFO:root:Metric name: random, model training run: 1, query number: 18, accuracy: 0.7667
+INFO:root:Metric name: random, model training run: 1, query number: 19, accuracy: 0.7894
+INFO:root:Metric name: random, model training run: 1, query number: 20, accuracy: 0.7816
+INFO:root:Metric name: random, model training run: 1, query number: 21, accuracy: 0.7688
+INFO:root:Metric name: random, model training run: 1, query number: 22, accuracy: 0.7979
+INFO:root:Metric name: random, model training run: 1, query number: 23, accuracy: 0.8024
+INFO:root:Metric name: random, model training run: 1, query number: 24, accuracy: 0.8235
+INFO:root:Metric name: random, model training run: 1, query number: 25, accuracy: 0.7791
+INFO:root:Metric name: random, model training run: 1, query number: 26, accuracy: 0.8019
+INFO:root:Metric name: random, model training run: 1, query number: 27, accuracy: 0.8399
+INFO:root:Metric name: random, model training run: 1, query number: 28, accuracy: 0.8319
+INFO:root:Metric name: random, model training run: 1, query number: 29, accuracy: 0.8281
+INFO:root:Metric name: random, model training run: 1, query number: 30, accuracy: 0.8455
+INFO:root:Metric name: random, model training run: 1, query number: 31, accuracy: 0.838
+INFO:root:Metric name: random, model training run: 1, query number: 32, accuracy: 0.8595
+INFO:root:Metric name: random, model training run: 1, query number: 33, accuracy: 0.8488
+INFO:root:Metric name: random, model training run: 1, query number: 34, accuracy: 0.8498
+INFO:root:Metric name: random, model training run: 1, query number: 35, accuracy: 0.8635
+INFO:root:Metric name: random, model training run: 1, query number: 36, accuracy: 0.8535
+INFO:root:Metric name: random, model training run: 1, query number: 37, accuracy: 0.8502
+INFO:root:Metric name: random, model training run: 1, query number: 38, accuracy: 0.849
+INFO:root:Metric name: random, model training run: 1, query number: 39, accuracy: 0.8456
+INFO:root:Metric name: random, model training run: 1, query number: 40, accuracy: 0.8538
+INFO:root:Metric name: random, model training run: 1, query number: 41, accuracy: 0.872
+INFO:root:Metric name: random, model training run: 1, query number: 42, accuracy: 0.8575
+INFO:root:Metric name: random, model training run: 1, query number: 43, accuracy: 0.8701
+INFO:root:Metric name: random, model training run: 1, query number: 44, accuracy: 0.875
+INFO:root:Metric name: random, model training run: 1, query number: 45, accuracy: 0.8807
+INFO:root:Metric name: random, model training run: 1, query number: 46, accuracy: 0.8754
+INFO:root:Metric name: random, model training run: 1, query number: 47, accuracy: 0.8779
+INFO:root:Metric name: random, model training run: 1, query number: 48, accuracy: 0.8867
+INFO:root:Metric name: random, model training run: 1, query number: 49, accuracy: 0.8744
+INFO:root:Metric name: random, model training run: 1, query number: 50, accuracy: 0.881
+INFO:root:Metric name: random, model training run: 1, query number: 51, accuracy: 0.8658
+INFO:root:Metric name: random, model training run: 1, query number: 52, accuracy: 0.872
+INFO:root:Metric name: random, model training run: 1, query number: 53, accuracy: 0.8798
+INFO:root:Metric name: random, model training run: 1, query number: 54, accuracy: 0.8899
+INFO:root:Metric name: random, model training run: 1, query number: 55, accuracy: 0.8897
+INFO:root:Metric name: random, model training run: 1, query number: 56, accuracy: 0.8854
+INFO:root:Metric name: random, model training run: 1, query number: 57, accuracy: 0.8882
+INFO:root:Metric name: random, model training run: 1, query number: 58, accuracy: 0.8819
+INFO:root:Metric name: random, model training run: 1, query number: 59, accuracy: 0.8828
+INFO:root:Metric name: random, model training run: 1, query number: 60, accuracy: 0.8841
+INFO:root:Metric name: random, model training run: 1, query number: 61, accuracy: 0.8819
+INFO:root:Metric name: random, model training run: 1, query number: 62, accuracy: 0.8959
+INFO:root:Metric name: random, model training run: 1, query number: 63, accuracy: 0.8815
+INFO:root:Metric name: random, model training run: 1, query number: 64, accuracy: 0.8893
+INFO:root:Metric name: random, model training run: 1, query number: 65, accuracy: 0.8713
+INFO:root:Metric name: random, model training run: 1, query number: 66, accuracy: 0.8878
+INFO:root:Metric name: random, model training run: 1, query number: 67, accuracy: 0.8996
+INFO:root:Metric name: random, model training run: 1, query number: 68, accuracy: 0.9031
+INFO:root:Metric name: random, model training run: 1, query number: 69, accuracy: 0.9014
+INFO:root:Metric name: random, model training run: 1, query number: 70, accuracy: 0.907
+INFO:root:Metric name: random, model training run: 1, query number: 71, accuracy: 0.8985
+INFO:root:Metric name: random, model training run: 1, query number: 72, accuracy: 0.8933
+INFO:root:Metric name: random, model training run: 1, query number: 73, accuracy: 0.8976
+INFO:root:Metric name: random, model training run: 1, query number: 74, accuracy: 0.889
+INFO:root:Metric name: random, model training run: 1, query number: 75, accuracy: 0.8928
+INFO:root:Metric name: random, model training run: 1, query number: 76, accuracy: 0.8979
+INFO:root:Metric name: random, model training run: 1, query number: 77, accuracy: 0.8976
+INFO:root:Metric name: random, model training run: 1, query number: 78, accuracy: 0.9035
+INFO:root:Metric name: random, model training run: 1, query number: 79, accuracy: 0.908
+INFO:root:Metric name: random, model training run: 1, query number: 80, accuracy: 0.9074
+INFO:root:Metric name: random, model training run: 1, query number: 81, accuracy: 0.9046
+INFO:root:Metric name: random, model training run: 1, query number: 82, accuracy: 0.9075
+INFO:root:Metric name: random, model training run: 1, query number: 83, accuracy: 0.905
+INFO:root:Metric name: random, model training run: 1, query number: 84, accuracy: 0.8985
+INFO:root:Metric name: random, model training run: 1, query number: 85, accuracy: 0.9015
+INFO:root:Metric name: random, model training run: 1, query number: 86, accuracy: 0.9014
+INFO:root:Metric name: random, model training run: 1, query number: 87, accuracy: 0.9123
+INFO:root:Metric name: random, model training run: 1, query number: 88, accuracy: 0.9024
+INFO:root:Metric name: random, model training run: 1, query number: 89, accuracy: 0.9126
+INFO:root:Metric name: random, model training run: 1, query number: 90, accuracy: 0.9111
+INFO:root:Metric name: random, model training run: 1, query number: 91, accuracy: 0.9149
+INFO:root:Metric name: random, model training run: 1, query number: 92, accuracy: 0.9064
+INFO:root:Metric name: random, model training run: 1, query number: 93, accuracy: 0.9142
+INFO:root:Metric name: random, model training run: 1, query number: 94, accuracy: 0.9134
+INFO:root:Metric name: random, model training run: 1, query number: 95, accuracy: 0.9095
+INFO:root:Metric name: random, model training run: 1, query number: 96, accuracy: 0.9224
+INFO:root:Metric name: random, model training run: 1, query number: 97, accuracy: 0.912
+INFO:root:Metric name: random, model training run: 1, query number: 98, accuracy: 0.9094
+INFO:root:Metric name: random, model training run: 1, query number: 99, accuracy: 0.9166
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: random, model training run: 2, initial accuracy: 0.0984
+INFO:root:Metric name: random, model training run: 2, query number: 0, accuracy: 0.1312
+INFO:root:Metric name: random, model training run: 2, query number: 1, accuracy: 0.4135
+INFO:root:Metric name: random, model training run: 2, query number: 2, accuracy: 0.534
+INFO:root:Metric name: random, model training run: 2, query number: 3, accuracy: 0.4876
+INFO:root:Metric name: random, model training run: 2, query number: 4, accuracy: 0.472
+INFO:root:Metric name: random, model training run: 2, query number: 5, accuracy: 0.4842
+INFO:root:Metric name: random, model training run: 2, query number: 6, accuracy: 0.5034
+INFO:root:Metric name: random, model training run: 2, query number: 7, accuracy: 0.5769
+INFO:root:Metric name: random, model training run: 2, query number: 8, accuracy: 0.6287
+INFO:root:Metric name: random, model training run: 2, query number: 9, accuracy: 0.6375
+INFO:root:Metric name: random, model training run: 2, query number: 10, accuracy: 0.545
+INFO:root:Metric name: random, model training run: 2, query number: 11, accuracy: 0.5806
+INFO:root:Metric name: random, model training run: 2, query number: 12, accuracy: 0.5649
+INFO:root:Metric name: random, model training run: 2, query number: 13, accuracy: 0.659
+INFO:root:Metric name: random, model training run: 2, query number: 14, accuracy: 0.7385
+INFO:root:Metric name: random, model training run: 2, query number: 15, accuracy: 0.7714
+INFO:root:Metric name: random, model training run: 2, query number: 16, accuracy: 0.7681
+INFO:root:Metric name: random, model training run: 2, query number: 17, accuracy: 0.7593
+INFO:root:Metric name: random, model training run: 2, query number: 18, accuracy: 0.8007
+INFO:root:Metric name: random, model training run: 2, query number: 19, accuracy: 0.8012
+INFO:root:Metric name: random, model training run: 2, query number: 20, accuracy: 0.8057
+INFO:root:Metric name: random, model training run: 2, query number: 21, accuracy: 0.8072
+INFO:root:Metric name: random, model training run: 2, query number: 22, accuracy: 0.814
+INFO:root:Metric name: random, model training run: 2, query number: 23, accuracy: 0.7872
+INFO:root:Metric name: random, model training run: 2, query number: 24, accuracy: 0.824
+INFO:root:Metric name: random, model training run: 2, query number: 25, accuracy: 0.7928
+INFO:root:Metric name: random, model training run: 2, query number: 26, accuracy: 0.8313
+INFO:root:Metric name: random, model training run: 2, query number: 27, accuracy: 0.8385
+INFO:root:Metric name: random, model training run: 2, query number: 28, accuracy: 0.8367
+INFO:root:Metric name: random, model training run: 2, query number: 29, accuracy: 0.8378
+INFO:root:Metric name: random, model training run: 2, query number: 30, accuracy: 0.8522
+INFO:root:Metric name: random, model training run: 2, query number: 31, accuracy: 0.8474
+INFO:root:Metric name: random, model training run: 2, query number: 32, accuracy: 0.855
+INFO:root:Metric name: random, model training run: 2, query number: 33, accuracy: 0.8505
+INFO:root:Metric name: random, model training run: 2, query number: 34, accuracy: 0.8587
+INFO:root:Metric name: random, model training run: 2, query number: 35, accuracy: 0.8751
+INFO:root:Metric name: random, model training run: 2, query number: 36, accuracy: 0.8658
+INFO:root:Metric name: random, model training run: 2, query number: 37, accuracy: 0.843
+INFO:root:Metric name: random, model training run: 2, query number: 38, accuracy: 0.8542
+INFO:root:Metric name: random, model training run: 2, query number: 39, accuracy: 0.8623
+INFO:root:Metric name: random, model training run: 2, query number: 40, accuracy: 0.8743
+INFO:root:Metric name: random, model training run: 2, query number: 41, accuracy: 0.8648
+INFO:root:Metric name: random, model training run: 2, query number: 42, accuracy: 0.8685
+INFO:root:Metric name: random, model training run: 2, query number: 43, accuracy: 0.8546
+INFO:root:Metric name: random, model training run: 2, query number: 44, accuracy: 0.868
+INFO:root:Metric name: random, model training run: 2, query number: 45, accuracy: 0.8761
+INFO:root:Metric name: random, model training run: 2, query number: 46, accuracy: 0.8766
+INFO:root:Metric name: random, model training run: 2, query number: 47, accuracy: 0.882
+INFO:root:Metric name: random, model training run: 2, query number: 48, accuracy: 0.8759
+INFO:root:Metric name: random, model training run: 2, query number: 49, accuracy: 0.8811
+INFO:root:Metric name: random, model training run: 2, query number: 50, accuracy: 0.8756
+INFO:root:Metric name: random, model training run: 2, query number: 51, accuracy: 0.8881
+INFO:root:Metric name: random, model training run: 2, query number: 52, accuracy: 0.8645
+INFO:root:Metric name: random, model training run: 2, query number: 53, accuracy: 0.8832
+INFO:root:Metric name: random, model training run: 2, query number: 54, accuracy: 0.8835
+INFO:root:Metric name: random, model training run: 2, query number: 55, accuracy: 0.8928
+INFO:root:Metric name: random, model training run: 2, query number: 56, accuracy: 0.8932
+INFO:root:Metric name: random, model training run: 2, query number: 57, accuracy: 0.8894
+INFO:root:Metric name: random, model training run: 2, query number: 58, accuracy: 0.9005
+INFO:root:Metric name: random, model training run: 2, query number: 59, accuracy: 0.8957
+INFO:root:Metric name: random, model training run: 2, query number: 60, accuracy: 0.9012
+INFO:root:Metric name: random, model training run: 2, query number: 61, accuracy: 0.8977
+INFO:root:Metric name: random, model training run: 2, query number: 62, accuracy: 0.8997
+INFO:root:Metric name: random, model training run: 2, query number: 63, accuracy: 0.9008
+INFO:root:Metric name: random, model training run: 2, query number: 64, accuracy: 0.8928
+INFO:root:Metric name: random, model training run: 2, query number: 65, accuracy: 0.8792
+INFO:root:Metric name: random, model training run: 2, query number: 66, accuracy: 0.9006
+INFO:root:Metric name: random, model training run: 2, query number: 67, accuracy: 0.8922
+INFO:root:Metric name: random, model training run: 2, query number: 68, accuracy: 0.9016
+INFO:root:Metric name: random, model training run: 2, query number: 69, accuracy: 0.9113
+INFO:root:Metric name: random, model training run: 2, query number: 70, accuracy: 0.909
+INFO:root:Metric name: random, model training run: 2, query number: 71, accuracy: 0.9064
+INFO:root:Metric name: random, model training run: 2, query number: 72, accuracy: 0.9137
+INFO:root:Metric name: random, model training run: 2, query number: 73, accuracy: 0.9072
+INFO:root:Metric name: random, model training run: 2, query number: 74, accuracy: 0.9077
+INFO:root:Metric name: random, model training run: 2, query number: 75, accuracy: 0.9045
+INFO:root:Metric name: random, model training run: 2, query number: 76, accuracy: 0.9056
+INFO:root:Metric name: random, model training run: 2, query number: 77, accuracy: 0.9111
+INFO:root:Metric name: random, model training run: 2, query number: 78, accuracy: 0.9123
+INFO:root:Metric name: random, model training run: 2, query number: 79, accuracy: 0.9167
+INFO:root:Metric name: random, model training run: 2, query number: 80, accuracy: 0.9149
+INFO:root:Metric name: random, model training run: 2, query number: 81, accuracy: 0.9225
+INFO:root:Metric name: random, model training run: 2, query number: 82, accuracy: 0.912
+INFO:root:Metric name: random, model training run: 2, query number: 83, accuracy: 0.9176
+INFO:root:Metric name: random, model training run: 2, query number: 84, accuracy: 0.9111
+INFO:root:Metric name: random, model training run: 2, query number: 85, accuracy: 0.9036
+INFO:root:Metric name: random, model training run: 2, query number: 86, accuracy: 0.9134
+INFO:root:Metric name: random, model training run: 2, query number: 87, accuracy: 0.9155
+INFO:root:Metric name: random, model training run: 2, query number: 88, accuracy: 0.9232
+INFO:root:Metric name: random, model training run: 2, query number: 89, accuracy: 0.9124
+INFO:root:Metric name: random, model training run: 2, query number: 90, accuracy: 0.9197
+INFO:root:Metric name: random, model training run: 2, query number: 91, accuracy: 0.9208
+INFO:root:Metric name: random, model training run: 2, query number: 92, accuracy: 0.9138
+INFO:root:Metric name: random, model training run: 2, query number: 93, accuracy: 0.9218
+INFO:root:Metric name: random, model training run: 2, query number: 94, accuracy: 0.9135
+INFO:root:Metric name: random, model training run: 2, query number: 95, accuracy: 0.9231
+INFO:root:Metric name: random, model training run: 2, query number: 96, accuracy: 0.9166
+INFO:root:Metric name: random, model training run: 2, query number: 97, accuracy: 0.9111
+INFO:root:Metric name: random, model training run: 2, query number: 98, accuracy: 0.919
+INFO:root:Metric name: random, model training run: 2, query number: 99, accuracy: 0.9149
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: random, model training run: 3, initial accuracy: 0.0793
+INFO:root:Metric name: random, model training run: 3, query number: 0, accuracy: 0.2373
+INFO:root:Metric name: random, model training run: 3, query number: 1, accuracy: 0.3647
+INFO:root:Metric name: random, model training run: 3, query number: 2, accuracy: 0.3928
+INFO:root:Metric name: random, model training run: 3, query number: 3, accuracy: 0.5383
+INFO:root:Metric name: random, model training run: 3, query number: 4, accuracy: 0.4619
+INFO:root:Metric name: random, model training run: 3, query number: 5, accuracy: 0.5453
+INFO:root:Metric name: random, model training run: 3, query number: 6, accuracy: 0.5937
+INFO:root:Metric name: random, model training run: 3, query number: 7, accuracy: 0.6121
+INFO:root:Metric name: random, model training run: 3, query number: 8, accuracy: 0.6076
+INFO:root:Metric name: random, model training run: 3, query number: 9, accuracy: 0.5168
+INFO:root:Metric name: random, model training run: 3, query number: 10, accuracy: 0.6535
+INFO:root:Metric name: random, model training run: 3, query number: 11, accuracy: 0.6769
+INFO:root:Metric name: random, model training run: 3, query number: 12, accuracy: 0.6424
+INFO:root:Metric name: random, model training run: 3, query number: 13, accuracy: 0.5451
+INFO:root:Metric name: random, model training run: 3, query number: 14, accuracy: 0.6483
+INFO:root:Metric name: random, model training run: 3, query number: 15, accuracy: 0.6682
+INFO:root:Metric name: random, model training run: 3, query number: 16, accuracy: 0.6519
+INFO:root:Metric name: random, model training run: 3, query number: 17, accuracy: 0.6766
+INFO:root:Metric name: random, model training run: 3, query number: 18, accuracy: 0.7197
+INFO:root:Metric name: random, model training run: 3, query number: 19, accuracy: 0.7077
+INFO:root:Metric name: random, model training run: 3, query number: 20, accuracy: 0.7196
+INFO:root:Metric name: random, model training run: 3, query number: 21, accuracy: 0.7644
+INFO:root:Metric name: random, model training run: 3, query number: 22, accuracy: 0.7678
+INFO:root:Metric name: random, model training run: 3, query number: 23, accuracy: 0.7405
+INFO:root:Metric name: random, model training run: 3, query number: 24, accuracy: 0.7696
+INFO:root:Metric name: random, model training run: 3, query number: 25, accuracy: 0.7595
+INFO:root:Metric name: random, model training run: 3, query number: 26, accuracy: 0.7777
+INFO:root:Metric name: random, model training run: 3, query number: 27, accuracy: 0.7929
+INFO:root:Metric name: random, model training run: 3, query number: 28, accuracy: 0.8088
+INFO:root:Metric name: random, model training run: 3, query number: 29, accuracy: 0.796
+INFO:root:Metric name: random, model training run: 3, query number: 30, accuracy: 0.816
+INFO:root:Metric name: random, model training run: 3, query number: 31, accuracy: 0.8336
+INFO:root:Metric name: random, model training run: 3, query number: 32, accuracy: 0.8445
+INFO:root:Metric name: random, model training run: 3, query number: 33, accuracy: 0.8466
+INFO:root:Metric name: random, model training run: 3, query number: 34, accuracy: 0.8356
+INFO:root:Metric name: random, model training run: 3, query number: 35, accuracy: 0.8382
+INFO:root:Metric name: random, model training run: 3, query number: 36, accuracy: 0.8644
+INFO:root:Metric name: random, model training run: 3, query number: 37, accuracy: 0.843
+INFO:root:Metric name: random, model training run: 3, query number: 38, accuracy: 0.8343
+INFO:root:Metric name: random, model training run: 3, query number: 39, accuracy: 0.8423
+INFO:root:Metric name: random, model training run: 3, query number: 40, accuracy: 0.8575
+INFO:root:Metric name: random, model training run: 3, query number: 41, accuracy: 0.8546
+INFO:root:Metric name: random, model training run: 3, query number: 42, accuracy: 0.8429
+INFO:root:Metric name: random, model training run: 3, query number: 43, accuracy: 0.8603
+INFO:root:Metric name: random, model training run: 3, query number: 44, accuracy: 0.859
+INFO:root:Metric name: random, model training run: 3, query number: 45, accuracy: 0.8672
+INFO:root:Metric name: random, model training run: 3, query number: 46, accuracy: 0.8714
+INFO:root:Metric name: random, model training run: 3, query number: 47, accuracy: 0.8707
+INFO:root:Metric name: random, model training run: 3, query number: 48, accuracy: 0.8779
+INFO:root:Metric name: random, model training run: 3, query number: 49, accuracy: 0.8788
+INFO:root:Metric name: random, model training run: 3, query number: 50, accuracy: 0.8664
+INFO:root:Metric name: random, model training run: 3, query number: 51, accuracy: 0.8689
+INFO:root:Metric name: random, model training run: 3, query number: 52, accuracy: 0.8698
+INFO:root:Metric name: random, model training run: 3, query number: 53, accuracy: 0.8647
+INFO:root:Metric name: random, model training run: 3, query number: 54, accuracy: 0.8729
+INFO:root:Metric name: random, model training run: 3, query number: 55, accuracy: 0.8757
+INFO:root:Metric name: random, model training run: 3, query number: 56, accuracy: 0.8871
+INFO:root:Metric name: random, model training run: 3, query number: 57, accuracy: 0.8918
+INFO:root:Metric name: random, model training run: 3, query number: 58, accuracy: 0.8951
+INFO:root:Metric name: random, model training run: 3, query number: 59, accuracy: 0.8904
+INFO:root:Metric name: random, model training run: 3, query number: 60, accuracy: 0.8932
+INFO:root:Metric name: random, model training run: 3, query number: 61, accuracy: 0.8929
+INFO:root:Metric name: random, model training run: 3, query number: 62, accuracy: 0.8881
+INFO:root:Metric name: random, model training run: 3, query number: 63, accuracy: 0.8812
+INFO:root:Metric name: random, model training run: 3, query number: 64, accuracy: 0.8824
+INFO:root:Metric name: random, model training run: 3, query number: 65, accuracy: 0.8843
+INFO:root:Metric name: random, model training run: 3, query number: 66, accuracy: 0.8863
+INFO:root:Metric name: random, model training run: 3, query number: 67, accuracy: 0.8923
+INFO:root:Metric name: random, model training run: 3, query number: 68, accuracy: 0.8998
+INFO:root:Metric name: random, model training run: 3, query number: 69, accuracy: 0.8953
+INFO:root:Metric name: random, model training run: 3, query number: 70, accuracy: 0.8881
+INFO:root:Metric name: random, model training run: 3, query number: 71, accuracy: 0.9003
+INFO:root:Metric name: random, model training run: 3, query number: 72, accuracy: 0.8948
+INFO:root:Metric name: random, model training run: 3, query number: 73, accuracy: 0.8945
+INFO:root:Metric name: random, model training run: 3, query number: 74, accuracy: 0.9016
+INFO:root:Metric name: random, model training run: 3, query number: 75, accuracy: 0.8906
+INFO:root:Metric name: random, model training run: 3, query number: 76, accuracy: 0.8944
+INFO:root:Metric name: random, model training run: 3, query number: 77, accuracy: 0.8907
+INFO:root:Metric name: random, model training run: 3, query number: 78, accuracy: 0.899
+INFO:root:Metric name: random, model training run: 3, query number: 79, accuracy: 0.9053
+INFO:root:Metric name: random, model training run: 3, query number: 80, accuracy: 0.8997
+INFO:root:Metric name: random, model training run: 3, query number: 81, accuracy: 0.9067
+INFO:root:Metric name: random, model training run: 3, query number: 82, accuracy: 0.9072
+INFO:root:Metric name: random, model training run: 3, query number: 83, accuracy: 0.8989
+INFO:root:Metric name: random, model training run: 3, query number: 84, accuracy: 0.9084
+INFO:root:Metric name: random, model training run: 3, query number: 85, accuracy: 0.9083
+INFO:root:Metric name: random, model training run: 3, query number: 86, accuracy: 0.9034
+INFO:root:Metric name: random, model training run: 3, query number: 87, accuracy: 0.9046
+INFO:root:Metric name: random, model training run: 3, query number: 88, accuracy: 0.9078
+INFO:root:Metric name: random, model training run: 3, query number: 89, accuracy: 0.9072
+INFO:root:Metric name: random, model training run: 3, query number: 90, accuracy: 0.9041
+INFO:root:Metric name: random, model training run: 3, query number: 91, accuracy: 0.9116
+INFO:root:Metric name: random, model training run: 3, query number: 92, accuracy: 0.9107
+INFO:root:Metric name: random, model training run: 3, query number: 93, accuracy: 0.9088
+INFO:root:Metric name: random, model training run: 3, query number: 94, accuracy: 0.9085
+INFO:root:Metric name: random, model training run: 3, query number: 95, accuracy: 0.8962
+INFO:root:Metric name: random, model training run: 3, query number: 96, accuracy: 0.916
+INFO:root:Metric name: random, model training run: 3, query number: 97, accuracy: 0.9113
+INFO:root:Metric name: random, model training run: 3, query number: 98, accuracy: 0.9085
+INFO:root:Metric name: random, model training run: 3, query number: 99, accuracy: 0.9117
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: random, model training run: 4, initial accuracy: 0.1143
+INFO:root:Metric name: random, model training run: 4, query number: 0, accuracy: 0.3207
+INFO:root:Metric name: random, model training run: 4, query number: 1, accuracy: 0.3287
+INFO:root:Metric name: random, model training run: 4, query number: 2, accuracy: 0.4152
+INFO:root:Metric name: random, model training run: 4, query number: 3, accuracy: 0.4352
+INFO:root:Metric name: random, model training run: 4, query number: 4, accuracy: 0.5207
+INFO:root:Metric name: random, model training run: 4, query number: 5, accuracy: 0.5466
+INFO:root:Metric name: random, model training run: 4, query number: 6, accuracy: 0.5377
+INFO:root:Metric name: random, model training run: 4, query number: 7, accuracy: 0.587
+INFO:root:Metric name: random, model training run: 4, query number: 8, accuracy: 0.5483
+INFO:root:Metric name: random, model training run: 4, query number: 9, accuracy: 0.6759
+INFO:root:Metric name: random, model training run: 4, query number: 10, accuracy: 0.6557
+INFO:root:Metric name: random, model training run: 4, query number: 11, accuracy: 0.6707
+INFO:root:Metric name: random, model training run: 4, query number: 12, accuracy: 0.5969
+INFO:root:Metric name: random, model training run: 4, query number: 13, accuracy: 0.6702
+INFO:root:Metric name: random, model training run: 4, query number: 14, accuracy: 0.7524
+INFO:root:Metric name: random, model training run: 4, query number: 15, accuracy: 0.7267
+INFO:root:Metric name: random, model training run: 4, query number: 16, accuracy: 0.8049
+INFO:root:Metric name: random, model training run: 4, query number: 17, accuracy: 0.7974
+INFO:root:Metric name: random, model training run: 4, query number: 18, accuracy: 0.8082
+INFO:root:Metric name: random, model training run: 4, query number: 19, accuracy: 0.83
+INFO:root:Metric name: random, model training run: 4, query number: 20, accuracy: 0.8395
+INFO:root:Metric name: random, model training run: 4, query number: 21, accuracy: 0.8225
+INFO:root:Metric name: random, model training run: 4, query number: 22, accuracy: 0.8208
+INFO:root:Metric name: random, model training run: 4, query number: 23, accuracy: 0.8384
+INFO:root:Metric name: random, model training run: 4, query number: 24, accuracy: 0.851
+INFO:root:Metric name: random, model training run: 4, query number: 25, accuracy: 0.7912
+INFO:root:Metric name: random, model training run: 4, query number: 26, accuracy: 0.8406
+INFO:root:Metric name: random, model training run: 4, query number: 27, accuracy: 0.8252
+INFO:root:Metric name: random, model training run: 4, query number: 28, accuracy: 0.8466
+INFO:root:Metric name: random, model training run: 4, query number: 29, accuracy: 0.8561
+INFO:root:Metric name: random, model training run: 4, query number: 30, accuracy: 0.8451
+INFO:root:Metric name: random, model training run: 4, query number: 31, accuracy: 0.8585
+INFO:root:Metric name: random, model training run: 4, query number: 32, accuracy: 0.8598
+INFO:root:Metric name: random, model training run: 4, query number: 33, accuracy: 0.871
+INFO:root:Metric name: random, model training run: 4, query number: 34, accuracy: 0.8757
+INFO:root:Metric name: random, model training run: 4, query number: 35, accuracy: 0.8675
+INFO:root:Metric name: random, model training run: 4, query number: 36, accuracy: 0.8736
+INFO:root:Metric name: random, model training run: 4, query number: 37, accuracy: 0.8727
+INFO:root:Metric name: random, model training run: 4, query number: 38, accuracy: 0.8518
+INFO:root:Metric name: random, model training run: 4, query number: 39, accuracy: 0.864
+INFO:root:Metric name: random, model training run: 4, query number: 40, accuracy: 0.8655
+INFO:root:Metric name: random, model training run: 4, query number: 41, accuracy: 0.8766
+INFO:root:Metric name: random, model training run: 4, query number: 42, accuracy: 0.8786
+INFO:root:Metric name: random, model training run: 4, query number: 43, accuracy: 0.8832
+INFO:root:Metric name: random, model training run: 4, query number: 44, accuracy: 0.8688
+INFO:root:Metric name: random, model training run: 4, query number: 45, accuracy: 0.8847
+INFO:root:Metric name: random, model training run: 4, query number: 46, accuracy: 0.8848
+INFO:root:Metric name: random, model training run: 4, query number: 47, accuracy: 0.8914
+INFO:root:Metric name: random, model training run: 4, query number: 48, accuracy: 0.8895
+INFO:root:Metric name: random, model training run: 4, query number: 49, accuracy: 0.8864
+INFO:root:Metric name: random, model training run: 4, query number: 50, accuracy: 0.8873
+INFO:root:Metric name: random, model training run: 4, query number: 51, accuracy: 0.8887
+INFO:root:Metric name: random, model training run: 4, query number: 52, accuracy: 0.886
+INFO:root:Metric name: random, model training run: 4, query number: 53, accuracy: 0.8909
+INFO:root:Metric name: random, model training run: 4, query number: 54, accuracy: 0.9052
+INFO:root:Metric name: random, model training run: 4, query number: 55, accuracy: 0.8963
+INFO:root:Metric name: random, model training run: 4, query number: 56, accuracy: 0.8935
+INFO:root:Metric name: random, model training run: 4, query number: 57, accuracy: 0.8982
+INFO:root:Metric name: random, model training run: 4, query number: 58, accuracy: 0.889
+INFO:root:Metric name: random, model training run: 4, query number: 59, accuracy: 0.8955
+INFO:root:Metric name: random, model training run: 4, query number: 60, accuracy: 0.9039
+INFO:root:Metric name: random, model training run: 4, query number: 61, accuracy: 0.9038
+INFO:root:Metric name: random, model training run: 4, query number: 62, accuracy: 0.9009
+INFO:root:Metric name: random, model training run: 4, query number: 63, accuracy: 0.8955
+INFO:root:Metric name: random, model training run: 4, query number: 64, accuracy: 0.909
+INFO:root:Metric name: random, model training run: 4, query number: 65, accuracy: 0.9051
+INFO:root:Metric name: random, model training run: 4, query number: 66, accuracy: 0.9
+INFO:root:Metric name: random, model training run: 4, query number: 67, accuracy: 0.9026
+INFO:root:Metric name: random, model training run: 4, query number: 68, accuracy: 0.9049
+INFO:root:Metric name: random, model training run: 4, query number: 69, accuracy: 0.8972
+INFO:root:Metric name: random, model training run: 4, query number: 70, accuracy: 0.9053
+INFO:root:Metric name: random, model training run: 4, query number: 71, accuracy: 0.9108
+INFO:root:Metric name: random, model training run: 4, query number: 72, accuracy: 0.913
+INFO:root:Metric name: random, model training run: 4, query number: 73, accuracy: 0.9029
+INFO:root:Metric name: random, model training run: 4, query number: 74, accuracy: 0.9121
+INFO:root:Metric name: random, model training run: 4, query number: 75, accuracy: 0.909
+INFO:root:Metric name: random, model training run: 4, query number: 76, accuracy: 0.906
+INFO:root:Metric name: random, model training run: 4, query number: 77, accuracy: 0.9074
+INFO:root:Metric name: random, model training run: 4, query number: 78, accuracy: 0.9116
+INFO:root:Metric name: random, model training run: 4, query number: 79, accuracy: 0.914
+INFO:root:Metric name: random, model training run: 4, query number: 80, accuracy: 0.9122
+INFO:root:Metric name: random, model training run: 4, query number: 81, accuracy: 0.9076
+INFO:root:Metric name: random, model training run: 4, query number: 82, accuracy: 0.9116
+INFO:root:Metric name: random, model training run: 4, query number: 83, accuracy: 0.9169
+INFO:root:Metric name: random, model training run: 4, query number: 84, accuracy: 0.9145
+INFO:root:Metric name: random, model training run: 4, query number: 85, accuracy: 0.9158
+INFO:root:Metric name: random, model training run: 4, query number: 86, accuracy: 0.9172
+INFO:root:Metric name: random, model training run: 4, query number: 87, accuracy: 0.9181
+INFO:root:Metric name: random, model training run: 4, query number: 88, accuracy: 0.9112
+INFO:root:Metric name: random, model training run: 4, query number: 89, accuracy: 0.9161
+INFO:root:Metric name: random, model training run: 4, query number: 90, accuracy: 0.9207
+INFO:root:Metric name: random, model training run: 4, query number: 91, accuracy: 0.9172
+INFO:root:Metric name: random, model training run: 4, query number: 92, accuracy: 0.9263
+INFO:root:Metric name: random, model training run: 4, query number: 93, accuracy: 0.9137
+INFO:root:Metric name: random, model training run: 4, query number: 94, accuracy: 0.9222
+INFO:root:Metric name: random, model training run: 4, query number: 95, accuracy: 0.9301
+INFO:root:Metric name: random, model training run: 4, query number: 96, accuracy: 0.9214
+INFO:root:Metric name: random, model training run: 4, query number: 97, accuracy: 0.9318
+INFO:root:Metric name: random, model training run: 4, query number: 98, accuracy: 0.9269
+INFO:root:Metric name: random, model training run: 4, query number: 99, accuracy: 0.9253
+INFO:root:Result: [array([   0,   10,   20,   30,   40,   50,   60,   70,   80,   90,  100,
+        110,  120,  130,  140,  150,  160,  170,  180,  190,  200,  210,
+        220,  230,  240,  250,  260,  270,  280,  290,  300,  310,  320,
+        330,  340,  350,  360,  370,  380,  390,  400,  410,  420,  430,
+        440,  450,  460,  470,  480,  490,  500,  510,  520,  530,  540,
+        550,  560,  570,  580,  590,  600,  610,  620,  630,  640,  650,
+        660,  670,  680,  690,  700,  710,  720,  730,  740,  750,  760,
+        770,  780,  790,  800,  810,  820,  830,  840,  850,  860,  870,
+        880,  890,  900,  910,  920,  930,  940,  950,  960,  970,  980,
+        990, 1000]), array([0.1433, 0.1737, 0.2333, 0.34  , 0.3101, 0.4684, 0.6266, 0.589 ,
+       0.6627, 0.7121, 0.691 , 0.6899, 0.682 , 0.6872, 0.6723, 0.6961,
+       0.7563, 0.7546, 0.7582, 0.7833, 0.7623, 0.78  , 0.7944, 0.7717,
+       0.796 , 0.7867, 0.7988, 0.746 , 0.775 , 0.7746, 0.8171, 0.7911,
+       0.7966, 0.8203, 0.8145, 0.8207, 0.8154, 0.8356, 0.8303, 0.8096,
+       0.8339, 0.8461, 0.8395, 0.842 , 0.8325, 0.8562, 0.8404, 0.8636,
+       0.8665, 0.8626, 0.8682, 0.8636, 0.8532, 0.8774, 0.8735, 0.866 ,
+       0.8763, 0.8875, 0.881 , 0.8797, 0.8656, 0.8829, 0.877 , 0.8822,
+       0.8796, 0.8682, 0.8897, 0.8911, 0.8948, 0.8959, 0.898 , 0.8759,
+       0.9042, 0.8947, 0.8982, 0.905 , 0.8984, 0.8852, 0.8983, 0.8945,
+       0.899 , 0.9032, 0.8935, 0.9095, 0.9043, 0.9   , 0.8971, 0.9018,
+       0.8927, 0.9078, 0.9005, 0.8994, 0.9038, 0.9027, 0.9058, 0.9093,
+       0.9148, 0.9127, 0.914 , 0.9094, 0.9169]), array([0.101 , 0.2606, 0.3549, 0.5021, 0.5181, 0.4705, 0.5027, 0.6294,
+       0.5827, 0.6096, 0.6229, 0.6809, 0.5966, 0.6966, 0.6693, 0.6976,
+       0.7411, 0.7198, 0.7537, 0.7667, 0.7894, 0.7816, 0.7688, 0.7979,
+       0.8024, 0.8235, 0.7791, 0.8019, 0.8399, 0.8319, 0.8281, 0.8455,
+       0.838 , 0.8595, 0.8488, 0.8498, 0.8635, 0.8535, 0.8502, 0.849 ,
+       0.8456, 0.8538, 0.872 , 0.8575, 0.8701, 0.875 , 0.8807, 0.8754,
+       0.8779, 0.8867, 0.8744, 0.881 , 0.8658, 0.872 , 0.8798, 0.8899,
+       0.8897, 0.8854, 0.8882, 0.8819, 0.8828, 0.8841, 0.8819, 0.8959,
+       0.8815, 0.8893, 0.8713, 0.8878, 0.8996, 0.9031, 0.9014, 0.907 ,
+       0.8985, 0.8933, 0.8976, 0.889 , 0.8928, 0.8979, 0.8976, 0.9035,
+       0.908 , 0.9074, 0.9046, 0.9075, 0.905 , 0.8985, 0.9015, 0.9014,
+       0.9123, 0.9024, 0.9126, 0.9111, 0.9149, 0.9064, 0.9142, 0.9134,
+       0.9095, 0.9224, 0.912 , 0.9094, 0.9166]), array([0.0984, 0.1312, 0.4135, 0.534 , 0.4876, 0.472 , 0.4842, 0.5034,
+       0.5769, 0.6287, 0.6375, 0.545 , 0.5806, 0.5649, 0.659 , 0.7385,
+       0.7714, 0.7681, 0.7593, 0.8007, 0.8012, 0.8057, 0.8072, 0.814 ,
+       0.7872, 0.824 , 0.7928, 0.8313, 0.8385, 0.8367, 0.8378, 0.8522,
+       0.8474, 0.855 , 0.8505, 0.8587, 0.8751, 0.8658, 0.843 , 0.8542,
+       0.8623, 0.8743, 0.8648, 0.8685, 0.8546, 0.868 , 0.8761, 0.8766,
+       0.882 , 0.8759, 0.8811, 0.8756, 0.8881, 0.8645, 0.8832, 0.8835,
+       0.8928, 0.8932, 0.8894, 0.9005, 0.8957, 0.9012, 0.8977, 0.8997,
+       0.9008, 0.8928, 0.8792, 0.9006, 0.8922, 0.9016, 0.9113, 0.909 ,
+       0.9064, 0.9137, 0.9072, 0.9077, 0.9045, 0.9056, 0.9111, 0.9123,
+       0.9167, 0.9149, 0.9225, 0.912 , 0.9176, 0.9111, 0.9036, 0.9134,
+       0.9155, 0.9232, 0.9124, 0.9197, 0.9208, 0.9138, 0.9218, 0.9135,
+       0.9231, 0.9166, 0.9111, 0.919 , 0.9149]), array([0.0793, 0.2373, 0.3647, 0.3928, 0.5383, 0.4619, 0.5453, 0.5937,
+       0.6121, 0.6076, 0.5168, 0.6535, 0.6769, 0.6424, 0.5451, 0.6483,
+       0.6682, 0.6519, 0.6766, 0.7197, 0.7077, 0.7196, 0.7644, 0.7678,
+       0.7405, 0.7696, 0.7595, 0.7777, 0.7929, 0.8088, 0.796 , 0.816 ,
+       0.8336, 0.8445, 0.8466, 0.8356, 0.8382, 0.8644, 0.843 , 0.8343,
+       0.8423, 0.8575, 0.8546, 0.8429, 0.8603, 0.859 , 0.8672, 0.8714,
+       0.8707, 0.8779, 0.8788, 0.8664, 0.8689, 0.8698, 0.8647, 0.8729,
+       0.8757, 0.8871, 0.8918, 0.8951, 0.8904, 0.8932, 0.8929, 0.8881,
+       0.8812, 0.8824, 0.8843, 0.8863, 0.8923, 0.8998, 0.8953, 0.8881,
+       0.9003, 0.8948, 0.8945, 0.9016, 0.8906, 0.8944, 0.8907, 0.899 ,
+       0.9053, 0.8997, 0.9067, 0.9072, 0.8989, 0.9084, 0.9083, 0.9034,
+       0.9046, 0.9078, 0.9072, 0.9041, 0.9116, 0.9107, 0.9088, 0.9085,
+       0.8962, 0.916 , 0.9113, 0.9085, 0.9117]), array([0.1143, 0.3207, 0.3287, 0.4152, 0.4352, 0.5207, 0.5466, 0.5377,
+       0.587 , 0.5483, 0.6759, 0.6557, 0.6707, 0.5969, 0.6702, 0.7524,
+       0.7267, 0.8049, 0.7974, 0.8082, 0.83  , 0.8395, 0.8225, 0.8208,
+       0.8384, 0.851 , 0.7912, 0.8406, 0.8252, 0.8466, 0.8561, 0.8451,
+       0.8585, 0.8598, 0.871 , 0.8757, 0.8675, 0.8736, 0.8727, 0.8518,
+       0.864 , 0.8655, 0.8766, 0.8786, 0.8832, 0.8688, 0.8847, 0.8848,
+       0.8914, 0.8895, 0.8864, 0.8873, 0.8887, 0.886 , 0.8909, 0.9052,
+       0.8963, 0.8935, 0.8982, 0.889 , 0.8955, 0.9039, 0.9038, 0.9009,
+       0.8955, 0.909 , 0.9051, 0.9   , 0.9026, 0.9049, 0.8972, 0.9053,
+       0.9108, 0.913 , 0.9029, 0.9121, 0.909 , 0.906 , 0.9074, 0.9116,
+       0.914 , 0.9122, 0.9076, 0.9116, 0.9169, 0.9145, 0.9158, 0.9172,
+       0.9181, 0.9112, 0.9161, 0.9207, 0.9172, 0.9263, 0.9137, 0.9222,
+       0.9301, 0.9214, 0.9318, 0.9269, 0.9253])]

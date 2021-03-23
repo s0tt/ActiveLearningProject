@@ -1,0 +1,590 @@
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: max_variation, model training run: 0, initial accuracy: 0.1433
+INFO:root:Metric name: max_variation, model training run: 0, query number: 0, accuracy: 0.1531
+INFO:root:Metric name: max_variation, model training run: 0, query number: 1, accuracy: 0.2723
+INFO:root:Metric name: max_variation, model training run: 0, query number: 2, accuracy: 0.3589
+INFO:root:Metric name: max_variation, model training run: 0, query number: 3, accuracy: 0.2584
+INFO:root:Metric name: max_variation, model training run: 0, query number: 4, accuracy: 0.274
+INFO:root:Metric name: max_variation, model training run: 0, query number: 5, accuracy: 0.2518
+INFO:root:Metric name: max_variation, model training run: 0, query number: 6, accuracy: 0.3287
+INFO:root:Metric name: max_variation, model training run: 0, query number: 7, accuracy: 0.3612
+INFO:root:Metric name: max_variation, model training run: 0, query number: 8, accuracy: 0.4
+INFO:root:Metric name: max_variation, model training run: 0, query number: 9, accuracy: 0.4263
+INFO:root:Metric name: max_variation, model training run: 0, query number: 10, accuracy: 0.4598
+INFO:root:Metric name: max_variation, model training run: 0, query number: 11, accuracy: 0.4709
+INFO:root:Metric name: max_variation, model training run: 0, query number: 12, accuracy: 0.3528
+INFO:root:Metric name: max_variation, model training run: 0, query number: 13, accuracy: 0.435
+INFO:root:Metric name: max_variation, model training run: 0, query number: 14, accuracy: 0.5613
+INFO:root:Metric name: max_variation, model training run: 0, query number: 15, accuracy: 0.6064
+INFO:root:Metric name: max_variation, model training run: 0, query number: 16, accuracy: 0.6079
+INFO:root:Metric name: max_variation, model training run: 0, query number: 17, accuracy: 0.6014
+INFO:root:Metric name: max_variation, model training run: 0, query number: 18, accuracy: 0.6256
+INFO:root:Metric name: max_variation, model training run: 0, query number: 19, accuracy: 0.6631
+INFO:root:Metric name: max_variation, model training run: 0, query number: 20, accuracy: 0.6342
+INFO:root:Metric name: max_variation, model training run: 0, query number: 21, accuracy: 0.6747
+INFO:root:Metric name: max_variation, model training run: 0, query number: 22, accuracy: 0.6757
+INFO:root:Metric name: max_variation, model training run: 0, query number: 23, accuracy: 0.6508
+INFO:root:Metric name: max_variation, model training run: 0, query number: 24, accuracy: 0.7165
+INFO:root:Metric name: max_variation, model training run: 0, query number: 25, accuracy: 0.6742
+INFO:root:Metric name: max_variation, model training run: 0, query number: 26, accuracy: 0.6282
+INFO:root:Metric name: max_variation, model training run: 0, query number: 27, accuracy: 0.6104
+INFO:root:Metric name: max_variation, model training run: 0, query number: 28, accuracy: 0.7178
+INFO:root:Metric name: max_variation, model training run: 0, query number: 29, accuracy: 0.7562
+INFO:root:Metric name: max_variation, model training run: 0, query number: 30, accuracy: 0.7296
+INFO:root:Metric name: max_variation, model training run: 0, query number: 31, accuracy: 0.7238
+INFO:root:Metric name: max_variation, model training run: 0, query number: 32, accuracy: 0.7229
+INFO:root:Metric name: max_variation, model training run: 0, query number: 33, accuracy: 0.7617
+INFO:root:Metric name: max_variation, model training run: 0, query number: 34, accuracy: 0.7593
+INFO:root:Metric name: max_variation, model training run: 0, query number: 35, accuracy: 0.7344
+INFO:root:Metric name: max_variation, model training run: 0, query number: 36, accuracy: 0.7605
+INFO:root:Metric name: max_variation, model training run: 0, query number: 37, accuracy: 0.7701
+INFO:root:Metric name: max_variation, model training run: 0, query number: 38, accuracy: 0.7471
+INFO:root:Metric name: max_variation, model training run: 0, query number: 39, accuracy: 0.7787
+INFO:root:Metric name: max_variation, model training run: 0, query number: 40, accuracy: 0.8211
+INFO:root:Metric name: max_variation, model training run: 0, query number: 41, accuracy: 0.7929
+INFO:root:Metric name: max_variation, model training run: 0, query number: 42, accuracy: 0.813
+INFO:root:Metric name: max_variation, model training run: 0, query number: 43, accuracy: 0.802
+INFO:root:Metric name: max_variation, model training run: 0, query number: 44, accuracy: 0.8338
+INFO:root:Metric name: max_variation, model training run: 0, query number: 45, accuracy: 0.8129
+INFO:root:Metric name: max_variation, model training run: 0, query number: 46, accuracy: 0.8368
+INFO:root:Metric name: max_variation, model training run: 0, query number: 47, accuracy: 0.8576
+INFO:root:Metric name: max_variation, model training run: 0, query number: 48, accuracy: 0.8225
+INFO:root:Metric name: max_variation, model training run: 0, query number: 49, accuracy: 0.851
+INFO:root:Metric name: max_variation, model training run: 0, query number: 50, accuracy: 0.8641
+INFO:root:Metric name: max_variation, model training run: 0, query number: 51, accuracy: 0.8779
+INFO:root:Metric name: max_variation, model training run: 0, query number: 52, accuracy: 0.8729
+INFO:root:Metric name: max_variation, model training run: 0, query number: 53, accuracy: 0.8551
+INFO:root:Metric name: max_variation, model training run: 0, query number: 54, accuracy: 0.886
+INFO:root:Metric name: max_variation, model training run: 0, query number: 55, accuracy: 0.8957
+INFO:root:Metric name: max_variation, model training run: 0, query number: 56, accuracy: 0.8753
+INFO:root:Metric name: max_variation, model training run: 0, query number: 57, accuracy: 0.8702
+INFO:root:Metric name: max_variation, model training run: 0, query number: 58, accuracy: 0.864
+INFO:root:Metric name: max_variation, model training run: 0, query number: 59, accuracy: 0.8656
+INFO:root:Metric name: max_variation, model training run: 0, query number: 60, accuracy: 0.9001
+INFO:root:Metric name: max_variation, model training run: 0, query number: 61, accuracy: 0.8979
+INFO:root:Metric name: max_variation, model training run: 0, query number: 62, accuracy: 0.8722
+INFO:root:Metric name: max_variation, model training run: 0, query number: 63, accuracy: 0.8766
+INFO:root:Metric name: max_variation, model training run: 0, query number: 64, accuracy: 0.8917
+INFO:root:Metric name: max_variation, model training run: 0, query number: 65, accuracy: 0.9047
+INFO:root:Metric name: max_variation, model training run: 0, query number: 66, accuracy: 0.9154
+INFO:root:Metric name: max_variation, model training run: 0, query number: 67, accuracy: 0.9002
+INFO:root:Metric name: max_variation, model training run: 0, query number: 68, accuracy: 0.9267
+INFO:root:Metric name: max_variation, model training run: 0, query number: 69, accuracy: 0.9086
+INFO:root:Metric name: max_variation, model training run: 0, query number: 70, accuracy: 0.9096
+INFO:root:Metric name: max_variation, model training run: 0, query number: 71, accuracy: 0.9212
+INFO:root:Metric name: max_variation, model training run: 0, query number: 72, accuracy: 0.9177
+INFO:root:Metric name: max_variation, model training run: 0, query number: 73, accuracy: 0.9226
+INFO:root:Metric name: max_variation, model training run: 0, query number: 74, accuracy: 0.904
+INFO:root:Metric name: max_variation, model training run: 0, query number: 75, accuracy: 0.9047
+INFO:root:Metric name: max_variation, model training run: 0, query number: 76, accuracy: 0.8767
+INFO:root:Metric name: max_variation, model training run: 0, query number: 77, accuracy: 0.8984
+INFO:root:Metric name: max_variation, model training run: 0, query number: 78, accuracy: 0.9014
+INFO:root:Metric name: max_variation, model training run: 0, query number: 79, accuracy: 0.922
+INFO:root:Metric name: max_variation, model training run: 0, query number: 80, accuracy: 0.9368
+INFO:root:Metric name: max_variation, model training run: 0, query number: 81, accuracy: 0.9202
+INFO:root:Metric name: max_variation, model training run: 0, query number: 82, accuracy: 0.939
+INFO:root:Metric name: max_variation, model training run: 0, query number: 83, accuracy: 0.9341
+INFO:root:Metric name: max_variation, model training run: 0, query number: 84, accuracy: 0.9336
+INFO:root:Metric name: max_variation, model training run: 0, query number: 85, accuracy: 0.9274
+INFO:root:Metric name: max_variation, model training run: 0, query number: 86, accuracy: 0.9353
+INFO:root:Metric name: max_variation, model training run: 0, query number: 87, accuracy: 0.9263
+INFO:root:Metric name: max_variation, model training run: 0, query number: 88, accuracy: 0.9436
+INFO:root:Metric name: max_variation, model training run: 0, query number: 89, accuracy: 0.9093
+INFO:root:Metric name: max_variation, model training run: 0, query number: 90, accuracy: 0.9206
+INFO:root:Metric name: max_variation, model training run: 0, query number: 91, accuracy: 0.937
+INFO:root:Metric name: max_variation, model training run: 0, query number: 92, accuracy: 0.9195
+INFO:root:Metric name: max_variation, model training run: 0, query number: 93, accuracy: 0.9224
+INFO:root:Metric name: max_variation, model training run: 0, query number: 94, accuracy: 0.9401
+INFO:root:Metric name: max_variation, model training run: 0, query number: 95, accuracy: 0.9458
+INFO:root:Metric name: max_variation, model training run: 0, query number: 96, accuracy: 0.9428
+INFO:root:Metric name: max_variation, model training run: 0, query number: 97, accuracy: 0.9481
+INFO:root:Metric name: max_variation, model training run: 0, query number: 98, accuracy: 0.9468
+INFO:root:Metric name: max_variation, model training run: 0, query number: 99, accuracy: 0.9463
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: max_variation, model training run: 1, initial accuracy: 0.101
+INFO:root:Metric name: max_variation, model training run: 1, query number: 0, accuracy: 0.179
+INFO:root:Metric name: max_variation, model training run: 1, query number: 1, accuracy: 0.1539
+INFO:root:Metric name: max_variation, model training run: 1, query number: 2, accuracy: 0.376
+INFO:root:Metric name: max_variation, model training run: 1, query number: 3, accuracy: 0.4018
+INFO:root:Metric name: max_variation, model training run: 1, query number: 4, accuracy: 0.3331
+INFO:root:Metric name: max_variation, model training run: 1, query number: 5, accuracy: 0.4152
+INFO:root:Metric name: max_variation, model training run: 1, query number: 6, accuracy: 0.4385
+INFO:root:Metric name: max_variation, model training run: 1, query number: 7, accuracy: 0.4195
+INFO:root:Metric name: max_variation, model training run: 1, query number: 8, accuracy: 0.4578
+INFO:root:Metric name: max_variation, model training run: 1, query number: 9, accuracy: 0.4808
+INFO:root:Metric name: max_variation, model training run: 1, query number: 10, accuracy: 0.5012
+INFO:root:Metric name: max_variation, model training run: 1, query number: 11, accuracy: 0.5157
+INFO:root:Metric name: max_variation, model training run: 1, query number: 12, accuracy: 0.5659
+INFO:root:Metric name: max_variation, model training run: 1, query number: 13, accuracy: 0.4668
+INFO:root:Metric name: max_variation, model training run: 1, query number: 14, accuracy: 0.6151
+INFO:root:Metric name: max_variation, model training run: 1, query number: 15, accuracy: 0.615
+INFO:root:Metric name: max_variation, model training run: 1, query number: 16, accuracy: 0.6204
+INFO:root:Metric name: max_variation, model training run: 1, query number: 17, accuracy: 0.6738
+INFO:root:Metric name: max_variation, model training run: 1, query number: 18, accuracy: 0.7235
+INFO:root:Metric name: max_variation, model training run: 1, query number: 19, accuracy: 0.7335
+INFO:root:Metric name: max_variation, model training run: 1, query number: 20, accuracy: 0.7838
+INFO:root:Metric name: max_variation, model training run: 1, query number: 21, accuracy: 0.7551
+INFO:root:Metric name: max_variation, model training run: 1, query number: 22, accuracy: 0.7763
+INFO:root:Metric name: max_variation, model training run: 1, query number: 23, accuracy: 0.7706
+INFO:root:Metric name: max_variation, model training run: 1, query number: 24, accuracy: 0.8045
+INFO:root:Metric name: max_variation, model training run: 1, query number: 25, accuracy: 0.4559
+INFO:root:Metric name: max_variation, model training run: 1, query number: 26, accuracy: 0.6541
+INFO:root:Metric name: max_variation, model training run: 1, query number: 27, accuracy: 0.7613
+INFO:root:Metric name: max_variation, model training run: 1, query number: 28, accuracy: 0.7788
+INFO:root:Metric name: max_variation, model training run: 1, query number: 29, accuracy: 0.8015
+INFO:root:Metric name: max_variation, model training run: 1, query number: 30, accuracy: 0.7966
+INFO:root:Metric name: max_variation, model training run: 1, query number: 31, accuracy: 0.8176
+INFO:root:Metric name: max_variation, model training run: 1, query number: 32, accuracy: 0.8147
+INFO:root:Metric name: max_variation, model training run: 1, query number: 33, accuracy: 0.8305
+INFO:root:Metric name: max_variation, model training run: 1, query number: 34, accuracy: 0.8287
+INFO:root:Metric name: max_variation, model training run: 1, query number: 35, accuracy: 0.8337
+INFO:root:Metric name: max_variation, model training run: 1, query number: 36, accuracy: 0.8384
+INFO:root:Metric name: max_variation, model training run: 1, query number: 37, accuracy: 0.8386
+INFO:root:Metric name: max_variation, model training run: 1, query number: 38, accuracy: 0.7904
+INFO:root:Metric name: max_variation, model training run: 1, query number: 39, accuracy: 0.807
+INFO:root:Metric name: max_variation, model training run: 1, query number: 40, accuracy: 0.7967
+INFO:root:Metric name: max_variation, model training run: 1, query number: 41, accuracy: 0.8562
+INFO:root:Metric name: max_variation, model training run: 1, query number: 42, accuracy: 0.8459
+INFO:root:Metric name: max_variation, model training run: 1, query number: 43, accuracy: 0.8555
+INFO:root:Metric name: max_variation, model training run: 1, query number: 44, accuracy: 0.824
+INFO:root:Metric name: max_variation, model training run: 1, query number: 45, accuracy: 0.8664
+INFO:root:Metric name: max_variation, model training run: 1, query number: 46, accuracy: 0.8607
+INFO:root:Metric name: max_variation, model training run: 1, query number: 47, accuracy: 0.8705
+INFO:root:Metric name: max_variation, model training run: 1, query number: 48, accuracy: 0.8756
+INFO:root:Metric name: max_variation, model training run: 1, query number: 49, accuracy: 0.8635
+INFO:root:Metric name: max_variation, model training run: 1, query number: 50, accuracy: 0.8804
+INFO:root:Metric name: max_variation, model training run: 1, query number: 51, accuracy: 0.8742
+INFO:root:Metric name: max_variation, model training run: 1, query number: 52, accuracy: 0.8481
+INFO:root:Metric name: max_variation, model training run: 1, query number: 53, accuracy: 0.8615
+INFO:root:Metric name: max_variation, model training run: 1, query number: 54, accuracy: 0.8351
+INFO:root:Metric name: max_variation, model training run: 1, query number: 55, accuracy: 0.8943
+INFO:root:Metric name: max_variation, model training run: 1, query number: 56, accuracy: 0.8961
+INFO:root:Metric name: max_variation, model training run: 1, query number: 57, accuracy: 0.8603
+INFO:root:Metric name: max_variation, model training run: 1, query number: 58, accuracy: 0.8926
+INFO:root:Metric name: max_variation, model training run: 1, query number: 59, accuracy: 0.8629
+INFO:root:Metric name: max_variation, model training run: 1, query number: 60, accuracy: 0.8799
+INFO:root:Metric name: max_variation, model training run: 1, query number: 61, accuracy: 0.8718
+INFO:root:Metric name: max_variation, model training run: 1, query number: 62, accuracy: 0.9032
+INFO:root:Metric name: max_variation, model training run: 1, query number: 63, accuracy: 0.8834
+INFO:root:Metric name: max_variation, model training run: 1, query number: 64, accuracy: 0.8516
+INFO:root:Metric name: max_variation, model training run: 1, query number: 65, accuracy: 0.8896
+INFO:root:Metric name: max_variation, model training run: 1, query number: 66, accuracy: 0.8802
+INFO:root:Metric name: max_variation, model training run: 1, query number: 67, accuracy: 0.9147
+INFO:root:Metric name: max_variation, model training run: 1, query number: 68, accuracy: 0.9101
+INFO:root:Metric name: max_variation, model training run: 1, query number: 69, accuracy: 0.9096
+INFO:root:Metric name: max_variation, model training run: 1, query number: 70, accuracy: 0.9181
+INFO:root:Metric name: max_variation, model training run: 1, query number: 71, accuracy: 0.9097
+INFO:root:Metric name: max_variation, model training run: 1, query number: 72, accuracy: 0.9161
+INFO:root:Metric name: max_variation, model training run: 1, query number: 73, accuracy: 0.9168
+INFO:root:Metric name: max_variation, model training run: 1, query number: 74, accuracy: 0.8985
+INFO:root:Metric name: max_variation, model training run: 1, query number: 75, accuracy: 0.9275
+INFO:root:Metric name: max_variation, model training run: 1, query number: 76, accuracy: 0.9136
+INFO:root:Metric name: max_variation, model training run: 1, query number: 77, accuracy: 0.921
+INFO:root:Metric name: max_variation, model training run: 1, query number: 78, accuracy: 0.926
+INFO:root:Metric name: max_variation, model training run: 1, query number: 79, accuracy: 0.9179
+INFO:root:Metric name: max_variation, model training run: 1, query number: 80, accuracy: 0.9408
+INFO:root:Metric name: max_variation, model training run: 1, query number: 81, accuracy: 0.9246
+INFO:root:Metric name: max_variation, model training run: 1, query number: 82, accuracy: 0.9285
+INFO:root:Metric name: max_variation, model training run: 1, query number: 83, accuracy: 0.9257
+INFO:root:Metric name: max_variation, model training run: 1, query number: 84, accuracy: 0.9157
+INFO:root:Metric name: max_variation, model training run: 1, query number: 85, accuracy: 0.9417
+INFO:root:Metric name: max_variation, model training run: 1, query number: 86, accuracy: 0.9122
+INFO:root:Metric name: max_variation, model training run: 1, query number: 87, accuracy: 0.9428
+INFO:root:Metric name: max_variation, model training run: 1, query number: 88, accuracy: 0.9255
+INFO:root:Metric name: max_variation, model training run: 1, query number: 89, accuracy: 0.9339
+INFO:root:Metric name: max_variation, model training run: 1, query number: 90, accuracy: 0.9273
+INFO:root:Metric name: max_variation, model training run: 1, query number: 91, accuracy: 0.9427
+INFO:root:Metric name: max_variation, model training run: 1, query number: 92, accuracy: 0.9315
+INFO:root:Metric name: max_variation, model training run: 1, query number: 93, accuracy: 0.9488
+INFO:root:Metric name: max_variation, model training run: 1, query number: 94, accuracy: 0.947
+INFO:root:Metric name: max_variation, model training run: 1, query number: 95, accuracy: 0.9375
+INFO:root:Metric name: max_variation, model training run: 1, query number: 96, accuracy: 0.9467
+INFO:root:Metric name: max_variation, model training run: 1, query number: 97, accuracy: 0.9515
+INFO:root:Metric name: max_variation, model training run: 1, query number: 98, accuracy: 0.9379
+INFO:root:Metric name: max_variation, model training run: 1, query number: 99, accuracy: 0.946
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: max_variation, model training run: 2, initial accuracy: 0.0984
+INFO:root:Metric name: max_variation, model training run: 2, query number: 0, accuracy: 0.1009
+INFO:root:Metric name: max_variation, model training run: 2, query number: 1, accuracy: 0.2442
+INFO:root:Metric name: max_variation, model training run: 2, query number: 2, accuracy: 0.2447
+INFO:root:Metric name: max_variation, model training run: 2, query number: 3, accuracy: 0.3198
+INFO:root:Metric name: max_variation, model training run: 2, query number: 4, accuracy: 0.3955
+INFO:root:Metric name: max_variation, model training run: 2, query number: 5, accuracy: 0.3532
+INFO:root:Metric name: max_variation, model training run: 2, query number: 6, accuracy: 0.3837
+INFO:root:Metric name: max_variation, model training run: 2, query number: 7, accuracy: 0.3915
+INFO:root:Metric name: max_variation, model training run: 2, query number: 8, accuracy: 0.4512
+INFO:root:Metric name: max_variation, model training run: 2, query number: 9, accuracy: 0.4962
+INFO:root:Metric name: max_variation, model training run: 2, query number: 10, accuracy: 0.4902
+INFO:root:Metric name: max_variation, model training run: 2, query number: 11, accuracy: 0.5687
+INFO:root:Metric name: max_variation, model training run: 2, query number: 12, accuracy: 0.2481
+INFO:root:Metric name: max_variation, model training run: 2, query number: 13, accuracy: 0.5017
+INFO:root:Metric name: max_variation, model training run: 2, query number: 14, accuracy: 0.5354
+INFO:root:Metric name: max_variation, model training run: 2, query number: 15, accuracy: 0.5089
+INFO:root:Metric name: max_variation, model training run: 2, query number: 16, accuracy: 0.5456
+INFO:root:Metric name: max_variation, model training run: 2, query number: 17, accuracy: 0.5521
+INFO:root:Metric name: max_variation, model training run: 2, query number: 18, accuracy: 0.6088
+INFO:root:Metric name: max_variation, model training run: 2, query number: 19, accuracy: 0.6456
+INFO:root:Metric name: max_variation, model training run: 2, query number: 20, accuracy: 0.617
+INFO:root:Metric name: max_variation, model training run: 2, query number: 21, accuracy: 0.6089
+INFO:root:Metric name: max_variation, model training run: 2, query number: 22, accuracy: 0.6497
+INFO:root:Metric name: max_variation, model training run: 2, query number: 23, accuracy: 0.6476
+INFO:root:Metric name: max_variation, model training run: 2, query number: 24, accuracy: 0.7019
+INFO:root:Metric name: max_variation, model training run: 2, query number: 25, accuracy: 0.5505
+INFO:root:Metric name: max_variation, model training run: 2, query number: 26, accuracy: 0.6561
+INFO:root:Metric name: max_variation, model training run: 2, query number: 27, accuracy: 0.6843
+INFO:root:Metric name: max_variation, model training run: 2, query number: 28, accuracy: 0.7056
+INFO:root:Metric name: max_variation, model training run: 2, query number: 29, accuracy: 0.719
+INFO:root:Metric name: max_variation, model training run: 2, query number: 30, accuracy: 0.7202
+INFO:root:Metric name: max_variation, model training run: 2, query number: 31, accuracy: 0.7206
+INFO:root:Metric name: max_variation, model training run: 2, query number: 32, accuracy: 0.7344
+INFO:root:Metric name: max_variation, model training run: 2, query number: 33, accuracy: 0.7412
+INFO:root:Metric name: max_variation, model training run: 2, query number: 34, accuracy: 0.7513
+INFO:root:Metric name: max_variation, model training run: 2, query number: 35, accuracy: 0.7688
+INFO:root:Metric name: max_variation, model training run: 2, query number: 36, accuracy: 0.7554
+INFO:root:Metric name: max_variation, model training run: 2, query number: 37, accuracy: 0.7489
+INFO:root:Metric name: max_variation, model training run: 2, query number: 38, accuracy: 0.725
+INFO:root:Metric name: max_variation, model training run: 2, query number: 39, accuracy: 0.7533
+INFO:root:Metric name: max_variation, model training run: 2, query number: 40, accuracy: 0.7952
+INFO:root:Metric name: max_variation, model training run: 2, query number: 41, accuracy: 0.7647
+INFO:root:Metric name: max_variation, model training run: 2, query number: 42, accuracy: 0.7975
+INFO:root:Metric name: max_variation, model training run: 2, query number: 43, accuracy: 0.776
+INFO:root:Metric name: max_variation, model training run: 2, query number: 44, accuracy: 0.8299
+INFO:root:Metric name: max_variation, model training run: 2, query number: 45, accuracy: 0.8295
+INFO:root:Metric name: max_variation, model training run: 2, query number: 46, accuracy: 0.835
+INFO:root:Metric name: max_variation, model training run: 2, query number: 47, accuracy: 0.821
+INFO:root:Metric name: max_variation, model training run: 2, query number: 48, accuracy: 0.8302
+INFO:root:Metric name: max_variation, model training run: 2, query number: 49, accuracy: 0.8162
+INFO:root:Metric name: max_variation, model training run: 2, query number: 50, accuracy: 0.7984
+INFO:root:Metric name: max_variation, model training run: 2, query number: 51, accuracy: 0.8333
+INFO:root:Metric name: max_variation, model training run: 2, query number: 52, accuracy: 0.8135
+INFO:root:Metric name: max_variation, model training run: 2, query number: 53, accuracy: 0.8439
+INFO:root:Metric name: max_variation, model training run: 2, query number: 54, accuracy: 0.7909
+INFO:root:Metric name: max_variation, model training run: 2, query number: 55, accuracy: 0.8008
+INFO:root:Metric name: max_variation, model training run: 2, query number: 56, accuracy: 0.8496
+INFO:root:Metric name: max_variation, model training run: 2, query number: 57, accuracy: 0.8276
+INFO:root:Metric name: max_variation, model training run: 2, query number: 58, accuracy: 0.854
+INFO:root:Metric name: max_variation, model training run: 2, query number: 59, accuracy: 0.8424
+INFO:root:Metric name: max_variation, model training run: 2, query number: 60, accuracy: 0.864
+INFO:root:Metric name: max_variation, model training run: 2, query number: 61, accuracy: 0.8635
+INFO:root:Metric name: max_variation, model training run: 2, query number: 62, accuracy: 0.851
+INFO:root:Metric name: max_variation, model training run: 2, query number: 63, accuracy: 0.8624
+INFO:root:Metric name: max_variation, model training run: 2, query number: 64, accuracy: 0.848
+INFO:root:Metric name: max_variation, model training run: 2, query number: 65, accuracy: 0.8594
+INFO:root:Metric name: max_variation, model training run: 2, query number: 66, accuracy: 0.8824
+INFO:root:Metric name: max_variation, model training run: 2, query number: 67, accuracy: 0.8623
+INFO:root:Metric name: max_variation, model training run: 2, query number: 68, accuracy: 0.875
+INFO:root:Metric name: max_variation, model training run: 2, query number: 69, accuracy: 0.9161
+INFO:root:Metric name: max_variation, model training run: 2, query number: 70, accuracy: 0.9116
+INFO:root:Metric name: max_variation, model training run: 2, query number: 71, accuracy: 0.8994
+INFO:root:Metric name: max_variation, model training run: 2, query number: 72, accuracy: 0.9161
+INFO:root:Metric name: max_variation, model training run: 2, query number: 73, accuracy: 0.9057
+INFO:root:Metric name: max_variation, model training run: 2, query number: 74, accuracy: 0.9139
+INFO:root:Metric name: max_variation, model training run: 2, query number: 75, accuracy: 0.8925
+INFO:root:Metric name: max_variation, model training run: 2, query number: 76, accuracy: 0.8627
+INFO:root:Metric name: max_variation, model training run: 2, query number: 77, accuracy: 0.9043
+INFO:root:Metric name: max_variation, model training run: 2, query number: 78, accuracy: 0.9322
+INFO:root:Metric name: max_variation, model training run: 2, query number: 79, accuracy: 0.9248
+INFO:root:Metric name: max_variation, model training run: 2, query number: 80, accuracy: 0.9133
+INFO:root:Metric name: max_variation, model training run: 2, query number: 81, accuracy: 0.9334
+INFO:root:Metric name: max_variation, model training run: 2, query number: 82, accuracy: 0.9365
+INFO:root:Metric name: max_variation, model training run: 2, query number: 83, accuracy: 0.9369
+INFO:root:Metric name: max_variation, model training run: 2, query number: 84, accuracy: 0.9329
+INFO:root:Metric name: max_variation, model training run: 2, query number: 85, accuracy: 0.901
+INFO:root:Metric name: max_variation, model training run: 2, query number: 86, accuracy: 0.9123
+INFO:root:Metric name: max_variation, model training run: 2, query number: 87, accuracy: 0.9117
+INFO:root:Metric name: max_variation, model training run: 2, query number: 88, accuracy: 0.9472
+INFO:root:Metric name: max_variation, model training run: 2, query number: 89, accuracy: 0.9063
+INFO:root:Metric name: max_variation, model training run: 2, query number: 90, accuracy: 0.938
+INFO:root:Metric name: max_variation, model training run: 2, query number: 91, accuracy: 0.9512
+INFO:root:Metric name: max_variation, model training run: 2, query number: 92, accuracy: 0.9358
+INFO:root:Metric name: max_variation, model training run: 2, query number: 93, accuracy: 0.95
+INFO:root:Metric name: max_variation, model training run: 2, query number: 94, accuracy: 0.942
+INFO:root:Metric name: max_variation, model training run: 2, query number: 95, accuracy: 0.9454
+INFO:root:Metric name: max_variation, model training run: 2, query number: 96, accuracy: 0.9484
+INFO:root:Metric name: max_variation, model training run: 2, query number: 97, accuracy: 0.9479
+INFO:root:Metric name: max_variation, model training run: 2, query number: 98, accuracy: 0.9368
+INFO:root:Metric name: max_variation, model training run: 2, query number: 99, accuracy: 0.9396
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: max_variation, model training run: 3, initial accuracy: 0.0793
+INFO:root:Metric name: max_variation, model training run: 3, query number: 0, accuracy: 0.1383
+INFO:root:Metric name: max_variation, model training run: 3, query number: 1, accuracy: 0.219
+INFO:root:Metric name: max_variation, model training run: 3, query number: 2, accuracy: 0.2444
+INFO:root:Metric name: max_variation, model training run: 3, query number: 3, accuracy: 0.2468
+INFO:root:Metric name: max_variation, model training run: 3, query number: 4, accuracy: 0.2462
+INFO:root:Metric name: max_variation, model training run: 3, query number: 5, accuracy: 0.3189
+INFO:root:Metric name: max_variation, model training run: 3, query number: 6, accuracy: 0.4071
+INFO:root:Metric name: max_variation, model training run: 3, query number: 7, accuracy: 0.3501
+INFO:root:Metric name: max_variation, model training run: 3, query number: 8, accuracy: 0.3925
+INFO:root:Metric name: max_variation, model training run: 3, query number: 9, accuracy: 0.4456
+INFO:root:Metric name: max_variation, model training run: 3, query number: 10, accuracy: 0.4475
+INFO:root:Metric name: max_variation, model training run: 3, query number: 11, accuracy: 0.4909
+INFO:root:Metric name: max_variation, model training run: 3, query number: 12, accuracy: 0.5205
+INFO:root:Metric name: max_variation, model training run: 3, query number: 13, accuracy: 0.3954
+INFO:root:Metric name: max_variation, model training run: 3, query number: 14, accuracy: 0.5738
+INFO:root:Metric name: max_variation, model training run: 3, query number: 15, accuracy: 0.6166
+INFO:root:Metric name: max_variation, model training run: 3, query number: 16, accuracy: 0.5868
+INFO:root:Metric name: max_variation, model training run: 3, query number: 17, accuracy: 0.6391
+INFO:root:Metric name: max_variation, model training run: 3, query number: 18, accuracy: 0.6551
+INFO:root:Metric name: max_variation, model training run: 3, query number: 19, accuracy: 0.6418
+INFO:root:Metric name: max_variation, model training run: 3, query number: 20, accuracy: 0.6721
+INFO:root:Metric name: max_variation, model training run: 3, query number: 21, accuracy: 0.6956
+INFO:root:Metric name: max_variation, model training run: 3, query number: 22, accuracy: 0.6776
+INFO:root:Metric name: max_variation, model training run: 3, query number: 23, accuracy: 0.6106
+INFO:root:Metric name: max_variation, model training run: 3, query number: 24, accuracy: 0.6419
+INFO:root:Metric name: max_variation, model training run: 3, query number: 25, accuracy: 0.5313
+INFO:root:Metric name: max_variation, model training run: 3, query number: 26, accuracy: 0.6923
+INFO:root:Metric name: max_variation, model training run: 3, query number: 27, accuracy: 0.7281
+INFO:root:Metric name: max_variation, model training run: 3, query number: 28, accuracy: 0.7667
+INFO:root:Metric name: max_variation, model training run: 3, query number: 29, accuracy: 0.7666
+INFO:root:Metric name: max_variation, model training run: 3, query number: 30, accuracy: 0.7407
+INFO:root:Metric name: max_variation, model training run: 3, query number: 31, accuracy: 0.7605
+INFO:root:Metric name: max_variation, model training run: 3, query number: 32, accuracy: 0.7727
+INFO:root:Metric name: max_variation, model training run: 3, query number: 33, accuracy: 0.7799
+INFO:root:Metric name: max_variation, model training run: 3, query number: 34, accuracy: 0.796
+INFO:root:Metric name: max_variation, model training run: 3, query number: 35, accuracy: 0.784
+INFO:root:Metric name: max_variation, model training run: 3, query number: 36, accuracy: 0.8305
+INFO:root:Metric name: max_variation, model training run: 3, query number: 37, accuracy: 0.7956
+INFO:root:Metric name: max_variation, model training run: 3, query number: 38, accuracy: 0.7838
+INFO:root:Metric name: max_variation, model training run: 3, query number: 39, accuracy: 0.8147
+INFO:root:Metric name: max_variation, model training run: 3, query number: 40, accuracy: 0.7892
+INFO:root:Metric name: max_variation, model training run: 3, query number: 41, accuracy: 0.7887
+INFO:root:Metric name: max_variation, model training run: 3, query number: 42, accuracy: 0.8118
+INFO:root:Metric name: max_variation, model training run: 3, query number: 43, accuracy: 0.8192
+INFO:root:Metric name: max_variation, model training run: 3, query number: 44, accuracy: 0.8387
+INFO:root:Metric name: max_variation, model training run: 3, query number: 45, accuracy: 0.8607
+INFO:root:Metric name: max_variation, model training run: 3, query number: 46, accuracy: 0.8525
+INFO:root:Metric name: max_variation, model training run: 3, query number: 47, accuracy: 0.849
+INFO:root:Metric name: max_variation, model training run: 3, query number: 48, accuracy: 0.8285
+INFO:root:Metric name: max_variation, model training run: 3, query number: 49, accuracy: 0.8521
+INFO:root:Metric name: max_variation, model training run: 3, query number: 50, accuracy: 0.8121
+INFO:root:Metric name: max_variation, model training run: 3, query number: 51, accuracy: 0.8466
+INFO:root:Metric name: max_variation, model training run: 3, query number: 52, accuracy: 0.8439
+INFO:root:Metric name: max_variation, model training run: 3, query number: 53, accuracy: 0.8082
+INFO:root:Metric name: max_variation, model training run: 3, query number: 54, accuracy: 0.8537
+INFO:root:Metric name: max_variation, model training run: 3, query number: 55, accuracy: 0.8717
+INFO:root:Metric name: max_variation, model training run: 3, query number: 56, accuracy: 0.871
+INFO:root:Metric name: max_variation, model training run: 3, query number: 57, accuracy: 0.8751
+INFO:root:Metric name: max_variation, model training run: 3, query number: 58, accuracy: 0.8928
+INFO:root:Metric name: max_variation, model training run: 3, query number: 59, accuracy: 0.8611
+INFO:root:Metric name: max_variation, model training run: 3, query number: 60, accuracy: 0.8957
+INFO:root:Metric name: max_variation, model training run: 3, query number: 61, accuracy: 0.8743
+INFO:root:Metric name: max_variation, model training run: 3, query number: 62, accuracy: 0.8882
+INFO:root:Metric name: max_variation, model training run: 3, query number: 63, accuracy: 0.8288
+INFO:root:Metric name: max_variation, model training run: 3, query number: 64, accuracy: 0.8221
+INFO:root:Metric name: max_variation, model training run: 3, query number: 65, accuracy: 0.8877
+INFO:root:Metric name: max_variation, model training run: 3, query number: 66, accuracy: 0.8984
+INFO:root:Metric name: max_variation, model training run: 3, query number: 67, accuracy: 0.9035
+INFO:root:Metric name: max_variation, model training run: 3, query number: 68, accuracy: 0.8926
+INFO:root:Metric name: max_variation, model training run: 3, query number: 69, accuracy: 0.9063
+INFO:root:Metric name: max_variation, model training run: 3, query number: 70, accuracy: 0.9125
+INFO:root:Metric name: max_variation, model training run: 3, query number: 71, accuracy: 0.8919
+INFO:root:Metric name: max_variation, model training run: 3, query number: 72, accuracy: 0.9059
+INFO:root:Metric name: max_variation, model training run: 3, query number: 73, accuracy: 0.9058
+INFO:root:Metric name: max_variation, model training run: 3, query number: 74, accuracy: 0.9117
+INFO:root:Metric name: max_variation, model training run: 3, query number: 75, accuracy: 0.9157
+INFO:root:Metric name: max_variation, model training run: 3, query number: 76, accuracy: 0.9255
+INFO:root:Metric name: max_variation, model training run: 3, query number: 77, accuracy: 0.8836
+INFO:root:Metric name: max_variation, model training run: 3, query number: 78, accuracy: 0.9268
+INFO:root:Metric name: max_variation, model training run: 3, query number: 79, accuracy: 0.9215
+INFO:root:Metric name: max_variation, model training run: 3, query number: 80, accuracy: 0.9211
+INFO:root:Metric name: max_variation, model training run: 3, query number: 81, accuracy: 0.9093
+INFO:root:Metric name: max_variation, model training run: 3, query number: 82, accuracy: 0.9289
+INFO:root:Metric name: max_variation, model training run: 3, query number: 83, accuracy: 0.9114
+INFO:root:Metric name: max_variation, model training run: 3, query number: 84, accuracy: 0.9382
+INFO:root:Metric name: max_variation, model training run: 3, query number: 85, accuracy: 0.937
+INFO:root:Metric name: max_variation, model training run: 3, query number: 86, accuracy: 0.9265
+INFO:root:Metric name: max_variation, model training run: 3, query number: 87, accuracy: 0.9351
+INFO:root:Metric name: max_variation, model training run: 3, query number: 88, accuracy: 0.924
+INFO:root:Metric name: max_variation, model training run: 3, query number: 89, accuracy: 0.9257
+INFO:root:Metric name: max_variation, model training run: 3, query number: 90, accuracy: 0.9159
+INFO:root:Metric name: max_variation, model training run: 3, query number: 91, accuracy: 0.9388
+INFO:root:Metric name: max_variation, model training run: 3, query number: 92, accuracy: 0.9368
+INFO:root:Metric name: max_variation, model training run: 3, query number: 93, accuracy: 0.921
+INFO:root:Metric name: max_variation, model training run: 3, query number: 94, accuracy: 0.9426
+INFO:root:Metric name: max_variation, model training run: 3, query number: 95, accuracy: 0.9469
+INFO:root:Metric name: max_variation, model training run: 3, query number: 96, accuracy: 0.949
+INFO:root:Metric name: max_variation, model training run: 3, query number: 97, accuracy: 0.946
+INFO:root:Metric name: max_variation, model training run: 3, query number: 98, accuracy: 0.9371
+INFO:root:Metric name: max_variation, model training run: 3, query number: 99, accuracy: 0.9454
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: max_variation, model training run: 4, initial accuracy: 0.1143
+INFO:root:Metric name: max_variation, model training run: 4, query number: 0, accuracy: 0.1469
+INFO:root:Metric name: max_variation, model training run: 4, query number: 1, accuracy: 0.2079
+INFO:root:Metric name: max_variation, model training run: 4, query number: 2, accuracy: 0.2931
+INFO:root:Metric name: max_variation, model training run: 4, query number: 3, accuracy: 0.4055
+INFO:root:Metric name: max_variation, model training run: 4, query number: 4, accuracy: 0.4103
+INFO:root:Metric name: max_variation, model training run: 4, query number: 5, accuracy: 0.4351
+INFO:root:Metric name: max_variation, model training run: 4, query number: 6, accuracy: 0.4441
+INFO:root:Metric name: max_variation, model training run: 4, query number: 7, accuracy: 0.5136
+INFO:root:Metric name: max_variation, model training run: 4, query number: 8, accuracy: 0.495
+INFO:root:Metric name: max_variation, model training run: 4, query number: 9, accuracy: 0.6239
+INFO:root:Metric name: max_variation, model training run: 4, query number: 10, accuracy: 0.5868
+INFO:root:Metric name: max_variation, model training run: 4, query number: 11, accuracy: 0.5999
+INFO:root:Metric name: max_variation, model training run: 4, query number: 12, accuracy: 0.5685
+INFO:root:Metric name: max_variation, model training run: 4, query number: 13, accuracy: 0.3168
+INFO:root:Metric name: max_variation, model training run: 4, query number: 14, accuracy: 0.5098
+INFO:root:Metric name: max_variation, model training run: 4, query number: 15, accuracy: 0.5153
+INFO:root:Metric name: max_variation, model training run: 4, query number: 16, accuracy: 0.6063
+INFO:root:Metric name: max_variation, model training run: 4, query number: 17, accuracy: 0.6723
+INFO:root:Metric name: max_variation, model training run: 4, query number: 18, accuracy: 0.6933
+INFO:root:Metric name: max_variation, model training run: 4, query number: 19, accuracy: 0.762
+INFO:root:Metric name: max_variation, model training run: 4, query number: 20, accuracy: 0.7312
+INFO:root:Metric name: max_variation, model training run: 4, query number: 21, accuracy: 0.7975
+INFO:root:Metric name: max_variation, model training run: 4, query number: 22, accuracy: 0.7634
+INFO:root:Metric name: max_variation, model training run: 4, query number: 23, accuracy: 0.7615
+INFO:root:Metric name: max_variation, model training run: 4, query number: 24, accuracy: 0.8013
+INFO:root:Metric name: max_variation, model training run: 4, query number: 25, accuracy: 0.6727
+INFO:root:Metric name: max_variation, model training run: 4, query number: 26, accuracy: 0.7456
+INFO:root:Metric name: max_variation, model training run: 4, query number: 27, accuracy: 0.7338
+INFO:root:Metric name: max_variation, model training run: 4, query number: 28, accuracy: 0.7843
+INFO:root:Metric name: max_variation, model training run: 4, query number: 29, accuracy: 0.8225
+INFO:root:Metric name: max_variation, model training run: 4, query number: 30, accuracy: 0.7989
+INFO:root:Metric name: max_variation, model training run: 4, query number: 31, accuracy: 0.8146
+INFO:root:Metric name: max_variation, model training run: 4, query number: 32, accuracy: 0.7913
+INFO:root:Metric name: max_variation, model training run: 4, query number: 33, accuracy: 0.8225
+INFO:root:Metric name: max_variation, model training run: 4, query number: 34, accuracy: 0.8122
+INFO:root:Metric name: max_variation, model training run: 4, query number: 35, accuracy: 0.8115
+INFO:root:Metric name: max_variation, model training run: 4, query number: 36, accuracy: 0.8624
+INFO:root:Metric name: max_variation, model training run: 4, query number: 37, accuracy: 0.8074
+INFO:root:Metric name: max_variation, model training run: 4, query number: 38, accuracy: 0.7394
+INFO:root:Metric name: max_variation, model training run: 4, query number: 39, accuracy: 0.7845
+INFO:root:Metric name: max_variation, model training run: 4, query number: 40, accuracy: 0.7912
+INFO:root:Metric name: max_variation, model training run: 4, query number: 41, accuracy: 0.8283
+INFO:root:Metric name: max_variation, model training run: 4, query number: 42, accuracy: 0.8439
+INFO:root:Metric name: max_variation, model training run: 4, query number: 43, accuracy: 0.8547
+INFO:root:Metric name: max_variation, model training run: 4, query number: 44, accuracy: 0.8099
+INFO:root:Metric name: max_variation, model training run: 4, query number: 45, accuracy: 0.8543
+INFO:root:Metric name: max_variation, model training run: 4, query number: 46, accuracy: 0.8495
+INFO:root:Metric name: max_variation, model training run: 4, query number: 47, accuracy: 0.8364
+INFO:root:Metric name: max_variation, model training run: 4, query number: 48, accuracy: 0.8585
+INFO:root:Metric name: max_variation, model training run: 4, query number: 49, accuracy: 0.8633
+INFO:root:Metric name: max_variation, model training run: 4, query number: 50, accuracy: 0.828
+INFO:root:Metric name: max_variation, model training run: 4, query number: 51, accuracy: 0.8413
+INFO:root:Metric name: max_variation, model training run: 4, query number: 52, accuracy: 0.831
+INFO:root:Metric name: max_variation, model training run: 4, query number: 53, accuracy: 0.8213
+INFO:root:Metric name: max_variation, model training run: 4, query number: 54, accuracy: 0.8801
+INFO:root:Metric name: max_variation, model training run: 4, query number: 55, accuracy: 0.8533
+INFO:root:Metric name: max_variation, model training run: 4, query number: 56, accuracy: 0.8517
+INFO:root:Metric name: max_variation, model training run: 4, query number: 57, accuracy: 0.8679
+INFO:root:Metric name: max_variation, model training run: 4, query number: 58, accuracy: 0.8618
+INFO:root:Metric name: max_variation, model training run: 4, query number: 59, accuracy: 0.8869
+INFO:root:Metric name: max_variation, model training run: 4, query number: 60, accuracy: 0.9027
+INFO:root:Metric name: max_variation, model training run: 4, query number: 61, accuracy: 0.8904
+INFO:root:Metric name: max_variation, model training run: 4, query number: 62, accuracy: 0.8882
+INFO:root:Metric name: max_variation, model training run: 4, query number: 63, accuracy: 0.8757
+INFO:root:Metric name: max_variation, model training run: 4, query number: 64, accuracy: 0.8905
+INFO:root:Metric name: max_variation, model training run: 4, query number: 65, accuracy: 0.874
+INFO:root:Metric name: max_variation, model training run: 4, query number: 66, accuracy: 0.8992
+INFO:root:Metric name: max_variation, model training run: 4, query number: 67, accuracy: 0.9126
+INFO:root:Metric name: max_variation, model training run: 4, query number: 68, accuracy: 0.8977
+INFO:root:Metric name: max_variation, model training run: 4, query number: 69, accuracy: 0.9092
+INFO:root:Metric name: max_variation, model training run: 4, query number: 70, accuracy: 0.9272
+INFO:root:Metric name: max_variation, model training run: 4, query number: 71, accuracy: 0.9363
+INFO:root:Metric name: max_variation, model training run: 4, query number: 72, accuracy: 0.9306
+INFO:root:Metric name: max_variation, model training run: 4, query number: 73, accuracy: 0.9072
+INFO:root:Metric name: max_variation, model training run: 4, query number: 74, accuracy: 0.9266
+INFO:root:Metric name: max_variation, model training run: 4, query number: 75, accuracy: 0.9176
+INFO:root:Metric name: max_variation, model training run: 4, query number: 76, accuracy: 0.883
+INFO:root:Metric name: max_variation, model training run: 4, query number: 77, accuracy: 0.9133
+INFO:root:Metric name: max_variation, model training run: 4, query number: 78, accuracy: 0.9037
+INFO:root:Metric name: max_variation, model training run: 4, query number: 79, accuracy: 0.9138
+INFO:root:Metric name: max_variation, model training run: 4, query number: 80, accuracy: 0.8922
+INFO:root:Metric name: max_variation, model training run: 4, query number: 81, accuracy: 0.9389
+INFO:root:Metric name: max_variation, model training run: 4, query number: 82, accuracy: 0.9387
+INFO:root:Metric name: max_variation, model training run: 4, query number: 83, accuracy: 0.9225
+INFO:root:Metric name: max_variation, model training run: 4, query number: 84, accuracy: 0.9334
+INFO:root:Metric name: max_variation, model training run: 4, query number: 85, accuracy: 0.9321
+INFO:root:Metric name: max_variation, model training run: 4, query number: 86, accuracy: 0.9352
+INFO:root:Metric name: max_variation, model training run: 4, query number: 87, accuracy: 0.9251
+INFO:root:Metric name: max_variation, model training run: 4, query number: 88, accuracy: 0.9376
+INFO:root:Metric name: max_variation, model training run: 4, query number: 89, accuracy: 0.9257
+INFO:root:Metric name: max_variation, model training run: 4, query number: 90, accuracy: 0.9413
+INFO:root:Metric name: max_variation, model training run: 4, query number: 91, accuracy: 0.9358
+INFO:root:Metric name: max_variation, model training run: 4, query number: 92, accuracy: 0.9389
+INFO:root:Metric name: max_variation, model training run: 4, query number: 93, accuracy: 0.9405
+INFO:root:Metric name: max_variation, model training run: 4, query number: 94, accuracy: 0.9398
+INFO:root:Metric name: max_variation, model training run: 4, query number: 95, accuracy: 0.9438
+INFO:root:Metric name: max_variation, model training run: 4, query number: 96, accuracy: 0.9389
+INFO:root:Metric name: max_variation, model training run: 4, query number: 97, accuracy: 0.9506
+INFO:root:Metric name: max_variation, model training run: 4, query number: 98, accuracy: 0.9461
+INFO:root:Metric name: max_variation, model training run: 4, query number: 99, accuracy: 0.948
+INFO:root:Result: [array([   0,   10,   20,   30,   40,   50,   60,   70,   80,   90,  100,
+        110,  120,  130,  140,  150,  160,  170,  180,  190,  200,  210,
+        220,  230,  240,  250,  260,  270,  280,  290,  300,  310,  320,
+        330,  340,  350,  360,  370,  380,  390,  400,  410,  420,  430,
+        440,  450,  460,  470,  480,  490,  500,  510,  520,  530,  540,
+        550,  560,  570,  580,  590,  600,  610,  620,  630,  640,  650,
+        660,  670,  680,  690,  700,  710,  720,  730,  740,  750,  760,
+        770,  780,  790,  800,  810,  820,  830,  840,  850,  860,  870,
+        880,  890,  900,  910,  920,  930,  940,  950,  960,  970,  980,
+        990, 1000]), array([0.1433, 0.1531, 0.2723, 0.3589, 0.2584, 0.274 , 0.2518, 0.3287,
+       0.3612, 0.4   , 0.4263, 0.4598, 0.4709, 0.3528, 0.435 , 0.5613,
+       0.6064, 0.6079, 0.6014, 0.6256, 0.6631, 0.6342, 0.6747, 0.6757,
+       0.6508, 0.7165, 0.6742, 0.6282, 0.6104, 0.7178, 0.7562, 0.7296,
+       0.7238, 0.7229, 0.7617, 0.7593, 0.7344, 0.7605, 0.7701, 0.7471,
+       0.7787, 0.8211, 0.7929, 0.813 , 0.802 , 0.8338, 0.8129, 0.8368,
+       0.8576, 0.8225, 0.851 , 0.8641, 0.8779, 0.8729, 0.8551, 0.886 ,
+       0.8957, 0.8753, 0.8702, 0.864 , 0.8656, 0.9001, 0.8979, 0.8722,
+       0.8766, 0.8917, 0.9047, 0.9154, 0.9002, 0.9267, 0.9086, 0.9096,
+       0.9212, 0.9177, 0.9226, 0.904 , 0.9047, 0.8767, 0.8984, 0.9014,
+       0.922 , 0.9368, 0.9202, 0.939 , 0.9341, 0.9336, 0.9274, 0.9353,
+       0.9263, 0.9436, 0.9093, 0.9206, 0.937 , 0.9195, 0.9224, 0.9401,
+       0.9458, 0.9428, 0.9481, 0.9468, 0.9463]), array([0.101 , 0.179 , 0.1539, 0.376 , 0.4018, 0.3331, 0.4152, 0.4385,
+       0.4195, 0.4578, 0.4808, 0.5012, 0.5157, 0.5659, 0.4668, 0.6151,
+       0.615 , 0.6204, 0.6738, 0.7235, 0.7335, 0.7838, 0.7551, 0.7763,
+       0.7706, 0.8045, 0.4559, 0.6541, 0.7613, 0.7788, 0.8015, 0.7966,
+       0.8176, 0.8147, 0.8305, 0.8287, 0.8337, 0.8384, 0.8386, 0.7904,
+       0.807 , 0.7967, 0.8562, 0.8459, 0.8555, 0.824 , 0.8664, 0.8607,
+       0.8705, 0.8756, 0.8635, 0.8804, 0.8742, 0.8481, 0.8615, 0.8351,
+       0.8943, 0.8961, 0.8603, 0.8926, 0.8629, 0.8799, 0.8718, 0.9032,
+       0.8834, 0.8516, 0.8896, 0.8802, 0.9147, 0.9101, 0.9096, 0.9181,
+       0.9097, 0.9161, 0.9168, 0.8985, 0.9275, 0.9136, 0.921 , 0.926 ,
+       0.9179, 0.9408, 0.9246, 0.9285, 0.9257, 0.9157, 0.9417, 0.9122,
+       0.9428, 0.9255, 0.9339, 0.9273, 0.9427, 0.9315, 0.9488, 0.947 ,
+       0.9375, 0.9467, 0.9515, 0.9379, 0.946 ]), array([0.0984, 0.1009, 0.2442, 0.2447, 0.3198, 0.3955, 0.3532, 0.3837,
+       0.3915, 0.4512, 0.4962, 0.4902, 0.5687, 0.2481, 0.5017, 0.5354,
+       0.5089, 0.5456, 0.5521, 0.6088, 0.6456, 0.617 , 0.6089, 0.6497,
+       0.6476, 0.7019, 0.5505, 0.6561, 0.6843, 0.7056, 0.719 , 0.7202,
+       0.7206, 0.7344, 0.7412, 0.7513, 0.7688, 0.7554, 0.7489, 0.725 ,
+       0.7533, 0.7952, 0.7647, 0.7975, 0.776 , 0.8299, 0.8295, 0.835 ,
+       0.821 , 0.8302, 0.8162, 0.7984, 0.8333, 0.8135, 0.8439, 0.7909,
+       0.8008, 0.8496, 0.8276, 0.854 , 0.8424, 0.864 , 0.8635, 0.851 ,
+       0.8624, 0.848 , 0.8594, 0.8824, 0.8623, 0.875 , 0.9161, 0.9116,
+       0.8994, 0.9161, 0.9057, 0.9139, 0.8925, 0.8627, 0.9043, 0.9322,
+       0.9248, 0.9133, 0.9334, 0.9365, 0.9369, 0.9329, 0.901 , 0.9123,
+       0.9117, 0.9472, 0.9063, 0.938 , 0.9512, 0.9358, 0.95  , 0.942 ,
+       0.9454, 0.9484, 0.9479, 0.9368, 0.9396]), array([0.0793, 0.1383, 0.219 , 0.2444, 0.2468, 0.2462, 0.3189, 0.4071,
+       0.3501, 0.3925, 0.4456, 0.4475, 0.4909, 0.5205, 0.3954, 0.5738,
+       0.6166, 0.5868, 0.6391, 0.6551, 0.6418, 0.6721, 0.6956, 0.6776,
+       0.6106, 0.6419, 0.5313, 0.6923, 0.7281, 0.7667, 0.7666, 0.7407,
+       0.7605, 0.7727, 0.7799, 0.796 , 0.784 , 0.8305, 0.7956, 0.7838,
+       0.8147, 0.7892, 0.7887, 0.8118, 0.8192, 0.8387, 0.8607, 0.8525,
+       0.849 , 0.8285, 0.8521, 0.8121, 0.8466, 0.8439, 0.8082, 0.8537,
+       0.8717, 0.871 , 0.8751, 0.8928, 0.8611, 0.8957, 0.8743, 0.8882,
+       0.8288, 0.8221, 0.8877, 0.8984, 0.9035, 0.8926, 0.9063, 0.9125,
+       0.8919, 0.9059, 0.9058, 0.9117, 0.9157, 0.9255, 0.8836, 0.9268,
+       0.9215, 0.9211, 0.9093, 0.9289, 0.9114, 0.9382, 0.937 , 0.9265,
+       0.9351, 0.924 , 0.9257, 0.9159, 0.9388, 0.9368, 0.921 , 0.9426,
+       0.9469, 0.949 , 0.946 , 0.9371, 0.9454]), array([0.1143, 0.1469, 0.2079, 0.2931, 0.4055, 0.4103, 0.4351, 0.4441,
+       0.5136, 0.495 , 0.6239, 0.5868, 0.5999, 0.5685, 0.3168, 0.5098,
+       0.5153, 0.6063, 0.6723, 0.6933, 0.762 , 0.7312, 0.7975, 0.7634,
+       0.7615, 0.8013, 0.6727, 0.7456, 0.7338, 0.7843, 0.8225, 0.7989,
+       0.8146, 0.7913, 0.8225, 0.8122, 0.8115, 0.8624, 0.8074, 0.7394,
+       0.7845, 0.7912, 0.8283, 0.8439, 0.8547, 0.8099, 0.8543, 0.8495,
+       0.8364, 0.8585, 0.8633, 0.828 , 0.8413, 0.831 , 0.8213, 0.8801,
+       0.8533, 0.8517, 0.8679, 0.8618, 0.8869, 0.9027, 0.8904, 0.8882,
+       0.8757, 0.8905, 0.874 , 0.8992, 0.9126, 0.8977, 0.9092, 0.9272,
+       0.9363, 0.9306, 0.9072, 0.9266, 0.9176, 0.883 , 0.9133, 0.9037,
+       0.9138, 0.8922, 0.9389, 0.9387, 0.9225, 0.9334, 0.9321, 0.9352,
+       0.9251, 0.9376, 0.9257, 0.9413, 0.9358, 0.9389, 0.9405, 0.9398,
+       0.9438, 0.9389, 0.9506, 0.9461, 0.948 ])]

@@ -1,0 +1,590 @@
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: bald, model training run: 0, initial accuracy: 0.1433
+INFO:root:Metric name: bald, model training run: 0, query number: 0, accuracy: 0.2549
+INFO:root:Metric name: bald, model training run: 0, query number: 1, accuracy: 0.2139
+INFO:root:Metric name: bald, model training run: 0, query number: 2, accuracy: 0.2664
+INFO:root:Metric name: bald, model training run: 0, query number: 3, accuracy: 0.2422
+INFO:root:Metric name: bald, model training run: 0, query number: 4, accuracy: 0.2725
+INFO:root:Metric name: bald, model training run: 0, query number: 5, accuracy: 0.3219
+INFO:root:Metric name: bald, model training run: 0, query number: 6, accuracy: 0.3557
+INFO:root:Metric name: bald, model training run: 0, query number: 7, accuracy: 0.3623
+INFO:root:Metric name: bald, model training run: 0, query number: 8, accuracy: 0.3702
+INFO:root:Metric name: bald, model training run: 0, query number: 9, accuracy: 0.3644
+INFO:root:Metric name: bald, model training run: 0, query number: 10, accuracy: 0.3713
+INFO:root:Metric name: bald, model training run: 0, query number: 11, accuracy: 0.3653
+INFO:root:Metric name: bald, model training run: 0, query number: 12, accuracy: 0.2952
+INFO:root:Metric name: bald, model training run: 0, query number: 13, accuracy: 0.4163
+INFO:root:Metric name: bald, model training run: 0, query number: 14, accuracy: 0.4025
+INFO:root:Metric name: bald, model training run: 0, query number: 15, accuracy: 0.4119
+INFO:root:Metric name: bald, model training run: 0, query number: 16, accuracy: 0.4152
+INFO:root:Metric name: bald, model training run: 0, query number: 17, accuracy: 0.4586
+INFO:root:Metric name: bald, model training run: 0, query number: 18, accuracy: 0.468
+INFO:root:Metric name: bald, model training run: 0, query number: 19, accuracy: 0.4527
+INFO:root:Metric name: bald, model training run: 0, query number: 20, accuracy: 0.4429
+INFO:root:Metric name: bald, model training run: 0, query number: 21, accuracy: 0.4837
+INFO:root:Metric name: bald, model training run: 0, query number: 22, accuracy: 0.4874
+INFO:root:Metric name: bald, model training run: 0, query number: 23, accuracy: 0.4781
+INFO:root:Metric name: bald, model training run: 0, query number: 24, accuracy: 0.4677
+INFO:root:Metric name: bald, model training run: 0, query number: 25, accuracy: 0.5171
+INFO:root:Metric name: bald, model training run: 0, query number: 26, accuracy: 0.4421
+INFO:root:Metric name: bald, model training run: 0, query number: 27, accuracy: 0.446
+INFO:root:Metric name: bald, model training run: 0, query number: 28, accuracy: 0.4562
+INFO:root:Metric name: bald, model training run: 0, query number: 29, accuracy: 0.4801
+INFO:root:Metric name: bald, model training run: 0, query number: 30, accuracy: 0.4847
+INFO:root:Metric name: bald, model training run: 0, query number: 31, accuracy: 0.4879
+INFO:root:Metric name: bald, model training run: 0, query number: 32, accuracy: 0.5037
+INFO:root:Metric name: bald, model training run: 0, query number: 33, accuracy: 0.5103
+INFO:root:Metric name: bald, model training run: 0, query number: 34, accuracy: 0.5275
+INFO:root:Metric name: bald, model training run: 0, query number: 35, accuracy: 0.4995
+INFO:root:Metric name: bald, model training run: 0, query number: 36, accuracy: 0.5234
+INFO:root:Metric name: bald, model training run: 0, query number: 37, accuracy: 0.5242
+INFO:root:Metric name: bald, model training run: 0, query number: 38, accuracy: 0.5249
+INFO:root:Metric name: bald, model training run: 0, query number: 39, accuracy: 0.5602
+INFO:root:Metric name: bald, model training run: 0, query number: 40, accuracy: 0.5798
+INFO:root:Metric name: bald, model training run: 0, query number: 41, accuracy: 0.5589
+INFO:root:Metric name: bald, model training run: 0, query number: 42, accuracy: 0.5559
+INFO:root:Metric name: bald, model training run: 0, query number: 43, accuracy: 0.5456
+INFO:root:Metric name: bald, model training run: 0, query number: 44, accuracy: 0.5848
+INFO:root:Metric name: bald, model training run: 0, query number: 45, accuracy: 0.5787
+INFO:root:Metric name: bald, model training run: 0, query number: 46, accuracy: 0.5381
+INFO:root:Metric name: bald, model training run: 0, query number: 47, accuracy: 0.5693
+INFO:root:Metric name: bald, model training run: 0, query number: 48, accuracy: 0.5911
+INFO:root:Metric name: bald, model training run: 0, query number: 49, accuracy: 0.5952
+INFO:root:Metric name: bald, model training run: 0, query number: 50, accuracy: 0.6158
+INFO:root:Metric name: bald, model training run: 0, query number: 51, accuracy: 0.6567
+INFO:root:Metric name: bald, model training run: 0, query number: 52, accuracy: 0.6409
+INFO:root:Metric name: bald, model training run: 0, query number: 53, accuracy: 0.6555
+INFO:root:Metric name: bald, model training run: 0, query number: 54, accuracy: 0.665
+INFO:root:Metric name: bald, model training run: 0, query number: 55, accuracy: 0.68
+INFO:root:Metric name: bald, model training run: 0, query number: 56, accuracy: 0.6897
+INFO:root:Metric name: bald, model training run: 0, query number: 57, accuracy: 0.6496
+INFO:root:Metric name: bald, model training run: 0, query number: 58, accuracy: 0.6528
+INFO:root:Metric name: bald, model training run: 0, query number: 59, accuracy: 0.6456
+INFO:root:Metric name: bald, model training run: 0, query number: 60, accuracy: 0.6642
+INFO:root:Metric name: bald, model training run: 0, query number: 61, accuracy: 0.6767
+INFO:root:Metric name: bald, model training run: 0, query number: 62, accuracy: 0.6371
+INFO:root:Metric name: bald, model training run: 0, query number: 63, accuracy: 0.6633
+INFO:root:Metric name: bald, model training run: 0, query number: 64, accuracy: 0.6577
+INFO:root:Metric name: bald, model training run: 0, query number: 65, accuracy: 0.677
+INFO:root:Metric name: bald, model training run: 0, query number: 66, accuracy: 0.7012
+INFO:root:Metric name: bald, model training run: 0, query number: 67, accuracy: 0.6798
+INFO:root:Metric name: bald, model training run: 0, query number: 68, accuracy: 0.7136
+INFO:root:Metric name: bald, model training run: 0, query number: 69, accuracy: 0.6669
+INFO:root:Metric name: bald, model training run: 0, query number: 70, accuracy: 0.6491
+INFO:root:Metric name: bald, model training run: 0, query number: 71, accuracy: 0.6858
+INFO:root:Metric name: bald, model training run: 0, query number: 72, accuracy: 0.6977
+INFO:root:Metric name: bald, model training run: 0, query number: 73, accuracy: 0.7227
+INFO:root:Metric name: bald, model training run: 0, query number: 74, accuracy: 0.7216
+INFO:root:Metric name: bald, model training run: 0, query number: 75, accuracy: 0.7055
+INFO:root:Metric name: bald, model training run: 0, query number: 76, accuracy: 0.6663
+INFO:root:Metric name: bald, model training run: 0, query number: 77, accuracy: 0.7056
+INFO:root:Metric name: bald, model training run: 0, query number: 78, accuracy: 0.7043
+INFO:root:Metric name: bald, model training run: 0, query number: 79, accuracy: 0.7338
+INFO:root:Metric name: bald, model training run: 0, query number: 80, accuracy: 0.745
+INFO:root:Metric name: bald, model training run: 0, query number: 81, accuracy: 0.7161
+INFO:root:Metric name: bald, model training run: 0, query number: 82, accuracy: 0.7595
+INFO:root:Metric name: bald, model training run: 0, query number: 83, accuracy: 0.7526
+INFO:root:Metric name: bald, model training run: 0, query number: 84, accuracy: 0.7157
+INFO:root:Metric name: bald, model training run: 0, query number: 85, accuracy: 0.7211
+INFO:root:Metric name: bald, model training run: 0, query number: 86, accuracy: 0.7436
+INFO:root:Metric name: bald, model training run: 0, query number: 87, accuracy: 0.7067
+INFO:root:Metric name: bald, model training run: 0, query number: 88, accuracy: 0.7503
+INFO:root:Metric name: bald, model training run: 0, query number: 89, accuracy: 0.7389
+INFO:root:Metric name: bald, model training run: 0, query number: 90, accuracy: 0.7402
+INFO:root:Metric name: bald, model training run: 0, query number: 91, accuracy: 0.7574
+INFO:root:Metric name: bald, model training run: 0, query number: 92, accuracy: 0.7704
+INFO:root:Metric name: bald, model training run: 0, query number: 93, accuracy: 0.7708
+INFO:root:Metric name: bald, model training run: 0, query number: 94, accuracy: 0.7776
+INFO:root:Metric name: bald, model training run: 0, query number: 95, accuracy: 0.7851
+INFO:root:Metric name: bald, model training run: 0, query number: 96, accuracy: 0.7801
+INFO:root:Metric name: bald, model training run: 0, query number: 97, accuracy: 0.793
+INFO:root:Metric name: bald, model training run: 0, query number: 98, accuracy: 0.7851
+INFO:root:Metric name: bald, model training run: 0, query number: 99, accuracy: 0.7872
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: bald, model training run: 1, initial accuracy: 0.101
+INFO:root:Metric name: bald, model training run: 1, query number: 0, accuracy: 0.2574
+INFO:root:Metric name: bald, model training run: 1, query number: 1, accuracy: 0.2385
+INFO:root:Metric name: bald, model training run: 1, query number: 2, accuracy: 0.2952
+INFO:root:Metric name: bald, model training run: 1, query number: 3, accuracy: 0.2929
+INFO:root:Metric name: bald, model training run: 1, query number: 4, accuracy: 0.2973
+INFO:root:Metric name: bald, model training run: 1, query number: 5, accuracy: 0.3136
+INFO:root:Metric name: bald, model training run: 1, query number: 6, accuracy: 0.3231
+INFO:root:Metric name: bald, model training run: 1, query number: 7, accuracy: 0.2954
+INFO:root:Metric name: bald, model training run: 1, query number: 8, accuracy: 0.3406
+INFO:root:Metric name: bald, model training run: 1, query number: 9, accuracy: 0.3561
+INFO:root:Metric name: bald, model training run: 1, query number: 10, accuracy: 0.3381
+INFO:root:Metric name: bald, model training run: 1, query number: 11, accuracy: 0.3222
+INFO:root:Metric name: bald, model training run: 1, query number: 12, accuracy: 0.2945
+INFO:root:Metric name: bald, model training run: 1, query number: 13, accuracy: 0.3262
+INFO:root:Metric name: bald, model training run: 1, query number: 14, accuracy: 0.3564
+INFO:root:Metric name: bald, model training run: 1, query number: 15, accuracy: 0.3759
+INFO:root:Metric name: bald, model training run: 1, query number: 16, accuracy: 0.3822
+INFO:root:Metric name: bald, model training run: 1, query number: 17, accuracy: 0.4366
+INFO:root:Metric name: bald, model training run: 1, query number: 18, accuracy: 0.4786
+INFO:root:Metric name: bald, model training run: 1, query number: 19, accuracy: 0.4529
+INFO:root:Metric name: bald, model training run: 1, query number: 20, accuracy: 0.4754
+INFO:root:Metric name: bald, model training run: 1, query number: 21, accuracy: 0.4637
+INFO:root:Metric name: bald, model training run: 1, query number: 22, accuracy: 0.4566
+INFO:root:Metric name: bald, model training run: 1, query number: 23, accuracy: 0.4559
+INFO:root:Metric name: bald, model training run: 1, query number: 24, accuracy: 0.4896
+INFO:root:Metric name: bald, model training run: 1, query number: 25, accuracy: 0.397
+INFO:root:Metric name: bald, model training run: 1, query number: 26, accuracy: 0.4803
+INFO:root:Metric name: bald, model training run: 1, query number: 27, accuracy: 0.4858
+INFO:root:Metric name: bald, model training run: 1, query number: 28, accuracy: 0.4982
+INFO:root:Metric name: bald, model training run: 1, query number: 29, accuracy: 0.5366
+INFO:root:Metric name: bald, model training run: 1, query number: 30, accuracy: 0.5195
+INFO:root:Metric name: bald, model training run: 1, query number: 31, accuracy: 0.519
+INFO:root:Metric name: bald, model training run: 1, query number: 32, accuracy: 0.5382
+INFO:root:Metric name: bald, model training run: 1, query number: 33, accuracy: 0.5037
+INFO:root:Metric name: bald, model training run: 1, query number: 34, accuracy: 0.5463
+INFO:root:Metric name: bald, model training run: 1, query number: 35, accuracy: 0.5571
+INFO:root:Metric name: bald, model training run: 1, query number: 36, accuracy: 0.5603
+INFO:root:Metric name: bald, model training run: 1, query number: 37, accuracy: 0.5523
+INFO:root:Metric name: bald, model training run: 1, query number: 38, accuracy: 0.6013
+INFO:root:Metric name: bald, model training run: 1, query number: 39, accuracy: 0.5896
+INFO:root:Metric name: bald, model training run: 1, query number: 40, accuracy: 0.5403
+INFO:root:Metric name: bald, model training run: 1, query number: 41, accuracy: 0.588
+INFO:root:Metric name: bald, model training run: 1, query number: 42, accuracy: 0.6213
+INFO:root:Metric name: bald, model training run: 1, query number: 43, accuracy: 0.6063
+INFO:root:Metric name: bald, model training run: 1, query number: 44, accuracy: 0.6021
+INFO:root:Metric name: bald, model training run: 1, query number: 45, accuracy: 0.6073
+INFO:root:Metric name: bald, model training run: 1, query number: 46, accuracy: 0.5832
+INFO:root:Metric name: bald, model training run: 1, query number: 47, accuracy: 0.6167
+INFO:root:Metric name: bald, model training run: 1, query number: 48, accuracy: 0.6215
+INFO:root:Metric name: bald, model training run: 1, query number: 49, accuracy: 0.6104
+INFO:root:Metric name: bald, model training run: 1, query number: 50, accuracy: 0.612
+INFO:root:Metric name: bald, model training run: 1, query number: 51, accuracy: 0.5664
+INFO:root:Metric name: bald, model training run: 1, query number: 52, accuracy: 0.5538
+INFO:root:Metric name: bald, model training run: 1, query number: 53, accuracy: 0.5797
+INFO:root:Metric name: bald, model training run: 1, query number: 54, accuracy: 0.6318
+INFO:root:Metric name: bald, model training run: 1, query number: 55, accuracy: 0.6529
+INFO:root:Metric name: bald, model training run: 1, query number: 56, accuracy: 0.6205
+INFO:root:Metric name: bald, model training run: 1, query number: 57, accuracy: 0.6292
+INFO:root:Metric name: bald, model training run: 1, query number: 58, accuracy: 0.6281
+INFO:root:Metric name: bald, model training run: 1, query number: 59, accuracy: 0.645
+INFO:root:Metric name: bald, model training run: 1, query number: 60, accuracy: 0.6715
+INFO:root:Metric name: bald, model training run: 1, query number: 61, accuracy: 0.6437
+INFO:root:Metric name: bald, model training run: 1, query number: 62, accuracy: 0.6556
+INFO:root:Metric name: bald, model training run: 1, query number: 63, accuracy: 0.6618
+INFO:root:Metric name: bald, model training run: 1, query number: 64, accuracy: 0.7014
+INFO:root:Metric name: bald, model training run: 1, query number: 65, accuracy: 0.6708
+INFO:root:Metric name: bald, model training run: 1, query number: 66, accuracy: 0.6599
+INFO:root:Metric name: bald, model training run: 1, query number: 67, accuracy: 0.7336
+INFO:root:Metric name: bald, model training run: 1, query number: 68, accuracy: 0.6928
+INFO:root:Metric name: bald, model training run: 1, query number: 69, accuracy: 0.7251
+INFO:root:Metric name: bald, model training run: 1, query number: 70, accuracy: 0.7458
+INFO:root:Metric name: bald, model training run: 1, query number: 71, accuracy: 0.718
+INFO:root:Metric name: bald, model training run: 1, query number: 72, accuracy: 0.7304
+INFO:root:Metric name: bald, model training run: 1, query number: 73, accuracy: 0.7145
+INFO:root:Metric name: bald, model training run: 1, query number: 74, accuracy: 0.7099
+INFO:root:Metric name: bald, model training run: 1, query number: 75, accuracy: 0.7324
+INFO:root:Metric name: bald, model training run: 1, query number: 76, accuracy: 0.6989
+INFO:root:Metric name: bald, model training run: 1, query number: 77, accuracy: 0.6769
+INFO:root:Metric name: bald, model training run: 1, query number: 78, accuracy: 0.7526
+INFO:root:Metric name: bald, model training run: 1, query number: 79, accuracy: 0.7269
+INFO:root:Metric name: bald, model training run: 1, query number: 80, accuracy: 0.7442
+INFO:root:Metric name: bald, model training run: 1, query number: 81, accuracy: 0.7318
+INFO:root:Metric name: bald, model training run: 1, query number: 82, accuracy: 0.744
+INFO:root:Metric name: bald, model training run: 1, query number: 83, accuracy: 0.7407
+INFO:root:Metric name: bald, model training run: 1, query number: 84, accuracy: 0.7172
+INFO:root:Metric name: bald, model training run: 1, query number: 85, accuracy: 0.7456
+INFO:root:Metric name: bald, model training run: 1, query number: 86, accuracy: 0.732
+INFO:root:Metric name: bald, model training run: 1, query number: 87, accuracy: 0.7525
+INFO:root:Metric name: bald, model training run: 1, query number: 88, accuracy: 0.6971
+INFO:root:Metric name: bald, model training run: 1, query number: 89, accuracy: 0.747
+INFO:root:Metric name: bald, model training run: 1, query number: 90, accuracy: 0.7049
+INFO:root:Metric name: bald, model training run: 1, query number: 91, accuracy: 0.7544
+INFO:root:Metric name: bald, model training run: 1, query number: 92, accuracy: 0.7609
+INFO:root:Metric name: bald, model training run: 1, query number: 93, accuracy: 0.7637
+INFO:root:Metric name: bald, model training run: 1, query number: 94, accuracy: 0.7608
+INFO:root:Metric name: bald, model training run: 1, query number: 95, accuracy: 0.7267
+INFO:root:Metric name: bald, model training run: 1, query number: 96, accuracy: 0.7905
+INFO:root:Metric name: bald, model training run: 1, query number: 97, accuracy: 0.7616
+INFO:root:Metric name: bald, model training run: 1, query number: 98, accuracy: 0.753
+INFO:root:Metric name: bald, model training run: 1, query number: 99, accuracy: 0.7738
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: bald, model training run: 2, initial accuracy: 0.0984
+INFO:root:Metric name: bald, model training run: 2, query number: 0, accuracy: 0.1032
+INFO:root:Metric name: bald, model training run: 2, query number: 1, accuracy: 0.2323
+INFO:root:Metric name: bald, model training run: 2, query number: 2, accuracy: 0.2231
+INFO:root:Metric name: bald, model training run: 2, query number: 3, accuracy: 0.2523
+INFO:root:Metric name: bald, model training run: 2, query number: 4, accuracy: 0.2638
+INFO:root:Metric name: bald, model training run: 2, query number: 5, accuracy: 0.2837
+INFO:root:Metric name: bald, model training run: 2, query number: 6, accuracy: 0.3038
+INFO:root:Metric name: bald, model training run: 2, query number: 7, accuracy: 0.2995
+INFO:root:Metric name: bald, model training run: 2, query number: 8, accuracy: 0.307
+INFO:root:Metric name: bald, model training run: 2, query number: 9, accuracy: 0.2743
+INFO:root:Metric name: bald, model training run: 2, query number: 10, accuracy: 0.3114
+INFO:root:Metric name: bald, model training run: 2, query number: 11, accuracy: 0.266
+INFO:root:Metric name: bald, model training run: 2, query number: 12, accuracy: 0.3026
+INFO:root:Metric name: bald, model training run: 2, query number: 13, accuracy: 0.3234
+INFO:root:Metric name: bald, model training run: 2, query number: 14, accuracy: 0.312
+INFO:root:Metric name: bald, model training run: 2, query number: 15, accuracy: 0.3624
+INFO:root:Metric name: bald, model training run: 2, query number: 16, accuracy: 0.3884
+INFO:root:Metric name: bald, model training run: 2, query number: 17, accuracy: 0.4236
+INFO:root:Metric name: bald, model training run: 2, query number: 18, accuracy: 0.427
+INFO:root:Metric name: bald, model training run: 2, query number: 19, accuracy: 0.3916
+INFO:root:Metric name: bald, model training run: 2, query number: 20, accuracy: 0.441
+INFO:root:Metric name: bald, model training run: 2, query number: 21, accuracy: 0.3877
+INFO:root:Metric name: bald, model training run: 2, query number: 22, accuracy: 0.4499
+INFO:root:Metric name: bald, model training run: 2, query number: 23, accuracy: 0.3965
+INFO:root:Metric name: bald, model training run: 2, query number: 24, accuracy: 0.4326
+INFO:root:Metric name: bald, model training run: 2, query number: 25, accuracy: 0.4167
+INFO:root:Metric name: bald, model training run: 2, query number: 26, accuracy: 0.4122
+INFO:root:Metric name: bald, model training run: 2, query number: 27, accuracy: 0.4622
+INFO:root:Metric name: bald, model training run: 2, query number: 28, accuracy: 0.455
+INFO:root:Metric name: bald, model training run: 2, query number: 29, accuracy: 0.4543
+INFO:root:Metric name: bald, model training run: 2, query number: 30, accuracy: 0.4528
+INFO:root:Metric name: bald, model training run: 2, query number: 31, accuracy: 0.4525
+INFO:root:Metric name: bald, model training run: 2, query number: 32, accuracy: 0.4611
+INFO:root:Metric name: bald, model training run: 2, query number: 33, accuracy: 0.4833
+INFO:root:Metric name: bald, model training run: 2, query number: 34, accuracy: 0.4686
+INFO:root:Metric name: bald, model training run: 2, query number: 35, accuracy: 0.4734
+INFO:root:Metric name: bald, model training run: 2, query number: 36, accuracy: 0.508
+INFO:root:Metric name: bald, model training run: 2, query number: 37, accuracy: 0.4741
+INFO:root:Metric name: bald, model training run: 2, query number: 38, accuracy: 0.4787
+INFO:root:Metric name: bald, model training run: 2, query number: 39, accuracy: 0.5044
+INFO:root:Metric name: bald, model training run: 2, query number: 40, accuracy: 0.497
+INFO:root:Metric name: bald, model training run: 2, query number: 41, accuracy: 0.5124
+INFO:root:Metric name: bald, model training run: 2, query number: 42, accuracy: 0.5165
+INFO:root:Metric name: bald, model training run: 2, query number: 43, accuracy: 0.4955
+INFO:root:Metric name: bald, model training run: 2, query number: 44, accuracy: 0.5266
+INFO:root:Metric name: bald, model training run: 2, query number: 45, accuracy: 0.5273
+INFO:root:Metric name: bald, model training run: 2, query number: 46, accuracy: 0.5358
+INFO:root:Metric name: bald, model training run: 2, query number: 47, accuracy: 0.5298
+INFO:root:Metric name: bald, model training run: 2, query number: 48, accuracy: 0.5153
+INFO:root:Metric name: bald, model training run: 2, query number: 49, accuracy: 0.5439
+INFO:root:Metric name: bald, model training run: 2, query number: 50, accuracy: 0.5239
+INFO:root:Metric name: bald, model training run: 2, query number: 51, accuracy: 0.6014
+INFO:root:Metric name: bald, model training run: 2, query number: 52, accuracy: 0.6019
+INFO:root:Metric name: bald, model training run: 2, query number: 53, accuracy: 0.6235
+INFO:root:Metric name: bald, model training run: 2, query number: 54, accuracy: 0.6137
+INFO:root:Metric name: bald, model training run: 2, query number: 55, accuracy: 0.623
+INFO:root:Metric name: bald, model training run: 2, query number: 56, accuracy: 0.6268
+INFO:root:Metric name: bald, model training run: 2, query number: 57, accuracy: 0.5983
+INFO:root:Metric name: bald, model training run: 2, query number: 58, accuracy: 0.5981
+INFO:root:Metric name: bald, model training run: 2, query number: 59, accuracy: 0.6227
+INFO:root:Metric name: bald, model training run: 2, query number: 60, accuracy: 0.6073
+INFO:root:Metric name: bald, model training run: 2, query number: 61, accuracy: 0.6031
+INFO:root:Metric name: bald, model training run: 2, query number: 62, accuracy: 0.6213
+INFO:root:Metric name: bald, model training run: 2, query number: 63, accuracy: 0.6257
+INFO:root:Metric name: bald, model training run: 2, query number: 64, accuracy: 0.64
+INFO:root:Metric name: bald, model training run: 2, query number: 65, accuracy: 0.6126
+INFO:root:Metric name: bald, model training run: 2, query number: 66, accuracy: 0.6479
+INFO:root:Metric name: bald, model training run: 2, query number: 67, accuracy: 0.6448
+INFO:root:Metric name: bald, model training run: 2, query number: 68, accuracy: 0.6637
+INFO:root:Metric name: bald, model training run: 2, query number: 69, accuracy: 0.6987
+INFO:root:Metric name: bald, model training run: 2, query number: 70, accuracy: 0.6635
+INFO:root:Metric name: bald, model training run: 2, query number: 71, accuracy: 0.6869
+INFO:root:Metric name: bald, model training run: 2, query number: 72, accuracy: 0.6994
+INFO:root:Metric name: bald, model training run: 2, query number: 73, accuracy: 0.7027
+INFO:root:Metric name: bald, model training run: 2, query number: 74, accuracy: 0.6786
+INFO:root:Metric name: bald, model training run: 2, query number: 75, accuracy: 0.6484
+INFO:root:Metric name: bald, model training run: 2, query number: 76, accuracy: 0.6672
+INFO:root:Metric name: bald, model training run: 2, query number: 77, accuracy: 0.6449
+INFO:root:Metric name: bald, model training run: 2, query number: 78, accuracy: 0.6974
+INFO:root:Metric name: bald, model training run: 2, query number: 79, accuracy: 0.6804
+INFO:root:Metric name: bald, model training run: 2, query number: 80, accuracy: 0.7158
+INFO:root:Metric name: bald, model training run: 2, query number: 81, accuracy: 0.6972
+INFO:root:Metric name: bald, model training run: 2, query number: 82, accuracy: 0.6844
+INFO:root:Metric name: bald, model training run: 2, query number: 83, accuracy: 0.709
+INFO:root:Metric name: bald, model training run: 2, query number: 84, accuracy: 0.7319
+INFO:root:Metric name: bald, model training run: 2, query number: 85, accuracy: 0.6941
+INFO:root:Metric name: bald, model training run: 2, query number: 86, accuracy: 0.7078
+INFO:root:Metric name: bald, model training run: 2, query number: 87, accuracy: 0.6662
+INFO:root:Metric name: bald, model training run: 2, query number: 88, accuracy: 0.7387
+INFO:root:Metric name: bald, model training run: 2, query number: 89, accuracy: 0.7053
+INFO:root:Metric name: bald, model training run: 2, query number: 90, accuracy: 0.7206
+INFO:root:Metric name: bald, model training run: 2, query number: 91, accuracy: 0.7125
+INFO:root:Metric name: bald, model training run: 2, query number: 92, accuracy: 0.7471
+INFO:root:Metric name: bald, model training run: 2, query number: 93, accuracy: 0.7657
+INFO:root:Metric name: bald, model training run: 2, query number: 94, accuracy: 0.7371
+INFO:root:Metric name: bald, model training run: 2, query number: 95, accuracy: 0.7577
+INFO:root:Metric name: bald, model training run: 2, query number: 96, accuracy: 0.7144
+INFO:root:Metric name: bald, model training run: 2, query number: 97, accuracy: 0.7431
+INFO:root:Metric name: bald, model training run: 2, query number: 98, accuracy: 0.7442
+INFO:root:Metric name: bald, model training run: 2, query number: 99, accuracy: 0.7324
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: bald, model training run: 3, initial accuracy: 0.0793
+INFO:root:Metric name: bald, model training run: 3, query number: 0, accuracy: 0.1033
+INFO:root:Metric name: bald, model training run: 3, query number: 1, accuracy: 0.2122
+INFO:root:Metric name: bald, model training run: 3, query number: 2, accuracy: 0.2855
+INFO:root:Metric name: bald, model training run: 3, query number: 3, accuracy: 0.2711
+INFO:root:Metric name: bald, model training run: 3, query number: 4, accuracy: 0.2087
+INFO:root:Metric name: bald, model training run: 3, query number: 5, accuracy: 0.2807
+INFO:root:Metric name: bald, model training run: 3, query number: 6, accuracy: 0.3054
+INFO:root:Metric name: bald, model training run: 3, query number: 7, accuracy: 0.3288
+INFO:root:Metric name: bald, model training run: 3, query number: 8, accuracy: 0.3223
+INFO:root:Metric name: bald, model training run: 3, query number: 9, accuracy: 0.3323
+INFO:root:Metric name: bald, model training run: 3, query number: 10, accuracy: 0.3374
+INFO:root:Metric name: bald, model training run: 3, query number: 11, accuracy: 0.3506
+INFO:root:Metric name: bald, model training run: 3, query number: 12, accuracy: 0.3249
+INFO:root:Metric name: bald, model training run: 3, query number: 13, accuracy: 0.3162
+INFO:root:Metric name: bald, model training run: 3, query number: 14, accuracy: 0.3546
+INFO:root:Metric name: bald, model training run: 3, query number: 15, accuracy: 0.3972
+INFO:root:Metric name: bald, model training run: 3, query number: 16, accuracy: 0.3932
+INFO:root:Metric name: bald, model training run: 3, query number: 17, accuracy: 0.4057
+INFO:root:Metric name: bald, model training run: 3, query number: 18, accuracy: 0.3794
+INFO:root:Metric name: bald, model training run: 3, query number: 19, accuracy: 0.4036
+INFO:root:Metric name: bald, model training run: 3, query number: 20, accuracy: 0.44
+INFO:root:Metric name: bald, model training run: 3, query number: 21, accuracy: 0.4669
+INFO:root:Metric name: bald, model training run: 3, query number: 22, accuracy: 0.4654
+INFO:root:Metric name: bald, model training run: 3, query number: 23, accuracy: 0.4491
+INFO:root:Metric name: bald, model training run: 3, query number: 24, accuracy: 0.4392
+INFO:root:Metric name: bald, model training run: 3, query number: 25, accuracy: 0.4953
+INFO:root:Metric name: bald, model training run: 3, query number: 26, accuracy: 0.4536
+INFO:root:Metric name: bald, model training run: 3, query number: 27, accuracy: 0.5107
+INFO:root:Metric name: bald, model training run: 3, query number: 28, accuracy: 0.5086
+INFO:root:Metric name: bald, model training run: 3, query number: 29, accuracy: 0.4437
+INFO:root:Metric name: bald, model training run: 3, query number: 30, accuracy: 0.4527
+INFO:root:Metric name: bald, model training run: 3, query number: 31, accuracy: 0.492
+INFO:root:Metric name: bald, model training run: 3, query number: 32, accuracy: 0.5352
+INFO:root:Metric name: bald, model training run: 3, query number: 33, accuracy: 0.5214
+INFO:root:Metric name: bald, model training run: 3, query number: 34, accuracy: 0.502
+INFO:root:Metric name: bald, model training run: 3, query number: 35, accuracy: 0.4787
+INFO:root:Metric name: bald, model training run: 3, query number: 36, accuracy: 0.5584
+INFO:root:Metric name: bald, model training run: 3, query number: 37, accuracy: 0.5428
+INFO:root:Metric name: bald, model training run: 3, query number: 38, accuracy: 0.4919
+INFO:root:Metric name: bald, model training run: 3, query number: 39, accuracy: 0.5235
+INFO:root:Metric name: bald, model training run: 3, query number: 40, accuracy: 0.5289
+INFO:root:Metric name: bald, model training run: 3, query number: 41, accuracy: 0.5416
+INFO:root:Metric name: bald, model training run: 3, query number: 42, accuracy: 0.5638
+INFO:root:Metric name: bald, model training run: 3, query number: 43, accuracy: 0.5668
+INFO:root:Metric name: bald, model training run: 3, query number: 44, accuracy: 0.564
+INFO:root:Metric name: bald, model training run: 3, query number: 45, accuracy: 0.5755
+INFO:root:Metric name: bald, model training run: 3, query number: 46, accuracy: 0.663
+INFO:root:Metric name: bald, model training run: 3, query number: 47, accuracy: 0.5784
+INFO:root:Metric name: bald, model training run: 3, query number: 48, accuracy: 0.5853
+INFO:root:Metric name: bald, model training run: 3, query number: 49, accuracy: 0.6123
+INFO:root:Metric name: bald, model training run: 3, query number: 50, accuracy: 0.6222
+INFO:root:Metric name: bald, model training run: 3, query number: 51, accuracy: 0.6194
+INFO:root:Metric name: bald, model training run: 3, query number: 52, accuracy: 0.6048
+INFO:root:Metric name: bald, model training run: 3, query number: 53, accuracy: 0.6451
+INFO:root:Metric name: bald, model training run: 3, query number: 54, accuracy: 0.6426
+INFO:root:Metric name: bald, model training run: 3, query number: 55, accuracy: 0.6892
+INFO:root:Metric name: bald, model training run: 3, query number: 56, accuracy: 0.7004
+INFO:root:Metric name: bald, model training run: 3, query number: 57, accuracy: 0.6599
+INFO:root:Metric name: bald, model training run: 3, query number: 58, accuracy: 0.7032
+INFO:root:Metric name: bald, model training run: 3, query number: 59, accuracy: 0.6949
+INFO:root:Metric name: bald, model training run: 3, query number: 60, accuracy: 0.702
+INFO:root:Metric name: bald, model training run: 3, query number: 61, accuracy: 0.7342
+INFO:root:Metric name: bald, model training run: 3, query number: 62, accuracy: 0.6649
+INFO:root:Metric name: bald, model training run: 3, query number: 63, accuracy: 0.6597
+INFO:root:Metric name: bald, model training run: 3, query number: 64, accuracy: 0.7096
+INFO:root:Metric name: bald, model training run: 3, query number: 65, accuracy: 0.7029
+INFO:root:Metric name: bald, model training run: 3, query number: 66, accuracy: 0.6973
+INFO:root:Metric name: bald, model training run: 3, query number: 67, accuracy: 0.7222
+INFO:root:Metric name: bald, model training run: 3, query number: 68, accuracy: 0.7165
+INFO:root:Metric name: bald, model training run: 3, query number: 69, accuracy: 0.6955
+INFO:root:Metric name: bald, model training run: 3, query number: 70, accuracy: 0.7002
+INFO:root:Metric name: bald, model training run: 3, query number: 71, accuracy: 0.7121
+INFO:root:Metric name: bald, model training run: 3, query number: 72, accuracy: 0.7453
+INFO:root:Metric name: bald, model training run: 3, query number: 73, accuracy: 0.7295
+INFO:root:Metric name: bald, model training run: 3, query number: 74, accuracy: 0.7245
+INFO:root:Metric name: bald, model training run: 3, query number: 75, accuracy: 0.7299
+INFO:root:Metric name: bald, model training run: 3, query number: 76, accuracy: 0.7244
+INFO:root:Metric name: bald, model training run: 3, query number: 77, accuracy: 0.6731
+INFO:root:Metric name: bald, model training run: 3, query number: 78, accuracy: 0.7117
+INFO:root:Metric name: bald, model training run: 3, query number: 79, accuracy: 0.7402
+INFO:root:Metric name: bald, model training run: 3, query number: 80, accuracy: 0.7245
+INFO:root:Metric name: bald, model training run: 3, query number: 81, accuracy: 0.7253
+INFO:root:Metric name: bald, model training run: 3, query number: 82, accuracy: 0.7502
+INFO:root:Metric name: bald, model training run: 3, query number: 83, accuracy: 0.7158
+INFO:root:Metric name: bald, model training run: 3, query number: 84, accuracy: 0.7497
+INFO:root:Metric name: bald, model training run: 3, query number: 85, accuracy: 0.7393
+INFO:root:Metric name: bald, model training run: 3, query number: 86, accuracy: 0.7322
+INFO:root:Metric name: bald, model training run: 3, query number: 87, accuracy: 0.7597
+INFO:root:Metric name: bald, model training run: 3, query number: 88, accuracy: 0.738
+INFO:root:Metric name: bald, model training run: 3, query number: 89, accuracy: 0.7276
+INFO:root:Metric name: bald, model training run: 3, query number: 90, accuracy: 0.7305
+INFO:root:Metric name: bald, model training run: 3, query number: 91, accuracy: 0.7524
+INFO:root:Metric name: bald, model training run: 3, query number: 92, accuracy: 0.7343
+INFO:root:Metric name: bald, model training run: 3, query number: 93, accuracy: 0.7608
+INFO:root:Metric name: bald, model training run: 3, query number: 94, accuracy: 0.7544
+INFO:root:Metric name: bald, model training run: 3, query number: 95, accuracy: 0.7597
+INFO:root:Metric name: bald, model training run: 3, query number: 96, accuracy: 0.7647
+INFO:root:Metric name: bald, model training run: 3, query number: 97, accuracy: 0.7491
+INFO:root:Metric name: bald, model training run: 3, query number: 98, accuracy: 0.7493
+INFO:root:Metric name: bald, model training run: 3, query number: 99, accuracy: 0.7602
+INFO:root:Pool size x torch.Size([60000, 1, 28, 28])
+INFO:root:Test size x torch.Size([60000])
+INFO:root:Initial size x: 0
+INFO:root:Metric name: bald, model training run: 4, initial accuracy: 0.1143
+INFO:root:Metric name: bald, model training run: 4, query number: 0, accuracy: 0.1185
+INFO:root:Metric name: bald, model training run: 4, query number: 1, accuracy: 0.1992
+INFO:root:Metric name: bald, model training run: 4, query number: 2, accuracy: 0.1885
+INFO:root:Metric name: bald, model training run: 4, query number: 3, accuracy: 0.2944
+INFO:root:Metric name: bald, model training run: 4, query number: 4, accuracy: 0.3367
+INFO:root:Metric name: bald, model training run: 4, query number: 5, accuracy: 0.3136
+INFO:root:Metric name: bald, model training run: 4, query number: 6, accuracy: 0.2675
+INFO:root:Metric name: bald, model training run: 4, query number: 7, accuracy: 0.3185
+INFO:root:Metric name: bald, model training run: 4, query number: 8, accuracy: 0.2684
+INFO:root:Metric name: bald, model training run: 4, query number: 9, accuracy: 0.3668
+INFO:root:Metric name: bald, model training run: 4, query number: 10, accuracy: 0.3337
+INFO:root:Metric name: bald, model training run: 4, query number: 11, accuracy: 0.3657
+INFO:root:Metric name: bald, model training run: 4, query number: 12, accuracy: 0.3221
+INFO:root:Metric name: bald, model training run: 4, query number: 13, accuracy: 0.4096
+INFO:root:Metric name: bald, model training run: 4, query number: 14, accuracy: 0.4434
+INFO:root:Metric name: bald, model training run: 4, query number: 15, accuracy: 0.4453
+INFO:root:Metric name: bald, model training run: 4, query number: 16, accuracy: 0.4679
+INFO:root:Metric name: bald, model training run: 4, query number: 17, accuracy: 0.4616
+INFO:root:Metric name: bald, model training run: 4, query number: 18, accuracy: 0.4991
+INFO:root:Metric name: bald, model training run: 4, query number: 19, accuracy: 0.5298
+INFO:root:Metric name: bald, model training run: 4, query number: 20, accuracy: 0.5016
+INFO:root:Metric name: bald, model training run: 4, query number: 21, accuracy: 0.5033
+INFO:root:Metric name: bald, model training run: 4, query number: 22, accuracy: 0.4865
+INFO:root:Metric name: bald, model training run: 4, query number: 23, accuracy: 0.4604
+INFO:root:Metric name: bald, model training run: 4, query number: 24, accuracy: 0.4853
+INFO:root:Metric name: bald, model training run: 4, query number: 25, accuracy: 0.4912
+INFO:root:Metric name: bald, model training run: 4, query number: 26, accuracy: 0.5166
+INFO:root:Metric name: bald, model training run: 4, query number: 27, accuracy: 0.5079
+INFO:root:Metric name: bald, model training run: 4, query number: 28, accuracy: 0.5014
+INFO:root:Metric name: bald, model training run: 4, query number: 29, accuracy: 0.5336
+INFO:root:Metric name: bald, model training run: 4, query number: 30, accuracy: 0.5051
+INFO:root:Metric name: bald, model training run: 4, query number: 31, accuracy: 0.5209
+INFO:root:Metric name: bald, model training run: 4, query number: 32, accuracy: 0.5465
+INFO:root:Metric name: bald, model training run: 4, query number: 33, accuracy: 0.5967
+INFO:root:Metric name: bald, model training run: 4, query number: 34, accuracy: 0.5708
+INFO:root:Metric name: bald, model training run: 4, query number: 35, accuracy: 0.5779
+INFO:root:Metric name: bald, model training run: 4, query number: 36, accuracy: 0.6043
+INFO:root:Metric name: bald, model training run: 4, query number: 37, accuracy: 0.5709
+INFO:root:Metric name: bald, model training run: 4, query number: 38, accuracy: 0.6027
+INFO:root:Metric name: bald, model training run: 4, query number: 39, accuracy: 0.6256
+INFO:root:Metric name: bald, model training run: 4, query number: 40, accuracy: 0.6125
+INFO:root:Metric name: bald, model training run: 4, query number: 41, accuracy: 0.6143
+INFO:root:Metric name: bald, model training run: 4, query number: 42, accuracy: 0.6232
+INFO:root:Metric name: bald, model training run: 4, query number: 43, accuracy: 0.6148
+INFO:root:Metric name: bald, model training run: 4, query number: 44, accuracy: 0.6163
+INFO:root:Metric name: bald, model training run: 4, query number: 45, accuracy: 0.636
+INFO:root:Metric name: bald, model training run: 4, query number: 46, accuracy: 0.6162
+INFO:root:Metric name: bald, model training run: 4, query number: 47, accuracy: 0.6297
+INFO:root:Metric name: bald, model training run: 4, query number: 48, accuracy: 0.623
+INFO:root:Metric name: bald, model training run: 4, query number: 49, accuracy: 0.6372
+INFO:root:Metric name: bald, model training run: 4, query number: 50, accuracy: 0.6013
+INFO:root:Metric name: bald, model training run: 4, query number: 51, accuracy: 0.6395
+INFO:root:Metric name: bald, model training run: 4, query number: 52, accuracy: 0.6006
+INFO:root:Metric name: bald, model training run: 4, query number: 53, accuracy: 0.6103
+INFO:root:Metric name: bald, model training run: 4, query number: 54, accuracy: 0.6343
+INFO:root:Metric name: bald, model training run: 4, query number: 55, accuracy: 0.6684
+INFO:root:Metric name: bald, model training run: 4, query number: 56, accuracy: 0.6371
+INFO:root:Metric name: bald, model training run: 4, query number: 57, accuracy: 0.6612
+INFO:root:Metric name: bald, model training run: 4, query number: 58, accuracy: 0.6663
+INFO:root:Metric name: bald, model training run: 4, query number: 59, accuracy: 0.6896
+INFO:root:Metric name: bald, model training run: 4, query number: 60, accuracy: 0.7096
+INFO:root:Metric name: bald, model training run: 4, query number: 61, accuracy: 0.6648
+INFO:root:Metric name: bald, model training run: 4, query number: 62, accuracy: 0.7156
+INFO:root:Metric name: bald, model training run: 4, query number: 63, accuracy: 0.6727
+INFO:root:Metric name: bald, model training run: 4, query number: 64, accuracy: 0.6779
+INFO:root:Metric name: bald, model training run: 4, query number: 65, accuracy: 0.7263
+INFO:root:Metric name: bald, model training run: 4, query number: 66, accuracy: 0.7021
+INFO:root:Metric name: bald, model training run: 4, query number: 67, accuracy: 0.7042
+INFO:root:Metric name: bald, model training run: 4, query number: 68, accuracy: 0.6904
+INFO:root:Metric name: bald, model training run: 4, query number: 69, accuracy: 0.6811
+INFO:root:Metric name: bald, model training run: 4, query number: 70, accuracy: 0.7029
+INFO:root:Metric name: bald, model training run: 4, query number: 71, accuracy: 0.7802
+INFO:root:Metric name: bald, model training run: 4, query number: 72, accuracy: 0.7319
+INFO:root:Metric name: bald, model training run: 4, query number: 73, accuracy: 0.6845
+INFO:root:Metric name: bald, model training run: 4, query number: 74, accuracy: 0.7326
+INFO:root:Metric name: bald, model training run: 4, query number: 75, accuracy: 0.7017
+INFO:root:Metric name: bald, model training run: 4, query number: 76, accuracy: 0.6867
+INFO:root:Metric name: bald, model training run: 4, query number: 77, accuracy: 0.7094
+INFO:root:Metric name: bald, model training run: 4, query number: 78, accuracy: 0.7261
+INFO:root:Metric name: bald, model training run: 4, query number: 79, accuracy: 0.7429
+INFO:root:Metric name: bald, model training run: 4, query number: 80, accuracy: 0.6955
+INFO:root:Metric name: bald, model training run: 4, query number: 81, accuracy: 0.7144
+INFO:root:Metric name: bald, model training run: 4, query number: 82, accuracy: 0.7521
+INFO:root:Metric name: bald, model training run: 4, query number: 83, accuracy: 0.7265
+INFO:root:Metric name: bald, model training run: 4, query number: 84, accuracy: 0.7493
+INFO:root:Metric name: bald, model training run: 4, query number: 85, accuracy: 0.7552
+INFO:root:Metric name: bald, model training run: 4, query number: 86, accuracy: 0.7373
+INFO:root:Metric name: bald, model training run: 4, query number: 87, accuracy: 0.717
+INFO:root:Metric name: bald, model training run: 4, query number: 88, accuracy: 0.7403
+INFO:root:Metric name: bald, model training run: 4, query number: 89, accuracy: 0.7326
+INFO:root:Metric name: bald, model training run: 4, query number: 90, accuracy: 0.7685
+INFO:root:Metric name: bald, model training run: 4, query number: 91, accuracy: 0.7809
+INFO:root:Metric name: bald, model training run: 4, query number: 92, accuracy: 0.7781
+INFO:root:Metric name: bald, model training run: 4, query number: 93, accuracy: 0.7586
+INFO:root:Metric name: bald, model training run: 4, query number: 94, accuracy: 0.7716
+INFO:root:Metric name: bald, model training run: 4, query number: 95, accuracy: 0.7799
+INFO:root:Metric name: bald, model training run: 4, query number: 96, accuracy: 0.7865
+INFO:root:Metric name: bald, model training run: 4, query number: 97, accuracy: 0.8173
+INFO:root:Metric name: bald, model training run: 4, query number: 98, accuracy: 0.8008
+INFO:root:Metric name: bald, model training run: 4, query number: 99, accuracy: 0.806
+INFO:root:Result: [array([   0,   10,   20,   30,   40,   50,   60,   70,   80,   90,  100,
+        110,  120,  130,  140,  150,  160,  170,  180,  190,  200,  210,
+        220,  230,  240,  250,  260,  270,  280,  290,  300,  310,  320,
+        330,  340,  350,  360,  370,  380,  390,  400,  410,  420,  430,
+        440,  450,  460,  470,  480,  490,  500,  510,  520,  530,  540,
+        550,  560,  570,  580,  590,  600,  610,  620,  630,  640,  650,
+        660,  670,  680,  690,  700,  710,  720,  730,  740,  750,  760,
+        770,  780,  790,  800,  810,  820,  830,  840,  850,  860,  870,
+        880,  890,  900,  910,  920,  930,  940,  950,  960,  970,  980,
+        990, 1000]), array([0.1433, 0.2549, 0.2139, 0.2664, 0.2422, 0.2725, 0.3219, 0.3557,
+       0.3623, 0.3702, 0.3644, 0.3713, 0.3653, 0.2952, 0.4163, 0.4025,
+       0.4119, 0.4152, 0.4586, 0.468 , 0.4527, 0.4429, 0.4837, 0.4874,
+       0.4781, 0.4677, 0.5171, 0.4421, 0.446 , 0.4562, 0.4801, 0.4847,
+       0.4879, 0.5037, 0.5103, 0.5275, 0.4995, 0.5234, 0.5242, 0.5249,
+       0.5602, 0.5798, 0.5589, 0.5559, 0.5456, 0.5848, 0.5787, 0.5381,
+       0.5693, 0.5911, 0.5952, 0.6158, 0.6567, 0.6409, 0.6555, 0.665 ,
+       0.68  , 0.6897, 0.6496, 0.6528, 0.6456, 0.6642, 0.6767, 0.6371,
+       0.6633, 0.6577, 0.677 , 0.7012, 0.6798, 0.7136, 0.6669, 0.6491,
+       0.6858, 0.6977, 0.7227, 0.7216, 0.7055, 0.6663, 0.7056, 0.7043,
+       0.7338, 0.745 , 0.7161, 0.7595, 0.7526, 0.7157, 0.7211, 0.7436,
+       0.7067, 0.7503, 0.7389, 0.7402, 0.7574, 0.7704, 0.7708, 0.7776,
+       0.7851, 0.7801, 0.793 , 0.7851, 0.7872]), array([0.101 , 0.2574, 0.2385, 0.2952, 0.2929, 0.2973, 0.3136, 0.3231,
+       0.2954, 0.3406, 0.3561, 0.3381, 0.3222, 0.2945, 0.3262, 0.3564,
+       0.3759, 0.3822, 0.4366, 0.4786, 0.4529, 0.4754, 0.4637, 0.4566,
+       0.4559, 0.4896, 0.397 , 0.4803, 0.4858, 0.4982, 0.5366, 0.5195,
+       0.519 , 0.5382, 0.5037, 0.5463, 0.5571, 0.5603, 0.5523, 0.6013,
+       0.5896, 0.5403, 0.588 , 0.6213, 0.6063, 0.6021, 0.6073, 0.5832,
+       0.6167, 0.6215, 0.6104, 0.612 , 0.5664, 0.5538, 0.5797, 0.6318,
+       0.6529, 0.6205, 0.6292, 0.6281, 0.645 , 0.6715, 0.6437, 0.6556,
+       0.6618, 0.7014, 0.6708, 0.6599, 0.7336, 0.6928, 0.7251, 0.7458,
+       0.718 , 0.7304, 0.7145, 0.7099, 0.7324, 0.6989, 0.6769, 0.7526,
+       0.7269, 0.7442, 0.7318, 0.744 , 0.7407, 0.7172, 0.7456, 0.732 ,
+       0.7525, 0.6971, 0.747 , 0.7049, 0.7544, 0.7609, 0.7637, 0.7608,
+       0.7267, 0.7905, 0.7616, 0.753 , 0.7738]), array([0.0984, 0.1032, 0.2323, 0.2231, 0.2523, 0.2638, 0.2837, 0.3038,
+       0.2995, 0.307 , 0.2743, 0.3114, 0.266 , 0.3026, 0.3234, 0.312 ,
+       0.3624, 0.3884, 0.4236, 0.427 , 0.3916, 0.441 , 0.3877, 0.4499,
+       0.3965, 0.4326, 0.4167, 0.4122, 0.4622, 0.455 , 0.4543, 0.4528,
+       0.4525, 0.4611, 0.4833, 0.4686, 0.4734, 0.508 , 0.4741, 0.4787,
+       0.5044, 0.497 , 0.5124, 0.5165, 0.4955, 0.5266, 0.5273, 0.5358,
+       0.5298, 0.5153, 0.5439, 0.5239, 0.6014, 0.6019, 0.6235, 0.6137,
+       0.623 , 0.6268, 0.5983, 0.5981, 0.6227, 0.6073, 0.6031, 0.6213,
+       0.6257, 0.64  , 0.6126, 0.6479, 0.6448, 0.6637, 0.6987, 0.6635,
+       0.6869, 0.6994, 0.7027, 0.6786, 0.6484, 0.6672, 0.6449, 0.6974,
+       0.6804, 0.7158, 0.6972, 0.6844, 0.709 , 0.7319, 0.6941, 0.7078,
+       0.6662, 0.7387, 0.7053, 0.7206, 0.7125, 0.7471, 0.7657, 0.7371,
+       0.7577, 0.7144, 0.7431, 0.7442, 0.7324]), array([0.0793, 0.1033, 0.2122, 0.2855, 0.2711, 0.2087, 0.2807, 0.3054,
+       0.3288, 0.3223, 0.3323, 0.3374, 0.3506, 0.3249, 0.3162, 0.3546,
+       0.3972, 0.3932, 0.4057, 0.3794, 0.4036, 0.44  , 0.4669, 0.4654,
+       0.4491, 0.4392, 0.4953, 0.4536, 0.5107, 0.5086, 0.4437, 0.4527,
+       0.492 , 0.5352, 0.5214, 0.502 , 0.4787, 0.5584, 0.5428, 0.4919,
+       0.5235, 0.5289, 0.5416, 0.5638, 0.5668, 0.564 , 0.5755, 0.663 ,
+       0.5784, 0.5853, 0.6123, 0.6222, 0.6194, 0.6048, 0.6451, 0.6426,
+       0.6892, 0.7004, 0.6599, 0.7032, 0.6949, 0.702 , 0.7342, 0.6649,
+       0.6597, 0.7096, 0.7029, 0.6973, 0.7222, 0.7165, 0.6955, 0.7002,
+       0.7121, 0.7453, 0.7295, 0.7245, 0.7299, 0.7244, 0.6731, 0.7117,
+       0.7402, 0.7245, 0.7253, 0.7502, 0.7158, 0.7497, 0.7393, 0.7322,
+       0.7597, 0.738 , 0.7276, 0.7305, 0.7524, 0.7343, 0.7608, 0.7544,
+       0.7597, 0.7647, 0.7491, 0.7493, 0.7602]), array([0.1143, 0.1185, 0.1992, 0.1885, 0.2944, 0.3367, 0.3136, 0.2675,
+       0.3185, 0.2684, 0.3668, 0.3337, 0.3657, 0.3221, 0.4096, 0.4434,
+       0.4453, 0.4679, 0.4616, 0.4991, 0.5298, 0.5016, 0.5033, 0.4865,
+       0.4604, 0.4853, 0.4912, 0.5166, 0.5079, 0.5014, 0.5336, 0.5051,
+       0.5209, 0.5465, 0.5967, 0.5708, 0.5779, 0.6043, 0.5709, 0.6027,
+       0.6256, 0.6125, 0.6143, 0.6232, 0.6148, 0.6163, 0.636 , 0.6162,
+       0.6297, 0.623 , 0.6372, 0.6013, 0.6395, 0.6006, 0.6103, 0.6343,
+       0.6684, 0.6371, 0.6612, 0.6663, 0.6896, 0.7096, 0.6648, 0.7156,
+       0.6727, 0.6779, 0.7263, 0.7021, 0.7042, 0.6904, 0.6811, 0.7029,
+       0.7802, 0.7319, 0.6845, 0.7326, 0.7017, 0.6867, 0.7094, 0.7261,
+       0.7429, 0.6955, 0.7144, 0.7521, 0.7265, 0.7493, 0.7552, 0.7373,
+       0.717 , 0.7403, 0.7326, 0.7685, 0.7809, 0.7781, 0.7586, 0.7716,
+       0.7799, 0.7865, 0.8173, 0.8008, 0.806 ])]
