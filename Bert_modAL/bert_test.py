@@ -11,12 +11,17 @@ from typing import Dict, OrderedDict, Tuple, Union
 import torch 
 from skorch import NeuralNetClassifier
 from skorch import NeuralNet
+from skorch.utils import to_numpy
+
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../Annotation_Interface'))
 
-from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st, mc_dropout_max_variationRatios, mc_dropout_max_entropy
+from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st, mc_dropout_max_variationRatios, mc_dropout_max_entropy, _bald_divergence, _mean_standard_deviation, _entropy, _variation_ratios, set_dropout_mode
 from modAL.models import DeepActiveLearner
+from modAL.utils.selection import multi_argmax, shuffled_argmax
+from modAL.utils.data import retrieve_rows
+
 from transformers import BertModel
 
 from torch.utils.data import DataLoader
@@ -32,6 +37,73 @@ from Labeling import getLabelList
 
 labels='single' # at the moment this is just set by hand ... 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+
+
+def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, softmax_applied: bool = True, topk: int = 1, extract_answer: bool = False, answer_only: bool = False):
+    context_instance_start_end = batch['metadata']['context_instance_start_end']
+    context = batch['metadata']['context']
+    # token_to_context_idx = batch['metadata']['token_to_context_idx']
+    context_wordpiece_tokens = batch['metadata']['cur_instance_context_tokens']
+    # TODO use given lengths
+    # lengths = torch.tensor([len(context) for context in context_wordpiece_tokens])
+    # inputs are batch x sequence
+    # TODO maybe vectorize computation of best span?
+    num_samples = start_logits.size(0)
+    scores = [None] * num_samples
+    scores_all = [None] * num_samples
+    spans = [None] * num_samples
+    answers = [None] * num_samples
+    max_score_start, max_spans_start = start_logits.max(dim=1)
+
+    unpadded_probabilities = []
+    for sample_id in range(num_samples):
+        # consider all possible combinations (by addition) of start and end token
+        # vectorize by broadcasting start/end token probabilites to matrix and adding both
+        # afterward we can take the maximum of the upper half including the diagonal (end > start)
+        slice_relevant_tokens = slice(len(batch['metadata']['question_tokens'][sample_id]) + 2, batch['metadata']['length'][sample_id] - 1)
+        len_relevant_tokens = batch['metadata']['length'][sample_id] - 1 - len(batch['metadata']['question_tokens'][sample_id]) - 2
+        
+        #max_relevant_logits = start_logits[sample_id][slice_relevant_tokens].transpose()
+        #print(max_relevant_logits)
+        #unsqueezed_tokens = start_logits[sample_id][slice_relevant_tokens].unsqueeze(1)
+        #print(unsqueezed_tokens)
+        start_score_matrix = start_logits[sample_id][slice_relevant_tokens].expand(len_relevant_tokens, len_relevant_tokens)
+        end_score_matrix = end_logits[sample_id][slice_relevant_tokens].expand(len_relevant_tokens, len_relevant_tokens) # new dimension is by default added to the front
+        #out_matrix = start_score_matrix + end_score_matrix
+        score_matrix = (start_score_matrix + end_score_matrix).triu() # return upper triangular part including diagonal, rest is 0
+
+        score_array = score_matrix[torch.triu(torch.ones(len_relevant_tokens, len_relevant_tokens)) == 1]
+
+        # values can be lower than 0 -> make sure to set lower triangular matrix to very low value
+        #lower_triangular_matrix = torch.tril(torch.ones_like(score_matrix, dtype=torch.long), diagonal=-1)
+        #score_matrix.masked_fill_(lower_triangular_matrix, float("-inf")) # make sure that lower triangular matrix is set -inf to ensure end >= start
+
+        probabilities = score_array.softmax(0)
+        # TODO add maximum span length (mask diagonal)
+        unpadded_probabilities.append(probabilities)
+
+    # padding
+
+
+    def padding_tensor(sequences):
+        """
+        :param sequences: list of tensors
+        :return:
+        """
+        num = len(sequences)
+        max_len = max([s.size(0) for s in sequences])
+        out_dims = (num, max_len)
+        out_tensor = sequences[0].data.new(*out_dims).fill_(0)
+        mask = sequences[0].data.new(*out_dims).fill_(0)
+        for i, tensor in enumerate(sequences):
+            length = tensor.size(0)
+            out_tensor[i, :length] = tensor
+            mask[i, :length] = 1
+        return out_tensor, mask
+
+    padded_tensors, masks = padding_tensor(unpadded_probabilities)
+
+    return to_numpy(padded_tensors), np.array(to_numpy(masks), dtype=bool) # all scores as vector
 
 
 def loss_function(output, target): 
@@ -158,6 +230,71 @@ for batch in data_iter:
     segments = batch['segments']
     masks = batch['mask']
     train_batch = {'inputs' : inputs, 'segments': segments, 'masks': masks}
+
+    def Bert_training(batch, n_instances): 
+        nr_instances = batch['input'].size()[0]
+
+        probas = []
+        metric_array = np.zeros((nr_instances))
+
+        for i in range(2):
+
+            set_dropout_mode(learnerBald.estimator.module_, [], train_mode=True)
+            logits = learnerBald.estimator.infer(train_batch)
+            start_logits, end_logits = logits.split(1, dim=-1)
+            padded_tensors, mask = extract_span(start_logits, end_logits, batch, answer_only=True)
+            probas.append(padded_tensors)
+
+        metric_bald = _bald_divergence(probas, mask)
+        metric_bald_unpadded = _bald_divergence(probas)
+
+        metric_mean_std = _mean_standard_deviation(probas, mask)
+        metric_mean_std_unpadded = _mean_standard_deviation(probas)
+
+        metric_entropy = _entropy(probas, mask)
+        metric_entropy_unpadded = _entropy(probas)
+
+        metric_variation_ratios = _variation_ratios(probas, mask)
+        metric_variation_ratios_unpadded = _variation_ratios(probas)
+
+        """
+            unpadded_probabilities = extract_span(start_logits, end_logits, batch, answer_only=True)
+            for index, probability in enumerate(unpadded_probabilities): 
+                probability = np.expand_dims(probability, axis=0)
+                probas[index].append(probability)
+
+
+        for index, proba in enumerate(probas): 
+            metric_array[index] = _bald_divergence(proba)
+        """
+
+        max_indx, max_metrix = shuffled_argmax(metric_array, n_instances=2)
+
+        inputs = retrieve_rows(batch['input'], max_indx)
+        next_train_labels = retrieve_rows(batch['label'], max_indx)
+        segments = retrieve_rows(batch['segments'], max_indx)
+        masks = retrieve_rows(batch['mask'], max_indx)
+        next_train_instances = {'inputs' : inputs, 'segments': segments, 'masks': masks}
+        return next_train_instances, next_train_labels
+
+
+    next_train_instances, next_train_labels = Bert_training(batch, 2)
+    learnerBald.teach(X=next_train_instances, y=next_train_labels)
+
+    """
+    print(probas[0][-1])
+    probas.flatten()
+    print(np.max(probas))
+    print(np.min(probas))
+
+    print(np.argmax(probas))
+    print(np.argmax(probas))
+
+    bald_score = _bald_divergence(probas)
+
+    print(bald_score)
+    """
+
 
     learnerBald.teach(X=train_batch, y=labels)
     learnerMean.teach(X=train_batch, y=labels)
