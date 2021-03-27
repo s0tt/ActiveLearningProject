@@ -9,6 +9,13 @@ import numpy as np
 from typing import Dict, OrderedDict, Tuple, Union
 
 import torch 
+import random 
+
+torch.cuda.manual_seed_all(0)
+torch.manual_seed(0)
+random.seed(0)
+np.random.seed(0)
+
 from skorch import NeuralNetClassifier
 from skorch import NeuralNet
 from skorch.utils import to_numpy
@@ -34,6 +41,8 @@ from get_data_from_Bert import get_dataloader
 
 from Labeling import label as getLabelStudioLabel
 from Labeling import getLabelList
+
+
 
 labels='single' # at the moment this is just set by hand ... 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -201,6 +210,7 @@ learnerMean = DeepActiveLearner(
     accept_different_dim=True,
     query_strategy=mc_dropout_mean_st
 )
+
 
 bert_qa = BertQA()
 modules = list(bert_qa.modules()) # pick from here the Dopout indexes
