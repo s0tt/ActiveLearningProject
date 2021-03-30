@@ -10,6 +10,8 @@ from typing import Dict, OrderedDict, Tuple, Union
 
 import torch 
 import random 
+import logging 
+
 
 torch.cuda.manual_seed_all(0)
 torch.manual_seed(0)
@@ -42,6 +44,10 @@ from get_data_from_Bert import get_dataloader
 from Labeling import label as getLabelStudioLabel
 from Labeling import getLabelList
 
+
+metric_name = sys.argv[1]
+
+logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}.log'.format(metric_name)), level=logging.INFO)
 
 
 labels='single' # at the moment this is just set by hand ... 
@@ -197,19 +203,34 @@ classifier = NeuralNetClassifier(BertQA,
 
 # initialize ActiveLearner
 
-learnerBald = DeepActiveLearner(
-    estimator=classifier, 
-    criterion=torch.nn.NLLLoss,
-    accept_different_dim=True,
-    query_strategy=mc_dropout_bald
-)
 
-learnerMean = DeepActiveLearner(
-    estimator=classifier, 
-    criterion=torch.nn.NLLLoss,
-    accept_different_dim=True,
-    query_strategy=mc_dropout_mean_st
-)
+if metric_name == 'bald': 
+    query_strategy = mc_dropout_bald
+elif metric_name == 'mean_std': 
+    query_strategy = mc_dropout_mean_st
+elif metric_name == 'max_variation': 
+    query_strategy = mc_dropout_max_variationRatios
+elif metric_name == 'max_entropy': 
+    query_strategy = mc_dropout_max_entropy
+elif metric_name == 'random': 
+    query_strategy = mc_dropout_bald # just to pass something (will not be used)
+
+
+
+
+
+n_initial = 0 # number of initial chosen samples for the training
+num_model_training = 5
+n_queries = 100
+drawn_sampley_per_query = 10
+forward_cycles_per_query = 50
+output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'accuracies_{}.txt'.format(metric_name))
+
+
+model_training_accuracies = []
+x_axis = np.arange(n_initial, n_initial + n_queries*drawn_sampley_per_query + 1, drawn_sampley_per_query)
+model_training_accuracies.append(x_axis)
+
 
 
 bert_qa = BertQA()
@@ -220,118 +241,71 @@ modules = list(bert_qa.modules()) # pick from here the Dopout indexes
     the dimensions of the new training data and label mustagree with the training data and labels provided so far
 
     But in our Bert-Model batch['input'] is never fixed --> we would need to adapt a bit modAL 
-
-
-    Error: 
-    File "/Library/Python/3.7/site-packages/modAL/utils/data.py", line 26, in data_vstack
-        return np.concatenate(blocks)
-    File "<__array_function__ internals>", line 6, in concatenate
-        ValueError: all the input array dimensions for the concatenation axis must match exactly, but along dimension 1, the array at index 0 has size 209 and the array at index 1 has size 266
-
 """
 
-data_loader = get_dataloader()
-data_iter = iter(data_loader) # create iterator so that the same can be used in all function calls (also working with zip)
+for idx_model_training in range(num_model_training): 
 
-for batch in data_iter:
-
-    inputs = batch['input']
-    labels = batch['label']
-    segments = batch['segments']
-    masks = batch['mask']
-    train_batch = {'inputs' : inputs, 'segments': segments, 'masks': masks}
-
-    def Bert_training(batch, n_instances): 
-        nr_instances = batch['input'].size()[0]
-
-        probas = []
-        metric_array = np.zeros((nr_instances))
-
-        for i in range(2):
-
-            set_dropout_mode(learnerBald.estimator.module_, [], train_mode=True)
-            logits = learnerBald.estimator.infer(train_batch)
-            start_logits, end_logits = logits.split(1, dim=-1)
-            padded_tensors, mask = extract_span(start_logits, end_logits, batch, answer_only=True)
-            probas.append(padded_tensors)
-
-        metric_bald = _bald_divergence(probas, mask)
-        metric_bald_unpadded = _bald_divergence(probas)
-
-        metric_mean_std = _mean_standard_deviation(probas, mask)
-        metric_mean_std_unpadded = _mean_standard_deviation(probas)
-
-        metric_entropy = _entropy(probas, mask)
-        metric_entropy_unpadded = _entropy(probas)
-
-        metric_variation_ratios = _variation_ratios(probas, mask)
-        metric_variation_ratios_unpadded = _variation_ratios(probas)
-
-        """
-            unpadded_probabilities = extract_span(start_logits, end_logits, batch, answer_only=True)
-            for index, probability in enumerate(unpadded_probabilities): 
-                probability = np.expand_dims(probability, axis=0)
-                probas[index].append(probability)
+    learner = DeepActiveLearner(
+        estimator=classifier, 
+        query_strategy=query_strategy
+    )
 
 
-        for index, proba in enumerate(probas): 
-            metric_array[index] = _bald_divergence(proba)
-        """
+    learner.num_epochs = 2
 
-        max_indx, max_metrix = shuffled_argmax(metric_array, n_instances=2)
+    torch.cuda.manual_seed_all(idx_model_training)
+    torch.manual_seed(idx_model_training)
+    random.seed(idx_model_training)
+    np.random.seed(idx_model_training)
 
-        inputs = retrieve_rows(batch['input'], max_indx)
-        next_train_labels = retrieve_rows(batch['label'], max_indx)
-        segments = retrieve_rows(batch['segments'], max_indx)
-        masks = retrieve_rows(batch['mask'], max_indx)
-        next_train_instances = {'inputs' : inputs, 'segments': segments, 'masks': masks}
-        return next_train_instances, next_train_labels
+    data_loader = get_dataloader()
+    data_iter = iter(data_loader) # create iterator so that the same can be used in all function calls (also working with zip)
 
 
-    next_train_instances, next_train_labels = Bert_training(batch, 2)
-    learnerBald.teach(X=next_train_instances, y=next_train_labels)
+    # here we should do now the Pre-TRAINING
 
-    """
-    print(probas[0][-1])
-    probas.flatten()
-    print(np.max(probas))
-    print(np.min(probas))
-
-    print(np.argmax(probas))
-    print(np.argmax(probas))
-
-    bald_score = _bald_divergence(probas)
-
-    print(bald_score)
-    """
+    for idx_query, batch in enumerate(data_iter):
 
 
-    learnerBald.teach(X=train_batch, y=labels)
-    learnerMean.teach(X=train_batch, y=labels)
+        inputs = batch['input']
+        labels = batch['label']
+        segments = batch['segments']
+        masks = batch['mask']
+        train_batch = {'inputs' : inputs, 'segments': segments, 'masks': masks}
 
-    print("Bald Learner:", learnerBald.score(train_batch, labels))
-    print("Mean Learner:", learnerMean.score(train_batch, labels))
-    
+        def Bert_training(batch, n_instances=1, dropout_layer_indexes=[], num_cycles=10): 
+            nr_instances = batch['input'].size()[0]
 
-    print("Bald learner predict proba:", learnerBald.predict_proba(train_batch))
-    print("Bald learner predict:", learnerBald.predict(train_batch))
+            probas = []
 
-    
-    bald_idx, bald_instance, bald_metric = learnerBald.query(train_batch, n_instances=5, dropout_layer_indexes=[7, 16], num_cycles=10)
-    mean_idx, mean_instance, mean_metric = learnerMean.query(train_batch, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=2)
+            set_dropout_mode(learner.estimator.module_, dropout_layer_indexes, train_mode=True)
 
-    question = batch['metadata']['question']
-    context = batch['metadata']['context']
-    question_at_idx = question[bald_idx[0]]
-    context_at_idx = context[bald_idx[0]]
+            for i in range(num_cycles):
 
-    print("Send instance to label-studio... ")
-    labelList = getLabelList(context, question, [bald_idx, mean_idx], [bald_metric, mean_metric], ["bald", "mean stddev"])
-    label_queryIdx = getLabelStudioLabel(labelList)
-    
-    #learner.teach(X=special_input_array[mean_idx], y=labels[query_idx], only_new=False,)
-    print("Question: ", question_at_idx)
-    print("Oracle provided label:", label_queryIdx)
+                X.detach()
+        
+                probas = []
+                for X_split in torch.split(X, sample_per_forward_pass):
 
-    break
+                logits = learner.estimator.infer(train_batch)
+                start_logits, end_logits = logits.split(1, dim=-1)
+                padded_tensors, mask = extract_span(start_logits, end_logits, batch, answer_only=True)
+                probas.append(padded_tensors)
+
+            metrics = query_strategy(probas, mask)
+
+            max_indx, max_metric = shuffled_argmax(metrics, n_instances=n_instances)
+
+            inputs = retrieve_rows(batch['input'], max_indx)
+            next_train_labels = retrieve_rows(batch['label'], max_indx)
+            segments = retrieve_rows(batch['segments'], max_indx)
+            masks = retrieve_rows(batch['mask'], max_indx)
+            next_train_instances = {'inputs' : inputs, 'segments': segments, 'masks': masks}
+            return next_train_instances, next_train_labels
+
+        next_train_instances, next_train_labels = Bert_training(batch, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=10)
+        learner.teach(X=next_train_instances, y=next_train_labels)
+
+        print("Bald Learner:", learner.score(train_batch, labels))
+
 
