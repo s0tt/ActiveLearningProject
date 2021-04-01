@@ -45,7 +45,7 @@ from Labeling import label as getLabelStudioLabel
 from Labeling import getLabelList
 
 
-metric_name = sys.argv[1]
+metric_name = 'random'#sys.argv[1]
 
 logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}.log'.format(metric_name)), level=logging.INFO)
 
@@ -54,7 +54,60 @@ labels='single' # at the moment this is just set by hand ...
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
-def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, softmax_applied: bool = True, topk: int = 1, extract_answer: bool = False, answer_only: bool = False):
+def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor, is_training=False) -> torch.Tensor:
+    # from: https://gist.github.com/SuperShinyEyes/dcc68a08ff8b615442e3bc6a9b55a354
+    '''Calculate F1 score. Can work with gpu tensors
+        
+        The original implmentation is written by Michal Haltuf on Kaggle.
+        
+        Returns
+        -------
+        torch.Tensor
+            `ndim` == 1. 0 <= val <= 1
+        
+        Reference
+        ---------
+        - https://www.kaggle.com/rejpalcz/best-loss-function-for-f1-score-metric
+        - https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score
+        - https://discuss.pytorch.org/t/calculating-precision-recall-and-f1-score-in-case-of-multi-label-classification/28265/6
+        
+        '''
+    assert y_true.ndim == 1
+    assert y_pred.ndim == 1 or y_pred.ndim == 2
+
+    if y_pred.ndim == 2:
+        y_pred = y_pred.argmax(dim=1)
+
+    tp = (y_true * y_pred).sum().to(torch.float32)
+    tn = ((1 - y_true) * (1 - y_pred)).sum().to(torch.float32)
+    fp = ((1 - y_true) * y_pred).sum().to(torch.float32)
+    fn = (y_true * (1 - y_pred)).sum().to(torch.float32)
+    epsilon = 1e-7
+    precision = tp / (tp + fp + epsilon)
+    recall = tp / (tp + fn + epsilon)
+    f1 = 2* (precision*recall) / (precision + recall + epsilon)
+    f1.requires_grad = is_training
+
+    return f1
+
+def padding_tensor(sequences):
+    """
+    :param sequences: list of tensors
+    :return:
+    """
+    num = len(sequences)
+    max_len = max([s.size(0) for s in sequences])
+    out_dims = (num, max_len)
+    out_tensor = sequences[0].data.new(*out_dims).fill_(0)
+    mask = sequences[0].data.new(*out_dims).fill_(0)
+    for i, tensor in enumerate(sequences):
+        length = tensor.size(0)
+        out_tensor[i, :length] = tensor
+        mask[i, :length] = 1
+
+    return to_numpy(out_tensor), np.array(to_numpy(masks), dtype=bool)
+
+def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = True, topk: int = 1, extract_answer: bool = False, answer_only: bool = False):
     context_instance_start_end = batch['metadata']['context_instance_start_end']
     context = batch['metadata']['context']
     # token_to_context_idx = batch['metadata']['token_to_context_idx']
@@ -82,43 +135,36 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, so
         #print(max_relevant_logits)
         #unsqueezed_tokens = start_logits[sample_id][slice_relevant_tokens].unsqueeze(1)
         #print(unsqueezed_tokens)
-        start_score_matrix = start_logits[sample_id][slice_relevant_tokens].expand(len_relevant_tokens, len_relevant_tokens)
-        end_score_matrix = end_logits[sample_id][slice_relevant_tokens].expand(len_relevant_tokens, len_relevant_tokens) # new dimension is by default added to the front
-        #out_matrix = start_score_matrix + end_score_matrix
-        score_matrix = (start_score_matrix + end_score_matrix).triu() # return upper triangular part including diagonal, rest is 0
+
+        # Maximilians realisation 
+
+        start_score_matrix = start_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).expand(len_relevant_tokens, len_relevant_tokens).double()
+        end_score_matrix = end_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).transpose(0, 1).expand(len_relevant_tokens, len_relevant_tokens).double() # new dimension is by default added to the front
+
+        if maximilian: 
+            score_matrix = (start_score_matrix + end_score_matrix).triu() # return upper triangular part including diagonal, rest is 0
+        else: 
+            score_matrix = (start_score_matrix*end_score_matrix).triu() # return upper triangular part including diagonal, rest is 0
+        
+        # my realisation
+
 
         score_array = score_matrix[torch.triu(torch.ones(len_relevant_tokens, len_relevant_tokens)) == 1]
-
+        
         # values can be lower than 0 -> make sure to set lower triangular matrix to very low value
         #lower_triangular_matrix = torch.tril(torch.ones_like(score_matrix, dtype=torch.long), diagonal=-1)
         #score_matrix.masked_fill_(lower_triangular_matrix, float("-inf")) # make sure that lower triangular matrix is set -inf to ensure end >= start
-
-        probabilities = score_array.softmax(0)
+        
+        if softmax_applied: 
+            probabilities = score_array.softmax(0)
+        else: 
+            probabilities = score_array
         # TODO add maximum span length (mask diagonal)
         unpadded_probabilities.append(probabilities)
 
     # padding
 
-
-    def padding_tensor(sequences):
-        """
-        :param sequences: list of tensors
-        :return:
-        """
-        num = len(sequences)
-        max_len = max([s.size(0) for s in sequences])
-        out_dims = (num, max_len)
-        out_tensor = sequences[0].data.new(*out_dims).fill_(0)
-        mask = sequences[0].data.new(*out_dims).fill_(0)
-        for i, tensor in enumerate(sequences):
-            length = tensor.size(0)
-            out_tensor[i, :length] = tensor
-            mask[i, :length] = 1
-        return out_tensor, mask
-
-    padded_tensors, masks = padding_tensor(unpadded_probabilities)
-
-    return to_numpy(padded_tensors), np.array(to_numpy(masks), dtype=bool) # all scores as vector
+    return unpadded_probabilities
 
 
 def loss_function(output, target): 
@@ -252,6 +298,7 @@ for idx_model_training in range(num_model_training):
 
 
     learner.num_epochs = 2
+    learner.batch_size = 2
 
     torch.cuda.manual_seed_all(idx_model_training)
     torch.manual_seed(idx_model_training)
@@ -265,34 +312,63 @@ for idx_model_training in range(num_model_training):
     # here we should do now the Pre-TRAINING
 
     for idx_query, batch in enumerate(data_iter):
-
+        
 
         inputs = batch['input']
-        labels = batch['label']
+        labels = batch['label_multi']
         segments = batch['segments']
         masks = batch['mask']
-        train_batch = {'inputs' : inputs, 'segments': segments, 'masks': masks}
 
-        def Bert_training(batch, n_instances=1, dropout_layer_indexes=[], num_cycles=10): 
+        start_logits, end_logits = labels.split(1, dim=1)
+
+        # to calculate the f1 score!
+        unpadded_probabilities = extract_span(start_logits, end_logits, batch, softmax_applied=False, maximilian=False, answer_only=True) # this gives us the prediction
+        padded_tensors, masks = padding_tensor(unpadded_probabilities)
+
+        def calculate_f1_score_Bert(test_set)
+
+            # label part
+            labels = test_set['label_multi']
+            start_labels, end_labels = labels.split(1, dim=1)
+            unpadded_labels = extract_span(start_logits, end_logits, batch, softmax_applied=False, maximilian=False, answer_only=True) # this gives us the prediction
+            padded_label, masks = padding_tensor(unpadded_probabilities)
+
+            # prediction part
+            logits_predictions = classifier.forward(test_set) # test if it uses the setted batch size ... 
+            start_logits, end_logits = logits_predictions.split(1, dim=-1)
+            unpadded_predictions = extract_span(start_logits, end_logits, batch, softmax_applied=True, maximilian=False, answer_only=True)
+            padded_predictions, masks = padding_tensor(unpadded_predictions)
+
+            f1_loss(padded_label, padded_predictions, is_training=False)
+
+
+
+        def get_next_train_instances(batch, n_instances=1, dropout_layer_indexes=[], num_cycles=10, sample_per_forward_pass=5): 
             nr_instances = batch['input'].size()[0]
 
-            probas = []
+            batch['input'].detach()
+            batch['segments'].detach()
+            batch['masks'].detach()
+
+            predictions = []
 
             set_dropout_mode(learner.estimator.module_, dropout_layer_indexes, train_mode=True)
 
             for i in range(num_cycles):
-
-                X.detach()
         
                 probas = []
-                for X_split in torch.split(X, sample_per_forward_pass):
+                for inputs, segments, masks in zip(torch.split(batch['input'], sample_per_forward_pass), torch.split(batch['segments'], sample_per_forward_pass), torch.split(batch['masks'], sample_per_forward_pass)): 
 
-                logits = learner.estimator.infer(train_batch)
-                start_logits, end_logits = logits.split(1, dim=-1)
-                padded_tensors, mask = extract_span(start_logits, end_logits, batch, answer_only=True)
-                probas.append(padded_tensors)
+                    logits = learner.estimator.infer({'input' : inputs, 'segments': segments, 'masks': masks})
+                    start_logits, end_logits = logits.split(1, dim=-1)
+                    unpadded_probabilities = extract_span(start_logits, end_logits, batch, softmax_applied=True, maximilian=False, answer_only=True)
+                    
+                    probas += unpadded_probabilities
+                
+                padded_tensors, masks = padding_tensor(probas)
+                predictions.append(padded_tensors)
 
-            metrics = query_strategy(probas, mask)
+            metrics = query_strategy(predictions, mask)
 
             max_indx, max_metric = shuffled_argmax(metrics, n_instances=n_instances)
 
@@ -303,7 +379,7 @@ for idx_model_training in range(num_model_training):
             next_train_instances = {'inputs' : inputs, 'segments': segments, 'masks': masks}
             return next_train_instances, next_train_labels
 
-        next_train_instances, next_train_labels = Bert_training(batch, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=10)
+        next_train_instances, next_train_labels = get_next_train_instances(batch, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=10, sample_per_forward_pass=5)
         learner.teach(X=next_train_instances, y=next_train_labels)
 
         print("Bald Learner:", learner.score(train_batch, labels))

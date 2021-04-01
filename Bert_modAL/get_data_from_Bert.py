@@ -114,7 +114,7 @@ pre_process = False
 training_steps = 10
 train_steps = 5
 device = "cuda" if torch.cuda.is_available() else "cpu"
-batch_size = 86588 # full data size
+batch_size = 5 # full data size
 
 """
 #maybe later
