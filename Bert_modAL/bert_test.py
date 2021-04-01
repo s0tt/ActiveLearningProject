@@ -54,7 +54,7 @@ labels='single' # at the moment this is just set by hand ...
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
-def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor, is_training=False) -> torch.Tensor:
+def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor) -> torch.Tensor:
     # from: https://gist.github.com/SuperShinyEyes/dcc68a08ff8b615442e3bc6a9b55a354
     '''Calculate F1 score. Can work with gpu tensors
         
@@ -86,7 +86,6 @@ def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor, is_training=False) -> torc
     precision = tp / (tp + fp + epsilon)
     recall = tp / (tp + fn + epsilon)
     f1 = 2* (precision*recall) / (precision + recall + epsilon)
-    f1.requires_grad = is_training
 
     return f1
 
@@ -105,7 +104,7 @@ def padding_tensor(sequences):
         out_tensor[i, :length] = tensor
         mask[i, :length] = 1
 
-    return to_numpy(out_tensor), np.array(to_numpy(masks), dtype=bool)
+    return out_tensor, mask # to_numpy(out_tensor), np.array(to_numpy(mask), dtype=bool)
 
 def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = True, topk: int = 1, extract_answer: bool = False, answer_only: bool = False):
     context_instance_start_end = batch['metadata']['context_instance_start_end']
@@ -247,6 +246,8 @@ classifier = NeuralNetClassifier(BertQA,
                         device=device)
 
 
+
+
 # initialize ActiveLearner
 
 
@@ -296,6 +297,25 @@ for idx_model_training in range(num_model_training):
         query_strategy=query_strategy
     )
 
+    def calculate_f1_score_Bert(test_set):
+
+        # label part
+        labels = test_set['label_multi']
+        start_labels, end_labels = labels.split(1, dim=1)
+        unpadded_labels = extract_span(start_labels, end_labels, test_set, softmax_applied=False, maximilian=False, answer_only=True) # this gives us the prediction
+        padded_label, masks = padding_tensor(unpadded_labels)
+
+        # prediction part
+        logits_predictions = learner.estimator.module_(test_set['input'], test_set['segments'], test_set['mask']) # test if it uses the setted batch size ... 
+        start_logits, end_logits = logits_predictions.transpose(1, 2).split(1, dim=1)
+        unpadded_predictions = extract_span(start_logits, end_logits, test_set, softmax_applied=True, maximilian=False, answer_only=True)
+        padded_predictions, masks = padding_tensor(unpadded_predictions)
+
+        overall_f1_loss = 0
+        for instance_label, instance_prediction in zip(padded_label, padded_predictions): 
+            overall_f1_loss += f1_loss(instance_label, instance_prediction)
+
+        return overall_f1_loss
 
     learner.num_epochs = 2
     learner.batch_size = 2
@@ -312,35 +332,9 @@ for idx_model_training in range(num_model_training):
     # here we should do now the Pre-TRAINING
 
     for idx_query, batch in enumerate(data_iter):
+
         
-
-        inputs = batch['input']
-        labels = batch['label_multi']
-        segments = batch['segments']
-        masks = batch['mask']
-
-        start_logits, end_logits = labels.split(1, dim=1)
-
-        # to calculate the f1 score!
-        unpadded_probabilities = extract_span(start_logits, end_logits, batch, softmax_applied=False, maximilian=False, answer_only=True) # this gives us the prediction
-        padded_tensors, masks = padding_tensor(unpadded_probabilities)
-
-        def calculate_f1_score_Bert(test_set)
-
-            # label part
-            labels = test_set['label_multi']
-            start_labels, end_labels = labels.split(1, dim=1)
-            unpadded_labels = extract_span(start_logits, end_logits, batch, softmax_applied=False, maximilian=False, answer_only=True) # this gives us the prediction
-            padded_label, masks = padding_tensor(unpadded_probabilities)
-
-            # prediction part
-            logits_predictions = classifier.forward(test_set) # test if it uses the setted batch size ... 
-            start_logits, end_logits = logits_predictions.split(1, dim=-1)
-            unpadded_predictions = extract_span(start_logits, end_logits, batch, softmax_applied=True, maximilian=False, answer_only=True)
-            padded_predictions, masks = padding_tensor(unpadded_predictions)
-
-            f1_loss(padded_label, padded_predictions, is_training=False)
-
+        f1_score = calculate_f1_score_Bert(batch)
 
 
         def get_next_train_instances(batch, n_instances=1, dropout_layer_indexes=[], num_cycles=10, sample_per_forward_pass=5): 
