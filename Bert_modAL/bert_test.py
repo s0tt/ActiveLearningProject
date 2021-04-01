@@ -165,6 +165,24 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
 
     return unpadded_probabilities
 
+def calculate_f1_score_Bert(test_set, learner):
+    # label part
+    labels = test_set['label_multi']
+    start_labels, end_labels = labels.split(1, dim=1)
+    unpadded_labels = extract_span(start_labels, end_labels, test_set, softmax_applied=False, maximilian=False, answer_only=True) # this gives us the prediction
+    padded_label, masks = padding_tensor(unpadded_labels)
+
+    # prediction part
+    logits_predictions = learner.estimator.module_(test_set['input'], test_set['segments'], test_set['mask']) # test if it uses the setted batch size ... 
+    start_logits, end_logits = logits_predictions.transpose(1, 2).split(1, dim=1)
+    unpadded_predictions = extract_span(start_logits, end_logits, test_set, softmax_applied=True, maximilian=False, answer_only=True)
+    padded_predictions, masks = padding_tensor(unpadded_predictions)
+
+    overall_f1_loss = 0
+    for instance_label, instance_prediction in zip(padded_label, padded_predictions): 
+        overall_f1_loss += f1_loss(instance_label, instance_prediction)
+
+    return overall_f1_loss
 
 def loss_function(output, target): 
     start_logits = output[0]
@@ -202,7 +220,6 @@ class BertQA(torch.nn.Module):
         super(BertQA, self).__init__()
         self.embedder = BertModel.from_pretrained('bert-base-uncased', cache_dir=cache_dir)
         self.qa_outputs = torch.nn.Linear(self.embedder.config.hidden_size, 2, bias=True) # TODO include bias?
-        self.soft_max = torch.nn.Softmax(dim=1)
         self.qa_outputs.apply(self.embedder._init_weights)
 
 
@@ -297,26 +314,6 @@ for idx_model_training in range(num_model_training):
         query_strategy=query_strategy
     )
 
-    def calculate_f1_score_Bert(test_set):
-
-        # label part
-        labels = test_set['label_multi']
-        start_labels, end_labels = labels.split(1, dim=1)
-        unpadded_labels = extract_span(start_labels, end_labels, test_set, softmax_applied=False, maximilian=False, answer_only=True) # this gives us the prediction
-        padded_label, masks = padding_tensor(unpadded_labels)
-
-        # prediction part
-        logits_predictions = learner.estimator.module_(test_set['input'], test_set['segments'], test_set['mask']) # test if it uses the setted batch size ... 
-        start_logits, end_logits = logits_predictions.transpose(1, 2).split(1, dim=1)
-        unpadded_predictions = extract_span(start_logits, end_logits, test_set, softmax_applied=True, maximilian=False, answer_only=True)
-        padded_predictions, masks = padding_tensor(unpadded_predictions)
-
-        overall_f1_loss = 0
-        for instance_label, instance_prediction in zip(padded_label, padded_predictions): 
-            overall_f1_loss += f1_loss(instance_label, instance_prediction)
-
-        return overall_f1_loss
-
     learner.num_epochs = 2
     learner.batch_size = 2
 
@@ -331,10 +328,13 @@ for idx_model_training in range(num_model_training):
 
     # here we should do now the Pre-TRAINING
 
-    for idx_query, batch in enumerate(data_iter):
 
-        
-        f1_score = calculate_f1_score_Bert(batch)
+    f1_scores = []
+    f1_score = calculate_f1_score_Bert(batch, learner) 
+    f1_score.append(f1_score)
+    logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
+
+    for idx_query, batch in enumerate(data_iter):
 
 
         def get_next_train_instances(batch, n_instances=1, dropout_layer_indexes=[], num_cycles=10, sample_per_forward_pass=5): 
@@ -353,8 +353,8 @@ for idx_model_training in range(num_model_training):
                 probas = []
                 for inputs, segments, masks in zip(torch.split(batch['input'], sample_per_forward_pass), torch.split(batch['segments'], sample_per_forward_pass), torch.split(batch['masks'], sample_per_forward_pass)): 
 
-                    logits = learner.estimator.infer({'input' : inputs, 'segments': segments, 'masks': masks})
-                    start_logits, end_logits = logits.split(1, dim=-1)
+                    logits = learner.estimator.infer(inputs, segments, masks})
+                    start_logits, end_logits = logits.transpose(1, 2).split(1, dim=-1)
                     unpadded_probabilities = extract_span(start_logits, end_logits, batch, softmax_applied=True, maximilian=False, answer_only=True)
                     
                     probas += unpadded_probabilities
@@ -370,12 +370,21 @@ for idx_model_training in range(num_model_training):
             next_train_labels = retrieve_rows(batch['label'], max_indx)
             segments = retrieve_rows(batch['segments'], max_indx)
             masks = retrieve_rows(batch['mask'], max_indx)
-            next_train_instances = {'inputs' : inputs, 'segments': segments, 'masks': masks}
+            next_train_instances = {'input' : inputs, 'segments': segments, 'mask': masks}
             return next_train_instances, next_train_labels
 
         next_train_instances, next_train_labels = get_next_train_instances(batch, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=10, sample_per_forward_pass=5)
         learner.teach(X=next_train_instances, y=next_train_labels)
 
-        print("Bald Learner:", learner.score(train_batch, labels))
 
 
+        f1_score = calculate_f1_score_Bert(batch, learner)
+
+        f1_scores.append(f1_score) 
+        logging.info("Metric name: {}, model training run: {}, query number: {}, f1_score: {}".format(metric_name, idx_model_training, idx_query, f1_scores))
+
+    model_training_accuracies.append(np.array(accuracies).T)
+
+
+logging.info("Result: {}".format(model_training_accuracies))
+np.savetxt(output_file, np.array(model_training_accuracies).T, delimiter=' ')
