@@ -107,16 +107,15 @@ cache_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../cache')
 pretrained_model = None
 nocuda = False
 results = "results"
-datasets = ['SQuAD-train']
+
 data_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../datasets')
 pre_process = False
 
+"""
 training_steps = 10
 train_steps = 5
 device = "cuda" if torch.cuda.is_available() else "cpu"
-batch_size = 5 # full data size
 
-"""
 #maybe later
 # set up tensorboard writer for interactive visualization
 writer = setup_writer(args.logdir, seed, purge_step=agent.training_steps, debug=args.debug)
@@ -138,7 +137,7 @@ input,
 label (Maybe token-ids but I do not know this in detail ...), 
 """
 
-def get_dataloader():
+def get_dataloader(datasets, batch_size):
     agent = MRQAAgent(model, cache_dir, pretrained_model_dir=pretrained_model, disable_cuda=nocuda, results=results)
     datasets_train = match_datasets(data_dir, datasets) # returns just a set where the Dataset is inside!
     data_train, data_split = get_datasets(data_dir, cache_dir, agent.sample_processor, agent.tokenizer, datasets_train, seed=seed, force_preprocess=pre_process)

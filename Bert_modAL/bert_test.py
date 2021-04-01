@@ -104,7 +104,7 @@ def padding_tensor(sequences):
         out_tensor[i, :length] = tensor
         mask[i, :length] = 1
 
-    return out_tensor, mask # to_numpy(out_tensor), np.array(to_numpy(mask), dtype=bool)
+    return out_tensor, mask 
 
 def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = True, topk: int = 1, extract_answer: bool = False, answer_only: bool = False):
     context_instance_start_end = batch['metadata']['context_instance_start_end']
@@ -224,7 +224,8 @@ class BertQA(torch.nn.Module):
 
 
     def forward(self, inputs, segments, masks): 
-
+        
+        print(inputs.size())
         """
             I modified the input as well as the output of the forward function so that it can match with the input of my loss function and that it can accept the full batch
 
@@ -295,6 +296,20 @@ model_training_accuracies = []
 x_axis = np.arange(n_initial, n_initial + n_queries*drawn_sampley_per_query + 1, drawn_sampley_per_query)
 model_training_accuracies.append(x_axis)
 
+train_dataset = 'SQuAD-train'
+batch_size_train_dataloader = 1000
+test_dataset = 'SQuAD-dev'
+batch_size_test_dataloader = 10507
+
+
+data_loader_test = get_dataloader([test_dataset], batch_size_test_dataloader)
+data_iter_test = iter(data_loader_test) 
+test_batch = 0
+
+for batch in data_iter_test: 
+    test_batch = batch
+    break
+
 
 
 bert_qa = BertQA()
@@ -322,19 +337,19 @@ for idx_model_training in range(num_model_training):
     random.seed(idx_model_training)
     np.random.seed(idx_model_training)
 
-    data_loader = get_dataloader()
-    data_iter = iter(data_loader) # create iterator so that the same can be used in all function calls (also working with zip)
+    data_loader_train = get_dataloader([train_dataset], batch_size_train_dataloader)
+    data_iter_train = iter(data_loader_train) 
 
 
     # here we should do now the Pre-TRAINING
 
 
     f1_scores = []
-    f1_score = calculate_f1_score_Bert(batch, learner) 
+    f1_score = calculate_f1_score_Bert(test_batch, learner) 
     f1_score.append(f1_score)
     logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
 
-    for idx_query, batch in enumerate(data_iter):
+    for idx_query, batch in enumerate(data_iter_train):
 
 
         def get_next_train_instances(batch, n_instances=1, dropout_layer_indexes=[], num_cycles=10, sample_per_forward_pass=5): 
@@ -353,16 +368,16 @@ for idx_model_training in range(num_model_training):
                 probas = []
                 for inputs, segments, masks in zip(torch.split(batch['input'], sample_per_forward_pass), torch.split(batch['segments'], sample_per_forward_pass), torch.split(batch['masks'], sample_per_forward_pass)): 
 
-                    logits = learner.estimator.infer(inputs, segments, masks})
+                    logits = learner.estimator.infer(inputs, segments, masks)
                     start_logits, end_logits = logits.transpose(1, 2).split(1, dim=-1)
                     unpadded_probabilities = extract_span(start_logits, end_logits, batch, softmax_applied=True, maximilian=False, answer_only=True)
                     
                     probas += unpadded_probabilities
                 
                 padded_tensors, masks = padding_tensor(probas)
-                predictions.append(padded_tensors)
+                predictions.append(to_numpy(padded_tensors))
 
-            metrics = query_strategy(predictions, mask)
+            metrics = query_strategy(predictions, np.array(to_numpy(mask), dtype=bool))
 
             max_indx, max_metric = shuffled_argmax(metrics, n_instances=n_instances)
 
@@ -378,7 +393,7 @@ for idx_model_training in range(num_model_training):
 
 
 
-        f1_score = calculate_f1_score_Bert(batch, learner)
+        f1_score = calculate_f1_score_Bert(test_batch, learner)
 
         f1_scores.append(f1_score) 
         logging.info("Metric name: {}, model training run: {}, query number: {}, f1_score: {}".format(metric_name, idx_model_training, idx_query, f1_scores))
