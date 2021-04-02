@@ -291,7 +291,7 @@ x_axis = np.arange(n_initial, n_initial + n_queries*drawn_sampley_per_query + 1,
 model_training_f1_scores.append(x_axis)
 
 train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = 1000
+batch_size_train_dataloader = 1100
 test_dataset = 'SQuAD-dev'
 batch_size_test_dataloader = 10507
 
@@ -341,25 +341,28 @@ for idx_model_training in range(num_model_training):
     X_initial = {'input': train_data['input'][initial_idx], 'segments': train_data['segments'][initial_idx], 'mask': train_data['mask'][initial_idx]}
     y_initial = train_data['label'][initial_idx]
 
-    X_pool_initial = {'input': np.delete(train_data['input'], initial_idx, axis=0), 'segments': np.delete(train_data['segments'], initial_idx, axis=0), 'mask': np.delete(train_data['mask'], initial_idx, axis=0)}
+    pool_initial = {'input': np.delete(train_data['input'], initial_idx, axis=0), 
+                      'segments': np.delete(train_data['segments'], initial_idx, axis=0), 
+                      'mask': np.delete(train_data['mask'], initial_idx, axis=0), 
+                      'label': np.delete(train_data['label'], initial_idx, axis=0)}
     
-    y_pool_initial = np.delete(train_data['label'], initial_idx, axis=0)
 
-
-    logging.info("Pool size x {}".format(X_pool_initial['input'].size()))
+    logging.info("Pool size x {}".format(pool_initial['input'].size()))
     logging.info("Initial size x {}".format(X_initial['input'].size()))
     
 
     # here we should do now the Pre-TRAINING
-
     print("test")
     f1_scores = []
     f1_score = calculate_f1_score_Bert(test_batch, learner) 
-    f1_score.append(f1_score)
+    f1_scores.append(f1_score)
     logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
+    
+
+    pool = pool_initial
 
 
-    for idx_query, batch in enumerate(data_iter_train):
+    for idx_query in range(n_queries):
 
 
         def get_next_train_instances(batch, n_instances=1, dropout_layer_indexes=[], num_cycles=10, sample_per_forward_pass=5): 
@@ -396,19 +399,22 @@ for idx_model_training in range(num_model_training):
             segments = retrieve_rows(batch['segments'], max_indx)
             masks = retrieve_rows(batch['mask'], max_indx)
             next_train_instances = {'input' : inputs, 'segments': segments, 'mask': masks}
-            return next_train_instances, next_train_labels
+            return next_train_instances, next_train_labels, max_indx
 
-        next_train_instances, next_train_labels = get_next_train_instances(batch, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=10, sample_per_forward_pass=5)
+        next_train_instances, next_train_labels, max_indx = get_next_train_instances(pool, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=10, sample_per_forward_pass=5)
+        
         learner.teach(X=next_train_instances, y=next_train_labels)
 
-
+        pool = {'input': np.delete(pool['input'], max_indx, axis=0), 
+                    'segments': np.delete(pool['segments'], max_indx, axis=0), 
+                    'mask': np.delete(pool['mask'], max_indx, axis=0), 
+                    'label': np.delete(pool['label'], max_indx, axis=0)}
 
         f1_score = calculate_f1_score_Bert(test_batch, learner)
-
         f1_scores.append(f1_score) 
-        logging.info("Metric name: {}, model training run: {}, query number: {}, f1_score: {}".format(metric_name, idx_model_training, idx_query, f1_scores))
+        logging.info("Metric name: {}, model training run: {}, query number: {}, f1_score: {}".format(metric_name, idx_model_training, idx_query, f1_score))
 
-    model_training_f1_scores.append(np.array(accuracies).T)
+    model_training_f1_scores.append(np.array(f1_scores).T)
 
 
 logging.info("Result: {}".format(model_training_f1_scores))
