@@ -216,9 +216,7 @@ class BertQA(torch.nn.Module):
         self.qa_outputs.apply(self.embedder._init_weights)
 
 
-    def forward(self, input, segments, mask): 
-        
-        print(inputs.size())
+    def forward(self, input, segments, mask):         
         """
             I modified the input as well as the output of the forward function so that it can match with the input of my loss function and that it can accept the full batch
 
@@ -242,7 +240,7 @@ class BertQA(torch.nn.Module):
 
         # input is batch x sequence
         # NOTE the order of the arguments changed from the pytorch pretrained bert package to the transformers package
-        embedding, _ = self.embedder(inputs, token_type_ids=segments, attention_mask=masks)
+        embedding, _ = self.embedder(input, token_type_ids=segments, attention_mask=mask)
         # only use context tokens for span prediction
         logits = self.qa_outputs(embedding)
         return logits
@@ -263,35 +261,33 @@ classifier = NeuralNetClassifier(BertQA,
 
 
 if metric_name == 'bald': 
-    query_strategy = mc_dropout_bald
+    metric = _bald_divergence
 elif metric_name == 'mean_std': 
-    query_strategy = mc_dropout_mean_st
+    metric = _mean_standard_deviation
 elif metric_name == 'max_variation': 
-    query_strategy = mc_dropout_max_variationRatios
+    metric = _variation_ratios
 elif metric_name == 'max_entropy': 
-    query_strategy = mc_dropout_max_entropy
+    metric = _entropy
 elif metric_name == 'random': 
-    query_strategy = mc_dropout_bald # just to pass something (will not be used)
+    metric = _bald_divergence # just to pass something (will not be used)
 
 
 
 
 
-n_initial = 0 # number of initial chosen samples for the training
+n_initial = 30000 # number of initial chosen samples for the training
 num_model_training = 5
 n_queries = 100
-drawn_sampley_per_query = 10
-forward_cycles_per_query = 50
+drawn_sampley_per_query = 1
+forward_cycles_per_query = 5
 output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'f1_scores_{}.txt'.format(metric_name))
-number_of_pre_train_samples = 500
-
 
 model_training_f1_scores = []
 x_axis = np.arange(n_initial, n_initial + n_queries*drawn_sampley_per_query + 1, drawn_sampley_per_query)
 model_training_f1_scores.append(x_axis)
 
 train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = 1100
+batch_size_train_dataloader = 86588
 test_dataset = 'SQuAD-dev'
 batch_size_test_dataloader = 10507
 
@@ -317,7 +313,7 @@ for idx_model_training in range(num_model_training):
     # initialise learner and set seeds
     learner = DeepActiveLearner(
         estimator=classifier, 
-        query_strategy=query_strategy
+        query_strategy=metric
     )
 
     learner.num_epochs = 2
@@ -338,15 +334,20 @@ for idx_model_training in range(num_model_training):
         train_data = batch
         break
 
+
     # assemble initial data & pool data 
-    initial_idx = np.random.choice(range(len(train_data['input'])), size=number_of_pre_train_samples, replace=False)
+    initial_idx = np.random.choice(range(len(train_data['input'])), size=n_initial, replace=False)
     X_initial = {'input': train_data['input'][initial_idx], 'segments': train_data['segments'][initial_idx], 'mask': train_data['mask'][initial_idx]}
     y_initial = train_data['label'][initial_idx]
 
     pool_initial = {'input': np.delete(train_data['input'], initial_idx, axis=0), 
                       'segments': np.delete(train_data['segments'], initial_idx, axis=0), 
                       'mask': np.delete(train_data['mask'], initial_idx, axis=0), 
-                      'label': np.delete(train_data['label'], initial_idx, axis=0)}
+                      'label': np.delete(train_data['label'], initial_idx, axis=0), 
+                      'metadata': {'question_tokens': np.delete(train_data['metadata']['question_tokens'], initial_idx, axis=0),
+                                   'length': np.delete(train_data['metadata']['length'], initial_idx, axis=0),
+                                  } 
+                      }
     
 
     logging.info("Pool size x {}".format(pool_initial['input'].size()))
@@ -357,8 +358,6 @@ for idx_model_training in range(num_model_training):
     learner.teach(X=X_initial, y=y_initial)
 
 
-
-    print("test")
     f1_scores = []
     f1_score = calculate_f1_score_Bert(test_batch, learner) 
     f1_scores.append(f1_score)
@@ -376,7 +375,7 @@ for idx_model_training in range(num_model_training):
 
             batch['input'].detach()
             batch['segments'].detach()
-            batch['masks'].detach()
+            batch['mask'].detach()
 
             predictions = []
 
@@ -385,10 +384,10 @@ for idx_model_training in range(num_model_training):
             for i in range(num_cycles):
         
                 probas = []
-                for inputs, segments, masks in zip(torch.split(batch['input'], sample_per_forward_pass), torch.split(batch['segments'], sample_per_forward_pass), torch.split(batch['masks'], sample_per_forward_pass)): 
+                for inputs, segments, masks in zip(torch.split(batch['input'], sample_per_forward_pass), torch.split(batch['segments'], sample_per_forward_pass), torch.split(batch['mask'], sample_per_forward_pass)): 
 
-                    logits = learner.estimator.infer(inputs, segments, masks)
-                    start_logits, end_logits = logits.transpose(1, 2).split(1, dim=-1)
+                    logits = learner.estimator.infer({'input': inputs, 'segments' : segments, 'mask': masks})
+                    start_logits, end_logits = logits.transpose(1, 2).split(1, dim=1)
                     unpadded_probabilities = extract_span(start_logits, end_logits, batch, softmax_applied=True, maximilian=False, answer_only=True)
                     
                     probas += unpadded_probabilities
@@ -396,9 +395,13 @@ for idx_model_training in range(num_model_training):
                 padded_tensors, masks = padding_tensor(probas)
                 predictions.append(to_numpy(padded_tensors))
 
-            metrics = query_strategy(predictions, np.array(to_numpy(mask), dtype=bool))
+            metrics = metric(predictions, np.array(to_numpy(masks), dtype=bool))
 
-            max_indx, max_metric = shuffled_argmax(metrics, n_instances=n_instances)
+            if metric_name != 'random': 
+                max_indx, max_metric = shuffled_argmax(metrics, n_instances=n_instances)
+            else: 
+                max_indx = np.random.choice(range(len(batch['input'])), size=n_instances, replace=False)
+
 
             inputs = retrieve_rows(batch['input'], max_indx)
             next_train_labels = retrieve_rows(batch['label'], max_indx)
@@ -407,14 +410,18 @@ for idx_model_training in range(num_model_training):
             next_train_instances = {'input' : inputs, 'segments': segments, 'mask': masks}
             return next_train_instances, next_train_labels, max_indx
 
-        next_train_instances, next_train_labels, max_indx = get_next_train_instances(pool, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=10, sample_per_forward_pass=5)
+        next_train_instances, next_train_labels, max_indx = get_next_train_instances(pool, n_instances=drawn_sampley_per_query, dropout_layer_indexes=[7, 16], num_cycles=forward_cycles_per_query, sample_per_forward_pass=5)
         
         learner.teach(X=next_train_instances, y=next_train_labels)
 
         pool = {'input': np.delete(pool['input'], max_indx, axis=0), 
                     'segments': np.delete(pool['segments'], max_indx, axis=0), 
                     'mask': np.delete(pool['mask'], max_indx, axis=0), 
-                    'label': np.delete(pool['label'], max_indx, axis=0)}
+                    'label': np.delete(pool['label'], max_indx, axis=0), 
+                    'metadata': {'question_tokens': np.delete(pool['metadata']['question_tokens'], max_indx, axis=0),
+                                  'length': np.delete(pool['metadata']['length'], max_indx, axis=0),
+                                } 
+                }
 
         f1_score = calculate_f1_score_Bert(test_batch, learner)
         f1_scores.append(f1_score) 
