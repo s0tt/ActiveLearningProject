@@ -166,7 +166,7 @@ def calculate_f1_score_Bert(test_set, learner):
     padded_label, masks = padding_tensor(unpadded_labels)
 
     # prediction part 
-    logits_predictions = learner.estimator.forward({'inputs' : test_set['input'], 'segments' : test_set['segments'], 'masks': test_set['mask']}) 
+    logits_predictions = learner.estimator.forward({'input' : test_set['input'], 'segments' : test_set['segments'], 'mask': test_set['mask']}) 
     start_logits, end_logits = logits_predictions.transpose(1, 2).split(1, dim=1)
     unpadded_predictions = extract_span(start_logits, end_logits, test_set, softmax_applied=True, maximilian=False, answer_only=True)
     padded_predictions, masks = padding_tensor(unpadded_predictions)
@@ -216,7 +216,7 @@ class BertQA(torch.nn.Module):
         self.qa_outputs.apply(self.embedder._init_weights)
 
 
-    def forward(self, inputs, segments, masks): 
+    def forward(self, input, segments, mask): 
         
         print(inputs.size())
         """
@@ -314,6 +314,7 @@ for batch in data_iter_test:
 
 for idx_model_training in range(num_model_training): 
 
+    # initialise learner and set seeds
     learner = DeepActiveLearner(
         estimator=classifier, 
         query_strategy=query_strategy
@@ -327,6 +328,7 @@ for idx_model_training in range(num_model_training):
     random.seed(idx_model_training)
     np.random.seed(idx_model_training)
 
+
     # gets for us the train data (shuffle --> so that the data is always new sorted)
     data_loader_train = get_dataloader([train_dataset], batch_size_train_dataloader, shuffle=True)
     data_iter_train = iter(data_loader_train) 
@@ -336,7 +338,7 @@ for idx_model_training in range(num_model_training):
         train_data = batch
         break
 
-    # assemble initial data
+    # assemble initial data & pool data 
     initial_idx = np.random.choice(range(len(train_data['input'])), size=number_of_pre_train_samples, replace=False)
     X_initial = {'input': train_data['input'][initial_idx], 'segments': train_data['segments'][initial_idx], 'mask': train_data['mask'][initial_idx]}
     y_initial = train_data['label'][initial_idx]
@@ -352,6 +354,10 @@ for idx_model_training in range(num_model_training):
     
 
     # here we should do now the Pre-TRAINING
+    learner.teach(X=X_initial, y=y_initial)
+
+
+
     print("test")
     f1_scores = []
     f1_score = calculate_f1_score_Bert(test_batch, learner) 
