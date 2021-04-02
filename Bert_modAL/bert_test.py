@@ -47,7 +47,7 @@ from Labeling import getLabelList
 
 metric_name = 'random'#sys.argv[1]
 
-logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}.log'.format(metric_name)), level=logging.INFO)
+logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}.log'.format(metric_name)), filemode='w', level=logging.INFO)
 
 
 labels='single' # at the moment this is just set by hand ... 
@@ -87,7 +87,7 @@ def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor) -> torch.Tensor:
     recall = tp / (tp + fn + epsilon)
     f1 = 2* (precision*recall) / (precision + recall + epsilon)
 
-    return f1
+    return f1.item()
 
 def padding_tensor(sequences):
     """
@@ -107,14 +107,7 @@ def padding_tensor(sequences):
     return out_tensor, mask 
 
 def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = True, topk: int = 1, extract_answer: bool = False, answer_only: bool = False):
-    context_instance_start_end = batch['metadata']['context_instance_start_end']
-    context = batch['metadata']['context']
-    # token_to_context_idx = batch['metadata']['token_to_context_idx']
-    context_wordpiece_tokens = batch['metadata']['cur_instance_context_tokens']
-    # TODO use given lengths
-    # lengths = torch.tensor([len(context) for context in context_wordpiece_tokens])
-    # inputs are batch x sequence
-    # TODO maybe vectorize computation of best span?
+   
     num_samples = start_logits.size(0)
     scores = [None] * num_samples
     scores_all = [None] * num_samples
@@ -172,8 +165,8 @@ def calculate_f1_score_Bert(test_set, learner):
     unpadded_labels = extract_span(start_labels, end_labels, test_set, softmax_applied=False, maximilian=False, answer_only=True) # this gives us the prediction
     padded_label, masks = padding_tensor(unpadded_labels)
 
-    # prediction part
-    logits_predictions = learner.estimator.module_(test_set['input'], test_set['segments'], test_set['mask']) # test if it uses the setted batch size ... 
+    # prediction part 
+    logits_predictions = learner.estimator.forward({'inputs' : test_set['input'], 'segments' : test_set['segments'], 'masks': test_set['mask']}) 
     start_logits, end_logits = logits_predictions.transpose(1, 2).split(1, dim=1)
     unpadded_predictions = extract_span(start_logits, end_logits, test_set, softmax_applied=True, maximilian=False, answer_only=True)
     padded_predictions, masks = padding_tensor(unpadded_predictions)
@@ -289,12 +282,13 @@ num_model_training = 5
 n_queries = 100
 drawn_sampley_per_query = 10
 forward_cycles_per_query = 50
-output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'accuracies_{}.txt'.format(metric_name))
+output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'f1_scores_{}.txt'.format(metric_name))
+number_of_pre_train_samples = 500
 
 
-model_training_accuracies = []
+model_training_f1_scores = []
 x_axis = np.arange(n_initial, n_initial + n_queries*drawn_sampley_per_query + 1, drawn_sampley_per_query)
-model_training_accuracies.append(x_axis)
+model_training_f1_scores.append(x_axis)
 
 train_dataset = 'SQuAD-train'
 batch_size_train_dataloader = 1000
@@ -302,6 +296,7 @@ test_dataset = 'SQuAD-dev'
 batch_size_test_dataloader = 10507
 
 
+# get test batch
 data_loader_test = get_dataloader([test_dataset], batch_size_test_dataloader)
 data_iter_test = iter(data_loader_test) 
 test_batch = 0
@@ -309,11 +304,6 @@ test_batch = 0
 for batch in data_iter_test: 
     test_batch = batch
     break
-
-
-
-bert_qa = BertQA()
-modules = list(bert_qa.modules()) # pick from here the Dopout indexes
 
 """
     At the moment the active learner requires that:  
@@ -330,24 +320,44 @@ for idx_model_training in range(num_model_training):
     )
 
     learner.num_epochs = 2
-    learner.batch_size = 2
+    learner.batch_size = 128
 
     torch.cuda.manual_seed_all(idx_model_training)
     torch.manual_seed(idx_model_training)
     random.seed(idx_model_training)
     np.random.seed(idx_model_training)
 
-    data_loader_train = get_dataloader([train_dataset], batch_size_train_dataloader)
+    # gets for us the train data (shuffle --> so that the data is always new sorted)
+    data_loader_train = get_dataloader([train_dataset], batch_size_train_dataloader, shuffle=True)
     data_iter_train = iter(data_loader_train) 
 
+    train_data = 0
+    for batch in data_iter_train: 
+        train_data = batch
+        break
+
+    # assemble initial data
+    initial_idx = np.random.choice(range(len(train_data['input'])), size=number_of_pre_train_samples, replace=False)
+    X_initial = {'input': train_data['input'][initial_idx], 'segments': train_data['segments'][initial_idx], 'mask': train_data['mask'][initial_idx]}
+    y_initial = train_data['label'][initial_idx]
+
+    X_pool_initial = {'input': np.delete(train_data['input'], initial_idx, axis=0), 'segments': np.delete(train_data['segments'], initial_idx, axis=0), 'mask': np.delete(train_data['mask'], initial_idx, axis=0)}
+    
+    y_pool_initial = np.delete(train_data['label'], initial_idx, axis=0)
+
+
+    logging.info("Pool size x {}".format(X_pool_initial['input'].size()))
+    logging.info("Initial size x {}".format(X_initial['input'].size()))
+    
 
     # here we should do now the Pre-TRAINING
 
-
+    print("test")
     f1_scores = []
     f1_score = calculate_f1_score_Bert(test_batch, learner) 
     f1_score.append(f1_score)
     logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
+
 
     for idx_query, batch in enumerate(data_iter_train):
 
@@ -398,8 +408,8 @@ for idx_model_training in range(num_model_training):
         f1_scores.append(f1_score) 
         logging.info("Metric name: {}, model training run: {}, query number: {}, f1_score: {}".format(metric_name, idx_model_training, idx_query, f1_scores))
 
-    model_training_accuracies.append(np.array(accuracies).T)
+    model_training_f1_scores.append(np.array(accuracies).T)
 
 
-logging.info("Result: {}".format(model_training_accuracies))
-np.savetxt(output_file, np.array(model_training_accuracies).T, delimiter=' ')
+logging.info("Result: {}".format(model_training_f1_scores))
+np.savetxt(output_file, np.array(model_training_f1_scores).T, delimiter=' ')

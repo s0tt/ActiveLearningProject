@@ -137,7 +137,7 @@ input,
 label (Maybe token-ids but I do not know this in detail ...), 
 """
 
-def get_dataloader(datasets, batch_size):
+def get_dataloader(datasets, batch_size, shuffle=False):
     agent = MRQAAgent(model, cache_dir, pretrained_model_dir=pretrained_model, disable_cuda=nocuda, results=results)
     datasets_train = match_datasets(data_dir, datasets) # returns just a set where the Dataset is inside!
     data_train, data_split = get_datasets(data_dir, cache_dir, agent.sample_processor, agent.tokenizer, datasets_train, seed=seed, force_preprocess=pre_process)
@@ -147,7 +147,7 @@ def get_dataloader(datasets, batch_size):
 
     #data_train: MRQADataset # needs still to be added
 
-    batch_sampler = BertQASampler(data_source=data_train, batch_size=batch_size, training=True, shuffle=True, drop_last=False, fill_last=True, repeat=True)
+    batch_sampler = BertQASampler(data_source=data_train, batch_size=batch_size, training=True, shuffle=shuffle, drop_last=False, fill_last=True, repeat=True)
     batch_sampler_iterator = iter(batch_sampler)
     dataloader = DataLoader(data_train, batch_sampler=batch_sampler_iterator, collate_fn=pad_batch)
 
