@@ -317,7 +317,7 @@ for idx_model_training in range(num_model_training):
     )
 
     learner.num_epochs = 2
-    learner.batch_size = 128
+    learner.batch_size = 50
 
     torch.cuda.manual_seed_all(idx_model_training)
     torch.manual_seed(idx_model_training)
