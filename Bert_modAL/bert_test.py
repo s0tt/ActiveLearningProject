@@ -293,9 +293,7 @@ batch_size_test_dataloader = 10#10507
 
 
 # get test batch
-test_batch = 0
 
-"""
 data_loader_test = get_dataloader([test_dataset], batch_size_test_dataloader)
 data_iter_test = iter(data_loader_test) 
 test_batch = 0
@@ -303,7 +301,6 @@ test_batch = 0
 for batch in data_iter_test: 
     test_batch = batch
     break
-"""
 
 """
     At the moment the active learner requires that:  
@@ -335,8 +332,6 @@ for idx_model_training in range(num_model_training):
 
     train_data = 0
     for batch in data_iter_train: 
-        learner.teach(X={'input': batch['input'], 'segments': batch['segments'], 'mask': batch['mask']}, y=batch['label']) # only for test purposes
-
         train_data = batch
         # break
 
