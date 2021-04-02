@@ -144,7 +144,7 @@ def get_dataloader(datasets, batch_size, shuffle=False):
     # merge train data (When more training datasets are used --> creates a single MEQADataset class)
     data_train = reduce(lambda x, y: x + y, data_train)
 
-
+    
     #data_train: MRQADataset # needs still to be added
 
     batch_sampler = BertQASampler(data_source=data_train, batch_size=batch_size, training=True, shuffle=shuffle, drop_last=False, fill_last=True, repeat=True)

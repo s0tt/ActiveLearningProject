@@ -287,9 +287,9 @@ x_axis = np.arange(n_initial, n_initial + n_queries*drawn_sampley_per_query + 1,
 model_training_f1_scores.append(x_axis)
 
 train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = 86588
+batch_size_train_dataloader = 500 
 test_dataset = 'SQuAD-dev'
-batch_size_test_dataloader = 10507
+batch_size_test_dataloader = 10#10507
 
 
 # get test batch
@@ -317,7 +317,7 @@ for idx_model_training in range(num_model_training):
     )
 
     learner.num_epochs = 2
-    learner.batch_size = 10
+    learner.batch_size = 500
 
     torch.cuda.manual_seed_all(idx_model_training)
     torch.manual_seed(idx_model_training)
@@ -331,8 +331,10 @@ for idx_model_training in range(num_model_training):
 
     train_data = 0
     for batch in data_iter_train: 
+        learner.teach(X={'input': batch['input'], 'segments': batch['segments'], 'mask': batch['mask']}, y=batch['label']) # only for test purposes
+
         train_data = batch
-        break
+        # break
 
 
     # assemble initial data & pool data 
