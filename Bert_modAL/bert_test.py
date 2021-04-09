@@ -325,14 +325,17 @@ for idx_model_training in range(num_model_training):
 
 
     # gets for us the train data (shuffle --> so that the data is always new sorted)
+    logging.info(torch.cuda.memory_stats())
+
     data_loader_train = get_dataloader([train_dataset], batch_size_train_dataloader, shuffle=True)
     data_iter_train = iter(data_loader_train) 
 
-    logging.info(torch.cuda.memory_stats())
     for batch in data_iter_train: 
         train_data = batch
         break
+
     logging.info(torch.cuda.memory_stats())
+
 
     # assemble initial data & pool data 
     initial_idx = np.random.choice(range(len(train_data['input'])), size=n_initial, replace=False)
