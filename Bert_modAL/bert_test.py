@@ -287,9 +287,9 @@ x_axis = np.arange(n_initial, n_initial + n_queries*drawn_sampley_per_query + 1,
 model_training_f1_scores.append(x_axis)
 
 train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = 86588 
+batch_size_train_dataloader = 10#86588 
 test_dataset = 'SQuAD-dev'
-batch_size_test_dataloader = 10507
+batch_size_test_dataloader = 10 #10507
 
 
 # get test batch
