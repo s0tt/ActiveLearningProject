@@ -287,9 +287,9 @@ x_axis = np.arange(n_initial, n_initial + n_queries*drawn_sampley_per_query + 1,
 model_training_f1_scores.append(x_axis)
 
 train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = 600#86588 
+batch_size_train_dataloader = 86588 
 test_dataset = 'SQuAD-dev'
-batch_size_test_dataloader = 600 #10507
+batch_size_test_dataloader = 10507
 
 
 # get test batch
@@ -328,9 +328,11 @@ for idx_model_training in range(num_model_training):
     data_loader_train = get_dataloader([train_dataset], batch_size_train_dataloader, shuffle=True)
     data_iter_train = iter(data_loader_train) 
 
+    logging.info(torch.cuda.memory_stats())
     for batch in data_iter_train: 
         train_data = batch
         break
+    logging.info(torch.cuda.memory_stats())
 
     # assemble initial data & pool data 
     initial_idx = np.random.choice(range(len(train_data['input'])), size=n_initial, replace=False)
