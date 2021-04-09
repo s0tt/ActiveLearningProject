@@ -328,7 +328,6 @@ for idx_model_training in range(num_model_training):
     data_loader_train = get_dataloader([train_dataset], batch_size_train_dataloader, shuffle=True)
     data_iter_train = iter(data_loader_train) 
 
-    train_data = 0
     for batch in data_iter_train: 
         train_data = batch
         break
