@@ -2,10 +2,6 @@ mrqa-baseline/
 MNIST
 .vscode
 **/__pycache__/
-Bert_modAL/agent.py
-Bert_modAL/data.py
-Bert_modAL/model.py
-Bert_modAL/utils.py
 cache/*
 datasets/*
 !datasets/.gitkeep
