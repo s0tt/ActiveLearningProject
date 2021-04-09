@@ -111,7 +111,8 @@ classifier = NeuralNetClassifier(BertQA,
                         optimizer=AdamW,
                         train_split=None,
                         verbose=1,
-                        device=device)
+                        device=device,
+                        max_epochs=1)
 
 
 # initialize ActiveLearner
