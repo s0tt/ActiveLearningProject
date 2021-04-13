@@ -25,12 +25,16 @@ Then data can be labeled using the "label" function.
 Important: Do not forget to stop the server using the "stopServer" method or the corresponding button on the Label-Studio interface. 
 """ 
 class LabelInstance:
-  def __init__(self, port, dataPoints):
+  def __init__(self, port, dataPoints, statisticLabels, helpTexts):
     """
     Creates the config file and starts the Label-Studio server.
     
     :param port: Port on which the Label-Studio server should run  
-    :param dataPoints: Dictionary made up of the names and the associated data type (e.g. text, image, audio) of the data points. E.g. for question answering {'text': 'Text', 'question': 'Text'} 
+    :param dataPoints: Dictionary made up of the names and the associated data type (e.g. text, image, audio) of the data points. E.g. for question answering {'text': 'Text', 'question': 'Text'}
+    :param statisticLabels: This is important for naming the statistics charts. A list must be provided for each diagram. The first value represents the diagram title and the second represents the title of the y-axis.
+                            This list must be transferred as a string e.g. '[["Metric_1", "Value"], ["Accuracy", "Value"]]'  
+    :param helpTexts: With the specification, help texts for metrics can be provided. It is specified as a dictionary, which takes the title of the respective metric (must be consistent with the metric name when labeling) with its associated help text as a value. 
+                      This dictionary must also be passed as a string e.g. '{"metric_1": "info 1", "metric_2": "info 2"}' 
     """
     
     self.port = port
@@ -45,9 +49,9 @@ class LabelInstance:
     configfile.write(configdata)
     configfile.close()
     time.sleep(5)
-    self.startServer()
+    self.startServer(statisticLabels, helpTexts)
 
-  def startServer(self):
+  def startServer(self, statisticLabels, helpTexts):
     """
     Starts the Label-Studio server 
     """
@@ -73,6 +77,14 @@ class LabelInstance:
         if not response.ok:
             print("Something went wrong")
     time.sleep(2)
+
+    response = requests.post('http://localhost:' + str(self.port) + '/api/statistics', headers=headers, data=statisticLabels.encode('utf-8'))
+    if not response.ok:
+        print("Something went wrong")
+        
+    response = requests.post('http://localhost:' + str(self.port) + '/api/helpTexts', headers=headers, data=helpTexts.encode('utf-8'))
+    if not response.ok:
+        print("Something went wrong")
     
   def stopServer(self):
     """
@@ -166,11 +178,12 @@ class LabelInstance:
     text2.set('value','$new')
     return configQuestionAnswering
     
-  def label(self, instances):
+  def label(self, instances, statisticData):
     """
     Method for labeling data which belong to the specified config and data types. 
     
     :param instances: List of entities to be labeled, consisting of the dataPoints and a dictionary of metrics e.g. for question answering [[text, query, {"metric_1":4, "metric_2":2}],[text2, query2,{"metric_1":3, "metric_2":3}]
+    :param statisticData: List with the new statistic numbers for the diagrams. The order is decisive for the assignment to the diagram title specified during initialization. e.g. [0.4, 0.7]
     :return: Dictionary, which contains the data provided by the user and the originally requested data (key "data"). 
              e.g. for question answering [{'charSpans': [(92, 125), (156, 168)], 'texts': ['a golden statue of the Virgin Mary', 'Main Building'], 'weighting': 4 , 'data': {'metric_1': '2.3', 'new': False, 'question': 'query', 'metric_2': '23', 'text': 'text'},...]
     """ 
@@ -197,7 +210,7 @@ class LabelInstance:
 
     data = str(importList)
 
-    responseList = self.restInteraction(data)
+    responseList = self.restInteraction(data, str(statisticData))
     resultList = []
     for dataDict in responseList:
         resultList.append(self.extractData(dataDict))
@@ -243,11 +256,12 @@ class LabelInstance:
         results.append(resultDataDict)
     return results[-1]
     
-  def restInteraction(self, data):
+  def restInteraction(self, data, statisticData):
     """
     The method sends data to the Label-Studio server that are to be labeled by the user and receives the labeled data.
     
     :param data: List as a string that contains the data records 
+    :param statisticData: List with the new statistic numbers for the diagrams. The order is decisive for the assignment to the diagram title specified during initialization. List must be passed as a string.
     :return: List with the labeled data 
     """ 
     
@@ -260,6 +274,10 @@ class LabelInstance:
     if not response.ok:
         print("Something went wrong")
         return None
+
+    response = requests.post('http://localhost:' + str(self.port) + '/api/statistics', headers=headers, data=statisticData.encode('utf-8'))
+    if not response.ok:
+        print("Something went wrong")
     
     response = requests.get('http://localhost:' + str(self.port) + '/api/project/getLabels')
 
@@ -274,7 +292,7 @@ class LabelInstance:
 e.g.
 inputList = ["C:/Bilder/test.jpg", "C:/Bilder/test2.jpg", "C:/Bilder/test3.jpg"]
 image = [[inputList[0], {"metric_1":14, "metric_2":1.2}],[inputList[1],{"metric_1":23, "metric_2":2.3}],[inputList[2], {"metric_1":8, "metric_2":7}]]
-p1 = LabelInstance(8080, {'image':'Image'})
-print(p1.label(image))
+p1 = LabelInstance(8080, {'image':'Image'}, '[["Mean Metric", "Value"], ["Accuracy", "Value"]]', '{"metric_1":"info 1", "metric_2":"info 2"}')
+print(p1.label(image, [0.4,0.7]))
 p1.stopServer()
 """
