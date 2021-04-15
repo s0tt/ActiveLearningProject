@@ -65,6 +65,112 @@ def loss_function(output, target):
     return loss 
 
 
+def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = True, topk: int = 1, extract_answer: bool = False, answer_only: bool = False):
+    num_samples = start_logits.size(0)
+    scores = [None] * num_samples
+    scores_all = [None] * num_samples
+    spans = [None] * num_samples
+    answers = [None] * num_samples
+    max_score_start, max_spans_start = start_logits.max(dim=1)
+    
+    unified_len = round((len(batch['input'][0]) * (len(batch['input'][0]) + 1))/2)  #Gaussian sum formula for sequences
+    unpadded_probabilities = torch.empty(size=(num_samples, unified_len))
+    for sample_id in range(num_samples):
+        # consider all possible combinations (by addition) of start and end token
+        # vectorize by broadcasting start/end token probabilites to matrix and adding both
+        # afterward we can take the maximum of the upper half including the diagonal (end > start)
+        
+
+        #TODO: [CLS] Hwhere is the city? [SEP] the city is there
+        mask = batch['mask'][sample_id]
+        #out_matrix = torch.tensor([1, float('nan'), 2])
+        #out_matrix = np.nan(shape=(len(mask), len(mask)))
+        
+
+
+        nr_mask = np.sum(mask.numpy()) #sum mask to get nr of total valid tokens
+        nr_segments = np.sum(batch['segments'][sample_id][mask == 1].numpy()) #sum masked segments to get nr of answer tokens
+
+        slice_relevant_tokens = np.arange(nr_mask-nr_segments,nr_mask)
+        start_idx = nr_mask-nr_segments
+        end_idx = nr_mask-1-1 #index is mask nr-1 and one more -1 for excluding [SEP]
+        len_relevant_tokens = end_idx-start_idx
+
+        #slice_relevant_tokens = slice(len(batch['metadata']['question_tokens'][sample_id]) + 2, batch['metadata']['length'][sample_id] - 1)
+        #len_relevant_tokens = batch['metadata']['length'][sample_id] - 1 - len(batch['metadata']['question_tokens'][sample_id]) - 2
+        
+        #max_relevant_logits = start_logits[sample_id][slice_relevant_tokens].transpose()
+        #print(max_relevant_logits)
+        #unsqueezed_tokens = start_logits[sample_id][slice_relevant_tokens].unsqueeze(1)
+        #print(unsqueezed_tokens)
+
+        # Maximilians realisation 
+        #start_score_matrix= np.nan(shape=(len(mask), len(mask)))
+        #end_score_matrix= np.nan(shape=(len(mask), len(mask)))
+       # start_score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
+        #end_score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
+
+        score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
+
+        #vec_start = start_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).double()
+        #start_score_matrix[slice_relevant_tokens][slice_relevant_tokens] = torch.matmul()
+
+        #start_score_matrix = start_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).double()
+        #end_score_matrix = end_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).transpose(0, 1)
+
+        start_score_matrix = start_logits[sample_id][0][start_idx:end_idx].unsqueeze(1).expand(len_relevant_tokens, len_relevant_tokens).double()
+        end_score_matrix = end_logits[sample_id][0][start_idx:end_idx].unsqueeze(1).transpose(0, 1).expand(len_relevant_tokens, len_relevant_tokens).double() # new dimension is by default added to the front
+        #start_score_matrix_pad[start_idx:end_idx,start_idx:end_idx] = start_score_matrix[1:-1, 1:-1]
+        #end_score_matrix_pad[start_idx:end_idx,start_idx:end_idx] = end_score_matrix[1:-1, 1:-1]
+
+
+        if maximilian: 
+            score_matrix = (start_score_matrix + end_score_matrix).triu() # return upper triangular part including diagonal, rest is 0
+            #score_matrix = (start_score_matrix_pad + end_score_matrix_pad).triu() # return upper triangular part including diagonal, rest is 0
+        else: 
+            score_matrix = (start_score_matrix*end_score_matrix).triu() # return upper triangular part including diagonal, rest is 0
+            #score_matrix = (start_score_matrix_pad*end_score_matrix_pad).triu() # return upper triangular part including diagonal, rest is 0
+        
+        # my realisation
+
+
+        #score_array = score_matrix[torch.triu(torch.ones_like(score_matrix)) == 1]
+        score_matrix_pad[start_idx:end_idx,start_idx:end_idx] = score_matrix
+        score_array = score_matrix_pad[torch.triu(torch.ones_like(score_matrix_pad) == 1)]
+        
+        # values can be lower than 0 -> make sure to set lower triangular matrix to very low value
+        #lower_triangular_matrix = torch.tril(torch.ones_like(score_matrix, dtype=torch.long), diagonal=-1)
+        #score_matrix.masked_fill_(lower_triangular_matrix, float("-inf")) # make sure that lower triangular matrix is set -inf to ensure end >= start
+        
+        if softmax_applied: 
+            score_array[score_array.isnan() == False] = score_array[score_array.isnan() == False].softmax(0)
+            probabilities = score_array
+        else: 
+            probabilities = score_arrayw
+        # TODO add maximum span length (mask diagonal)
+        unpadded_probabilities[sample_id, :] = probabilities
+
+    # padding
+
+    return unpadded_probabilities
+
+def padding_tensor(sequences):
+    """
+    :param sequences: list of tensors
+    :return:
+    """
+    num = len(sequences)
+    max_len = max([s.size(0) for s in sequences])
+    out_dims = (num, max_len)
+    out_tensor = sequences[0].data.new(*out_dims).fill_(0)
+    mask = sequences[0].data.new(*out_dims).fill_(0)
+    for i, tensor in enumerate(sequences):
+        length = tensor.size(0)
+        out_tensor[i, :length] = tensor
+        mask[i, :length] = 1
+
+    return out_tensor, mask 
+
 class BertQA(torch.nn.Module):
     def __init__(self, cache_dir: Union[None, str] = None):
         super(BertQA, self).__init__()
@@ -102,7 +208,14 @@ class BertQA(torch.nn.Module):
         embedding, _ = self.embedder(inputs, token_type_ids=segments, attention_mask=masks)
         # only use context tokens for span prediction
         logits = self.qa_outputs(embedding)
-        return logits
+
+        ##### NEW Change output of BERT QA to 1dim ######
+
+        start_logits, end_logits = logits.transpose(1, 2).split(1, dim=1)
+        batch = {'input' : inputs, 'segments': segments, 'mask': masks}
+        unpadded_probabilities = extract_span(start_logits, end_logits, batch, softmax_applied=True, maximilian=False, answer_only=True)
+        #padded_tensors, masks = padding_tensor(unpadded_probabilities)
+        return unpadded_probabilities
 
 
 # Wrap pytorch class --> to give it an scikit-learn interface! 
