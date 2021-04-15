@@ -65,7 +65,7 @@ def loss_function(output, target):
     return loss 
 
 
-def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = True, topk: int = 1, extract_answer: bool = False, answer_only: bool = False):
+def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = False, topk: int = 1, extract_answer: bool = False, answer_only: bool = False):
     num_samples = start_logits.size(0)
     scores = [None] * num_samples
     scores_all = [None] * num_samples
@@ -73,6 +73,9 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
     answers = [None] * num_samples
     max_score_start, max_spans_start = start_logits.max(dim=1)
     
+
+
+
     unified_len = round((len(batch['input'][0]) * (len(batch['input'][0]) + 1))/2)  #Gaussian sum formula for sequences
     unpadded_probabilities = torch.empty(size=(num_samples, unified_len))
     for sample_id in range(num_samples):
@@ -143,10 +146,10 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
         #score_matrix.masked_fill_(lower_triangular_matrix, float("-inf")) # make sure that lower triangular matrix is set -inf to ensure end >= start
         
         if softmax_applied: 
-            score_array[score_array.isnan() == False] = score_array[score_array.isnan() == False].softmax(0)
+            score_array[~score_array.isnan()] = score_array[~score_array.isnan()].softmax(0)
             probabilities = score_array
         else: 
-            probabilities = score_arrayw
+            probabilities = score_array
         # TODO add maximum span length (mask diagonal)
         unpadded_probabilities[sample_id, :] = probabilities
 
@@ -154,22 +157,22 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
 
     return unpadded_probabilities
 
-def padding_tensor(sequences):
-    """
-    :param sequences: list of tensors
-    :return:
-    """
-    num = len(sequences)
-    max_len = max([s.size(0) for s in sequences])
-    out_dims = (num, max_len)
-    out_tensor = sequences[0].data.new(*out_dims).fill_(0)
-    mask = sequences[0].data.new(*out_dims).fill_(0)
-    for i, tensor in enumerate(sequences):
-        length = tensor.size(0)
-        out_tensor[i, :length] = tensor
-        mask[i, :length] = 1
+# def padding_tensor(sequences):
+#     """
+#     :param sequences: list of tensors
+#     :return:
+#     """
+#     num = len(sequences)
+#     max_len = max([s.size(0) for s in sequences])
+#     out_dims = (num, max_len)
+#     out_tensor = sequences[0].data.new(*out_dims).fill_(0)
+#     mask = sequences[0].data.new(*out_dims).fill_(0)
+#     for i, tensor in enumerate(sequences):
+#         length = tensor.size(0)
+#         out_tensor[i, :length] = tensor
+#         mask[i, :length] = 1
 
-    return out_tensor, mask 
+#     return out_tensor, mask 
 
 class BertQA(torch.nn.Module):
     def __init__(self, cache_dir: Union[None, str] = None):
@@ -273,18 +276,19 @@ for batch in data_iter:
     masks = batch['mask']
     train_batch = {'inputs' : inputs, 'segments': segments, 'masks': masks}
 
-    learnerBald.teach(X=train_batch, y=labels)
-    learnerMean.teach(X=train_batch, y=labels)
+    # learnerBald.teach(X=train_batch, y=labels)
+    # learnerMean.teach(X=train_batch, y=labels)
 
-    print("Bald Learner:", learnerBald.score(train_batch, labels))
-    print("Mean Learner:", learnerMean.score(train_batch, labels))
+    # print("Bald Learner:", learnerBald.score(train_batch, labels))
+    # print("Mean Learner:", learnerMean.score(train_batch, labels))
     
 
-    print("Bald learner predict proba:", learnerBald.predict_proba(train_batch))
-    print("Bald learner predict:", learnerBald.predict(train_batch))
+    # print("Bald learner predict proba:", learnerBald.predict_proba(train_batch))
+    # print("Bald learner predict:", learnerBald.predict(train_batch))
 
-    
-    bald_idx, bald_instance, bald_metric = learnerBald.query(train_batch, n_instances=5, dropout_layer_indexes=[7, 16], num_cycles=10)
+ 
+
+    #bald_idx, bald_instance, bald_metric = learnerBald.query(train_batch, n_instances=5, dropout_layer_indexes=[7, 16], num_cycles=10)
     mean_idx, mean_instance, mean_metric = learnerMean.query(train_batch, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=2)
 
     question = batch['metadata']['question']
