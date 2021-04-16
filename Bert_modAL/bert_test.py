@@ -65,7 +65,7 @@ def loss_function(output, target):
     return loss 
 
 
-def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = False, topk: int = 1, extract_answer: bool = False, answer_only: bool = False):
+def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = False, topk: int = 1, extract_answer: bool = False, answer_only: bool = False, get_label:bool=False):
     num_samples = start_logits.size(0)
     scores = [None] * num_samples
     scores_all = [None] * num_samples
@@ -77,7 +77,10 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
 
 
     unified_len = round((len(batch['input'][0]) * (len(batch['input'][0]) + 1))/2)  #Gaussian sum formula for sequences
-    unpadded_probabilities = torch.empty(size=(num_samples, unified_len))
+    if get_label:
+        unpadded_probabilities = torch.empty(size=(num_samples, 1))
+    else:
+        unpadded_probabilities = torch.empty(size=(num_samples, unified_len))
     for sample_id in range(num_samples):
         # consider all possible combinations (by addition) of start and end token
         # vectorize by broadcasting start/end token probabilites to matrix and adding both
@@ -135,7 +138,7 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
             #score_matrix = (start_score_matrix_pad*end_score_matrix_pad).triu() # return upper triangular part including diagonal, rest is 0
         
         # my realisation
-
+        
 
         #score_array = score_matrix[torch.triu(torch.ones_like(score_matrix)) == 1]
         score_matrix_pad[start_idx:end_idx,start_idx:end_idx] = score_matrix
@@ -151,10 +154,13 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
         else: 
             probabilities = score_array
         # TODO add maximum span length (mask diagonal)
-        unpadded_probabilities[sample_id, :] = probabilities
+        if get_label:
+            probabilities[probabilities.isnan()] = -1 #set to -1 for argmax to work correctly
+            unpadded_probabilities[sample_id, 0] = torch.argmax(probabilities)
+        else:
+            unpadded_probabilities[sample_id, :] = probabilities
 
     # padding
-
     return unpadded_probabilities
 
 # def padding_tensor(sequences):
@@ -276,15 +282,20 @@ for batch in data_iter:
     masks = batch['mask']
     train_batch = {'inputs' : inputs, 'segments': segments, 'masks': masks}
 
-    # learnerBald.teach(X=train_batch, y=labels)
-    # learnerMean.teach(X=train_batch, y=labels)
+    # label part
+    labels = batch['label_multi']
+    start_labels, end_labels = labels.split(1, dim=1)
+    labels = extract_span(start_labels, end_labels, batch, softmax_applied=False, maximilian=False, answer_only=True, get_label=True) # this gives us the prediction
+    
+    learnerBald.teach(X=train_batch, y=labels)
+    learnerMean.teach(X=train_batch, y=labels)
 
-    # print("Bald Learner:", learnerBald.score(train_batch, labels))
-    # print("Mean Learner:", learnerMean.score(train_batch, labels))
+    print("Bald Learner:", learnerBald.score(train_batch, labels))
+    print("Mean Learner:", learnerMean.score(train_batch, labels))
     
 
-    # print("Bald learner predict proba:", learnerBald.predict_proba(train_batch))
-    # print("Bald learner predict:", learnerBald.predict(train_batch))
+    print("Bald learner predict proba:", learnerBald.predict_proba(train_batch))
+    print("Bald learner predict:", learnerBald.predict(train_batch))
 
  
 
