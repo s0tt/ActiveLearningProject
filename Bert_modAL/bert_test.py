@@ -156,11 +156,13 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
         # TODO add maximum span length (mask diagonal)
         if get_label:
             probabilities[probabilities.isnan()] = -1 #set to -1 for argmax to work correctly
-            unpadded_probabilities[sample_id, 0] = torch.argmax(probabilities)
+            unpadded_probabilities[sample_id] = torch.argmax(probabilities)
         else:
             unpadded_probabilities[sample_id, :] = probabilities
 
     # padding
+    if get_label:
+        unpadded_probabilities = unpadded_probabilities.squeeze().type(torch.long)
     return unpadded_probabilities
 
 # def padding_tensor(sequences):
@@ -286,7 +288,8 @@ for batch in data_iter:
     labels = batch['label_multi']
     start_labels, end_labels = labels.split(1, dim=1)
     labels = extract_span(start_labels, end_labels, batch, softmax_applied=False, maximilian=False, answer_only=True, get_label=True) # this gives us the prediction
-    
+
+
     learnerBald.teach(X=train_batch, y=labels)
     learnerMean.teach(X=train_batch, y=labels)
 
