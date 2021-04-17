@@ -87,7 +87,7 @@ def label(instances):
              e.g. [{'charSpans': [(92, 125), (156, 168)], 'texts': ['a golden statue of the Virgin Mary', 'Main Building'], 'weighting': 4},...]
     """ 
     
-    port = "8080"
+    port = "80"
     
     
     importList = []

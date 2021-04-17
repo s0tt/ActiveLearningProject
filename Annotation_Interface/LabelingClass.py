@@ -40,7 +40,7 @@ class LabelInstance:
     self.port = port
     self.dataPoints=dataPoints
     
-    config = self.getConfigImageNumber()
+    config = self.getConfigQuestionAnswering()
     
     # create a new config file
     configdata = ET.tostring(config, encoding="unicode")
@@ -55,7 +55,9 @@ class LabelInstance:
     """
     Starts the Label-Studio server 
     """
-    project_name="imageDataLabeling"
+    #project_name="imageDataLabeling"
+    project_name="questionAnswering"
+
     try:
         _thread.start_new_thread(serverStart, (project_name, self.port))
     except:
