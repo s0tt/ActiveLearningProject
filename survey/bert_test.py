@@ -15,8 +15,8 @@ from typing import Dict, OrderedDict, Tuple, Union
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../Annotation_Interface'))
 
-from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st, mc_dropout_max_variationRatios, mc_dropout_max_entropy, mc_dropout_multi
-from modAL.models import DeepActiveLearner
+# from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st, mc_dropout_max_variationRatios, mc_dropout_max_entropy, mc_dropout_multi
+# from modAL.models import DeepActiveLearner
 # from transformers import BertModel
 
 # from torch.utils.data import DataLoader
