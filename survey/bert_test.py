@@ -46,7 +46,7 @@ def restart_program(labelSystem, timeStamp):
 
     #remove all user files
     time.sleep(2)
-    source_dir = "./questionAnswering/completions/"
+    source_dir = os.path.join("questionAnswering", "completions", "")
     if os.path.exists(source_dir):
         file_names = os.listdir(source_dir)
         for file_name in file_names:

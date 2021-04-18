@@ -44,8 +44,9 @@ class LabelInstance:
     
     # create a new config file
     configdata = ET.tostring(config, encoding="unicode")
-    configfile = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'..', "label-studio", "config.xml"), "w")
-
+    configfile_path = os.path.join(os.path.dirname(os.path.realpath(__file__)),'..', "label-studio", "config.xml")
+    configfile = open(configfile_path, "w")
+    print("### Config File Path: " + str(configfile_path))
     configfile.write(configdata)
     configfile.close()
     time.sleep(5)
