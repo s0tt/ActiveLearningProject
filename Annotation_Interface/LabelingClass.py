@@ -3,7 +3,7 @@ import json
 
 import sys 
 import os
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../label-studio/label_studio'))
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'..', 'label-studio','label_studio'))
 from server import main as serverStart
 import _thread
 import time
@@ -44,7 +44,7 @@ class LabelInstance:
     
     # create a new config file
     configdata = ET.tostring(config, encoding="unicode")
-    configfile = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../label-studio/config.xml'), "w")
+    configfile = open(os.path.join(os.path.dirname(os.path.realpath(__file__)),'..', "label-studio", "config.xml"), "w")
 
     configfile.write(configdata)
     configfile.close()

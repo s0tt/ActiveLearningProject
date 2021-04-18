@@ -12,8 +12,8 @@ from typing import Dict, OrderedDict, Tuple, Union
 # from skorch import NeuralNetClassifier
 # from skorch import NeuralNet
 
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../Annotation_Interface'))
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'..','modAL'))
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'..','Annotation_Interface'))
 
 # from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st, mc_dropout_max_variationRatios, mc_dropout_max_entropy, mc_dropout_multi
 # from modAL.models import DeepActiveLearner
@@ -50,7 +50,7 @@ def restart_program(labelSystem, timeStamp):
     if os.path.exists(source_dir):
         file_names = os.listdir(source_dir)
         for file_name in file_names:
-            shutil.move(os.path.join(source_dir, file_name), "./userResults/"+timeStamp+"/completions/")
+            shutil.move(os.path.join(source_dir, file_name), os.path.join("userResults", timeStamp,"completions",""))
 
     time.sleep(2)
     labelSystem.stopServer()
