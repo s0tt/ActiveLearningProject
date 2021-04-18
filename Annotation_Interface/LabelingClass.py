@@ -180,7 +180,7 @@ class LabelInstance:
     text2.set('value','$new')
     return configQuestionAnswering
     
-  def label(self, instances, statisticData):
+  def label(self, instances, statisticData, getLabels=True):
     """
     Method for labeling data which belong to the specified config and data types. 
     
@@ -212,10 +212,11 @@ class LabelInstance:
 
     data = str(importList)
 
-    responseList = self.restInteraction(data, str(statisticData))
+    responseList = self.restInteraction(data, str(statisticData), getLabels=getLabels)
     resultList = []
-    for dataDict in responseList:
-        resultList.append(self.extractData(dataDict))
+    if responseList is not None:
+        for dataDict in responseList:
+            resultList.append(self.extractData(dataDict))
     return resultList
 
   def extractData(self, dataDict):
@@ -258,7 +259,7 @@ class LabelInstance:
         results.append(resultDataDict)
     return results[-1]
     
-  def restInteraction(self, data, statisticData):
+  def restInteraction(self, data, statisticData, getLabels=True):
     """
     The method sends data to the Label-Studio server that are to be labeled by the user and receives the labeled data.
     
@@ -281,14 +282,24 @@ class LabelInstance:
     if not response.ok:
         print("Something went wrong")
     
-    response = requests.get('http://localhost:' + str(self.port) + '/api/project/getLabels')
+    if getLabels:
+        response = requests.get('http://localhost:' + str(self.port) + '/api/project/getLabels')
+        if not response.ok:
+            print("Something went wrong")
+            return None
 
+    responseList = None
+    try:
+        responseList = json.loads(response.content)
+    except:
+        responseList = None
+    return responseList
+
+  def endSurvey(self):
+    headers = {'Content-Type': 'application/json',}
+    response = requests.post('http://localhost:' + str(self.port) + '/api/endSurvey', headers=headers, data="[1]".encode('utf-8'))
     if not response.ok:
         print("Something went wrong")
-        return None
-
-    responseList = json.loads(response.content)
-    return responseList
 
 """
 e.g.

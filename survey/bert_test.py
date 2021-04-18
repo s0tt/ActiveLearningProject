@@ -31,7 +31,11 @@ from Labeling import getLabelList
 from LabelingClass import LabelInstance
 
 import pickle
+import json
 import difflib
+import time
+from datetime import datetime
+import shutil
 
 labels='single' # at the moment this is just set by hand ... 
 device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -216,141 +220,216 @@ class BertQA(torch.nn.Module):
         return unpadded_probabilities
 
 
-# Wrap pytorch class --> to give it an scikit-learn interface! 
-classifier = NeuralNetClassifier(BertQA,
-                        criterion=torch.nn.CrossEntropyLoss,
-                        optimizer=AdamW,
-                        train_split=None,
-                        verbose=1,
-                        device=device,
-                        max_epochs=1)
 
+####restart the whole application
+def restart_program(labelSystem, timeStamp):
+    """Restarts the current program.
+    Note: this function does not return. Any cleanup action (like
+    saving data) must be done before calling this function."""
+    print("Restarting the whole program....")
 
-# initialize ActiveLearner
+    #remove all user files
+    source_dir = "./questionAnswering/completions/"
+    if os.path.exists(source_dir):
+        file_names = os.listdir(source_dir)
+        for file_name in file_names:
+            shutil.move(os.path.join(source_dir, file_name), "./userResults/"+timeStamp+"/completions/")
 
-learner = DeepActiveLearner(
-    estimator=classifier, 
-    criterion=torch.nn.NLLLoss,
-    accept_different_dim=True,
-    query_strategy=mc_dropout_multi
-)
-
-bert_qa = BertQA()
-modules = list(bert_qa.modules()) # pick from here the Dopout indexes
-
-"""
-    At the moment the active learner requires that:  
-    the dimensions of the new training data and label mustagree with the training data and labels provided so far
-
-    But in our Bert-Model batch['input'] is never fixed --> we would need to adapt a bit modAL 
-
-
-    Error: 
-    File "/Library/Python/3.7/site-packages/modAL/utils/data.py", line 26, in data_vstack
-        return np.concatenate(blocks)
-    File "<__array_function__ internals>", line 6, in concatenate
-        ValueError: all the input array dimensions for the concatenation axis must match exactly, but along dimension 1, the array at index 0 has size 209 and the array at index 1 has size 266
-
-"""
-
-#Label Studio instance
-labelSystem = LabelInstance(80, {'text': 'Text', 'question': 'Text'}, 
-                '[["mean_bald_uncertainty", "bald_score"], ["accuracy", "percent"]]',
-                '{"bald": "Divergence facotor represents uncertainty. Lower is better.", "mean stddev": "Mean standard deviation between sample runs. Lower is better","max entropy": "Maximum entropy between sample runs. Lower is better","max variation": "Maximium variation between sample runs. Lower is better"}'
-                )
-
-#["bald", "mean stddev", "max entropy", "max variation"]
-
-data_loader = get_dataloader()
-data_iter = iter(data_loader) # create iterator so that the same can be used in all function calls (also working with zip)
-
-#pickle.dump(batch, open("batch_survey.pkl", "wb"))
-
-batch = pickle.load(open("batch_survey.pkl", "rb"))
-
-
-# for batch in data_iter:
-
-inputs = batch['input']
-labels = batch['label']
-segments = batch['segments']
-masks = batch['mask']
-train_batch = {'inputs' : inputs, 'segments': segments, 'masks': masks}
-
-# # label part
-# labels = batch['label_multi']
-# start_labels, end_labels = labels.split(1, dim=1)
-# labels = extract_span(start_labels, end_labels, batch, softmax_applied=False, maximilian=False, answer_only=True, get_label=True) # this gives us the prediction
-
-
-# learnerBald.teach(X=train_batch, y=labels)
-# learnerMean.teach(X=train_batch, y=labels)
-
-# print("Bald Learner:", learnerBald.score(train_batch, labels))
-# print("Mean Learner:", learnerMean.score(train_batch, labels))
-
-
-# print("Bald learner predict proba:", learnerBald.predict_proba(train_batch))
-# print("Bald learner predict:", learnerBald.predict(train_batch))
-
-
-
-#bald_idx, bald_instance, bald_metric = learnerBald.query(train_batch, n_instances=5, dropout_layer_indexes=[7, 16], num_cycles=10)
-#multi_idx, multi_instance, multi_metric = learner.query(train_batch, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=2)
-multi_instance = pickle.load(open("multi_instance.pkl", "rb"))
-multi_metric = pickle.load(open("multi_metric.pkl", "rb"))
-
-
-print("Send instance to label-studio... ")
-
-context = batch["metadata"]["context"]
-question = batch["metadata"]["question"]
-idx = np.arange(0,50)
-
-
-labelList = getLabelList(context, question, [idx, idx, idx, idx], [multi_metric["bald"], multi_metric["mean_st"], multi_metric["max_entropy"], multi_metric["max_var"]], 
-                            ["bald", "mean stddev", "max entropy", "max variation"])
-
-
-statistics = [np.mean(multi_metric["bald"]), 0.8] #Mean Bald score, Model Accuracy
-mean_step = 0.05 #%
-acc_step = 0.005 # %
-
-
-def evalLabels(responses, labelList, statistics):
-    for response in responses:
-        sample_idx = question.index(response["data"]["question"])
-        correct_label_num = batch["label"][sample_idx]
-        correct_label_txt = batch["metadata"]["answers_per_instance"][sample_idx][0]
-
-        #correct labeled
-        matching_score = difflib.SequenceMatcher(a=response["texts"][0].lower(), b=correct_label_txt.lower()).ratio()
-        if matching_score > 0.90: #label is fully or nearly correct
-            statistics[0] -= np.abs((matching_score * (mean_step*statistics[0])))
-            statistics[1] += (matching_score * acc_step)
-        else: #label not correct
-            statistics[0] += np.abs((matching_score * (mean_step*statistics[0])))
-            statistics[1] -= (matching_score * acc_step)
-
-        #remove already labeled samples from list
-        list_idx = None
-        questionList = [question[1] for question in labelList]
+    folder = './questionAnswering'
+    for filename in os.listdir(folder):
+        file_path = os.path.join(folder, filename)
         try:
-            list_idx = questionList.index(response["data"]["question"])
-        except:
-            list_idx=None
-        
-        if list_idx is not None:
-            labelList.pop(list_idx)
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
 
-    return statistics
+    print("Removed all files")
+    time.sleep(5)
+    labelSystem.stopServer()
+    time.sleep(15)
+    #python = sys.executable
+    #os.execl(python, python, * sys.argv)
+    #os.execv(sys.argv[0], sys.argv)
+    #raise Exception("Kill script")
 
-for i in range(3):
-    labelRes = labelSystem.label(labelList, statistics)
-    statistics = evalLabels(labelRes, labelList, statistics)
-      
+def exportUserResults(timeStamp, run, results, statistics):
+    if not os.path.isdir("./userResults"):
+        os.makedirs("./userResults")
 
-#learner.teach(X=special_input_array[mean_idx], y=labels[query_idx], only_new=False,)
-# print("Question: ", question_at_idx)
-# print("Oracle provided label:", label_queryIdx)
+    if not os.path.isdir("./userResults/"+timeStamp):
+        os.makedirs("./userResults/"+timeStamp)
+    
+    if not os.path.isdir("./userResults/"+timeStamp+"/completions"):
+        os.makedirs("./userResults/"+timeStamp+"/completions")
 
+    f_name = "./userResults/"+timeStamp+"/"+timeStamp+".json"
+    if not os.path.isfile(f_name):
+        resDict = {}
+    else:
+        with open(f_name, "r") as json_file:
+            resDict = json.load(json_file)
+    
+    dateTimeObj = datetime.now()
+    timeStr = dateTimeObj.strftime("%m-%d-%Y_%H:%M:%S")
+    if run > 0:
+        resDict[run] = {}
+        resDict[run]["time"] = timeStr
+        resDict[run]["mean_bald"] = statistics[0]
+        resDict[run]["accuracy"] = statistics[1]
+        for idx,result in enumerate(results):
+            resDict[run][idx] = {}
+            resDict[run][idx]["data"] = result["data"]
+            resDict[run][idx]["charSpans"] = result["charSpans"]
+            resDict[run][idx]["texts"] = result["texts"]
+    else:
+        resDict["startClickTime"] = timeStr
+
+    with open(f_name, "w") as json_file:
+        json.dump(resDict, json_file, indent=4)
+
+def survey():
+    dateTimeObj = datetime.now()
+    timeStr = dateTimeObj.strftime("%m-%d-%Y-%H-%M-%S")
+    exportUserResults(timeStr, 0, None, None)
+
+    #Label Studio instance
+    print("###################Starting survey###################")
+    labelSystem = LabelInstance(80, {'text': 'Text', 'question': 'Text'}, 
+                    '[["mean_bald_uncertainty", "bald_score"], ["accuracy", "percent"]]',
+                    '{"bald": "Divergence facotor represents uncertainty. Lower is better.", "mean stddev": "Mean standard deviation between sample runs. Lower is better","max entropy": "Maximum entropy between sample runs. Lower is better","max variation": "Maximium variation between sample runs. Lower is better"}'
+                    )
+
+
+    # Wrap pytorch class --> to give it an scikit-learn interface! 
+    classifier = NeuralNetClassifier(BertQA,
+                            criterion=torch.nn.CrossEntropyLoss,
+                            optimizer=AdamW,
+                            train_split=None,
+                            verbose=1,
+                            device=device,
+                            max_epochs=1)
+
+    # initialize ActiveLearner
+
+    learner = DeepActiveLearner(
+        estimator=classifier, 
+        criterion=torch.nn.NLLLoss,
+        accept_different_dim=True,
+        query_strategy=mc_dropout_multi
+    )
+
+    bert_qa = BertQA()
+    modules = list(bert_qa.modules()) # pick from here the Dopout indexes
+
+    #["bald", "mean stddev", "max entropy", "max variation"]
+
+    data_loader = get_dataloader()
+    data_iter = iter(data_loader) # create iterator so that the same can be used in all function calls (also working with zip)
+
+    #pickle.dump(batch, open("batch_survey.pkl", "wb"))
+
+    batch = pickle.load(open("batch_survey.pkl", "rb"))
+
+
+    # for batch in data_iter:
+
+    inputs = batch['input']
+    labels = batch['label']
+    segments = batch['segments']
+    masks = batch['mask']
+    train_batch = {'inputs' : inputs, 'segments': segments, 'masks': masks}
+
+    # # label part
+    # labels = batch['label_multi']
+    # start_labels, end_labels = labels.split(1, dim=1)
+    # labels = extract_span(start_labels, end_labels, batch, softmax_applied=False, maximilian=False, answer_only=True, get_label=True) # this gives us the prediction
+
+
+    # learnerBald.teach(X=train_batch, y=labels)
+    # learnerMean.teach(X=train_batch, y=labels)
+
+    # print("Bald Learner:", learnerBald.score(train_batch, labels))
+    # print("Mean Learner:", learnerMean.score(train_batch, labels))
+
+
+    # print("Bald learner predict proba:", learnerBald.predict_proba(train_batch))
+    # print("Bald learner predict:", learnerBald.predict(train_batch))
+
+
+
+    #bald_idx, bald_instance, bald_metric = learnerBald.query(train_batch, n_instances=5, dropout_layer_indexes=[7, 16], num_cycles=10)
+    #multi_idx, multi_instance, multi_metric = learner.query(train_batch, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=2)
+    multi_instance = pickle.load(open("multi_instance.pkl", "rb"))
+    multi_metric = pickle.load(open("multi_metric.pkl", "rb"))
+
+
+    print("Send instance to label-studio... ")
+
+    nr_instances = 50
+    nr_label_cycles = 3
+    mean_step = 0.05 #%
+    acc_step = 0.005 # %
+
+    def evalLabels(responses, labelList, statistics):
+        for response in responses:
+            sample_idx = question.index(response["data"]["question"])
+            correct_label_num = batch["label"][sample_idx]
+            correct_label_txt = batch["metadata"]["answers_per_instance"][sample_idx][0]
+
+            #correct labeled
+            matching_score = difflib.SequenceMatcher(a=response["texts"][0].lower(), b=correct_label_txt.lower()).ratio()
+            if matching_score > 0.90: #label is fully or nearly correct
+                statistics[0] -= np.abs((matching_score * (mean_step*statistics[0])))
+                statistics[1] += (matching_score * acc_step)
+            else: #label not correct
+                statistics[0] += np.abs((matching_score * (mean_step*statistics[0])))
+                statistics[1] -= (matching_score * acc_step)
+
+            #remove already labeled samples from list
+            list_idx = None
+            questionList = [question[1] for question in labelList]
+            try:
+                list_idx = questionList.index(response["data"]["question"])
+            except:
+                list_idx=None
+            
+            if list_idx is not None:
+                labelList.pop(list_idx)
+
+        return statistics
+
+    context = batch["metadata"]["context"][0:nr_instances]
+    question = batch["metadata"]["question"][0:nr_instances]
+    idx = np.arange(0,nr_instances)
+
+
+    labelList = getLabelList(context, question, [idx, idx, idx, idx], [multi_metric["bald"][0:nr_instances], multi_metric["mean_st"][0:nr_instances], multi_metric["max_entropy"][0:nr_instances], multi_metric["max_var"][0:nr_instances]], 
+                                ["bald", "mean stddev", "max entropy", "max variation"])
+
+
+    statistics = [np.mean(multi_metric["bald"]), 0.8] #Mean Bald score, Model Accuracy
+
+
+
+
+    for i in range(nr_label_cycles):
+        print("Survey Cycle: " + str(i+1))
+        labelRes = labelSystem.label(labelList, statistics)
+        statistics = evalLabels(labelRes, labelList, statistics)
+        exportUserResults(timeStr, i+1, labelRes, statistics)
+
+    labelSystem.endSurvey()
+    labelSystem.label(labelList, statistics, getLabels=False) #call label last time to perform user redirect
+
+    #learner.teach(X=special_input_array[mean_idx], y=labels[query_idx], only_new=False,)
+    # print("Question: ", question_at_idx)
+    # print("Oracle provided label:", label_queryIdx)
+    return labelSystem, timeStr
+
+if __name__ == '__main__':
+    while True:
+        labelSystem, timeStamp = survey()
+        restart_program(labelSystem, timeStamp)
