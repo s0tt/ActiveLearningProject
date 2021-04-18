@@ -214,10 +214,12 @@ class LabelInstance:
 
     responseList = self.restInteraction(data, str(statisticData), getLabels=getLabels)
     resultList = []
+    startTime = None
     if responseList is not None:
-        for dataDict in responseList:
+        for dataDict in responseList[:-1]:
             resultList.append(self.extractData(dataDict))
-    return resultList
+        startTime = responseList[-1]
+    return resultList, startTime
 
   def extractData(self, dataDict):
     """

@@ -229,14 +229,20 @@ def restart_program(labelSystem, timeStamp):
     print("Restarting the whole program....")
 
     #remove all user files
+    time.sleep(2)
     source_dir = "./questionAnswering/completions/"
     if os.path.exists(source_dir):
         file_names = os.listdir(source_dir)
         for file_name in file_names:
             shutil.move(os.path.join(source_dir, file_name), "./userResults/"+timeStamp+"/completions/")
 
+    time.sleep(2)
+    labelSystem.stopServer()
+
+    time.sleep(2)
     folder = './questionAnswering'
-    for filename in os.listdir(folder):
+    file_list = os.listdir(folder)
+    for filename in file_list:
         file_path = os.path.join(folder, filename)
         try:
             if os.path.isfile(file_path) or os.path.islink(file_path):
@@ -245,17 +251,14 @@ def restart_program(labelSystem, timeStamp):
                 shutil.rmtree(file_path)
         except Exception as e:
             print('Failed to delete %s. Reason: %s' % (file_path, e))
-
-    print("Removed all files")
+    print("Removed {} files from {}".format(str(len(file_list)) ,folder))
     time.sleep(5)
-    labelSystem.stopServer()
-    time.sleep(15)
     #python = sys.executable
     #os.execl(python, python, * sys.argv)
     #os.execv(sys.argv[0], sys.argv)
     #raise Exception("Kill script")
 
-def exportUserResults(timeStamp, run, results, statistics):
+def exportUserResults(timeStamp, run, results, statistics, startTime=None):
     if not os.path.isdir("./userResults"):
         os.makedirs("./userResults")
 
@@ -284,8 +287,8 @@ def exportUserResults(timeStamp, run, results, statistics):
             resDict[run][idx]["data"] = result["data"]
             resDict[run][idx]["charSpans"] = result["charSpans"]
             resDict[run][idx]["texts"] = result["texts"]
-    else:
-        resDict["startClickTime"] = timeStr
+        if startTime is not None:
+            resDict["startClickTime"] = startTime
 
     with open(f_name, "w") as json_file:
         json.dump(resDict, json_file, indent=4)
@@ -293,7 +296,7 @@ def exportUserResults(timeStamp, run, results, statistics):
 def survey():
     dateTimeObj = datetime.now()
     timeStr = dateTimeObj.strftime("%m-%d-%Y-%H-%M-%S")
-    exportUserResults(timeStr, 0, None, None)
+    exportUserResults(timeStr, 0, None, None) #create files/folders
 
     #Label Studio instance
     print("###################Starting survey###################")
@@ -303,31 +306,31 @@ def survey():
                     )
 
 
-    # Wrap pytorch class --> to give it an scikit-learn interface! 
-    classifier = NeuralNetClassifier(BertQA,
-                            criterion=torch.nn.CrossEntropyLoss,
-                            optimizer=AdamW,
-                            train_split=None,
-                            verbose=1,
-                            device=device,
-                            max_epochs=1)
+    # # Wrap pytorch class --> to give it an scikit-learn interface! 
+    # classifier = NeuralNetClassifier(BertQA,
+    #                         criterion=torch.nn.CrossEntropyLoss,
+    #                         optimizer=AdamW,
+    #                         train_split=None,
+    #                         verbose=1,
+    #                         device=device,
+    #                         max_epochs=1)
 
-    # initialize ActiveLearner
+    # # initialize ActiveLearner
 
-    learner = DeepActiveLearner(
-        estimator=classifier, 
-        criterion=torch.nn.NLLLoss,
-        accept_different_dim=True,
-        query_strategy=mc_dropout_multi
-    )
+    # learner = DeepActiveLearner(
+    #     estimator=classifier, 
+    #     criterion=torch.nn.NLLLoss,
+    #     accept_different_dim=True,
+    #     query_strategy=mc_dropout_multi
+    # )
 
-    bert_qa = BertQA()
-    modules = list(bert_qa.modules()) # pick from here the Dopout indexes
+    # bert_qa = BertQA()
+    # modules = list(bert_qa.modules()) # pick from here the Dopout indexes
 
     #["bald", "mean stddev", "max entropy", "max variation"]
 
-    data_loader = get_dataloader()
-    data_iter = iter(data_loader) # create iterator so that the same can be used in all function calls (also working with zip)
+    # data_loader = get_dataloader()
+    # data_iter = iter(data_loader) # create iterator so that the same can be used in all function calls (also working with zip)
 
     #pickle.dump(batch, open("batch_survey.pkl", "wb"))
 
@@ -369,7 +372,7 @@ def survey():
     print("Send instance to label-studio... ")
 
     nr_instances = 50
-    nr_label_cycles = 3
+    nr_label_cycles = 1
     mean_step = 0.05 #%
     acc_step = 0.005 # %
 
@@ -417,10 +420,11 @@ def survey():
 
     for i in range(nr_label_cycles):
         print("Survey Cycle: " + str(i+1))
-        labelRes = labelSystem.label(labelList, statistics)
+        labelRes, startTime = labelSystem.label(labelList, statistics)
         statistics = evalLabels(labelRes, labelList, statistics)
-        exportUserResults(timeStr, i+1, labelRes, statistics)
+        exportUserResults(timeStr, i+1, labelRes, statistics, startTime if i==0 else None)
 
+    time.sleep(2)
     labelSystem.endSurvey()
     labelSystem.label(labelList, statistics, getLabels=False) #call label last time to perform user redirect
 
