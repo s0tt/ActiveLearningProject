@@ -155,11 +155,11 @@ def survey():
 
     # for batch in data_iter:
 
-    inputs = batch['input']
-    labels = batch['label']
-    segments = batch['segments']
-    masks = batch['mask']
-    train_batch = {'inputs' : inputs, 'segments': segments, 'masks': masks}
+    #inputs = batch['input']
+    #labels = batch['label']
+    #segments = batch['segments']
+    #masks = batch['mask']
+    #train_batch = {'inputs' : inputs, 'segments': segments, 'masks': masks}
 
     # # label part
     # labels = batch['label_multi']
@@ -181,7 +181,7 @@ def survey():
 
     #bald_idx, bald_instance, bald_metric = learnerBald.query(train_batch, n_instances=5, dropout_layer_indexes=[7, 16], num_cycles=10)
     #multi_idx, multi_instance, multi_metric = learner.query(train_batch, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=2)
-    multi_instance = pickle.load(open("multi_instance_py.pkl", "rb"))
+    #multi_instance = pickle.load(open("multi_instance_py.pkl", "rb"))
     multi_metric = pickle.load(open("multi_metric_py.pkl", "rb"))
 
 
