@@ -150,7 +150,7 @@ def survey():
 
     #pickle.dump(batch, open("batch_survey.pkl", "wb"))
 
-    batch = pickle.load(open("batch_survey.pkl", "rb"))
+    batch = pickle.load(open("batch_survey_py.pkl", "rb"))
 
 
     # for batch in data_iter:
@@ -181,8 +181,8 @@ def survey():
 
     #bald_idx, bald_instance, bald_metric = learnerBald.query(train_batch, n_instances=5, dropout_layer_indexes=[7, 16], num_cycles=10)
     #multi_idx, multi_instance, multi_metric = learner.query(train_batch, n_instances=4, dropout_layer_indexes=[7, 16], num_cycles=2)
-    multi_instance = pickle.load(open("multi_instance.pkl", "rb"))
-    multi_metric = pickle.load(open("multi_metric.pkl", "rb"))
+    multi_instance = pickle.load(open("multi_instance_py.pkl", "rb"))
+    multi_metric = pickle.load(open("multi_metric_py.pkl", "rb"))
 
 
     print("Send instance to label-studio... ")
