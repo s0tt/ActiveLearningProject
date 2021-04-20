@@ -45,7 +45,7 @@ from Labeling import label as getLabelStudioLabel
 from Labeling import getLabelList
 
 
-metric_name = sys.argv[1]
+metric_name = 'random'#sys.argv[1]
 
 logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}.log'.format(metric_name)), filemode='w', level=logging.INFO)
 
@@ -78,6 +78,9 @@ def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor) -> torch.Tensor:
     if y_pred.ndim == 2:
         y_pred = y_pred.argmax(dim=1)
 
+    y_true = y_true[~y_true.isnan()]
+    y_pred = y_pred[~y_pred.isnan()]
+
     tp = (y_true * y_pred).sum().to(torch.float32)
     tn = ((1 - y_true) * (1 - y_pred)).sum().to(torch.float32)
     fp = ((1 - y_true) * y_pred).sum().to(torch.float32)
@@ -89,25 +92,8 @@ def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor) -> torch.Tensor:
 
     return f1.item()
 
-def padding_tensor(sequences):
-    """
-    :param sequences: list of tensors
-    :return:
-    """
-    num = len(sequences)
-    max_len = max([s.size(0) for s in sequences])
-    out_dims = (num, max_len)
-    out_tensor = sequences[0].data.new(*out_dims).fill_(0)
-    mask = sequences[0].data.new(*out_dims).fill_(0)
-    for i, tensor in enumerate(sequences):
-        length = tensor.size(0)
-        out_tensor[i, :length] = tensor
-        mask[i, :length] = 1
+def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = False, topk: int = 1, extract_answer: bool = False, answer_only: bool = False, get_label:bool=False):
 
-    return out_tensor, mask 
-
-def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = True, topk: int = 1, extract_answer: bool = False, answer_only: bool = False):
-   
     num_samples = start_logits.size(0)
     scores = [None] * num_samples
     scores_all = [None] * num_samples
@@ -115,13 +101,35 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
     answers = [None] * num_samples
     max_score_start, max_spans_start = start_logits.max(dim=1)
 
-    unpadded_probabilities = []
+
+    unified_len = round((len(batch['input'][0]) * (len(batch['input'][0]) + 1))/2)  #Gaussian sum formula for sequences
+    if get_label:
+        unpadded_probabilities = torch.empty(size=(num_samples, 1))
+    else:
+        unpadded_probabilities = torch.empty(size=(num_samples, unified_len))
     for sample_id in range(num_samples):
         # consider all possible combinations (by addition) of start and end token
         # vectorize by broadcasting start/end token probabilites to matrix and adding both
         # afterward we can take the maximum of the upper half including the diagonal (end > start)
-        slice_relevant_tokens = slice(len(batch['metadata']['question_tokens'][sample_id]) + 2, batch['metadata']['length'][sample_id] - 1)
-        len_relevant_tokens = batch['metadata']['length'][sample_id] - 1 - len(batch['metadata']['question_tokens'][sample_id]) - 2
+        
+
+        #TODO: [CLS] Hwhere is the city? [SEP] the city is there
+        mask = batch['mask'][sample_id]
+        #out_matrix = torch.tensor([1, float('nan'), 2])
+        #out_matrix = np.nan(shape=(len(mask), len(mask)))
+        
+
+
+        nr_mask = np.sum(mask.numpy()) #sum mask to get nr of total valid tokens
+        nr_segments = np.sum(batch['segments'][sample_id][mask == 1].numpy()) #sum masked segments to get nr of answer tokens
+
+        slice_relevant_tokens = np.arange(nr_mask-nr_segments,nr_mask)
+        start_idx = nr_mask-nr_segments
+        end_idx = nr_mask-1-1 #index is mask nr-1 and one more -1 for excluding [SEP]
+        len_relevant_tokens = end_idx-start_idx
+
+        #slice_relevant_tokens = slice(len(batch['metadata']['question_tokens'][sample_id]) + 2, batch['metadata']['length'][sample_id] - 1)
+        #len_relevant_tokens = batch['metadata']['length'][sample_id] - 1 - len(batch['metadata']['question_tokens'][sample_id]) - 2
         
         #max_relevant_logits = start_logits[sample_id][slice_relevant_tokens].transpose()
         #print(max_relevant_logits)
@@ -129,84 +137,88 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
         #print(unsqueezed_tokens)
 
         # Maximilians realisation 
+        #start_score_matrix= np.nan(shape=(len(mask), len(mask)))
+        #end_score_matrix= np.nan(shape=(len(mask), len(mask)))
+       # start_score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
+        #end_score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
 
-        start_score_matrix = start_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).expand(len_relevant_tokens, len_relevant_tokens).double()
-        end_score_matrix = end_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).transpose(0, 1).expand(len_relevant_tokens, len_relevant_tokens).double() # new dimension is by default added to the front
+        score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
+
+        #vec_start = start_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).double()
+        #start_score_matrix[slice_relevant_tokens][slice_relevant_tokens] = torch.matmul()
+
+        #start_score_matrix = start_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).double()
+        #end_score_matrix = end_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).transpose(0, 1)
+
+        start_score_matrix = start_logits[sample_id][0][start_idx:end_idx].unsqueeze(1).expand(len_relevant_tokens, len_relevant_tokens).double()
+        end_score_matrix = end_logits[sample_id][0][start_idx:end_idx].unsqueeze(1).transpose(0, 1).expand(len_relevant_tokens, len_relevant_tokens).double() # new dimension is by default added to the front
+        #start_score_matrix_pad[start_idx:end_idx,start_idx:end_idx] = start_score_matrix[1:-1, 1:-1]
+        #end_score_matrix_pad[start_idx:end_idx,start_idx:end_idx] = end_score_matrix[1:-1, 1:-1]
 
         if maximilian: 
             score_matrix = (start_score_matrix + end_score_matrix).triu() # return upper triangular part including diagonal, rest is 0
+            #score_matrix = (start_score_matrix_pad + end_score_matrix_pad).triu() # return upper triangular part including diagonal, rest is 0
         else: 
             score_matrix = (start_score_matrix*end_score_matrix).triu() # return upper triangular part including diagonal, rest is 0
+            #score_matrix = (start_score_matrix_pad*end_score_matrix_pad).triu() # return upper triangular part including diagonal, rest is 0
         
         # my realisation
+        
 
-
-        score_array = score_matrix[torch.triu(torch.ones(len_relevant_tokens, len_relevant_tokens)) == 1]
+        #score_array = score_matrix[torch.triu(torch.ones_like(score_matrix)) == 1]
+        score_matrix_pad[start_idx:end_idx,start_idx:end_idx] = score_matrix
+        score_array = score_matrix_pad[torch.triu(torch.ones_like(score_matrix_pad) == 1)]
         
         # values can be lower than 0 -> make sure to set lower triangular matrix to very low value
         #lower_triangular_matrix = torch.tril(torch.ones_like(score_matrix, dtype=torch.long), diagonal=-1)
         #score_matrix.masked_fill_(lower_triangular_matrix, float("-inf")) # make sure that lower triangular matrix is set -inf to ensure end >= start
         
         if softmax_applied: 
-            probabilities = score_array.softmax(0)
+            score_array[~score_array.isnan()] = score_array[~score_array.isnan()].softmax(0)
+            probabilities = score_array
         else: 
             probabilities = score_array
         # TODO add maximum span length (mask diagonal)
-        unpadded_probabilities.append(probabilities)
+        if get_label:
+            probabilities[probabilities.isnan()] = -1 #set to -1 for argmax to work correctly
+            unpadded_probabilities[sample_id, 0] = torch.argmax(probabilities)
+        else:
+            unpadded_probabilities[sample_id, :] = probabilities
 
     # padding
 
     return unpadded_probabilities
 
+def extract_span_v_2(logits: torch.Tensor, batch):
+
+    topk = 1
+    softmax_applied=False # is done in the get_predictions
+    maximilian=False
+    answer_only=True
+    extract_answer = False
+    answer_only = False
+    get_label = False
+
+    start_logits, end_logits = logits.transpose(1, 2).split(1, dim=1)
+
+    return extract_span(start_logits, end_logits, batch, softmax_applied=False, maximilian=False, answer_only=True)
+
 def calculate_f1_score_Bert(test_set, learner):
     # label part
-    labels = test_set['label_multi']
-    start_labels, end_labels = labels.split(1, dim=1)
-    unpadded_labels = extract_span(start_labels, end_labels, test_set, softmax_applied=False, maximilian=False, answer_only=True) # this gives us the prediction
-    padded_label, masks = padding_tensor(unpadded_labels)
+    start_logits, end_logits = test_set['label_multi'].split(1, dim=1)
+    labels = extract_span(start_logits, end_logits, test_set, softmax_applied=False, maximilian=False, answer_only=True)
 
     # prediction part 
-    logits_predictions = learner.estimator.forward({'input' : test_set['input'], 'segments' : test_set['segments'], 'mask': test_set['mask']}) 
-    start_logits, end_logits = logits_predictions.transpose(1, 2).split(1, dim=1)
-    unpadded_predictions = extract_span(start_logits, end_logits, test_set, softmax_applied=True, maximilian=False, answer_only=True)
-    padded_predictions, masks = padding_tensor(unpadded_predictions)
+    logits = learner.estimator.forward({'input' : test_set['input'], 'segments' : test_set['segments'], 'mask': test_set['mask']}) 
+    prediction = extract_span_v_2(logits, test_set)
+    mask = ~prediction.isnan()
+    prediction[mask] = prediction[mask].unsqueeze(0).softmax(1)
 
     overall_f1_loss = 0
-    for instance_label, instance_prediction in zip(padded_label, padded_predictions): 
+    for instance_label, instance_prediction in zip(labels, prediction): 
         overall_f1_loss += f1_loss(instance_label, instance_prediction)
 
     return overall_f1_loss
-
-def loss_function(output, target): 
-    start_logits = output[0]
-    end_logits = output[1]
-
-    """
-    we just use the single lable crossEntropyLoss
-
-      if labels == 'single':
-        loss_fn = torch.nn.CrossEntropyLoss(ignore_index=-1) # ignore out of context index
-    else:
-        loss_fn = torch.nn.MultiLabelSoftMarginLoss()
-    """
-
-    loss_fn = torch.nn.CrossEntropyLoss(ignore_index=-1) # ignore out of context index
-
-    # extract label
-    # NOTE label contains offset for question + tokens
-    if isinstance(loss_fn, (torch.nn.MultiLabelMarginLoss, torch.nn.MultiLabelSoftMarginLoss)):
-        label_start, label_end = target.to(device).split(1, dim=1) # before: batch['label_multi'].to(self.device).split(1, dim=1) # all spans for this sample
-    else:
-        label_start, label_end = target.to(device).split(1, dim=1) # before batch['label'].to(self.device).split(1, dim=1) # one span
-
-    # compute loss
-    start_loss = loss_fn(start_logits, label_start.squeeze(1))
-
-
-    end_loss = loss_fn(end_logits, label_end.squeeze(1))
-    loss = start_loss + end_loss # TODO mean instead of sum?
-    return loss 
-
 
 class BertQA(torch.nn.Module):
     def __init__(self, cache_dir: Union[None, str] = None):
@@ -261,36 +273,36 @@ classifier = NeuralNetClassifier(BertQA,
 
 
 if metric_name == 'bald': 
-    metric = _bald_divergence
+    query_strategy = mc_dropout_bald
 elif metric_name == 'mean_std': 
-    metric = _mean_standard_deviation
+    query_strategy = mc_dropout_mean_st
 elif metric_name == 'max_variation': 
-    metric = _variation_ratios
+    query_strategy = mc_dropout_max_variationRatios
 elif metric_name == 'max_entropy': 
-    metric = _entropy
+    query_strategy = mc_dropout_max_entropy
 elif metric_name == 'random': 
-    metric = _bald_divergence # just to pass something (will not be used)
+    query_strategy = mc_dropout_bald # just to pass something (will not be used)
 
 
 
 
 
-n_initial = 100 # number of initial chosen samples for the training
+n_initial = 2 # number of initial chosen samples for the training
 num_model_training = 5
 n_queries = 100
-drawn_sampley_per_query = 1
+drawn_samples_per_query = 1
 forward_cycles_per_query = 5
 output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'f1_scores_{}.txt'.format(metric_name))
 
 model_training_f1_scores = []
-x_axis = np.arange(n_initial, n_initial + n_queries*drawn_sampley_per_query + 1, drawn_sampley_per_query)
+x_axis = np.arange(n_initial, n_initial + n_queries*drawn_samples_per_query + 1, drawn_samples_per_query)
 model_training_f1_scores.append(x_axis)
 
-train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = 86588 
-test_dataset = 'SQuAD-dev'
-batch_size_test_dataloader = 10507
 
+train_dataset = 'SQuAD-train'
+batch_size_train_dataloader = 10#86588 
+test_dataset = 'SQuAD-dev'
+batch_size_test_dataloader = 10#10507
 
 # get test batch
 data_loader_test = get_dataloader([test_dataset], batch_size_test_dataloader)
@@ -312,7 +324,7 @@ for idx_model_training in range(num_model_training):
     # initialise learner and set seeds
     learner = DeepActiveLearner(
         estimator=classifier, 
-        query_strategy=metric
+        query_strategy=query_strategy
     )
 
     learner.num_epochs = 2
@@ -344,12 +356,9 @@ for idx_model_training in range(num_model_training):
 
     pool_initial = {'input': np.delete(train_data['input'], initial_idx, axis=0), 
                       'segments': np.delete(train_data['segments'], initial_idx, axis=0), 
-                      'mask': np.delete(train_data['mask'], initial_idx, axis=0), 
-                      'label': np.delete(train_data['label'], initial_idx, axis=0), 
-                      'metadata': {'question_tokens': np.delete(train_data['metadata']['question_tokens'], initial_idx, axis=0),
-                                   'length': np.delete(train_data['metadata']['length'], initial_idx, axis=0),
-                                  } 
-                      }
+                      'mask': np.delete(train_data['mask'], initial_idx, axis=0)
+                    }
+    pool_labels = np.delete(train_data['label'], initial_idx, axis=0)
     
 
     logging.info("Pool size x {}".format(pool_initial['input'].size()))
@@ -370,60 +379,25 @@ for idx_model_training in range(num_model_training):
 
 
     for idx_query in range(n_queries):
-
-
-        def get_next_train_instances(batch, n_instances=1, dropout_layer_indexes=[], num_cycles=10, sample_per_forward_pass=5): 
-            nr_instances = batch['input'].size()[0]
-
-            batch['input'].detach()
-            batch['segments'].detach()
-            batch['mask'].detach()
-
-            predictions = []
-
-            set_dropout_mode(learner.estimator.module_, dropout_layer_indexes, train_mode=True)
-
-            for i in range(num_cycles):
         
-                probas = []
-                for inputs, segments, masks in zip(torch.split(batch['input'], sample_per_forward_pass), torch.split(batch['segments'], sample_per_forward_pass), torch.split(batch['mask'], sample_per_forward_pass)): 
+        query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[7, 16], num_cycles=forward_cycles_per_query, sample_per_forward_pass=2, logits_adaptor=extract_span_v_2)
 
-                    logits = learner.estimator.infer({'input': inputs, 'segments' : segments, 'mask': masks})
-                    start_logits, end_logits = logits.transpose(1, 2).split(1, dim=1)
-                    unpadded_probabilities = extract_span(start_logits, end_logits, batch, softmax_applied=True, maximilian=False, answer_only=True)
-                    
-                    probas += unpadded_probabilities
-                
-                padded_tensors, masks = padding_tensor(probas)
-                predictions.append(to_numpy(padded_tensors))
+        if metric_name == 'random': 
+            query_idx = np.random.choice(range(len(pool['input'])), size=drawn_samples_per_query, replace=False)
 
-            metrics = metric(predictions, np.array(to_numpy(masks), dtype=bool))
+        next_train_instances = {'input': pool['input'][query_idx], 
+                      'segments': pool['segments'][query_idx], 
+                      'mask': pool['mask'][query_idx] 
+                    }
 
-            if metric_name != 'random': 
-                max_indx, max_metric = shuffled_argmax(metrics, n_instances=n_instances)
-            else: 
-                max_indx = np.random.choice(range(len(batch['input'])), size=n_instances, replace=False)
+        learner.teach(X=next_train_instances, y=pool_labels[query_idx])
 
-
-            inputs = retrieve_rows(batch['input'], max_indx)
-            next_train_labels = retrieve_rows(batch['label'], max_indx)
-            segments = retrieve_rows(batch['segments'], max_indx)
-            masks = retrieve_rows(batch['mask'], max_indx)
-            next_train_instances = {'input' : inputs, 'segments': segments, 'mask': masks}
-            return next_train_instances, next_train_labels, max_indx
-
-        next_train_instances, next_train_labels, max_indx = get_next_train_instances(pool, n_instances=drawn_sampley_per_query, dropout_layer_indexes=[7, 16], num_cycles=forward_cycles_per_query, sample_per_forward_pass=5)
-        
-        learner.teach(X=next_train_instances, y=next_train_labels)
-
-        pool = {'input': np.delete(pool['input'], max_indx, axis=0), 
-                    'segments': np.delete(pool['segments'], max_indx, axis=0), 
-                    'mask': np.delete(pool['mask'], max_indx, axis=0), 
-                    'label': np.delete(pool['label'], max_indx, axis=0), 
-                    'metadata': {'question_tokens': np.delete(pool['metadata']['question_tokens'], max_indx, axis=0),
-                                  'length': np.delete(pool['metadata']['length'], max_indx, axis=0),
-                                } 
+        pool = {'input': np.delete(pool['input'], query_idx, axis=0), 
+                    'segments': np.delete(pool['segments'], query_idx, axis=0), 
+                    'mask': np.delete(pool['mask'], query_idx, axis=0)
                 }
+
+        pool_labels = np.delete(pool_labels, query_idx, axis=0)
 
         f1_score = calculate_f1_score_Bert(test_batch, learner)
         f1_scores.append(f1_score) 
