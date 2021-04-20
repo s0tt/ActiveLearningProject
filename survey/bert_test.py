@@ -188,7 +188,7 @@ def survey():
     print("Send instance to label-studio... ")
 
     nr_instances = 50
-    nr_label_cycles = 1
+    nr_label_cycles = 3
     mean_step = 0.05 #%
     acc_step = 0.005 # %
 
