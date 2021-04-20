@@ -45,7 +45,7 @@ from Labeling import label as getLabelStudioLabel
 from Labeling import getLabelList
 
 
-metric_name = 'random'#sys.argv[1]
+metric_name = sys.argv[1]
 
 logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}.log'.format(metric_name)), filemode='w', level=logging.INFO)
 
@@ -300,9 +300,9 @@ model_training_f1_scores.append(x_axis)
 
 
 train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = 10#86588 
+batch_size_train_dataloader = 86588 
 test_dataset = 'SQuAD-dev'
-batch_size_test_dataloader = 10#10507
+batch_size_test_dataloader = 10507
 
 # get test batch
 data_loader_test = get_dataloader([test_dataset], batch_size_test_dataloader)
