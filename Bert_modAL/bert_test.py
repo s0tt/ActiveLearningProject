@@ -5,7 +5,6 @@ import sys
 import os
 import re
 import numpy as np
-
 from typing import Dict, OrderedDict, Tuple, Union
 
 import torch 
@@ -186,7 +185,6 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
             unpadded_probabilities[sample_id, :] = probabilities
 
     # padding
-
     return unpadded_probabilities
 
 def extract_span_v_2(logits: torch.Tensor, batch):
