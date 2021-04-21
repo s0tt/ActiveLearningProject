@@ -288,7 +288,7 @@ elif metric_name == 'random':
 
 
 
-n_initial = 2 # number of initial chosen samples for the training
+n_initial = 30000 #2 # number of initial chosen samples for the training
 num_model_training = 5
 n_queries = 100
 drawn_samples_per_query = 1
@@ -329,7 +329,7 @@ for idx_model_training in range(num_model_training):
     )
 
     learner.num_epochs = 2
-    learner.batch_size = 500
+    learner.batch_size = 6
 
     torch.cuda.manual_seed_all(idx_model_training)
     torch.manual_seed(idx_model_training)
