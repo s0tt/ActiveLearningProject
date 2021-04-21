@@ -36,7 +36,7 @@ from torch.utils.data import DataLoader
 from torchvision.transforms import ToTensor
 from torchvision.datasets import MNIST
 
-from transformers import AdamW, BertTokenizer, get_linear_schedule_with_warmup
+from transformers import BertTokenizer, get_linear_schedule_with_warmup
 
 from get_data_from_Bert import get_dataloader
 
@@ -259,12 +259,15 @@ class BertQA(torch.nn.Module):
 # Wrap pytorch class --> to give it an scikit-learn interface! 
 classifier = NeuralNetClassifier(BertQA,
                         criterion=torch.nn.CrossEntropyLoss,
-                        optimizer=AdamW,
+                        optimizer=torch.optim.Adam,
                         train_split=None,
                         verbose=1,
+                        lr=3e-05, 
                         device=device)
 
+torch_model = BertQA()
 
+layer_list = list(torch_model.modules())
 
 
 # initialize ActiveLearner
@@ -378,7 +381,7 @@ for idx_model_training in range(num_model_training):
 
     for idx_query in range(n_queries):
         
-        query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[7, 16], num_cycles=forward_cycles_per_query, sample_per_forward_pass=2, logits_adaptor=extract_span_v_2)
+        query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=2, logits_adaptor=extract_span_v_2)
 
         if metric_name == 'random': 
             query_idx = np.random.choice(range(len(pool['input'])), size=drawn_samples_per_query, replace=False)
