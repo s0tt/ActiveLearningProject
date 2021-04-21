@@ -44,6 +44,15 @@ def restart_program(labelSystem, timeStamp):
     saving data) must be done before calling this function."""
     print("Restarting the whole program....")
 
+
+
+    time.sleep(2)
+    labelSystem.stopServer()
+    print("Label System stop send....")
+    if labelSystem.thread_id is not None:
+        print("Force terminate thread....")
+        labelSystem.thread_id.terminate()
+
     #remove all user files
     time.sleep(2)
     source_dir = os.path.join("questionAnswering", "completions", "")
@@ -52,9 +61,7 @@ def restart_program(labelSystem, timeStamp):
         for file_name in file_names:
             shutil.move(os.path.join(source_dir, file_name), os.path.join("userResults", timeStamp,"completions",""))
 
-    time.sleep(2)
-    labelSystem.stopServer()
-
+    print("Moved completion files....")
     time.sleep(2)
     folder = './questionAnswering'
     file_list = os.listdir(folder)
@@ -68,7 +75,7 @@ def restart_program(labelSystem, timeStamp):
         except Exception as e:
             print('Failed to delete %s. Reason: %s' % (file_path, e))
     print("Removed {} files from {}".format(str(len(file_list)) ,folder))
-    time.sleep(5)
+    time.sleep(2)
     #python = sys.executable
     #os.execl(python, python, * sys.argv)
     #os.execv(sys.argv[0], sys.argv)
@@ -204,8 +211,8 @@ def survey():
                 statistics[0] -= np.abs((matching_score * (mean_step*statistics[0])))
                 statistics[1] += (matching_score * acc_step)
             else: #label not correct
-                statistics[0] += np.abs((matching_score * (mean_step*statistics[0])))
-                statistics[1] -= (matching_score * acc_step)
+                statistics[0] += np.abs(((1-matching_score) * (mean_step*statistics[0])))
+                statistics[1] -= ((1-matching_score) * acc_step)
 
             #remove already labeled samples from list
             list_idx = None

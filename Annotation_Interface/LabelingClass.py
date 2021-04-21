@@ -5,7 +5,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'..', 'label-studio','label_studio'))
 from server import main as serverStart
-import _thread
+import multiprocessing
 import time
 
 import xml.etree.ElementTree as ET
@@ -39,7 +39,8 @@ class LabelInstance:
     
     self.port = port
     self.dataPoints=dataPoints
-    
+    self.thread_id = None
+
     config = self.getConfigQuestionAnswering()
     
     # create a new config file
@@ -60,7 +61,8 @@ class LabelInstance:
     project_name="questionAnswering"
 
     try:
-        _thread.start_new_thread(serverStart, (project_name, self.port))
+        self.thread_id = multiprocessing.Process(target=serverStart, args=(project_name, self.port))
+        self.thread_id.start()
     except:
        print("Error: unable to start thread")
     time.sleep(10)
@@ -101,6 +103,7 @@ class LabelInstance:
         return False
     return True
  
+
   def getConfigChoices(self):
     dataPoints=self.dataPoints
     
