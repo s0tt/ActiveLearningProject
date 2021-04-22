@@ -319,7 +319,7 @@ for batch in data_iter_test:
 
 # label part
 start_logits, end_logits = test_batch['label_multi'].split(1, dim=1)
-labels_f1_score = extract_span(start_logits, end_logits, test_set, softmax_applied=False, maximilian=False, answer_only=True)
+labels_f1_score = extract_span(start_logits, end_logits, test_batch, softmax_applied=False, maximilian=False, answer_only=True)
 
 del start_logits
 del end_logits
