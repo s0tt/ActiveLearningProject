@@ -46,7 +46,7 @@ from Labeling import label as getLabelStudioLabel
 from Labeling import getLabelList
 
 
-metric_name = sys.argv[1]
+metric_name = 'random'#sys.argv[1]
 
 logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}.log'.format(metric_name)), filemode='w', level=logging.INFO)
 
@@ -97,8 +97,7 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
 
     num_samples = start_logits.size(0)
 
-
-    unified_len = round((batch['input'].shape[0] * (batch['input'].shape[0] + 1))/2)  # round((len(batch['input'][0]) * (len(batch['input'][0]) + 1))/2)  #Gaussian sum formula for sequences
+    unified_len = round((batch['input'][0].shape[0] * (batch['input'][0].shape[0] + 1))/2)  # round((len(batch['input'][0]) * (len(batch['input'][0]) + 1))/2)  #Gaussian sum formula for sequences
     if get_label:
         unpadded_probabilities = torch.empty(size=(num_samples, 1))
     else:
