@@ -376,6 +376,8 @@ for idx_model_training in range(num_model_training):
     pool_labels = np.delete(train_data['label'], initial_idx, axis=0)
     
 
+    del train_data
+
     logging.info("Pool size x {}".format(pool_initial['input'].size()))
     logging.info("Initial size x {}".format(X_initial['input'].size()))
     
@@ -393,6 +395,7 @@ for idx_model_training in range(num_model_training):
     """
 
     pool = pool_initial
+    del pool_initial
 
 
     for idx_query in range(n_queries):
