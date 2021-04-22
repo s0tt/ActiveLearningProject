@@ -137,7 +137,7 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
        # start_score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
         #end_score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
 
-        score_matrix_pad = torch.full(size=(mask.shape[0], mask.shape[0], fill_value=float("nan"))
+        score_matrix_pad = torch.full(size=(mask.shape[0], mask.shape[0]), fill_value=float("nan"))
 
         #vec_start = start_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).double()
         #start_score_matrix[slice_relevant_tokens][slice_relevant_tokens] = torch.matmul()
