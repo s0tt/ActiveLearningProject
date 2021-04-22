@@ -253,6 +253,8 @@ class BertQA(torch.nn.Module):
         return logits
 
 
+logging.info("GPU _allocation before classifier: {}".format(torch.cuda.memory_allocated()))
+
 # Wrap pytorch class --> to give it an scikit-learn interface! 
 classifier = NeuralNetClassifier(BertQA,
                         criterion=torch.nn.CrossEntropyLoss,
@@ -261,6 +263,10 @@ classifier = NeuralNetClassifier(BertQA,
                         verbose=1,
                         lr=3e-05, 
                         device=device)
+
+logging.info("GPU _allocation after classifier: {}".format(torch.cuda.memory_allocated()))
+
+
 
 torch_model = BertQA()
 
@@ -319,6 +325,8 @@ for batch in data_iter_test:
 # label part
 start_logits, end_logits = test_batch['label_multi'].split(1, dim=1)
 labels_f1_score = extract_span(start_logits, end_logits, test_batch, softmax_applied=False, maximilian=False, answer_only=True)
+del labels_f1_score # just to test if this tensor does still consume memory
+
 
 del start_logits
 del end_logits
