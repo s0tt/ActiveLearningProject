@@ -96,14 +96,9 @@ def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor) -> torch.Tensor:
 def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = False, topk: int = 1, extract_answer: bool = False, answer_only: bool = False, get_label:bool=False):
 
     num_samples = start_logits.size(0)
-    scores = [None] * num_samples
-    scores_all = [None] * num_samples
-    spans = [None] * num_samples
-    answers = [None] * num_samples
-    max_score_start, max_spans_start = start_logits.max(dim=1)
 
 
-    unified_len = round((len(batch['input'][0]) * (len(batch['input'][0]) + 1))/2)  #Gaussian sum formula for sequences
+    unified_len = round((batch['input'].shape[0] * (batch['input'].shape[0] + 1))/2)  # round((len(batch['input'][0]) * (len(batch['input'][0]) + 1))/2)  #Gaussian sum formula for sequences
     if get_label:
         unpadded_probabilities = torch.empty(size=(num_samples, 1))
     else:
@@ -121,10 +116,9 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
         
 
 
-        nr_mask = np.sum(mask.numpy()) #sum mask to get nr of total valid tokens
-        nr_segments = np.sum(batch['segments'][sample_id][mask == 1].numpy()) #sum masked segments to get nr of answer tokens
+        nr_mask = mask.sum() #sum mask to get nr of total valid tokens
+        nr_segments = batch['segments'][sample_id][mask == 1].sum() #sum masked segments to get nr of answer tokens
 
-        slice_relevant_tokens = np.arange(nr_mask-nr_segments,nr_mask)
         start_idx = nr_mask-nr_segments
         end_idx = nr_mask-1-1 #index is mask nr-1 and one more -1 for excluding [SEP]
         len_relevant_tokens = end_idx-start_idx
@@ -143,7 +137,7 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
        # start_score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
         #end_score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
 
-        score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
+        score_matrix_pad = torch.full(size=(mask.shape[0], mask.shape[0], fill_value=float("nan"))
 
         #vec_start = start_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).double()
         #start_score_matrix[slice_relevant_tokens][slice_relevant_tokens] = torch.matmul()
