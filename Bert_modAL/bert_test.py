@@ -308,6 +308,9 @@ batch_size_train_dataloader = 86588
 test_dataset = 'SQuAD-dev'
 batch_size_test_dataloader = 10507
 
+
+logging.info(torch.cuda.memory_allocated())
+
 # get test batch
 data_loader_test = get_dataloader([test_dataset], batch_size_test_dataloader)
 data_iter_test = iter(data_loader_test) 
@@ -323,6 +326,8 @@ labels_f1_score = extract_span(start_logits, end_logits, test_batch, softmax_app
 
 del start_logits
 del end_logits
+
+logging.info(torch.cuda.memory_allocated())
 
 
 for idx_model_training in range(num_model_training): 
@@ -343,7 +348,7 @@ for idx_model_training in range(num_model_training):
 
 
     # gets for us the train data (shuffle --> so that the data is always new sorted)
-    logging.info(torch.cuda.memory_stats())
+    logging.info(torch.cuda.memory_allocated())
 
     data_loader_train = get_dataloader([train_dataset], batch_size_train_dataloader, shuffle=True)
     data_iter_train = iter(data_loader_train) 
@@ -352,7 +357,7 @@ for idx_model_training in range(num_model_training):
         train_data = batch
         break
 
-    logging.info(torch.cuda.memory_stats())
+    logging.info(torch.cuda.memory_allocated())
 
 
     # assemble initial data & pool data 
