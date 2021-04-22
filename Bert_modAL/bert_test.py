@@ -360,7 +360,7 @@ for idx_model_training in range(num_model_training):
         train_data = batch
         break
 
-    logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
+    logging.info("GPU _allocation before initial split: {}".format(torch.cuda.memory_allocated()))
 
 
 
@@ -382,9 +382,12 @@ for idx_model_training in range(num_model_training):
     logging.info("Initial size x {}".format(X_initial['input'].size()))
     
 
+    logging.info("GPU _allocation before  first train: {}".format(torch.cuda.memory_allocated()))
+
     # here we should do now the Pre-TRAINING
     learner.teach(X=X_initial, y=y_initial)
 
+    logging.info("GPU _allocation after  first train: {}".format(torch.cuda.memory_allocated()))
 
     
     f1_scores = []
@@ -401,7 +404,7 @@ for idx_model_training in range(num_model_training):
     for idx_query in range(n_queries):
         
         
-        logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
+        logging.info("GPU _allocation before query: {}".format(torch.cuda.memory_allocated()))
 
         query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=drawn_samples_per_query, logits_adaptor=extract_span_v_2)
 
