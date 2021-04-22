@@ -1,3 +1,25 @@
+INFO:transformers.configuration_utils:loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /home/users1/kellermx/.cache/torch/transformers/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
+INFO:transformers.configuration_utils:Model config BertConfig {
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "type_vocab_size": 2,
+  "vocab_size": 30522
+}
+
+INFO:transformers.modeling_utils:loading weights file https://cdn.huggingface.co/bert-base-uncased-pytorch_model.bin from cache at /home/users1/kellermx/.cache/torch/transformers/f2ee78bdd635b758cc0a12352586868bef80e47401abe4c4fcc3832421e7338b.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
 INFO:transformers.tokenization_utils:loading file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt from cache at /mount/studenten5/projects/swt-al/git_max/ActiveLearningProject/Bert_modAL/../cache/26bc1ad6c0ac742e9b52263248f6d0f00068293b33709fae12320c0e35ccfbbb.542ce4285a40d23a559526243235df47c5f75c197f04f37d1a0c124c32c9a084
 INFO:transformers.configuration_utils:loading configuration file https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json from cache at /mount/studenten5/projects/swt-al/git_max/ActiveLearningProject/Bert_modAL/../cache/4dad0251492946e18ac39290fcfe91b89d370fee250efe9521476438fe8ca185.7156163d5fdc189c3016baca0775ffce230789d7fa2a42ef516483e4ca884517
 INFO:transformers.configuration_utils:Model config BertConfig {
@@ -21,7 +43,7 @@ INFO:transformers.configuration_utils:Model config BertConfig {
 }
 
 INFO:transformers.modeling_utils:loading weights file https://cdn.huggingface.co/bert-base-uncased-pytorch_model.bin from cache at /mount/studenten5/projects/swt-al/git_max/ActiveLearningProject/Bert_modAL/../cache/f2ee78bdd635b758cc0a12352586868bef80e47401abe4c4fcc3832421e7338b.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
-INFO:root:Running with CUDA on all available GPUs (4)
+INFO:root:Running with CUDA on all available GPUs (1)
 INFO:root:Model dir is models
 INFO:root:No model found (at models), starting from scratch
 INFO:root:Loaded preprocessed data for dataset SQuAD-dev
@@ -71,10 +93,11 @@ INFO:transformers.configuration_utils:Model config BertConfig {
 }
 
 INFO:transformers.modeling_utils:loading weights file https://cdn.huggingface.co/bert-base-uncased-pytorch_model.bin from cache at /mount/studenten5/projects/swt-al/git_max/ActiveLearningProject/Bert_modAL/../cache/f2ee78bdd635b758cc0a12352586868bef80e47401abe4c4fcc3832421e7338b.36ca03ab34a1a5d5fa7bc3d03d55c4fa650fed07220e2eeebc06ce58d0e9a157
-INFO:root:Running with CUDA on all available GPUs (4)
+INFO:root:Running with CUDA on all available GPUs (1)
 INFO:root:Model dir is models
 INFO:root:No model found (at models), starting from scratch
 INFO:root:Loaded preprocessed data for dataset SQuAD-train
 INFO:root:OrderedDict([('active.all.allocated', 603), ('active.all.current', 201), ('active.all.freed', 402), ('active.all.peak', 402), ('active.large_pool.allocated', 225), ('active.large_pool.current', 75), ('active.large_pool.freed', 150), ('active.large_pool.peak', 150), ('active.small_pool.allocated', 378), ('active.small_pool.current', 126), ('active.small_pool.freed', 252), ('active.small_pool.peak', 252), ('active_bytes.all.allocated', 1317204480), ('active_bytes.all.current', 439068160), ('active_bytes.all.freed', 878136320), ('active_bytes.all.peak', 878136320), ('active_bytes.large_pool.allocated', 1315700736), ('active_bytes.large_pool.current', 438566912), ('active_bytes.large_pool.freed', 877133824), ('active_bytes.large_pool.peak', 877133824), ('active_bytes.small_pool.allocated', 1503744), ('active_bytes.small_pool.current', 501248), ('active_bytes.small_pool.freed', 1002496), ('active_bytes.small_pool.peak', 1002496), ('allocated_bytes.all.allocated', 1317204480), ('allocated_bytes.all.current', 439068160), ('allocated_bytes.all.freed', 878136320), ('allocated_bytes.all.peak', 878136320), ('allocated_bytes.large_pool.allocated', 1315700736), ('allocated_bytes.large_pool.current', 438566912), ('allocated_bytes.large_pool.freed', 877133824), ('allocated_bytes.large_pool.peak', 877133824), ('allocated_bytes.small_pool.allocated', 1503744), ('allocated_bytes.small_pool.current', 501248), ('allocated_bytes.small_pool.freed', 1002496), ('allocated_bytes.small_pool.peak', 1002496), ('allocation.all.allocated', 603), ('allocation.all.current', 201), ('allocation.all.freed', 402), ('allocation.all.peak', 402), ('allocation.large_pool.allocated', 225), ('allocation.large_pool.current', 75), ('allocation.large_pool.freed', 150), ('allocation.large_pool.peak', 150), ('allocation.small_pool.allocated', 378), ('allocation.small_pool.current', 126), ('allocation.small_pool.freed', 252), ('allocation.small_pool.peak', 252), ('inactive_split.all.allocated', 97), ('inactive_split.all.current', 19), ('inactive_split.all.freed', 78), ('inactive_split.all.peak', 40), ('inactive_split.large_pool.allocated', 93), ('inactive_split.large_pool.current', 18), ('inactive_split.large_pool.freed', 75), ('inactive_split.large_pool.peak', 38), ('inactive_split.small_pool.allocated', 4), ('inactive_split.small_pool.current', 1), ('inactive_split.small_pool.freed', 3), ('inactive_split.small_pool.peak', 2), ('inactive_split_bytes.all.allocated', 1260329472), ('inactive_split_bytes.all.current', 55859712), ('inactive_split_bytes.all.freed', 1204469760), ('inactive_split_bytes.all.peak', 131216384), ('inactive_split_bytes.large_pool.allocated', 1255145472), ('inactive_split_bytes.large_pool.current', 54263808), ('inactive_split_bytes.large_pool.freed', 1200881664), ('inactive_split_bytes.large_pool.peak', 130023424), ('inactive_split_bytes.small_pool.allocated', 5184000), ('inactive_split_bytes.small_pool.current', 1595904), ('inactive_split_bytes.small_pool.freed', 3588096), ('inactive_split_bytes.small_pool.peak', 2096640), ('num_alloc_retries', 0), ('num_ooms', 0), ('reserved_bytes.all.allocated', 966787072), ('reserved_bytes.all.current', 966787072), ('reserved_bytes.all.freed', 0), ('reserved_bytes.all.peak', 966787072), ('reserved_bytes.large_pool.allocated', 964689920), ('reserved_bytes.large_pool.current', 964689920), ('reserved_bytes.large_pool.freed', 0), ('reserved_bytes.large_pool.peak', 964689920), ('reserved_bytes.small_pool.allocated', 2097152), ('reserved_bytes.small_pool.current', 2097152), ('reserved_bytes.small_pool.freed', 0), ('reserved_bytes.small_pool.peak', 2097152), ('segment.all.allocated', 40), ('segment.all.current', 40), ('segment.all.freed', 0), ('segment.all.peak', 40), ('segment.large_pool.allocated', 39), ('segment.large_pool.current', 39), ('segment.large_pool.freed', 0), ('segment.large_pool.peak', 39), ('segment.small_pool.allocated', 1), ('segment.small_pool.current', 1), ('segment.small_pool.freed', 0), ('segment.small_pool.peak', 1)])
-INFO:root:Pool size x torch.Size([86488, 512])
-INFO:root:Initial size x torch.Size([100, 512])
+INFO:root:Pool size x torch.Size([56588, 512])
+INFO:root:Initial size x torch.Size([30000, 512])
+INFO:root:Metric name: random, model training run: 0, initial f1_score: 0.5739297475844769
