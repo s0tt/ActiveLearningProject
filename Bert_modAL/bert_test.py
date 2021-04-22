@@ -309,7 +309,8 @@ test_dataset = 'SQuAD-dev'
 batch_size_test_dataloader = 10507
 
 
-logging.info(torch.cuda.memory_allocated())
+logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
+
 
 # get test batch
 data_loader_test = get_dataloader([test_dataset], batch_size_test_dataloader)
@@ -327,7 +328,8 @@ labels_f1_score = extract_span(start_logits, end_logits, test_batch, softmax_app
 del start_logits
 del end_logits
 
-logging.info(torch.cuda.memory_allocated())
+logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
+
 
 
 for idx_model_training in range(num_model_training): 
@@ -348,7 +350,8 @@ for idx_model_training in range(num_model_training):
 
 
     # gets for us the train data (shuffle --> so that the data is always new sorted)
-    logging.info(torch.cuda.memory_allocated())
+    logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
+
 
     data_loader_train = get_dataloader([train_dataset], batch_size_train_dataloader, shuffle=True)
     data_iter_train = iter(data_loader_train) 
@@ -357,7 +360,8 @@ for idx_model_training in range(num_model_training):
         train_data = batch
         break
 
-    logging.info(torch.cuda.memory_allocated())
+    logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
+
 
 
     # assemble initial data & pool data 
@@ -380,17 +384,22 @@ for idx_model_training in range(num_model_training):
     learner.teach(X=X_initial, y=y_initial)
 
 
+    
     f1_scores = []
+    """
     f1_score = calculate_f1_score_Bert(test_batch, learner, labels_f1_score) 
     f1_scores.append(f1_score)
     logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
-    
+    """
 
     pool = pool_initial
 
 
     for idx_query in range(n_queries):
         
+        
+        logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
+
         query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=drawn_samples_per_query, logits_adaptor=extract_span_v_2)
 
         if metric_name == 'random': 
