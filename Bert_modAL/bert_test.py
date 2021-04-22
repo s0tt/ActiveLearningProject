@@ -288,11 +288,11 @@ elif metric_name == 'random':
 
 
 
-n_initial = 30000 #2 # number of initial chosen samples for the training
+n_initial = 10#30000 #2 # number of initial chosen samples for the training
 num_model_training = 5
 n_queries = 100
-drawn_samples_per_query = 1
-forward_cycles_per_query = 5
+drawn_samples_per_query = 10
+forward_cycles_per_query = 50
 output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'f1_scores_{}.txt'.format(metric_name))
 
 model_training_f1_scores = []
@@ -381,7 +381,7 @@ for idx_model_training in range(num_model_training):
 
     for idx_query in range(n_queries):
         
-        query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=2, logits_adaptor=extract_span_v_2)
+        query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=drawn_samples_per_query, logits_adaptor=extract_span_v_2)
 
         if metric_name == 'random': 
             query_idx = np.random.choice(range(len(pool['input'])), size=drawn_samples_per_query, replace=False)
