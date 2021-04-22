@@ -46,7 +46,7 @@ from Labeling import label as getLabelStudioLabel
 from Labeling import getLabelList
 
 
-metric_name = 'random'#sys.argv[1]
+metric_name = sys.argv[1]
 
 logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}.log'.format(metric_name)), filemode='w', level=logging.INFO)
 
@@ -54,6 +54,7 @@ logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__fil
 labels='single' # at the moment this is just set by hand ... 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
+cuda = torch.device('cuda') 
 
 def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor) -> torch.Tensor:
     # from: https://gist.github.com/SuperShinyEyes/dcc68a08ff8b615442e3bc6a9b55a354
@@ -99,9 +100,9 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
 
     unified_len = round((batch['input'][0].shape[0] * (batch['input'][0].shape[0] + 1))/2)  # round((len(batch['input'][0]) * (len(batch['input'][0]) + 1))/2)  #Gaussian sum formula for sequences
     if get_label:
-        unpadded_probabilities = torch.empty(size=(num_samples, 1))
+        unpadded_probabilities = torch.empty(size=(num_samples, 1), device=cuda)
     else:
-        unpadded_probabilities = torch.empty(size=(num_samples, unified_len))
+        unpadded_probabilities = torch.empty(size=(num_samples, unified_len), device=cuda)
     for sample_id in range(num_samples):
         # consider all possible combinations (by addition) of start and end token
         # vectorize by broadcasting start/end token probabilites to matrix and adding both
@@ -136,7 +137,7 @@ def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, ma
        # start_score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
         #end_score_matrix_pad = torch.full(size=(len(mask), len(mask)), fill_value=float("nan"))
 
-        score_matrix_pad = torch.full(size=(mask.shape[0], mask.shape[0]), fill_value=float("nan"))
+        score_matrix_pad = torch.full(size=(mask.shape[0], mask.shape[0]), fill_value=float("nan"), device=cuda)
 
         #vec_start = start_logits[sample_id][0][slice_relevant_tokens].unsqueeze(1).double()
         #start_score_matrix[slice_relevant_tokens][slice_relevant_tokens] = torch.matmul()
@@ -289,6 +290,7 @@ num_model_training = 5
 n_queries = 100
 drawn_samples_per_query = 10
 forward_cycles_per_query = 50
+sample_per_forward_pass = 6 # same as batch size
 output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'f1_scores_{}.txt'.format(metric_name))
 
 model_training_f1_scores = []
@@ -334,7 +336,7 @@ for idx_model_training in range(num_model_training):
     )
 
     learner.num_epochs = 2
-    learner.batch_size = 6
+    learner.batch_size = sample_per_forward_pass
 
     torch.cuda.manual_seed_all(idx_model_training)
     torch.manual_seed(idx_model_training)
@@ -399,7 +401,7 @@ for idx_model_training in range(num_model_training):
         
         logging.info("GPU _allocation before query: {}".format(torch.cuda.memory_allocated()))
 
-        query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=drawn_samples_per_query, logits_adaptor=extract_span_v_2)
+        query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=sample_per_forward_pass, logits_adaptor=extract_span_v_2)
 
         if metric_name == 'random': 
             query_idx = np.random.choice(range(len(pool['input'])), size=drawn_samples_per_query, replace=False)
