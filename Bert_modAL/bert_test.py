@@ -6,6 +6,8 @@ import os
 import re
 import numpy as np
 from typing import Dict, OrderedDict, Tuple, Union
+import time
+
 
 import torch 
 import random 
@@ -201,10 +203,9 @@ def extract_span_v_2(logits: torch.Tensor, batch):
 
     return extract_span(start_logits, end_logits, batch, softmax_applied=False, maximilian=False, answer_only=True)
 
-def calculate_f1_score_Bert(test_set, learner):
-    # label part
-    start_logits, end_logits = test_set['label_multi'].split(1, dim=1)
-    labels = extract_span(start_logits, end_logits, test_set, softmax_applied=False, maximilian=False, answer_only=True)
+def calculate_f1_score_Bert(test_set, learner, labels):
+
+    start_time_f1_score = time.time()
 
     # prediction part 
     logits = learner.estimator.forward({'input' : test_set['input'], 'segments' : test_set['segments'], 'mask': test_set['mask']}) 
@@ -215,6 +216,8 @@ def calculate_f1_score_Bert(test_set, learner):
     overall_f1_loss = 0
     for instance_label, instance_prediction in zip(labels, prediction): 
         overall_f1_loss += f1_loss(instance_label, instance_prediction)
+
+    logging.info("Time for a single f_1 score estimation: {}".format(time.time()- start_time_f1_score))
 
     return overall_f1_loss
 
@@ -313,12 +316,14 @@ test_batch = 0
 for batch in data_iter_test: 
     test_batch = batch
     break
-"""
-    At the moment the active learner requires that:  
-    the dimensions of the new training data and label mustagree with the training data and labels provided so far
 
-    But in our Bert-Model batch['input'] is never fixed --> we would need to adapt a bit modAL 
-"""
+# label part
+start_logits, end_logits = test_batch['label_multi'].split(1, dim=1)
+labels_f1_score = extract_span(start_logits, end_logits, test_set, softmax_applied=False, maximilian=False, answer_only=True)
+
+del start_logits
+del end_logits
+
 
 for idx_model_training in range(num_model_training): 
 
@@ -371,7 +376,7 @@ for idx_model_training in range(num_model_training):
 
 
     f1_scores = []
-    f1_score = calculate_f1_score_Bert(test_batch, learner) 
+    f1_score = calculate_f1_score_Bert(test_batch, learner, labels_f1_score) 
     f1_scores.append(f1_score)
     logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
     
@@ -400,7 +405,7 @@ for idx_model_training in range(num_model_training):
 
         pool_labels = np.delete(pool_labels, query_idx, axis=0)
 
-        f1_score = calculate_f1_score_Bert(test_batch, learner)
+        f1_score = calculate_f1_score_Bert(test_batch, learner, labels_f1_score)
         f1_scores.append(f1_score) 
         logging.info("Metric name: {}, model training run: {}, query number: {}, f1_score: {}".format(metric_name, idx_model_training, idx_query, f1_score))
 
