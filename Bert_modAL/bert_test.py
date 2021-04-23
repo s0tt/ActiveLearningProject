@@ -317,7 +317,7 @@ num_model_training = 5
 n_queries = 100
 drawn_samples_per_query = 10
 forward_cycles_per_query = 50
-sample_per_forward_pass = 6 # same as batch size
+sample_per_forward_pass = 10 # same as batch size
 output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'f1_scores_{}.txt'.format(metric_name))
 
 model_training_f1_scores = []
@@ -419,9 +419,8 @@ for idx_model_training in range(num_model_training):
     """
     f1_score = calculate_f1_score_Bert(test_batch, learner, labels_f1_score) 
     f1_scores.append(f1_score)
-    """
     logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
-
+    """
     pool = pool_initial
     del pool_initial
 
