@@ -317,7 +317,7 @@ num_model_training = 5
 n_queries = 100
 drawn_samples_per_query = 10
 forward_cycles_per_query = 50
-sample_per_forward_pass = 10 # same as batch size
+sample_per_forward_pass = 12 # same as batch size
 output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'f1_scores_{}.txt'.format(metric_name))
 
 model_training_f1_scores = []
