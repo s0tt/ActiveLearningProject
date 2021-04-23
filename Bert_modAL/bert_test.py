@@ -326,8 +326,8 @@ model_training_f1_scores.append(x_axis)
 
 
 train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = 110#86588 
-test_dataset = 'SQuAD-dev'
+batch_size_train_dataloader = 86588### 
+test_dataset = 'SQuAD-dev'  
 batch_size_test_dataloader = 10507
 
 
