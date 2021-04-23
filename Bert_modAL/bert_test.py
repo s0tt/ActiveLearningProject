@@ -346,7 +346,7 @@ for batch in data_iter_test:
 # label part
 start_logits, end_logits = test_batch['label_multi'].split(1, dim=1)
 labels_f1_score = extract_span(start_logits, end_logits, test_batch, softmax_applied=False, maximilian=False, answer_only=True)
-del labels_f1_score # just to test if this tensor does still consume memory
+#del labels_f1_score # just to test if this tensor does still consume memory
 
 
 del start_logits
@@ -415,11 +415,11 @@ for idx_model_training in range(num_model_training):
 
     
     f1_scores = []
-    """
+    
     f1_score = calculate_f1_score_Bert(test_batch, learner, labels_f1_score) 
     f1_scores.append(f1_score)
     logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
-    """
+    
     pool = pool_initial
     del pool_initial
 
