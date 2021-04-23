@@ -416,9 +416,10 @@ for idx_model_training in range(num_model_training):
 
     
     f1_scores = []
-    
+    """
     f1_score = calculate_f1_score_Bert(test_batch, learner, labels_f1_score) 
     f1_scores.append(f1_score)
+    """
     logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
 
     pool = pool_initial
