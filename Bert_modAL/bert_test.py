@@ -341,6 +341,7 @@ test_batch = 0
 
 for batch in data_iter_test: 
     test_batch = batch
+    print(test_batch['input'].device)
     break
 
 # label part
