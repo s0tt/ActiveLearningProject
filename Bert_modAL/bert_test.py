@@ -74,15 +74,29 @@ def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor) -> torch.Tensor:
         - https://discuss.pytorch.org/t/calculating-precision-recall-and-f1-score-in-case-of-multi-label-classification/28265/6
         
         '''
+    """
     assert y_true.ndim == 1
     assert y_pred.ndim == 1 or y_pred.ndim == 2
 
     if y_pred.ndim == 2:
         y_pred = y_pred.argmax(dim=1)
+    """
 
     y_true = y_true[~y_true.isnan()]
     y_pred = y_pred[~y_pred.isnan()]
+    
+    # vectorised version
+    tp = (y_true * y_pred).sum(dim=1).to(torch.float32)
+    tn = ((1 - y_true) * (1 - y_pred)).sum(dim=1).to(torch.float32)
+    fp = ((1 - y_true) * y_pred).sum(dim=1).to(torch.float32)
+    fn = (y_true * (1 - y_pred)).sum(dim=1).to(torch.float32)
+    epsilon = 1e-7
+    precision = tp / (tp + fp + epsilon)
+    recall = tp / (tp + fn + epsilon)
+    f1 = 2* (precision*recall) / (precision + recall + epsilon)
+    f1_score = f1.sum().item()
 
+    """
     tp = (y_true * y_pred).sum().to(torch.float32)
     tn = ((1 - y_true) * (1 - y_pred)).sum().to(torch.float32)
     fp = ((1 - y_true) * y_pred).sum().to(torch.float32)
@@ -91,8 +105,11 @@ def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor) -> torch.Tensor:
     precision = tp / (tp + fp + epsilon)
     recall = tp / (tp + fn + epsilon)
     f1 = 2* (precision*recall) / (precision + recall + epsilon)
+    f1_score = f1.item()
+    """
 
-    return f1.item()
+
+    return f1_score
 
 def extract_span(start_logits: torch.Tensor, end_logits: torch.Tensor, batch, maximilian: bool = True, softmax_applied: bool = False, topk: int = 1, extract_answer: bool = False, answer_only: bool = False, get_label:bool=False):
 
@@ -207,9 +224,13 @@ def calculate_f1_score_Bert(test_set, learner, labels):
     mask = ~prediction.isnan()
     prediction[mask] = prediction[mask].unsqueeze(0).softmax(1)
 
-    overall_f1_loss = 0
-    for instance_label, instance_prediction in zip(labels, prediction): 
-        overall_f1_loss += f1_loss(instance_label, instance_prediction)
+    #overall_f1_loss = 0
+    
+    #for instance_label, instance_prediction in zip(labels, prediction): 
+    #overall_f1_loss += f1_loss(instance_label, instance_prediction)
+
+    overall_f1_loss = f1_loss(labels, prediction)
+
 
     logging.info("Time for a single f_1 score estimation: {}".format(time.time()- start_time_f1_score))
 
@@ -320,6 +341,7 @@ test_batch = 0
 
 for batch in data_iter_test: 
     test_batch = batch
+    print(test_batch['input'].device)
     break
 
 # label part
@@ -394,11 +416,10 @@ for idx_model_training in range(num_model_training):
 
     
     f1_scores = []
-    """
+    
     f1_score = calculate_f1_score_Bert(test_batch, learner, labels_f1_score) 
     f1_scores.append(f1_score)
     logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
-    """
 
     pool = pool_initial
     del pool_initial
