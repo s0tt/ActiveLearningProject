@@ -333,9 +333,9 @@ elif metric_name == 'random':
 
 
 
-n_initial = 10#30000 #2 # number of initial chosen samples for the training
-num_model_training = 5
-n_queries = 3
+n_initial = 3000 #2 # number of initial chosen samples for the training
+num_model_training = 1
+n_queries = 1
 drawn_samples_per_query = 10
 forward_cycles_per_query = 10
 sample_per_forward_pass = 12 # same as batch size
@@ -347,9 +347,9 @@ model_training_f1_scores.append(x_axis)
 
 
 train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = 200+n_initial#86588### 
+batch_size_train_dataloader = 20000+n_initial#86588### 
 test_dataset = 'SQuAD-dev'  
-batch_size_test_dataloader = 1050
+batch_size_test_dataloader = 10507
 
 
 logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
@@ -404,7 +404,7 @@ for idx_model_training in range(num_model_training):
     initial_idx = np.random.choice(range(len(train_data['input'])), size=n_initial, replace=False)
     X_initial = {'input': train_data['input'][initial_idx], 'segments': train_data['segments'][initial_idx], 'mask': train_data['mask'][initial_idx]}
     y_initial = train_data['label'][initial_idx]
-    
+
     pool_initial = {'input': np.delete(train_data['input'], initial_idx, axis=0), 
                       'segments': np.delete(train_data['segments'], initial_idx, axis=0), 
                       'mask': np.delete(train_data['mask'], initial_idx, axis=0)
