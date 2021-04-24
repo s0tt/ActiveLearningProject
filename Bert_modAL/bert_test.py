@@ -53,12 +53,17 @@ parser = argparse.ArgumentParser(description='BertQA-argparse')
 parser.add_argument('-m','--metric-name', help='Which metric should be used', type=str, required=True)
 parser.add_argument('-i','--initial-samples', help='Number of initial samples', type=int, required=True)
 parser.add_argument('-ip','--initial-pool-size', help='Number of initial samples in the pool', type=int, required=True)
+parser.add_argument('-nq','--number-of-queries', help='Number of queries for one active learning cycle', type=int, required=True)
+parser.add_argument('-fc','--forward-cycles-per-query', help='Number of forward cycles per query', type=int, required=True)
+parser.add_argument('-ds','--drawn-samples-per-query', help='Number of drawn-samples-per-query', type=int, required=True)
+parser.add_argument('-bs','--batch-size', help='Batch size', type=int, required=True)
+
 
 args = vars(parser.parse_args())
 
 metric_name = args['metric_name']
 
-logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}_init_data_{}_init_pool_size_{}.log'.format(metric_name, args['initial-samples'], args['initial-pool-size'])), filemode='w', level=logging.INFO)
+logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}_i_{}_ip_{}_nq_{}_fc_{}_ds_{}_bs_{}.log'.format(metric_name, args['initial_samples'], args['initial_pool_size'], args['number_of_queries'], args['forward_cycles_per_query'], args['drawn_samples_per_query'], args['batch_size']), filemode='w', level=logging.INFO)
 
 
 labels='single' # at the moment this is just set by hand ... 
@@ -342,10 +347,10 @@ elif metric_name == 'random':
 
 n_initial = args['initial_samples'] #2 # number of initial chosen samples for the training
 num_model_training = 5
-n_queries = 100
-drawn_samples_per_query = 10
-forward_cycles_per_query = 10
-sample_per_forward_pass = 12 # same as batch size
+n_queries = args['number_of_queries']
+drawn_samples_per_query = args['drawn_samples_per_query']
+forward_cycles_per_query = args['forward_cycles_per_query']
+sample_per_forward_pass = args['batch_size'] # same as batch size
 output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'f1_scores_{}.txt'.format(metric_name))
 
 model_training_f1_scores = []
