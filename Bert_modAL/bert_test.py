@@ -389,10 +389,7 @@ for idx_model_training in range(num_model_training):
     random.seed(idx_model_training)
     np.random.seed(idx_model_training)
 
-
     # gets for us the train data (shuffle --> so that the data is always new sorted)
-    logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
-
 
     data_loader_train = get_dataloader([train_dataset], batch_size_train_dataloader, shuffle=True)
     data_iter_train = iter(data_loader_train) 
@@ -400,8 +397,6 @@ for idx_model_training in range(num_model_training):
     for batch in data_iter_train: 
         train_data = batch
         break
-
-    logging.info("GPU _allocation before initial split: {}".format(torch.cuda.memory_allocated()))
 
 
 
@@ -423,12 +418,8 @@ for idx_model_training in range(num_model_training):
     logging.info("Initial size x {}".format(X_initial['input'].size()))
     
 
-    logging.info("GPU _allocation before  first train: {}".format(torch.cuda.memory_allocated()))
-
     # here we should do now the Pre-TRAINING
     learner.teach(X=X_initial, y=y_initial)
-
-    logging.info("GPU _allocation after  first train: {}".format(torch.cuda.memory_allocated()))
 
     
     f1_scores = []
@@ -443,9 +434,6 @@ for idx_model_training in range(num_model_training):
 
     for idx_query in range(n_queries):
         
-        
-        logging.info("GPU _allocation before query: {}".format(torch.cuda.memory_allocated()))
-
         query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=sample_per_forward_pass)
 
         if metric_name == 'random': 
