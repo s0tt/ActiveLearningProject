@@ -12,7 +12,7 @@ import time
 import torch 
 import random 
 import logging 
-
+import argparse
 
 torch.cuda.manual_seed_all(0)
 torch.manual_seed(0)
@@ -49,9 +49,16 @@ from sklearn.metrics import f1_score
 
 
 
-metric_name = sys.argv[1]
+parser = argparse.ArgumentParser(description='BertQA-argparse')
+parser.add_argument('-m','--metric-name', help='Which metric should be used', type=str, required=True)
+parser.add_argument('-i','--initial-samples', help='Number of initial samples', type=int, required=True)
+parser.add_argument('-ip','--initial-pool-size', help='Number of initial samples in the pool', type=int, required=True)
 
-logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}.log'.format(metric_name)), filemode='w', level=logging.INFO)
+args = vars(parser.parse_args())
+
+metric_name = args['metric-name']
+
+logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}_init_data_{}_init_pool_size_{}.log'.format(metric_name, args['initial-samples'], args['initial-pool-size'])), filemode='w', level=logging.INFO)
 
 
 labels='single' # at the moment this is just set by hand ... 
@@ -333,9 +340,9 @@ elif metric_name == 'random':
 
 
 
-n_initial = 3000 #2 # number of initial chosen samples for the training
-num_model_training = 1
-n_queries = 1
+n_initial = args['initial-samples'] #2 # number of initial chosen samples for the training
+num_model_training = 5
+n_queries = 100
 drawn_samples_per_query = 10
 forward_cycles_per_query = 10
 sample_per_forward_pass = 12 # same as batch size
@@ -347,7 +354,7 @@ model_training_f1_scores.append(x_axis)
 
 
 train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = 20000+n_initial#86588### 
+batch_size_train_dataloader = args['initial-pool-size']+n_initial#86588### 
 test_dataset = 'SQuAD-dev'  
 batch_size_test_dataloader = 10507
 
@@ -370,7 +377,6 @@ for batch in data_iter_test:
 
 
 logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
-
 
 
 for idx_model_training in range(num_model_training): 
