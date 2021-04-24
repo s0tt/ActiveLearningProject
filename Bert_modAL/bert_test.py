@@ -402,8 +402,8 @@ for idx_model_training in range(num_model_training):
 
     # assemble initial data & pool data 
     initial_idx = np.random.choice(range(len(train_data['input'])), size=n_initial, replace=False)
-    X_initial = {'input': train_data['input'][initial_idx], 'segments': train_data['segments'][initial_idx], 'mask': train_data['mask'][initial_idx]}
-    y_initial = train_data['label'][initial_idx]
+    X_initial = {'input': train_data['input'][initial_idx].cuda(), 'segments': train_data['segments'][initial_idx].cuda(), 'mask': train_data['mask'][initial_idx].cuda()}
+    y_initial = train_data['label'][initial_idx].cuda()
 
     pool_initial = {'input': np.delete(train_data['input'], initial_idx, axis=0), 
                       'segments': np.delete(train_data['segments'], initial_idx, axis=0), 
