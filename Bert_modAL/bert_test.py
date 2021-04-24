@@ -433,8 +433,8 @@ for idx_model_training in range(num_model_training):
     
     f1_scores = []
     
-    f1_score = calculate_f1_score_Bert(test_batch, learner) 
-    f1_scores.append(f1_score)
+    f1_ = calculate_f1_score_Bert(test_batch, learner) 
+    f1_scores.append(f1_)
     logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
     
     pool = pool_initial
@@ -465,8 +465,8 @@ for idx_model_training in range(num_model_training):
 
         pool_labels = np.delete(pool_labels, query_idx, axis=0)
 
-        f1_score = calculate_f1_score_Bert(test_batch, learner)
-        f1_scores.append(f1_score) 
+        f1_ = calculate_f1_score_Bert(test_batch, learner)
+        f1_scores.append(f1_) 
         logging.info("Metric name: {}, model training run: {}, query number: {}, f1_score: {}".format(metric_name, idx_model_training, idx_query, f1_score))
 
     model_training_f1_scores.append(np.array(f1_scores).T)
