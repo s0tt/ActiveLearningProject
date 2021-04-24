@@ -63,7 +63,7 @@ args = vars(parser.parse_args())
 
 metric_name = args['metric_name']
 
-logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}_i_{}_ip_{}_nq_{}_fc_{}_ds_{}_bs_{}.log'.format(metric_name, args['initial_samples'], args['initial_pool_size'], args['number_of_queries'], args['forward_cycles_per_query'], args['drawn_samples_per_query'], args['batch_size']), filemode='w', level=logging.INFO)
+logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}_i_{}_ip_{}_nq_{}_fc_{}_ds_{}_bs_{}.log'.format(metric_name, args['initial_samples'], args['initial_pool_size'], args['number_of_queries'], args['forward_cycles_per_query'], args['drawn_samples_per_query'], args['batch_size'])), filemode='w', level=logging.INFO)
 
 
 labels='single' # at the moment this is just set by hand ... 
