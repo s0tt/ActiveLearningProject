@@ -216,42 +216,44 @@ def extract_span_v_2(logits: torch.Tensor, batch):
 
 def calculate_f1_score_Bert(test_set, learner):
 
-    start_time_f1_score = time.time()
+    overall_f1_loss_start=0
+    overall_f1_loss_end=0
 
-    # prediction part 
-    logits = learner.estimator.forward({'input' : test_set['input'], 'segments' : test_set['segments'], 'mask': test_set['mask']}) 
-    
-    
-    start_logits, end_logits = logits.transpose(1, 2).split(1, dim=1)
-    
-    start_predicted_classes = start_logits.argmax(dim=2).numpy().flatten()
-    end_predicted_classes = end_logits.argmax(dim=2).numpy().flatten()
+    with torch.no_grad():
+        # prediction part 
+        logits = learner.estimator.forward({'input' : test_set['input'], 'segments' : test_set['segments'], 'mask': test_set['mask']}) 
+        
+        
+        start_logits, end_logits = logits.transpose(1, 2).split(1, dim=1)
+        
+        start_predicted_classes = start_logits.argmax(dim=2).numpy().flatten()
+        end_predicted_classes = end_logits.argmax(dim=2).numpy().flatten()
 
 
-    """
-    start_logits[start_logits<start_logits.max()] = 0 
-    start_logits[start_logits == start_logits.max()] = 1 
+        """
+        start_logits[start_logits<start_logits.max()] = 0 
+        start_logits[start_logits == start_logits.max()] = 1 
 
-    end_logits[end_logits<end_logits.max()] = 0 
-    end_logits[end_logits==end_logits.max()] = 1 
-    """
+        end_logits[end_logits<end_logits.max()] = 0 
+        end_logits[end_logits==end_logits.max()] = 1 
+        """
 
-    start_label, end_label = test_set['label_multi'].split(1, dim=1)
+        start_label, end_label = test_set['label_multi'].split(1, dim=1)
 
-    start_classes = start_label.argmax(dim=2).numpy().flatten()
-    end_classes = end_logits.argmax(dim=2).numpy().flatten()
+        start_classes = start_label.argmax(dim=2).numpy().flatten()
+        end_classes = end_logits.argmax(dim=2).numpy().flatten()
 
-    #overall_f1_loss = 0
-    
-    #for instance_label, instance_prediction in zip(labels, prediction): 
-    #overall_f1_loss += f1_loss(instance_label, instance_prediction)
+        #overall_f1_loss = 0
+        
+        #for instance_label, instance_prediction in zip(labels, prediction): 
+        #overall_f1_loss += f1_loss(instance_label, instance_prediction)
 
-    overall_f1_loss_start = f1_score(start_classes, start_predicted_classes, average='micro')
-    overall_f1_loss_end = f1_score(end_classes, end_predicted_classes, average='micro')
+        overall_f1_loss_start = f1_score(start_classes, start_predicted_classes, average='micro')
+        overall_f1_loss_end = f1_score(end_classes, end_predicted_classes, average='micro')
 
-    #overall_f1_loss_start = f1_loss(start_label, start_logits)
-    #overall_f1_loss_end = f1_loss(end_logits, end_logits)
-    
+        #overall_f1_loss_start = f1_loss(start_label, start_logits)
+        #overall_f1_loss_end = f1_loss(end_logits, end_logits)
+        
 
     return (overall_f1_loss_end + overall_f1_loss_start)/2 
 
@@ -331,7 +333,7 @@ elif metric_name == 'random':
 
 
 
-n_initial = 1000#30000 #2 # number of initial chosen samples for the training
+n_initial = 100#30000 #2 # number of initial chosen samples for the training
 num_model_training = 5
 n_queries = 100
 drawn_samples_per_query = 10
@@ -345,9 +347,9 @@ model_training_f1_scores.append(x_axis)
 
 
 train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = 20000+n_initial#86588### 
+batch_size_train_dataloader = 200+n_initial#86588### 
 test_dataset = 'SQuAD-dev'  
-batch_size_test_dataloader = 10507
+batch_size_test_dataloader = 1050
 
 
 logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
