@@ -435,7 +435,7 @@ for idx_model_training in range(num_model_training):
     
     f1_ = calculate_f1_score_Bert(test_batch, learner) 
     f1_scores.append(f1_)
-    logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
+    logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_))
     
     pool = pool_initial
     del pool_initial
@@ -467,7 +467,7 @@ for idx_model_training in range(num_model_training):
 
         f1_ = calculate_f1_score_Bert(test_batch, learner)
         f1_scores.append(f1_) 
-        logging.info("Metric name: {}, model training run: {}, query number: {}, f1_score: {}".format(metric_name, idx_model_training, idx_query, f1_score))
+        logging.info("Metric name: {}, model training run: {}, query number: {}, f1_score: {}".format(metric_name, idx_model_training, idx_query, f1_))
 
     model_training_f1_scores.append(np.array(f1_scores).T)
 
