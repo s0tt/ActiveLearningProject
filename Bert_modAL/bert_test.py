@@ -444,7 +444,10 @@ for idx_model_training in range(num_model_training):
 
     for idx_query in range(n_queries):
         
+        start_query = time.time()
         query_idx, query_instance, query_metric = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=sample_per_forward_pass)
+        logging.info("Time for a single query: {}".format(time.time()-start_query))
+
 
         if metric_name == 'random': 
             query_idx = np.random.choice(range(len(pool['input'])), size=drawn_samples_per_query, replace=False)
