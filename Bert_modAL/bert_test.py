@@ -56,7 +56,7 @@ parser.add_argument('-ip','--initial-pool-size', help='Number of initial samples
 
 args = vars(parser.parse_args())
 
-metric_name = args['metric-name']
+metric_name = args['metric_name']
 
 logging.basicConfig(filename=os.path.join(os.path.dirname(os.path.realpath(__file__)),'logs_BertQA_evaluation_{}_init_data_{}_init_pool_size_{}.log'.format(metric_name, args['initial-samples'], args['initial-pool-size'])), filemode='w', level=logging.INFO)
 
@@ -340,7 +340,7 @@ elif metric_name == 'random':
 
 
 
-n_initial = args['initial-samples'] #2 # number of initial chosen samples for the training
+n_initial = args['initial_samples'] #2 # number of initial chosen samples for the training
 num_model_training = 5
 n_queries = 100
 drawn_samples_per_query = 10
@@ -354,7 +354,7 @@ model_training_f1_scores.append(x_axis)
 
 
 train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = args['initial-pool-size']+n_initial#86588### 
+batch_size_train_dataloader = args['initial_pool_size']+n_initial#86588### 
 test_dataset = 'SQuAD-dev'  
 batch_size_test_dataloader = 10507
 
