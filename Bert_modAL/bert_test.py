@@ -411,7 +411,6 @@ for idx_model_training in range(num_model_training):
                     }
     pool_labels = np.delete(train_data['label'], initial_idx, axis=0)
     
-
     del train_data
 
     logging.info("Pool size x {}".format(pool_initial['input'].size()))
@@ -434,7 +433,7 @@ for idx_model_training in range(num_model_training):
 
     for idx_query in range(n_queries):
         
-        query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=sample_per_forward_pass)
+        query_idx, query_instance, query_metric = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=sample_per_forward_pass)
 
         if metric_name == 'random': 
             query_idx = np.random.choice(range(len(pool['input'])), size=drawn_samples_per_query, replace=False)
