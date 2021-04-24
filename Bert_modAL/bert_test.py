@@ -333,9 +333,9 @@ elif metric_name == 'random':
 
 
 
-n_initial = 100#30000 #2 # number of initial chosen samples for the training
+n_initial = 10#30000 #2 # number of initial chosen samples for the training
 num_model_training = 5
-n_queries = 100
+n_queries = 3
 drawn_samples_per_query = 10
 forward_cycles_per_query = 10
 sample_per_forward_pass = 12 # same as batch size
