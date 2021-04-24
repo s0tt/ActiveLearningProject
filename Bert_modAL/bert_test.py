@@ -45,6 +45,9 @@ from get_data_from_Bert import get_dataloader
 from Labeling import label as getLabelStudioLabel
 from Labeling import getLabelList
 
+from sklearn.metrics import f1_score
+
+
 
 metric_name = sys.argv[1]
 
@@ -81,9 +84,6 @@ def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor) -> torch.Tensor:
     if y_pred.ndim == 2:
         y_pred = y_pred.argmax(dim=1)
     """
-
-    y_true = y_true[~y_true.isnan()]
-    y_pred = y_pred[~y_pred.isnan()]
     
     # vectorised version
     tp = (y_true * y_pred).sum(dim=1).to(torch.float32)
@@ -214,27 +214,46 @@ def extract_span_v_2(logits: torch.Tensor, batch):
 
     return extract_span(start_logits, end_logits, batch, softmax_applied=False, maximilian=False, answer_only=True)
 
-def calculate_f1_score_Bert(test_set, learner, labels):
+def calculate_f1_score_Bert(test_set, learner):
 
     start_time_f1_score = time.time()
 
     # prediction part 
     logits = learner.estimator.forward({'input' : test_set['input'], 'segments' : test_set['segments'], 'mask': test_set['mask']}) 
-    prediction = extract_span_v_2(logits, test_set)
-    mask = ~prediction.isnan()
-    prediction[mask] = prediction[mask].unsqueeze(0).softmax(1)
+    
+    
+    start_logits, end_logits = logits.transpose(1, 2).split(1, dim=1)
+    
+    start_predicted_classes = start_logits.argmax(dim=2).numpy().flatten()
+    end_predicted_classes = end_logits.argmax(dim=2).numpy().flatten()
+
+
+    """
+    start_logits[start_logits<start_logits.max()] = 0 
+    start_logits[start_logits == start_logits.max()] = 1 
+
+    end_logits[end_logits<end_logits.max()] = 0 
+    end_logits[end_logits==end_logits.max()] = 1 
+    """
+
+    start_label, end_label = test_set['label_multi'].split(1, dim=1)
+
+    start_classes = start_label.argmax(dim=2).numpy().flatten()
+    end_classes = end_logits.argmax(dim=2).numpy().flatten()
 
     #overall_f1_loss = 0
     
     #for instance_label, instance_prediction in zip(labels, prediction): 
     #overall_f1_loss += f1_loss(instance_label, instance_prediction)
 
-    overall_f1_loss = f1_loss(labels, prediction)
+    overall_f1_loss_start = f1_score(start_classes, start_predicted_classes, average='micro')
+    overall_f1_loss_end = f1_score(end_classes, end_predicted_classes, average='micro')
 
+    #overall_f1_loss_start = f1_loss(start_label, start_logits)
+    #overall_f1_loss_end = f1_loss(end_logits, end_logits)
+    
 
-    logging.info("Time for a single f_1 score estimation: {}".format(time.time()- start_time_f1_score))
-
-    return overall_f1_loss
+    return (overall_f1_loss_end + overall_f1_loss_start)/2 
 
 class BertQA(torch.nn.Module):
     def __init__(self, cache_dir: Union[None, str] = None):
@@ -312,11 +331,11 @@ elif metric_name == 'random':
 
 
 
-n_initial = 10#30000 #2 # number of initial chosen samples for the training
+n_initial = 1000#30000 #2 # number of initial chosen samples for the training
 num_model_training = 5
 n_queries = 100
 drawn_samples_per_query = 10
-forward_cycles_per_query = 50
+forward_cycles_per_query = 10
 sample_per_forward_pass = 12 # same as batch size
 output_file = os.path.join(os.path.dirname(os.path.realpath(__file__)) , 'f1_scores_{}.txt'.format(metric_name))
 
@@ -326,7 +345,7 @@ model_training_f1_scores.append(x_axis)
 
 
 train_dataset = 'SQuAD-train'
-batch_size_train_dataloader = 86588### 
+batch_size_train_dataloader = 20000+n_initial#86588### 
 test_dataset = 'SQuAD-dev'  
 batch_size_test_dataloader = 10507
 
@@ -344,13 +363,9 @@ for batch in data_iter_test:
     break
 
 # label part
-start_logits, end_logits = test_batch['label_multi'].split(1, dim=1)
-labels_f1_score = extract_span(start_logits, end_logits, test_batch, softmax_applied=False, maximilian=False, answer_only=True)
+#labels_f1_score = extract_span(start_logits, end_logits, test_batch, softmax_applied=False, maximilian=False, answer_only=True)
 #del labels_f1_score # just to test if this tensor does still consume memory
 
-
-del start_logits
-del end_logits
 
 logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
 
@@ -416,7 +431,7 @@ for idx_model_training in range(num_model_training):
     
     f1_scores = []
     
-    f1_score = calculate_f1_score_Bert(test_batch, learner, labels_f1_score) 
+    f1_score = calculate_f1_score_Bert(test_batch, learner) 
     f1_scores.append(f1_score)
     logging.info("Metric name: {}, model training run: {}, initial f1_score: {}".format(metric_name, idx_model_training, f1_score))
     
@@ -429,7 +444,7 @@ for idx_model_training in range(num_model_training):
         
         logging.info("GPU _allocation before query: {}".format(torch.cuda.memory_allocated()))
 
-        query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=sample_per_forward_pass, logits_adaptor=extract_span_v_2)
+        query_idx, query_instance, query_strategy = learner.query(pool, n_instances=drawn_samples_per_query, dropout_layer_indexes=[207, 213], num_cycles=forward_cycles_per_query, sample_per_forward_pass=sample_per_forward_pass)
 
         if metric_name == 'random': 
             query_idx = np.random.choice(range(len(pool['input'])), size=drawn_samples_per_query, replace=False)
@@ -448,7 +463,7 @@ for idx_model_training in range(num_model_training):
 
         pool_labels = np.delete(pool_labels, query_idx, axis=0)
 
-        f1_score = calculate_f1_score_Bert(test_batch, learner, labels_f1_score)
+        f1_score = calculate_f1_score_Bert(test_batch, learner)
         f1_scores.append(f1_score) 
         logging.info("Metric name: {}, model training run: {}, query number: {}, f1_score: {}".format(metric_name, idx_model_training, idx_query, f1_score))
 
