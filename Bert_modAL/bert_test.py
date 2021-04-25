@@ -7,7 +7,7 @@ import re
 import numpy as np
 from typing import Dict, OrderedDict, Tuple, Union
 import time
-
+from collections import Counter
 
 import torch 
 import random 
@@ -70,6 +70,20 @@ labels='single' # at the moment this is just set by hand ...
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 cuda = torch.device('cuda') 
+
+
+def f1(prediction, truth):
+    prediction_tokens = Counter(prediction)
+    truth_tokens = Counter(truth)
+    num_overlaps = sum((prediction_tokens & truth_tokens).values())
+    if num_overlaps > 0:
+        # f1 score is bigger than 0
+        precision = num_overlaps / sum(prediction_tokens.values())
+        recall = num_overlaps / sum(truth_tokens.values())
+        return (2 * precision * recall) / (precision + recall)
+    else:
+        return 0.0
+
 
 def f1_loss(y_true:torch.Tensor, y_pred:torch.Tensor) -> torch.Tensor:
     # from: https://gist.github.com/SuperShinyEyes/dcc68a08ff8b615442e3bc6a9b55a354
@@ -228,11 +242,21 @@ def extract_span_v_2(logits: torch.Tensor, batch):
 
 def calculate_f1_score_Bert(test_set, learner):
 
-    overall_f1_loss_start=0
-    overall_f1_loss_end=0
+    overall_f1_loss=0
+
+    """
+    start_label, end_label = test_set['label_multi'].split(1, dim=1)
+    argmax_index_start = start_label[0].argmax()
+    argmax_index_end = end_label[0].argmax()
+    len_question = len(test_set['metadata']['question_tokens'][0])
+
+    answer_self_extracted = test_set['metadata']['context_tokens'][0][argmax_index_start-len_question-2:argmax_index_end-len_question-1]
+
+    answer = test_set['metadata']['original_answers'][0][0][0].lower().split()
+    """
 
     with torch.no_grad():
-        # prediction part 
+        # f1 score calculation for Question-Answering
         logits = learner.estimator.forward({'input' : test_set['input'], 'segments' : test_set['segments'], 'mask': test_set['mask']}) 
         
         
@@ -242,32 +266,40 @@ def calculate_f1_score_Bert(test_set, learner):
         end_predicted_classes = end_logits.argmax(dim=2).numpy().flatten()
 
 
-        """
-        start_logits[start_logits<start_logits.max()] = 0 
-        start_logits[start_logits == start_logits.max()] = 1 
+        start_label, end_label = test_set['label_multi'].split(1, dim=1)
+        
+        #start_classes = start_label.argmax(dim=2).numpy().flatten()
+        #end_classes = end_logits.argmax(dim=2).numpy().flatten()
 
-        end_logits[end_logits<end_logits.max()] = 0 
-        end_logits[end_logits==end_logits.max()] = 1 
+        for index, (start_prediction, end_predcition) in enumerate(zip(start_predicted_classes, end_predicted_classes)):
+            len_question = len(test_set['metadata']['question_tokens'][index])
+
+            if (start_prediction-len_question-2 <0): 
+                logging.info("Still totally invalid predictions")
+            prediction = test_set['metadata']['context_tokens'][index][start_prediction-len_question-2:end_predcition-len_question-1]
+            truth = test_set['metadata']['original_answers'][index][0][0].lower().split()
+            overall_f1_loss += f1(prediction, truth)
+
         """
+        #f1 score calculation only direct match
+        logits = learner.estimator.forward({'input' : test_set['input'], 'segments' : test_set['segments'], 'mask': test_set['mask']}) 
+        
+        
+        start_logits, end_logits = logits.transpose(1, 2).split(1, dim=1)
+        
+        start_predicted_classes = start_logits.argmax(dim=2).numpy().flatten()
+        end_predicted_classes = end_logits.argmax(dim=2).numpy().flatten()
 
         start_label, end_label = test_set['label_multi'].split(1, dim=1)
 
         start_classes = start_label.argmax(dim=2).numpy().flatten()
         end_classes = end_logits.argmax(dim=2).numpy().flatten()
 
-        #overall_f1_loss = 0
-        
-        #for instance_label, instance_prediction in zip(labels, prediction): 
-        #overall_f1_loss += f1_loss(instance_label, instance_prediction)
-
         overall_f1_loss_start = f1_score(start_classes, start_predicted_classes, average='micro')
         overall_f1_loss_end = f1_score(end_classes, end_predicted_classes, average='micro')
-
-        #overall_f1_loss_start = f1_loss(start_label, start_logits)
-        #overall_f1_loss_end = f1_loss(end_logits, end_logits)
-        
-
-    return (overall_f1_loss_end + overall_f1_loss_start)/2 
+         (overall_f1_loss_end + overall_f1_loss_start)/2 
+        """
+    return overall_f1_loss
 
 class BertQA(torch.nn.Module):
     def __init__(self, cache_dir: Union[None, str] = None):
@@ -321,10 +353,6 @@ classifier = NeuralNetClassifier(BertQA,
 logging.info("GPU _allocation after classifier: {}".format(torch.cuda.memory_allocated()))
 
 
-
-torch_model = BertQA()
-
-layer_list = list(torch_model.modules())
 
 
 # initialize ActiveLearner
