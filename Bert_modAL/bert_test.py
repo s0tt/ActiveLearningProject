@@ -275,8 +275,11 @@ def calculate_f1_score_Bert(test_set, learner):
             len_question = len(test_set['metadata']['question_tokens'][index])
 
             if (start_prediction-len_question-2 <0): 
+                start = 0
                 logging.info("Still totally invalid predictions")
-            prediction = test_set['metadata']['context_tokens'][index][start_prediction-len_question-2:end_predcition-len_question-1]
+            else: 
+                start = start_prediction-len_question-2
+            prediction = test_set['metadata']['context_tokens'][index][start:end_predcition-len_question-1]
             truth = test_set['metadata']['original_answers'][index][0][0].lower().split()
             overall_f1_loss += f1(prediction, truth)
 
