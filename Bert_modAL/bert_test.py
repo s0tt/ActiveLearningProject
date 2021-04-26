@@ -375,8 +375,6 @@ elif metric_name == 'random':
 
 
 
-
-
 n_initial = args['initial_samples'] #2 # number of initial chosen samples for the training
 num_model_training = 5
 n_queries = args['number_of_queries']
@@ -463,6 +461,7 @@ for idx_model_training in range(num_model_training):
     
     # here we should do now the Pre-TRAINING
     learner.teach(X=X_initial, y=y_initial)
+    del X_initial, y_initial
 
     logging.info("GPU _allocation after teach: {}".format(torch.cuda.memory_allocated()))
 
