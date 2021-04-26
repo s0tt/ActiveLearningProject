@@ -57,6 +57,7 @@ parser.add_argument('-nq','--number-of-queries', help='Number of queries for one
 parser.add_argument('-fc','--forward-cycles-per-query', help='Number of forward cycles per query', type=int, required=True)
 parser.add_argument('-ds','--drawn-samples-per-query', help='Number of drawn-samples-per-query', type=int, required=True)
 parser.add_argument('-bs','--batch-size', help='Batch size', type=int, required=True)
+parser.add_argument('-ts','--test-size', help='Test batch size', type=int, required=True)
 
 
 args = vars(parser.parse_args())
@@ -392,7 +393,7 @@ model_training_f1_scores.append(x_axis)
 train_dataset = 'SQuAD-train'
 batch_size_train_dataloader = args['initial_pool_size']+n_initial#86588### 
 test_dataset = 'SQuAD-dev'  
-batch_size_test_dataloader = 10507
+batch_size_test_dataloader = args['test_size'] #10507
 
 
 logging.info("GPU _allocation: {}".format(torch.cuda.memory_allocated()))
@@ -457,12 +458,14 @@ for idx_model_training in range(num_model_training):
 
     logging.info("Pool size x {}".format(pool_initial['input'].size()))
     logging.info("Initial size x {}".format(X_initial['input'].size()))
-    
+    logging.info("GPU _allocation before teach: {}".format(torch.cuda.memory_allocated()))
 
+    
     # here we should do now the Pre-TRAINING
     learner.teach(X=X_initial, y=y_initial)
 
-    
+    logging.info("GPU _allocation after teach: {}".format(torch.cuda.memory_allocated()))
+
     f1_scores = []
     
     f1_ = calculate_f1_score_Bert(test_batch, learner) 
