@@ -36,6 +36,20 @@ bald_average = get_average(run_1_bald, run_2_bald, run_3_bald, run_4_bald, run_5
 max_entropy_average = get_average(run_1_entro, run_2_entro, run_3_entro, run_4_entro, run_5_entro)
 random_average = get_average(run_1, run_2, run_3, run_4, run_5)
 
+
+
+font = {'family' : 'serif',
+        'size'   : 11}
+plt.rc('xtick', labelsize='x-small')
+plt.rc('ytick', labelsize='x-small')
+plt.rc('text', usetex=True)
+plt.rc('font', **font)
+plt.rc('legend',fontsize=11)
+plt.rc('legend', labelspacing=.1)
+
+fig = plt.figure(figsize=(4.5, 2.5))
+plt.subplots_adjust(bottom=0.17, left = 0.20, right=0.9)
+
 plt.plot(x, bald_average, label="BALD")
 plt.plot(x, max_entropy_average, label="MaxEntropy")
 plt.plot(x, random_average, label="Random")
@@ -46,6 +60,11 @@ plt.xlim(0, 1000)
 plt.ylabel("Accuracy")
 
 plt.legend()
+
+
+
+
+
 
 plt.savefig("mnist_evaluation_same_initial_data.pdf" , format='pdf')
 
