@@ -103,13 +103,18 @@ def exportUserResults(timeStamp, run, results, statistics, startTime=None):
     if run > 0:
         resDict[run] = {}
         resDict[run]["time"] = timeStr
-        resDict[run]["mean_bald"] = statistics[0]
-        resDict[run]["accuracy"] = statistics[1]
+        resDict[run]["mean_bald"] = str(statistics[0])
+        resDict[run]["accuracy"] = str(statistics[1])
         for idx,result in enumerate(results):
             resDict[run][idx] = {}
             resDict[run][idx]["data"] = result["data"]
-            resDict[run][idx]["charSpans"] = result["charSpans"]
-            resDict[run][idx]["texts"] = result["texts"]
+            if "texts" in list(result.keys()) and  "charSpans" in list(result.keys()):
+                resDict[run][idx]["charSpans"] = result["charSpans"]
+                resDict[run][idx]["texts"] = result["texts"]
+            else:
+                resDict[run][idx]["charSpans"] = "Empty"
+                resDict[run][idx]["texts"] = "Empty"
+
         if startTime is not None:
             resDict["startClickTime"] = startTime
 
@@ -205,14 +210,16 @@ def survey():
             correct_label_num = batch["label"][sample_idx]
             correct_label_txt = batch["metadata"]["answers_per_instance"][sample_idx][0]
 
-            #correct labeled
-            matching_score = difflib.SequenceMatcher(a=response["texts"][0].lower(), b=correct_label_txt.lower()).ratio()
-            if matching_score > 0.90: #label is fully or nearly correct
-                statistics[0] -= np.abs((matching_score * (mean_step*statistics[0])))
-                statistics[1] += (matching_score * acc_step)
-            else: #label not correct
-                statistics[0] += np.abs(((1-matching_score) * (mean_step*statistics[0])))
-                statistics[1] -= ((1-matching_score) * acc_step)
+            #check if user selected a text
+            if "texts" in list(response.keys()):
+                #correct labeled
+                matching_score = difflib.SequenceMatcher(a=response["texts"][0].lower(), b=correct_label_txt.lower()).ratio()
+                if matching_score > 0.90: #label is fully or nearly correct
+                    statistics[0] -= np.abs((matching_score * (mean_step*statistics[0])))
+                    statistics[1] += (matching_score * acc_step)
+                else: #label not correct
+                    statistics[0] += np.abs(((1-matching_score) * (mean_step*statistics[0])))
+                    statistics[1] -= ((1-matching_score) * acc_step)
 
             #remove already labeled samples from list
             list_idx = None
