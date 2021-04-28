@@ -38,26 +38,28 @@ random_average = get_average(run_1, run_2, run_3, run_4, run_5)
 
 
 
-font = {'family' : 'serif',
-        'size'   : 11}
+font = {'family' : 'Times New Roman',
+        'size'   : 10}
 plt.rc('xtick', labelsize='x-small')
 plt.rc('ytick', labelsize='x-small')
 plt.rc('text', usetex=True)
 plt.rc('font', **font)
-plt.rc('legend',fontsize=11)
+#plt.rc('font', family='Times New Roman')
+plt.rc('legend',fontsize=10)
 plt.rc('legend', labelspacing=.1)
 
-fig = plt.figure(figsize=(4.5, 2.5))
-plt.subplots_adjust(bottom=0.17, left = 0.20, right=0.9)
+fig = plt.figure(figsize=(3.3, 3.0))
+plt.subplots_adjust(bottom=0.17, left = 0.10, right=0.9)
 
 plt.plot(x, bald_average, label="BALD")
-plt.plot(x, max_entropy_average, label="MaxEntropy")
+plt.plot(x, max_entropy_average, label="Max Entropy")
 plt.plot(x, random_average, label="Random")
 plt.plot(x, mean_std_average, label="Mean STD")
-plt.plot(x, variation_average, label="Max Variation")
+plt.plot(x, variation_average, label="Var Ratios")
 plt.xlabel("Number of queried samples")
 plt.xlim(0, 1000)
-plt.ylabel("Accuracy")
+plt.grid()
+#plt.ylabel("Accuracy")
 
 plt.legend()
 
@@ -66,6 +68,6 @@ plt.legend()
 
 
 
-plt.savefig("mnist_evaluation_same_initial_data.pdf" , format='pdf')
+plt.savefig("mnistSameInitialData.pdf" , format='pdf')
 
 plt.show()
