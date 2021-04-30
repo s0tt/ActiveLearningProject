@@ -33,6 +33,8 @@ from modAL.utils.selection import multi_argmax, shuffled_argmax
 from modAL.utils.data import retrieve_rows
 
 from transformers import BertModel
+from transformers import BertTokenizer, PreTrainedTokenizer
+
 
 from torch.utils.data import DataLoader
 from torchvision.transforms import ToTensor
@@ -47,6 +49,8 @@ from Labeling import getLabelList
 
 from sklearn.metrics import f1_score
 
+
+bert_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
 
 parser = argparse.ArgumentParser(description='BertQA-argparse')
@@ -268,11 +272,11 @@ def calculate_f1_score_Bert(test_set, learner):
 
 
         start_label, end_label = test_set['label_multi'].split(1, dim=1)
-        
-        #start_classes = start_label.argmax(dim=2).numpy().flatten()
-        #end_classes = end_logits.argmax(dim=2).numpy().flatten()
 
-        for index, (start_prediction, end_predcition) in enumerate(zip(start_predicted_classes, end_predicted_classes)):
+        start_label_class = start_label.argmax(dim=2).numpy().flatten()
+        end_label_class = end_label.argmax(dim=2).numpy().flatten()
+
+        for index, (start_prediction, end_predcition, start_truth, end_truth) in enumerate(zip(start_predicted_classes, end_predicted_classes, start_label_class, end_label_class)):
             len_question = len(test_set['metadata']['question_tokens'][index])
 
             if (start_prediction-len_question-2 <0): 
@@ -281,8 +285,15 @@ def calculate_f1_score_Bert(test_set, learner):
             else: 
                 start = start_prediction-len_question-2
             prediction = test_set['metadata']['context_tokens'][index][start:end_predcition-len_question-1]
-            truth = test_set['metadata']['original_answers'][index][0][0].lower().split()
-            overall_f1_loss += f1(prediction, truth)
+            truth = test_set['metadata']['context_tokens'][index][start_truth-len_question-2:end_truth-len_question-1]
+
+            #BertTokenizer.decode(truth).split()
+
+            #truth = test_set['metadata']['original_answers'][index][0][0].lower().split()
+            ids_prediction = bert_tokenizer.convert_tokens_to_ids(prediction)
+            ids_label = bert_tokenizer.convert_tokens_to_ids(truth)
+
+            overall_f1_loss += f1(bert_tokenizer.decode(ids_prediction).split(), bert_tokenizer.decode(ids_label).split())
 
         """
         #f1 score calculation only direct match
