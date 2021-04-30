@@ -50,7 +50,7 @@ from Labeling import getLabelList
 from sklearn.metrics import f1_score
 
 
-bert_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+bert_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', cache_dir=os.path.join(os.path.dirname(os.path.realpath(__file__)),'../cache'))
 
 
 parser = argparse.ArgumentParser(description='BertQA-argparse')
