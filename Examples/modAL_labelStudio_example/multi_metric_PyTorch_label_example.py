@@ -1,10 +1,14 @@
+"""
+In this file the ModAL PyTorch deep learning workflow and labeling part is explained 
+through an example on the MNIST dataset and multiple dropout based query strategies.
+"""
 import sys
 import os
 import torch
 from torch import nn
 from skorch import NeuralNetClassifier
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../modAL'))
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../Annotation_Interface'))
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../modAL'))
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../Annotation_Interface'))
 
 from modAL.models import DeepActiveLearner, ActiveLearner
 from modAL.dropout import *
@@ -15,12 +19,10 @@ from torch.utils.data import DataLoader
 from torchvision.transforms import ToTensor
 from torchvision.datasets import MNIST
 
-import matplotlib.pyplot as plt
-
 from LabelingClass import LabelInstance
 from Labeling import getLabelList
 
-# build class for the skorch API
+# Standard Pytorch Model (Visit the PyTorch documentation for more details)
 class Torch_Model(nn.Module):
     def __init__(self,):
         super(Torch_Model, self).__init__()
@@ -47,9 +49,14 @@ class Torch_Model(nn.Module):
         return out
 
 torch_model = Torch_Model()
-
+"""
+You can acquire from the layer_list the dropout_layer_indexes, which can then be passed on 
+to the query strategies to decide which dropout layers should be active for the predictions. 
+When no dropout_layer_indexes are passed all dropout layers will be activated on default. 
+"""
 layer_list = list(torch_model.modules())
 
+# Use the NeuralNetClassifier from skorch to wrap the Pytorch model to the scikit-learn API
 device = "cuda" if torch.cuda.is_available() else "cpu"
 classifier = NeuralNetClassifier(Torch_Model,
                                  criterion=torch.nn.CrossEntropyLoss,# torch.nn.NLLLoss,
@@ -59,7 +66,7 @@ classifier = NeuralNetClassifier(Torch_Model,
                                  device=device,
                                  lr=0.001)
 
-
+# Load the Dataset
 mnist_data = MNIST('.', download=True, transform=ToTensor())
 dataloader = DataLoader(mnist_data, shuffle=True, batch_size=60000)
 X, y = next(iter(dataloader))
@@ -82,17 +89,16 @@ X_pool = np.delete(X_train, initial_idx, axis=0)[:5000]
 y_pool = np.delete(y_train, initial_idx, axis=0)[:5000]
 
 
-# initialize ActiveLearner
+# initialize ActiveLearner (Pass to him the skorch wrapped PyTorch model & the Query strategy)
 learner = DeepActiveLearner(
     estimator=classifier, 
     query_strategy=mc_dropout_multi,  
 )
 
 print("\nTeaching basic MNIST Model with Initial Data...")
-learner.teach(X_initial, y_initial) # not necessary anymore now
+learner.teach(X_initial, y_initial) # initial teaching if desired (not necessary)
 
-print("Score from sklearn: {}".format(learner.estimator.score(X_pool, y_pool)))
-#print("Model prediction: {}".format(learner.predict_proba(X_test)))
+print("Score from sklearn: {}".format(learner.score(X_pool, y_pool)))
 
 
 # the active learning loop
@@ -114,14 +120,11 @@ for idx in range(n_queries):
     data = X_pool[query_idx]
     imgList = []
 
-    #export MNIST images
-    for idx in range(0, data.shape[0]):
-        img = data[idx].reshape(28,28)
-        imgStr = imageDir+str(idx)+".png"
-        plt.imsave(imgStr, img, cmap='gray')
-        imgList.append(imgStr)
-
-
+    """
+        Query new data (Pass the pool and the number of desired new instances n_instances)
+        In the case of deep learning: 
+        --> check the documentation in dropout.py to see all available parameters
+    """
     _,_, metric_dict = learner.query(data, n_instances=100, num_cycles=5)
 
     labelStructure = getLabelList(contextAll=imgList, questionsAll= None, queryIdx=[query_idx, query_idx, query_idx, query_idx], 
@@ -145,5 +148,4 @@ for idx in range(n_queries):
     X_pool = np.delete(X_pool, query_idx, axis=0)
     y_pool = np.delete(y_pool, query_idx, axis=0)
     
-    print("Model score: {}".format(learner.estimator.score(X_test, y_test))) # give us the model performance 
-    #print("Model prediction: {}".format(learner.predict_proba(X_test)))
+    print("Model score: {}".format(learner.score(X_test, y_test))) # give us the model performance 

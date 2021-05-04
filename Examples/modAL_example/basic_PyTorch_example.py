@@ -109,9 +109,9 @@ y_teach = y_initial
 for idx in range(n_queries):
     print('Query no. %d' % (idx + 1))
     """
-    Query new data (Pass the pool and the number of desired new instances n_instances)
-    In the case of deep learning: 
-       --> check the documentation of mc_dropout_bald in dropout.py to see all available parameters
+        Query new data (Pass the pool and the number of desired new instances n_instances)
+        In the case of deep learning: 
+        --> check the documentation of mc_dropout_bald in dropout.py to see all available parameters
     """
     query_idx, query_instance, metric_values = learner.query(X_pool, n_instances=100, num_cycles=5)
     # Add queried instances
