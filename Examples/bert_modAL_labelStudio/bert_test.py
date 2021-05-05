@@ -246,7 +246,7 @@ for batch in data_iter:
     
 
     new_train_idxs = []
-    new_labels = torch.empty((len(oracle_responses), 2))
+    new_labels = torch.empty((len(oracle_responses), 2), dtype=torch.int64)
     for idx, response in enumerate(oracle_responses):
 
         #match oracle provided responses to batch data
@@ -255,8 +255,8 @@ for batch in data_iter:
 
         #collect new data labels which where answered by oracle
         #TODO: One would have to map label studio charSpans (textwise) to input token indices (token-wise) to  provide correct labels
-        #TODO: Currently just text indices are used which does not match token indices
-        new_labels[idx, :] = torch.from_numpy(np.array(response["charSpans"][0]))
+        #TODO: Currently just text indices are used which does not match token indices --> might lead to IndexError out of bound
+        new_labels[idx, :] = torch.from_numpy(np.array(response["charSpans"][0]).astype(int))
 
         print("Question: ", question[sample_idx])
         print("Oracle provided label:", response["charSpans"])
