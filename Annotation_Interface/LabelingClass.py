@@ -25,7 +25,7 @@ Then data can be labeled using the "label" function.
 Important: Do not forget to stop the server using the "stopServer" method or the corresponding button on the Label-Studio interface. 
 """ 
 class LabelInstance:
-  def __init__(self, port, dataPoints, statisticLabels, helpTexts):
+  def __init__(self, port, dataPoints, statisticLabels, helpTexts, configType="qa"):
     """
     Creates the config file and starts the Label-Studio server.
     
@@ -34,13 +34,21 @@ class LabelInstance:
     :param statisticLabels: This is important for naming the statistics charts. A list must be provided for each diagram. The first value represents the diagram title and the second represents the title of the y-axis.
                             This list must be transferred as a string e.g. '[["Metric_1", "Value"], ["Accuracy", "Value"]]'  
     :param helpTexts: With the specification, help texts for metrics can be provided. It is specified as a dictionary, which takes the title of the respective metric (must be consistent with the metric name when labeling) with its associated help text as a value. 
-                      This dictionary must also be passed as a string e.g. '{"metric_1": "info 1", "metric_2": "info 2"}' 
+                      This dictionary must also be passed as a string e.g. '{"metric_1": "info 1", "metric_2": "info 2"}'
+    :param configType: Which config shall be loaded. Possible types are:
+                        "qa": Question Answering config
+                        "img": Image class labeling config 
     """
     
     self.port = port
     self.dataPoints=dataPoints
     
-    config = self.getConfigImageNumber()
+    if configType=="qa":
+        config = self.getConfigQuestionAnswering()
+    elif configType=="img":
+        config = self.getConfigImageNumber()
+    else:
+        raise ValueError("Specified config type is not valid")
     
     # create a new config file
     configdata = ET.tostring(config, encoding="unicode")
