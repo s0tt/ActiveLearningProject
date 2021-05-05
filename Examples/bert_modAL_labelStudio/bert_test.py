@@ -174,7 +174,7 @@ class BertQA(torch.nn.Module):
         return logits
 
 
-# Wrap pytorch class --> to give it an scikit-learn interface! 
+##### Initialize modAL DeepActiveLearner with Skorch classifier, loss, query strategy ####
 classifier = NeuralNetClassifier(BertQA,
                         criterion=torch.nn.CrossEntropyLoss,
                         optimizer=AdamW,
@@ -184,7 +184,7 @@ classifier = NeuralNetClassifier(BertQA,
                         max_epochs=1)
 
 
-# initialize ActiveLearner
+##### Initialize modAL DeepActiveLearner with Skorch classifier, loss, query strategy ####
 learner = DeepActiveLearner(
     estimator=classifier, 
     criterion=torch.nn.NLLLoss,
@@ -212,6 +212,8 @@ labelSystem = LabelInstance(80, {'text': 'Text', 'question': 'Text'},
 data_loader = get_dataloader()
 data_iter = iter(data_loader) # create iterator so that the same can be used in all function calls (also working with zip)
 
+
+##### Start the active learning cycle loop ####
 for batch in data_iter:
 
     inputs = batch['input']
@@ -249,16 +251,19 @@ for batch in data_iter:
 
         #match oracle provided responses to batch data
         sample_idx = question.index(response["data"]["question"])
-
-        
         new_train_idxs.append(int(sample_idx))
+
+        #collect new data labels which where answered by oracle
+        #TODO: One would have to map label studio charSpans (textwise) to input token indices (token-wise) to  provide correct labels
+        #TODO: Currently just text indices are used which does not match token indices
         new_labels[idx, :] = torch.from_numpy(np.array(response["charSpans"][0]))
+
         print("Question: ", question[sample_idx])
         print("Oracle provided label:", response["charSpans"])
 
     #assemble new train set from user labeled data
     train_at_idx = {'inputs' : inputs[new_train_idxs], 'segments': segments[new_train_idxs], 'masks': masks[new_train_idxs]}
 
-    #train the model further with newly acuired data labels
-    learner.teach(X=train_at_idx, y=label_queryIdx[:]["charSpans"], warm_start=True)
+    #train the model further with newly acquired data labels
+    learner.teach(X=train_at_idx, y=new_labels, warm_start=True)
 
