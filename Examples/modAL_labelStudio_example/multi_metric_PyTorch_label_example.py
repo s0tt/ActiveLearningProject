@@ -22,6 +22,8 @@ from torchvision.datasets import MNIST
 from LabelingClass import LabelInstance
 from Labeling import getLabelList
 
+import matplotlib.pyplot as plt
+
 # Standard Pytorch Model (Visit the PyTorch documentation for more details)
 class Torch_Model(nn.Module):
     def __init__(self,):
@@ -108,7 +110,14 @@ X_teach = X_initial
 y_teach = y_initial
 
 # get label studio instance
-labelSystem = LabelInstance(8080, {'image':'Image'})
+labelSystem = LabelInstance(80, {'image':'Image'},
+                    '[["accuracy", "percent"]]',
+                    '{"bald": "Divergence facotor represents uncertainty. Lower is better.", "mean stddev": "Mean standard deviation between sample runs. Lower is better","max entropy": "Maximum entropy between sample runs. Lower is better","max variation": "Maximium variation between sample runs. Lower is better"}',
+                    configType="img"
+                    )
+
+
+#imageDir = os.path.join(os.getcwd(),"mnistImg", "")
 imageDir = os.getcwd() + "/mnistImg/"
 if not os.path.exists(imageDir):
     os.mkdir(imageDir)
@@ -119,6 +128,13 @@ for idx in range(n_queries):
     query_idx = np.arange(n_poolSamples)
     data = X_pool[query_idx]
     imgList = []
+
+    #export MNIST images
+    for idx in range(0, data.shape[0]):
+        img = data[idx].reshape(28,28)
+        imgStr = imageDir+str(idx)+".png"
+        plt.imsave(imgStr, img, cmap='gray')
+        imgList.append(imgStr)
 
     """
         Query new data (Pass the pool and the number of desired new instances n_instances)
@@ -134,8 +150,9 @@ for idx in range(n_queries):
     #inputList = ["C:/Bilder/test.jpg", "C:/Bilder/test2.jpg", "C:/Bilder/test3.jpg"]
     #image = [[inputList[0], {"metric_1":14, "metric_2":1.2}],[inputList[1],{"metric_1":23, "metric_2":2.3}],[inputList[2], {"metric_1":8, "metric_2":7}]]
 
-    print(labelSystem.label(labelStructure))
-    #labelSystem.stopServer()
+    score = learner.score(X_pool, y_pool)
+
+    print(labelSystem.label(labelStructure, [score*100]))
 
     # Add queried instances
     X_teach  = torch.cat((X_teach, X_pool[query_idx]))
