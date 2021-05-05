@@ -47,6 +47,8 @@ class LabelInstance:
         config = self.getConfigQuestionAnswering()
     elif configType=="img":
         config = self.getConfigImageNumber()
+    elif configType=="category":
+        config = self.getConfigChoices()
     else:
         raise ValueError("Specified config type is not valid")
     
