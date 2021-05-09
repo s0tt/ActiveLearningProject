@@ -38,6 +38,7 @@ class LabelInstance:
     :param configType: Which config shall be loaded. Possible types are:
                         "qa": Question Answering config
                         "img": Image class labeling config 
+                        "category": Categorical data labeling config
     """
     
     self.port = port
