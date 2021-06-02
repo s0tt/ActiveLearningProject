@@ -1,0 +1,198 @@
+{
+    "1": {
+        "time": "05-10-2021_22:54:54",
+        "mean_bald": "-7.211498485817675e-10",
+        "accuracy": "0.7882296040648069",
+        "0": {
+            "data": {
+                "bald": "8.440111e-10",
+                "max entropy": "5.035954e-05",
+                "max variation": "0.9999758",
+                "mean stddev": "5.4311895e-11",
+                "new": false,
+                "question": "What did Jehovah's Witnesses persistent legal challenges result in, in the United States?",
+                "text": "In the United States, their persistent legal challenges prompted a series of state and federal court rulings that reinforced judicial protections for civil liberties. Among the rights strengthened by Witness court victories in the United States are the protection of religious conduct from federal and state interference, the right to abstain from patriotic rituals and military service, the right of patients to refuse medical treatment, and the right to engage in public discourse. Similar cases in their favor have been heard in Canada."
+            },
+            "charSpans": [
+                [
+                    249,
+                    482
+                ]
+            ],
+            "texts": [
+                "the protection of religious conduct from federal and state interference, the right to abstain from patriotic rituals and military service, the right of patients to refuse medical treatment, and the right to engage in public discourse."
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-1.1059456e-09",
+                "max entropy": "6.3782354e-05",
+                "max variation": "0.9999042",
+                "mean stddev": "5.324716e-10",
+                "new": false,
+                "question": "What gender has a higher enrollment?",
+                "text": "Education is compulsory from the age of 7 to 13. The enrollment of boys is higher than that of girls. In 1998, the gross primary enrollment rate was 53.5%, with higher enrollment ratio for males (67.7%) compared to females (40%)."
+            },
+            "charSpans": [
+                [
+                    49,
+                    80
+                ]
+            ],
+            "texts": [
+                "The enrollment of boys is higher"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "1.2223609e-09",
+                "max entropy": "7.782467e-05",
+                "max variation": "0.99996674",
+                "mean stddev": "1.5737407e-10",
+                "new": false,
+                "question": "What US state prohibits the death penalty in its constitution?",
+                "text": "Puerto Rico's constitution expressly forbids capital punishment, stating \"The death penalty shall not exist\", setting it apart from all U.S. states and territories other than Michigan, which also has a constitutional prohibition (eleven other states and the District of Columbia have abolished capital punishment through statutory law). However, capital punishment is still applicable to offenses committed in Puerto Rico, if they fall under the jurisdiction of the federal government, though federal death penalty prosecutions there have generated significant controversy."
+            },
+            "charSpans": [
+                [
+                    175,
+                    227
+                ]
+            ],
+            "texts": [
+                "Michigan, which also has a constitutional prohibition"
+            ]
+        }
+    },
+    "startClickTime": "05-10-2021_22:52:14",
+    "2": {
+        "time": "05-10-2021_22:57:02",
+        "mean_bald": "-6.487482870604354e-10",
+        "accuracy": "0.7778438224771904",
+        "0": {
+            "data": {
+                "bald": "3.259629e-09",
+                "max entropy": "0.000117034404",
+                "max variation": "0.9999243",
+                "mean stddev": "1.2769484e-10",
+                "new": false,
+                "question": "What is the largest body of Lutheran churches?",
+                "text": "Today, Lutheranism is one of the largest branches of Protestantism. With approximately 80 million adherents, it constitutes the third most common Protestant confession after historically Pentecostal denominations and Anglicanism. The Lutheran World Federation, the largest global communion of Lutheran churches represents over 72 million people. Additionally, there are also many smaller bodies such as the International Lutheran Council and the Confessional Evangelical Lutheran Conference, as well as independent churches."
+            },
+            "charSpans": [
+                [
+                    230,
+                    309
+                ]
+            ],
+            "texts": [
+                "The Lutheran World Federation, the largest global communion of Lutheran churches"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "1.6880222e-09",
+                "max entropy": "0.0001164925",
+                "max variation": "0.9999442",
+                "mean stddev": "1.06635575e-10",
+                "new": false,
+                "question": "How many models did Australia propose to Norfolk Island's legislative assembly?",
+                "text": "Disagreements over the island's relationship with Australia were put in sharper relief by a 2006 review undertaken by the Australian government. Under the more radical of two models proposed in the review, the island's legislative assembly would have been reduced to the status of a local council. However, in December 2006, citing the \"significant disruption\" that changes to the governance would impose on the island's economy, the Australian government ended the review leaving the existing governance arrangements unaltered."
+            },
+            "charSpans": [
+                [
+                    171,
+                    204
+                ]
+            ],
+            "texts": [
+                "two models proposed in the review,"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-5.529728e-10",
+                "max entropy": "0.00010275006",
+                "max variation": "0.99997103",
+                "mean stddev": "4.4235733e-11",
+                "new": false,
+                "question": "In what year was Plymouth's Catholic cathedral built?",
+                "text": "Plymouth has about 150 churches and its Roman Catholic cathedral (1858) is in Stonehouse. The city's oldest church is St Andrew's (Anglican) located at the top of Royal Parade\u2014it is the largest parish church in Devon and has been a site of gathering since AD 800. The city also includes five Baptist churches, over twenty Methodist chapels, and thirteen Roman Catholic churches. In 1831 the first Brethren assembly in England, a movement of conservative non-denominational Evangelical Christians, was established in the city, so that Brethren are often called Plymouth Brethren, although the movement did not begin locally."
+            },
+            "charSpans": [
+                [
+                    40,
+                    70
+                ]
+            ],
+            "texts": [
+                "Roman Catholic cathedral (1858)"
+            ]
+        }
+    },
+    "3": {
+        "time": "05-10-2021_22:58:45",
+        "mean_bald": "-5.877650903071073e-10",
+        "accuracy": "0.7681403618059441",
+        "0": {
+            "data": {
+                "bald": "-6.4028427e-10",
+                "max entropy": "0.000117983356",
+                "max variation": "0.99996144",
+                "mean stddev": "6.940159e-11",
+                "new": false,
+                "question": "What is the acctepted era of post-punk?",
+                "text": "Generally, post-punk music is defined as music that emerged from the cultural milieu of punk rock in the late 1970s, although many groups now categorized as post-punk were initially subsumed under the broad umbrella of punk or new wave music, only becoming differentiated as the terms came to signify more narrow styles. Additionally, the accuracy of the term's chronological prefix \"post\" has been disputed, as various groups commonly labeled post-punk in fact predate the punk rock movement. Reynolds defined the post-punk era as occurring loosely between 1978 and 1984."
+            },
+            "charSpans": [
+                [
+                    514,
+                    571
+                ]
+            ],
+            "texts": [
+                " post-punk era as occurring loosely between 1978 and 1984."
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-1.891749e-09",
+                "max entropy": "0.00012316754",
+                "max variation": "0.9999693",
+                "mean stddev": "1.2926393e-10",
+                "new": false,
+                "question": "In which city did Obregon sign a number of treaties?",
+                "text": "The uneasy alliance of Carranza, Obreg\u00f3n, Villa, and Zapata eventually led the rebels to victory. The fight against Huerta formally ended on August 15, 1914, when \u00c1lvaro Obreg\u00f3n signed a number of treaties in Teoloyucan in which the last of Huerta's forces surrendered to him and recognized the constitutional government. On August 20, 1914, Carranza made a triumphal entry into Mexico City. Carranza (supported by Obreg\u00f3n) was now the strongest candidate to fill the power vacuum and set himself up as head of the new government. This government successfully printed money, passed laws, etc."
+            },
+            "charSpans": [
+                [
+                    170,
+                    218
+                ]
+            ],
+            "texts": [
+                "Obreg\u00f3n signed a number of treaties in Teoloyucan"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "2.910383e-09",
+                "max entropy": "0.0001328849",
+                "max variation": "0.99987245",
+                "mean stddev": "2.9826816e-10",
+                "new": false,
+                "question": "Modern day instrument may be classified as brass, string, woodwind and what other classification?",
+                "text": "Many instruments originated during the Renaissance; others were variations of, or improvements upon, instruments that had existed previously. Some have survived to the present day; others have disappeared, only to be recreated in order to perform music of the period on authentic instruments. As in the modern day, instruments may be classified as brass, strings, percussion, and woodwind."
+            },
+            "charSpans": [
+                [
+                    293,
+                    388
+                ]
+            ],
+            "texts": [
+                "As in the modern day, instruments may be classified as brass, strings, percussion, and woodwind."
+            ]
+        }
+    }
+}

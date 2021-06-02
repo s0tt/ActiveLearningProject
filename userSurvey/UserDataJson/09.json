@@ -1,0 +1,138 @@
+{
+    "1": {
+        "time": "04-29-2021_13:34:12",
+        "mean_bald": "-8.622317197028243e-10",
+        "accuracy": "0.8061764705882354",
+        "0": {
+            "data": {
+                "bald": "-5.820766e-10",
+                "max entropy": "0.00026267985",
+                "max variation": "0.99995065",
+                "mean stddev": "6.5218025e-11",
+                "new": false,
+                "question": "What is another name for Universal Studios Inc.?",
+                "text": "Universal Studios Inc. (also known as Universal Pictures) is an American film studio, owned by Comcast through its wholly owned subsidiary NBCUniversal, and is one of Hollywood's \"Big Six\" film studios. Its production studios are at 100 Universal City Plaza Drive in Universal City, California. Distribution and other corporate offices are in New York City. Universal Studios is a member of the Motion Picture Association of America (MPAA). Universal was founded in 1912 by the German Carl Laemmle (pronounced \"LEM-lee\"), Mark Dintenfass, Charles O. Baumann, Adam Kessel, Pat Powers, William Swanson, David Horsley, Robert H. Cochrane, and Jules Brulatour."
+            },
+            "charSpans": [
+                [
+                    38,
+                    55
+                ]
+            ],
+            "texts": [
+                "Universal Pictures"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-1.5133992e-09",
+                "max entropy": "0.00020092884",
+                "max variation": "0.99995065",
+                "mean stddev": "5.8120925e-11",
+                "new": false,
+                "question": "What is the name of the island Napoleon was exiled to?",
+                "text": "In the Treaty of Fontainebleau, the Allies exiled him to Elba, an island of 12,000 inhabitants in the Mediterranean, 20 km (12 mi) off the Tuscan coast. They gave him sovereignty over the island and allowed him to retain the title of Emperor. Napoleon attempted suicide with a pill he had carried after nearly being captured by the Russians during the retreat from Moscow. Its potency had weakened with age, however, and he survived to be exiled while his wife and son took refuge in Austria. In the first few months on Elba he created a small navy and army, developed the iron mines, and issued decrees on modern agricultural methods."
+            },
+            "charSpans": [
+                [
+                    57,
+                    60
+                ]
+            ],
+            "texts": [
+                "Elba"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-3.8417056e-09",
+                "max entropy": "0.00038578693",
+                "max variation": "0.99997103",
+                "mean stddev": "3.7981795e-11",
+                "new": false,
+                "question": "What is the current height limitation in Paris in central areas?",
+                "text": "Paris' urbanism laws have been under strict control since the early 17th century, particularly where street-front alignment, building height and building distribution is concerned. In recent developments, a 1974-2010 building height limitation of 37 metres (121 ft) was raised to 50 m (160 ft) in central areas and 180 metres (590 ft) in some of Paris' peripheral quarters, yet for some of the city's more central quarters, even older building-height laws still remain in effect. The 210 metres (690 ft) Montparnasse tower was both Paris and France's tallest building until 1973, but this record has been held by the La D\u00e9fense quarter Tour First tower in Courbevoie since its 2011 construction. A new project for La Defense, called Hermitage Plaza, launched in 2009, proposes to build two towers, 85 and 86 stories or 320 metres high, which would be the tallest buildings in the European Union, just slightly shorter than the Eiffel Tower. They were scheduled for completion in 2019 or 2020, but as of January 2015 construction had not yet begun, and there were questions in the press about the future of the project."
+            },
+            "charSpans": [
+                [
+                    280,
+                    309
+                ]
+            ],
+            "texts": [
+                "50 m (160 ft) in central areas"
+            ]
+        }
+    },
+    "startClickTime": "04-29-2021_13:16:15",
+    "2": {
+        "time": "04-29-2021_13:34:37",
+        "mean_bald": "-8.622317197028243e-10",
+        "accuracy": "0.8061764705882354"
+    },
+    "3": {
+        "time": "04-29-2021_13:41:19",
+        "mean_bald": "-9.250171121384925e-10",
+        "accuracy": "0.8134841628959277",
+        "0": {
+            "data": {
+                "bald": "-5.529728e-10",
+                "max entropy": "0.00010275006",
+                "max variation": "0.99997103",
+                "mean stddev": "4.4235733e-11",
+                "new": false,
+                "question": "In what year was Plymouth's Catholic cathedral built?",
+                "text": "Plymouth has about 150 churches and its Roman Catholic cathedral (1858) is in Stonehouse. The city's oldest church is St Andrew's (Anglican) located at the top of Royal Parade\u2014it is the largest parish church in Devon and has been a site of gathering since AD 800. The city also includes five Baptist churches, over twenty Methodist chapels, and thirteen Roman Catholic churches. In 1831 the first Brethren assembly in England, a movement of conservative non-denominational Evangelical Christians, was established in the city, so that Brethren are often called Plymouth Brethren, although the movement did not begin locally."
+            },
+            "charSpans": [
+                [
+                    66,
+                    69
+                ]
+            ],
+            "texts": [
+                "1858"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "1.6880222e-09",
+                "max entropy": "0.0001164925",
+                "max variation": "0.9999442",
+                "mean stddev": "1.06635575e-10",
+                "new": false,
+                "question": "How many models did Australia propose to Norfolk Island's legislative assembly?",
+                "text": "Disagreements over the island's relationship with Australia were put in sharper relief by a 2006 review undertaken by the Australian government. Under the more radical of two models proposed in the review, the island's legislative assembly would have been reduced to the status of a local council. However, in December 2006, citing the \"significant disruption\" that changes to the governance would impose on the island's economy, the Australian government ended the review leaving the existing governance arrangements unaltered."
+            },
+            "charSpans": [
+                [
+                    171,
+                    180
+                ]
+            ],
+            "texts": [
+                "two models"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-1.891749e-09",
+                "max entropy": "0.00012316754",
+                "max variation": "0.9999693",
+                "mean stddev": "1.2926393e-10",
+                "new": false,
+                "question": "In which city did Obregon sign a number of treaties?",
+                "text": "The uneasy alliance of Carranza, Obreg\u00f3n, Villa, and Zapata eventually led the rebels to victory. The fight against Huerta formally ended on August 15, 1914, when \u00c1lvaro Obreg\u00f3n signed a number of treaties in Teoloyucan in which the last of Huerta's forces surrendered to him and recognized the constitutional government. On August 20, 1914, Carranza made a triumphal entry into Mexico City. Carranza (supported by Obreg\u00f3n) was now the strongest candidate to fill the power vacuum and set himself up as head of the new government. This government successfully printed money, passed laws, etc."
+            },
+            "charSpans": [
+                [
+                    209,
+                    218
+                ]
+            ],
+            "texts": [
+                "Teoloyucan"
+            ]
+        }
+    }
+}

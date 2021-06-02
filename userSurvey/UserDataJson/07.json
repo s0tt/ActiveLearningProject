@@ -1,0 +1,218 @@
+{
+    "1": {
+        "time": "04-28-2021_21:46:50",
+        "mean_bald": "-9.413355471984962e-10",
+        "accuracy": "0.8150000000000001",
+        "0": {
+            "data": {
+                "bald": "-2.8085196e-08",
+                "max entropy": "0.0004465815",
+                "max variation": "0.9999758",
+                "mean stddev": "4.6343294e-11",
+                "new": false,
+                "question": "In what year was a group of independent schools found guilty of price-sharing?",
+                "text": "In 2005, the Office of Fair Trading found fifty independent schools, including Eton, to have breached the Competition Act by \"regularly and systematically\" exchanging information about planned increases in school fees, which was collated and distributed among the schools by the bursar at Sevenoaks School. Following the investigation by the OFT, each school was required to pay around \u00a370,000, totalling around \u00a33.5 million, significantly less than the maximum possible fine. In addition, the schools together agreed to contribute another \u00a33m to a new charitable educational fund. The incident raised concerns over whether the charitable status of independent schools such as Eton should be reconsidered, and perhaps revoked. However, Jean Scott, the head of the Independent Schools Council, said that independent schools had always been exempt from anti-cartel rules applied to business, were following a long-established procedure in sharing the information with each other, and that they were unaware of the change to the law (on which they had not been consulted). She wrote to John Vickers, the OFT director-general, saying, \"They are not a group of businessmen meeting behind closed doors to fix the price of their products to the disadvantage of the consumer. They are schools that have quite openly continued to follow a long-established practice because they were unaware that the law had changed.\""
+            },
+            "charSpans": [
+                [
+                    3,
+                    6
+                ]
+            ],
+            "texts": [
+                "2005"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-3.8417056e-09",
+                "max entropy": "0.00038578693",
+                "max variation": "0.99997103",
+                "mean stddev": "3.7981795e-11",
+                "new": false,
+                "question": "What is the current height limitation in Paris in central areas?",
+                "text": "Paris' urbanism laws have been under strict control since the early 17th century, particularly where street-front alignment, building height and building distribution is concerned. In recent developments, a 1974-2010 building height limitation of 37 metres (121 ft) was raised to 50 m (160 ft) in central areas and 180 metres (590 ft) in some of Paris' peripheral quarters, yet for some of the city's more central quarters, even older building-height laws still remain in effect. The 210 metres (690 ft) Montparnasse tower was both Paris and France's tallest building until 1973, but this record has been held by the La D\u00e9fense quarter Tour First tower in Courbevoie since its 2011 construction. A new project for La Defense, called Hermitage Plaza, launched in 2009, proposes to build two towers, 85 and 86 stories or 320 metres high, which would be the tallest buildings in the European Union, just slightly shorter than the Eiffel Tower. They were scheduled for completion in 2019 or 2020, but as of January 2015 construction had not yet begun, and there were questions in the press about the future of the project."
+            },
+            "charSpans": [
+                [
+                    280,
+                    283
+                ]
+            ],
+            "texts": [
+                "50 m"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-5.355105e-09",
+                "max entropy": "0.00040422316",
+                "max variation": "0.99996674",
+                "mean stddev": "1.5492847e-10",
+                "new": false,
+                "question": "Who did Christoph Waltz portray in Spectre?",
+                "text": "Christoph Waltz was cast in the role of Franz Oberhauser, though he refused to comment on the nature of the part. It was later revealed with the film's release that he is Ernst Stavro Blofeld. Dave Bautista was cast as Mr. Hinx after producers sought an actor with a background in contact sports. After casting B\u00e9r\u00e9nice Lim Marlohe, a relative newcomer, as S\u00e9v\u00e9rine in Skyfall, Mendes consciously sought out a more experienced actor for the role of Madeleine Swann, ultimately casting L\u00e9a Seydoux in the role. Monica Bellucci joined the cast as Lucia Sciarra, becoming, at the age of fifty, the oldest actress to be cast as a Bond girl. In a separate interview with Danish website Euroman, Jesper Christensen revealed he would be reprising his role as Mr. White from Casino Royale and Quantum of Solace. Christensen's character was reportedly killed off in a scene intended to be used as an epilogue to Quantum of Solace, before it was removed from the final cut of the film, enabling his return in Spectre."
+            },
+            "charSpans": [
+                [
+                    40,
+                    55
+                ]
+            ],
+            "texts": [
+                "Franz Oberhauser"
+            ]
+        }
+    },
+    "startClickTime": "04-28-2021_21:44:56",
+    "2": {
+        "time": "04-28-2021_21:48:56",
+        "mean_bald": "-1.0679192915691462e-09",
+        "accuracy": "0.8280000000000001",
+        "0": {
+            "data": {
+                "bald": "-1.344597e-08",
+                "max entropy": "0.00035721375",
+                "max variation": "0.99996144",
+                "mean stddev": "5.946273e-11",
+                "new": false,
+                "question": "Multiple president have studied at this popular college, you can guess the name of the university?",
+                "text": "New Haven is the birthplace of former president George W. Bush, who was born when his father, former president George H. W. Bush, was living in New Haven while a student at Yale. In addition to being the site of the college educations of both Presidents Bush, as Yale students, New Haven was also the temporary home of former presidents William Howard Taft, Gerald Ford, and Bill Clinton, as well as Secretary of State John Kerry. President Clinton met his wife, former U.S. Secretary of State Hillary Rodham Clinton, while the two were students at Yale Law School. Former vice presidents John C. Calhoun and Dick Cheney also studied in New Haven (although the latter did not graduate from Yale). Before the 2008 election, the last time there was not a person with ties to New Haven and Yale on either major party's ticket was 1968. James Hillhouse, a New Haven native, served as President pro tempore of the United States Senate in 1801."
+            },
+            "charSpans": [
+                [
+                    173,
+                    176
+                ]
+            ],
+            "texts": [
+                "Yale"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-6.2282197e-09",
+                "max entropy": "0.0003414115",
+                "max variation": "0.9999442",
+                "mean stddev": "9.6899676e-11",
+                "new": false,
+                "question": "Who purchased a plot of land in the name of the English residents?",
+                "text": "The other large cemeteries are the Cementerio del Buceo, Cementerio del Cerro, and Cementerio Paso Molino. The British Cemetery Montevideo (Cementerio Brit\u00e1nico) is another of the oldest cemeteries in Uruguay, located in the Buceo neighborhood. Many noblemen and eminent persons are buried there. The cemetery originated when the Englishman Mr. Thomas Samuel Hood purchased a plot of land in the name of the English residents in 1828. However, in 1884 the government compensated the British by moving the cemetery to Buceo to accommodate city growth. A section of the cemetery, known as British Cemetery Montevideo Soldiers and Sailors, contains the graves of quite a number of sailors of different nationalities, although the majority are of British descent. One United States Marine, Henry de Costa, is buried here."
+            },
+            "charSpans": [
+                [
+                    341,
+                    362
+                ]
+            ],
+            "texts": [
+                "Mr. Thomas Samuel Hood"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "7.858034e-09",
+                "max entropy": "0.00036264374",
+                "max variation": "0.9999693",
+                "mean stddev": "1.289202e-10",
+                "new": false,
+                "question": "In 2003 what well known U.S. Secretary of State declared the situation in Darfur as an act of genocide?",
+                "text": "There has been much debate over categorizing the situation in Darfur as genocide. The ongoing conflict in Darfur, Sudan, which started in 2003, was declared a \"genocide\" by United States Secretary of State Colin Powell on 9 September 2004 in testimony before the Senate Foreign Relations Committee. Since that time however, no other permanent member of the UN Security Council followed suit. In fact, in January 2005, an International Commission of Inquiry on Darfur, authorized by UN Security Council Resolution 1564 of 2004, issued a report to the Secretary-General stating that \"the Government of the Sudan has not pursued a policy of genocide.\" Nevertheless, the Commission cautioned that \"The conclusion that no genocidal policy has been pursued and implemented in Darfur by the Government authorities, directly or through the militias under their control, should not be taken in any way as detracting from the gravity of the crimes perpetrated in that region. International offences such as the crimes against humanity and war crimes that have been committed in Darfur may be no less serious and heinous than genocide.\""
+            },
+            "charSpans": [
+                [
+                    206,
+                    217
+                ]
+            ],
+            "texts": [
+                "Colin Powell"
+            ]
+        },
+        "3": {
+            "data": {
+                "bald": "-1.542503e-08",
+                "max entropy": "0.00036889114",
+                "max variation": "0.99990433",
+                "mean stddev": "3.9580997e-10",
+                "new": false,
+                "question": "How is toxicity sometimes visibly displayed by insects as a warning?",
+                "text": "Insects were among the earliest terrestrial herbivores and acted as major selection agents on plants. Plants evolved chemical defenses against this herbivory and the insects, in turn, evolved mechanisms to deal with plant toxins. Many insects make use of these toxins to protect themselves from their predators. Such insects often advertise their toxicity using warning colors. This successful evolutionary pattern has also been used by mimics. Over time, this has led to complex groups of coevolved species. Conversely, some interactions between plants and insects, like pollination, are beneficial to both organisms. Coevolution has led to the development of very specific mutualisms in such systems."
+            },
+            "charSpans": [
+                [
+                    362,
+                    375
+                ]
+            ],
+            "texts": [
+                "warning colors"
+            ]
+        }
+    },
+    "3": {
+        "time": "04-28-2021_21:50:22",
+        "mean_bald": "-1.1437415612705558e-09",
+        "accuracy": "0.8351428571428572",
+        "0": {
+            "data": {
+                "bald": "1.3795216e-08",
+                "max entropy": "0.00031270218",
+                "max variation": "0.99994576",
+                "mean stddev": "5.840586e-11",
+                "new": false,
+                "question": "For what purpose did American Indians use asphalt? ",
+                "text": "The first use of asphalt/bitumen in the New World was by indigenous peoples. On the west coast, as early as the 13th century, the Tongva, Luise\u00f1o and Chumash peoples collected the naturally occurring asphalt/bitumen that seeped to the surface above underlying petroleum deposits. All three used the substance as an adhesive. It is found on many different artifacts of tools and ceremonial items. For example, it was used on rattles to adhere gourds or turtle shells to rattle handles. It was also used in decorations. Small round shell beads were often set in asphaltum to provide decorations. It was used as a sealant on baskets to make them watertight for carrying water. Asphaltum was used also to seal the planks on ocean-going canoes."
+            },
+            "charSpans": [
+                [
+                    315,
+                    322
+                ]
+            ],
+            "texts": [
+                "adhesive"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "1.0768417e-08",
+                "max entropy": "0.00032660848",
+                "max variation": "0.99992436",
+                "mean stddev": "7.7178895e-11",
+                "new": false,
+                "question": "How many divisions did the Premier League start out with at this time?",
+                "text": "In 1992, the First Division clubs resigned from the Football League en masse and on 27 May 1992 the FA Premier League was formed as a limited company working out of an office at the Football Association's then headquarters in Lancaster Gate. This meant a break-up of the 104-year-old Football League that had operated until then with four divisions; the Premier League would operate with a single division and the Football League with three. There was no change in competition format; the same number of teams competed in the top flight, and promotion and relegation between the Premier League and the new First Division remained the same as the old First and Second Divisions with three teams relegated from the league and three promoted."
+            },
+            "charSpans": [
+                [
+                    390,
+                    404
+                ]
+            ],
+            "texts": [
+                "single division"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-2.3283064e-10",
+                "max entropy": "0.00033976763",
+                "max variation": "0.9999614",
+                "mean stddev": "1.7720607e-10",
+                "new": false,
+                "question": "USAF Officers can be commissioned after graduation from what school? ",
+                "text": "Officers may be commissioned upon graduation from the United States Air Force Academy, upon graduation from another college or university through the Air Force Reserve Officer Training Corps (AFROTC) program, or through the Air Force Officer Training School (OTS). OTS, previously located at Lackland AFB, Texas until 1993 and located at Maxwell Air Force Base in Montgomery, Alabama since 1993, in turn encompasses two separate commissioning programs: Basic Officer Training (BOT), which is for line-officer candidates of the active-duty Air Force and the U.S. Air Force Reserve; and the Academy of Military Science (AMS), which is for line-officer candidates of the Air National Guard. (The term \"line officer\" derives from the concept of the line of battle and refers to an officer whose role falls somewhere within the \"Line of the Air\", meaning combat or combat-support operations within the scope of legitimate combatants as defined by the Geneva Conventions.)"
+            },
+            "charSpans": [
+                [
+                    54,
+                    84
+                ]
+            ],
+            "texts": [
+                "United States Air Force Academy"
+            ]
+        }
+    }
+}

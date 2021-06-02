@@ -1,0 +1,198 @@
+{
+    "1": {
+        "time": "05-04-2021_12:05:18",
+        "mean_bald": "-9.413355471984962e-10",
+        "accuracy": "0.8150000000000001",
+        "0": {
+            "data": {
+                "bald": "-1.5133992e-09",
+                "max entropy": "0.00020092884",
+                "max variation": "0.99995065",
+                "mean stddev": "5.8120925e-11",
+                "new": false,
+                "question": "What is the name of the island Napoleon was exiled to?",
+                "text": "In the Treaty of Fontainebleau, the Allies exiled him to Elba, an island of 12,000 inhabitants in the Mediterranean, 20 km (12 mi) off the Tuscan coast. They gave him sovereignty over the island and allowed him to retain the title of Emperor. Napoleon attempted suicide with a pill he had carried after nearly being captured by the Russians during the retreat from Moscow. Its potency had weakened with age, however, and he survived to be exiled while his wife and son took refuge in Austria. In the first few months on Elba he created a small navy and army, developed the iron mines, and issued decrees on modern agricultural methods."
+            },
+            "charSpans": [
+                [
+                    57,
+                    60
+                ]
+            ],
+            "texts": [
+                "Elba"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "7.625204e-09",
+                "max entropy": "0.00022790466",
+                "max variation": "0.999937",
+                "mean stddev": "2.9186684e-10",
+                "new": false,
+                "question": "Who wrote 'Ideals of the Samurai'?",
+                "text": "In his book \"Ideals of the Samurai\" translator William Scott Wilson states: \"The warriors in the Heike Monogatari served as models for the educated warriors of later generations, and the ideals depicted by them were not assumed to be beyond reach. Rather, these ideals were vigorously pursued in the upper echelons of warrior society and recommended as the proper form of the Japanese man of arms. With the Heike Monogatari, the image of the Japanese warrior in literature came to its full maturity.\" Wilson then translates the writings of several warriors who mention the Heike Monogatari as an example for their men to follow."
+            },
+            "charSpans": [
+                [
+                    47,
+                    66
+                ]
+            ],
+            "texts": [
+                "William Scott Wilson"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-6.4028427e-10",
+                "max entropy": "0.000117983356",
+                "max variation": "0.99996144",
+                "mean stddev": "6.940159e-11",
+                "new": false,
+                "question": "What is the acctepted era of post-punk?",
+                "text": "Generally, post-punk music is defined as music that emerged from the cultural milieu of punk rock in the late 1970s, although many groups now categorized as post-punk were initially subsumed under the broad umbrella of punk or new wave music, only becoming differentiated as the terms came to signify more narrow styles. Additionally, the accuracy of the term's chronological prefix \"post\" has been disputed, as various groups commonly labeled post-punk in fact predate the punk rock movement. Reynolds defined the post-punk era as occurring loosely between 1978 and 1984."
+            },
+            "charSpans": [
+                [
+                    550,
+                    570
+                ]
+            ],
+            "texts": [
+                "between 1978 and 1984"
+            ]
+        }
+    },
+    "startClickTime": "05-04-2021_11:59:02",
+    "2": {
+        "time": "05-04-2021_12:10:42",
+        "mean_bald": "-9.248183384181188e-10",
+        "accuracy": "0.8134640522875817",
+        "0": {
+            "data": {
+                "bald": "-2.8085196e-08",
+                "max entropy": "0.0004465815",
+                "max variation": "0.9999758",
+                "mean stddev": "4.6343294e-11",
+                "new": false,
+                "question": "In what year was a group of independent schools found guilty of price-sharing?",
+                "text": "In 2005, the Office of Fair Trading found fifty independent schools, including Eton, to have breached the Competition Act by \"regularly and systematically\" exchanging information about planned increases in school fees, which was collated and distributed among the schools by the bursar at Sevenoaks School. Following the investigation by the OFT, each school was required to pay around \u00a370,000, totalling around \u00a33.5 million, significantly less than the maximum possible fine. In addition, the schools together agreed to contribute another \u00a33m to a new charitable educational fund. The incident raised concerns over whether the charitable status of independent schools such as Eton should be reconsidered, and perhaps revoked. However, Jean Scott, the head of the Independent Schools Council, said that independent schools had always been exempt from anti-cartel rules applied to business, were following a long-established procedure in sharing the information with each other, and that they were unaware of the change to the law (on which they had not been consulted). She wrote to John Vickers, the OFT director-general, saying, \"They are not a group of businessmen meeting behind closed doors to fix the price of their products to the disadvantage of the consumer. They are schools that have quite openly continued to follow a long-established practice because they were unaware that the law had changed.\""
+            },
+            "charSpans": [
+                [
+                    3,
+                    6
+                ]
+            ],
+            "texts": [
+                "2005"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-3.8417056e-09",
+                "max entropy": "0.00038578693",
+                "max variation": "0.99997103",
+                "mean stddev": "3.7981795e-11",
+                "new": false,
+                "question": "What is the current height limitation in Paris in central areas?",
+                "text": "Paris' urbanism laws have been under strict control since the early 17th century, particularly where street-front alignment, building height and building distribution is concerned. In recent developments, a 1974-2010 building height limitation of 37 metres (121 ft) was raised to 50 m (160 ft) in central areas and 180 metres (590 ft) in some of Paris' peripheral quarters, yet for some of the city's more central quarters, even older building-height laws still remain in effect. The 210 metres (690 ft) Montparnasse tower was both Paris and France's tallest building until 1973, but this record has been held by the La D\u00e9fense quarter Tour First tower in Courbevoie since its 2011 construction. A new project for La Defense, called Hermitage Plaza, launched in 2009, proposes to build two towers, 85 and 86 stories or 320 metres high, which would be the tallest buildings in the European Union, just slightly shorter than the Eiffel Tower. They were scheduled for completion in 2019 or 2020, but as of January 2015 construction had not yet begun, and there were questions in the press about the future of the project."
+            },
+            "charSpans": [
+                [
+                    280,
+                    292
+                ]
+            ],
+            "texts": [
+                "50 m (160 ft)"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-5.355105e-09",
+                "max entropy": "0.00040422316",
+                "max variation": "0.99996674",
+                "mean stddev": "1.5492847e-10",
+                "new": false,
+                "question": "Who did Christoph Waltz portray in Spectre?",
+                "text": "Christoph Waltz was cast in the role of Franz Oberhauser, though he refused to comment on the nature of the part. It was later revealed with the film's release that he is Ernst Stavro Blofeld. Dave Bautista was cast as Mr. Hinx after producers sought an actor with a background in contact sports. After casting B\u00e9r\u00e9nice Lim Marlohe, a relative newcomer, as S\u00e9v\u00e9rine in Skyfall, Mendes consciously sought out a more experienced actor for the role of Madeleine Swann, ultimately casting L\u00e9a Seydoux in the role. Monica Bellucci joined the cast as Lucia Sciarra, becoming, at the age of fifty, the oldest actress to be cast as a Bond girl. In a separate interview with Danish website Euroman, Jesper Christensen revealed he would be reprising his role as Mr. White from Casino Royale and Quantum of Solace. Christensen's character was reportedly killed off in a scene intended to be used as an epilogue to Quantum of Solace, before it was removed from the final cut of the film, enabling his return in Spectre."
+            },
+            "charSpans": [
+                [
+                    171,
+                    190
+                ]
+            ],
+            "texts": [
+                "Ernst Stavro Blofeld"
+            ]
+        }
+    },
+    "3": {
+        "time": "05-04-2021_12:12:55",
+        "mean_bald": "-9.458353990722916e-10",
+        "accuracy": "0.8158542961900207",
+        "0": {
+            "data": {
+                "bald": "-6.2282197e-09",
+                "max entropy": "0.0003414115",
+                "max variation": "0.9999442",
+                "mean stddev": "9.6899676e-11",
+                "new": false,
+                "question": "Who purchased a plot of land in the name of the English residents?",
+                "text": "The other large cemeteries are the Cementerio del Buceo, Cementerio del Cerro, and Cementerio Paso Molino. The British Cemetery Montevideo (Cementerio Brit\u00e1nico) is another of the oldest cemeteries in Uruguay, located in the Buceo neighborhood. Many noblemen and eminent persons are buried there. The cemetery originated when the Englishman Mr. Thomas Samuel Hood purchased a plot of land in the name of the English residents in 1828. However, in 1884 the government compensated the British by moving the cemetery to Buceo to accommodate city growth. A section of the cemetery, known as British Cemetery Montevideo Soldiers and Sailors, contains the graves of quite a number of sailors of different nationalities, although the majority are of British descent. One United States Marine, Henry de Costa, is buried here."
+            },
+            "charSpans": [
+                [
+                    345,
+                    363
+                ]
+            ],
+            "texts": [
+                "Thomas Samuel Hood "
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-1.542503e-08",
+                "max entropy": "0.00036889114",
+                "max variation": "0.99990433",
+                "mean stddev": "3.9580997e-10",
+                "new": false,
+                "question": "How is toxicity sometimes visibly displayed by insects as a warning?",
+                "text": "Insects were among the earliest terrestrial herbivores and acted as major selection agents on plants. Plants evolved chemical defenses against this herbivory and the insects, in turn, evolved mechanisms to deal with plant toxins. Many insects make use of these toxins to protect themselves from their predators. Such insects often advertise their toxicity using warning colors. This successful evolutionary pattern has also been used by mimics. Over time, this has led to complex groups of coevolved species. Conversely, some interactions between plants and insects, like pollination, are beneficial to both organisms. Coevolution has led to the development of very specific mutualisms in such systems."
+            },
+            "charSpans": [
+                [
+                    362,
+                    375
+                ]
+            ],
+            "texts": [
+                "warning colors"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "7.858034e-09",
+                "max entropy": "0.00036264374",
+                "max variation": "0.9999693",
+                "mean stddev": "1.289202e-10",
+                "new": false,
+                "question": "In 2003 what well known U.S. Secretary of State declared the situation in Darfur as an act of genocide?",
+                "text": "There has been much debate over categorizing the situation in Darfur as genocide. The ongoing conflict in Darfur, Sudan, which started in 2003, was declared a \"genocide\" by United States Secretary of State Colin Powell on 9 September 2004 in testimony before the Senate Foreign Relations Committee. Since that time however, no other permanent member of the UN Security Council followed suit. In fact, in January 2005, an International Commission of Inquiry on Darfur, authorized by UN Security Council Resolution 1564 of 2004, issued a report to the Secretary-General stating that \"the Government of the Sudan has not pursued a policy of genocide.\" Nevertheless, the Commission cautioned that \"The conclusion that no genocidal policy has been pursued and implemented in Darfur by the Government authorities, directly or through the militias under their control, should not be taken in any way as detracting from the gravity of the crimes perpetrated in that region. International offences such as the crimes against humanity and war crimes that have been committed in Darfur may be no less serious and heinous than genocide.\""
+            },
+            "charSpans": [
+                [
+                    206,
+                    217
+                ]
+            ],
+            "texts": [
+                "Colin Powell"
+            ]
+        }
+    }
+}

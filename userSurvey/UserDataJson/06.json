@@ -1,0 +1,203 @@
+{
+    "1": {
+        "time": "04-28-2021_00:17:18",
+        "mean_bald": "-9.413355471984962e-10",
+        "accuracy": "0.8150000000000001",
+        "0": {
+            "data": {
+                "bald": "3.7252903e-09",
+                "max entropy": "0.00021671913",
+                "max variation": "0.99993604",
+                "mean stddev": "1.0672494e-10",
+                "new": false,
+                "question": "What is the process called of encoding at the source of the data before it's processed?",
+                "text": "In signal processing, data compression, source coding, or bit-rate reduction involves encoding information using fewer bits than the original representation. Compression can be either lossy or lossless. Lossless compression reduces bits by identifying and eliminating statistical redundancy. No information is lost in lossless compression. Lossy compression reduces bits by identifying unnecessary information and removing it. The process of reducing the size of a data file is referred to as data compression. In the context of data transmission, it is called source coding (encoding done at the source of the data before it is stored or transmitted) in opposition to channel coding."
+            },
+            "charSpans": [
+                [
+                    561,
+                    573
+                ]
+            ],
+            "texts": [
+                "source coding"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-3.8417056e-09",
+                "max entropy": "0.00038578693",
+                "max variation": "0.99997103",
+                "mean stddev": "3.7981795e-11",
+                "new": false,
+                "question": "What is the current height limitation in Paris in central areas?",
+                "text": "Paris' urbanism laws have been under strict control since the early 17th century, particularly where street-front alignment, building height and building distribution is concerned. In recent developments, a 1974-2010 building height limitation of 37 metres (121 ft) was raised to 50 m (160 ft) in central areas and 180 metres (590 ft) in some of Paris' peripheral quarters, yet for some of the city's more central quarters, even older building-height laws still remain in effect. The 210 metres (690 ft) Montparnasse tower was both Paris and France's tallest building until 1973, but this record has been held by the La D\u00e9fense quarter Tour First tower in Courbevoie since its 2011 construction. A new project for La Defense, called Hermitage Plaza, launched in 2009, proposes to build two towers, 85 and 86 stories or 320 metres high, which would be the tallest buildings in the European Union, just slightly shorter than the Eiffel Tower. They were scheduled for completion in 2019 or 2020, but as of January 2015 construction had not yet begun, and there were questions in the press about the future of the project."
+            },
+            "charSpans": [
+                [
+                    280,
+                    283
+                ]
+            ],
+            "texts": [
+                "50 m"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "1.2805685e-09",
+                "max entropy": "0.00028017492",
+                "max variation": "0.9999681",
+                "mean stddev": "3.63047e-10",
+                "new": false,
+                "question": "Assuming iSuppli got the numbers right, how much of a loss did Sony take for every 20 GB PS3 sold in the U.S.?",
+                "text": "PlayStation 3's initial production cost is estimated by iSuppli to have been US$805.85 for the 20 GB model and US$840.35 for the 60 GB model. However, they were priced at US$499 and US$599 respectively, meaning that units may have been sold at an estimated loss of $306 or $241 depending on model, if the cost estimates were correct, and thus may have contributed to Sony's games division posting an operating loss of \u00a5232.3 billion (US$1.97 billion) in the fiscal year ending March 2007. In April 2007, soon after these results were published, Ken Kutaragi, President of Sony Computer Entertainment, announced plans to retire. Various news agencies, including The Times and The Wall Street Journal reported that this was due to poor sales, while SCEI maintains that Kutaragi had been planning his retirement for six months prior to the announcement."
+            },
+            "charSpans": [
+                [
+                    265,
+                    268
+                ]
+            ],
+            "texts": [
+                "$306"
+            ]
+        }
+    },
+    "startClickTime": "04-27-2021_23:56:02",
+    "2": {
+        "time": "04-28-2021_00:19:44",
+        "mean_bald": "-1.0212172817337606e-09",
+        "accuracy": "0.8234",
+        "0": {
+            "data": {
+                "bald": "5.7043508e-09",
+                "max entropy": "0.0002863562",
+                "max variation": "0.99987245",
+                "mean stddev": "3.0020494e-10",
+                "new": false,
+                "question": "What 2 bodies of water does Suez connect?",
+                "text": "The Suez Canal is an artificial sea-level waterway in Egypt considered the most important centre of the maritime transport in the Middle East, connecting the Mediterranean Sea and the Red Sea. Opened in November 1869 after 10 years of construction work, it allows ship transport between Europe and Asia without navigation around Africa. The northern terminus is Port Said and the southern terminus is Port Tawfiq at the city of Suez. Ismailia lies on its west bank, 3 km (1.9 mi) from the half-way point."
+            },
+            "charSpans": [
+                [
+                    158,
+                    174
+                ],
+                [
+                    184,
+                    190
+                ]
+            ],
+            "texts": [
+                "Mediterranean Sea",
+                "Red Sea"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "7.858034e-09",
+                "max entropy": "0.00036264374",
+                "max variation": "0.9999693",
+                "mean stddev": "1.289202e-10",
+                "new": false,
+                "question": "In 2003 what well known U.S. Secretary of State declared the situation in Darfur as an act of genocide?",
+                "text": "There has been much debate over categorizing the situation in Darfur as genocide. The ongoing conflict in Darfur, Sudan, which started in 2003, was declared a \"genocide\" by United States Secretary of State Colin Powell on 9 September 2004 in testimony before the Senate Foreign Relations Committee. Since that time however, no other permanent member of the UN Security Council followed suit. In fact, in January 2005, an International Commission of Inquiry on Darfur, authorized by UN Security Council Resolution 1564 of 2004, issued a report to the Secretary-General stating that \"the Government of the Sudan has not pursued a policy of genocide.\" Nevertheless, the Commission cautioned that \"The conclusion that no genocidal policy has been pursued and implemented in Darfur by the Government authorities, directly or through the militias under their control, should not be taken in any way as detracting from the gravity of the crimes perpetrated in that region. International offences such as the crimes against humanity and war crimes that have been committed in Darfur may be no less serious and heinous than genocide.\""
+            },
+            "charSpans": [
+                [
+                    206,
+                    217
+                ]
+            ],
+            "texts": [
+                "Colin Powell"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-1.0128133e-08",
+                "max entropy": "0.00028993614",
+                "max variation": "0.9999457",
+                "mean stddev": "3.9333575e-11",
+                "new": false,
+                "question": "How many ministers are in the Presidential Cabinet?",
+                "text": "Legislative power lies with the Nitijela. The upper house of Parliament, called the Council of Iroij, is an advisory body comprising twelve tribal chiefs. The executive branch consists of the President and the Presidential Cabinet, which consists of ten ministers appointed by the President with the approval of the Nitijela. The twenty-four electoral districts into which the country is divided correspond to the inhabited islands and atolls. There are currently four political parties in the Marshall Islands: Aelon\u0304 Kein Ad (AKA), United People's Party (UPP), Kien Eo Am (KEA) and United Democratic Party (UDP). Rule is shared by the AKA and the UDP. The following senators are in the legislative body:"
+            },
+            "charSpans": [
+                [
+                    250,
+                    252
+                ]
+            ],
+            "texts": [
+                "ten"
+            ]
+        }
+    },
+    "3": {
+        "time": "04-28-2021_00:22:36",
+        "mean_bald": "-1.0260189668372972e-09",
+        "accuracy": "0.8240410256410257",
+        "0": {
+            "data": {
+                "bald": "-1.542503e-08",
+                "max entropy": "0.00036889114",
+                "max variation": "0.99990433",
+                "mean stddev": "3.9580997e-10",
+                "new": false,
+                "question": "How is toxicity sometimes visibly displayed by insects as a warning?",
+                "text": "Insects were among the earliest terrestrial herbivores and acted as major selection agents on plants. Plants evolved chemical defenses against this herbivory and the insects, in turn, evolved mechanisms to deal with plant toxins. Many insects make use of these toxins to protect themselves from their predators. Such insects often advertise their toxicity using warning colors. This successful evolutionary pattern has also been used by mimics. Over time, this has led to complex groups of coevolved species. Conversely, some interactions between plants and insects, like pollination, are beneficial to both organisms. Coevolution has led to the development of very specific mutualisms in such systems."
+            },
+            "charSpans": [
+                [
+                    356,
+                    375
+                ]
+            ],
+            "texts": [
+                "using warning colors"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-1.1059456e-09",
+                "max entropy": "6.3782354e-05",
+                "max variation": "0.9999042",
+                "mean stddev": "5.324716e-10",
+                "new": false,
+                "question": "What gender has a higher enrollment?",
+                "text": "Education is compulsory from the age of 7 to 13. The enrollment of boys is higher than that of girls. In 1998, the gross primary enrollment rate was 53.5%, with higher enrollment ratio for males (67.7%) compared to females (40%)."
+            },
+            "charSpans": [
+                [
+                    67,
+                    70
+                ]
+            ],
+            "texts": [
+                "boys"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "2.9685907e-09",
+                "max entropy": "0.00030678534",
+                "max variation": "0.9999259",
+                "mean stddev": "7.0540607e-10",
+                "new": false,
+                "question": "Where do flying toilets end up after use?",
+                "text": "Apart from residences for upper and middle class households, sanitation is insufficient in most residential areas. Private flush toilets are too expensive for virtually all residents in townships due to their water consumption and installation cost. As a result, access to improved sanitation has not increased much since independence: In Namibia's rural areas 13% of the population had more than basic sanitation, up from 8% in 1990. Many of Namibia's inhabitants have to resort to \"flying toilets\", plastic bags to defecate which after use are flung into the bush. The use of open areas close to residential land to urinate and defecate is very common and has been identified as a major health hazard."
+            },
+            "charSpans": [
+                [
+                    557,
+                    564
+                ]
+            ],
+            "texts": [
+                "the bush"
+            ]
+        }
+    }
+}

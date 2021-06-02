@@ -1,0 +1,203 @@
+{
+    "1": {
+        "time": "04-26-2021_11:12:46",
+        "mean_bald": -7.872417954479095e-10,
+        "accuracy": 0.7970469361147328,
+        "0": {
+            "data": {
+                "bald": "1.3795216e-08",
+                "max entropy": "0.00031270218",
+                "max variation": "0.99994576",
+                "mean stddev": "5.840586e-11",
+                "new": false,
+                "question": "For what purpose did American Indians use asphalt? ",
+                "text": "The first use of asphalt/bitumen in the New World was by indigenous peoples. On the west coast, as early as the 13th century, the Tongva, Luise\u00f1o and Chumash peoples collected the naturally occurring asphalt/bitumen that seeped to the surface above underlying petroleum deposits. All three used the substance as an adhesive. It is found on many different artifacts of tools and ceremonial items. For example, it was used on rattles to adhere gourds or turtle shells to rattle handles. It was also used in decorations. Small round shell beads were often set in asphaltum to provide decorations. It was used as a sealant on baskets to make them watertight for carrying water. Asphaltum was used also to seal the planks on ocean-going canoes."
+            },
+            "charSpans": [
+                [
+                    315,
+                    322
+                ]
+            ],
+            "texts": [
+                "adhesive"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "1.0768417e-08",
+                "max entropy": "0.00032660848",
+                "max variation": "0.99992436",
+                "mean stddev": "7.7178895e-11",
+                "new": false,
+                "question": "How many divisions did the Premier League start out with at this time?",
+                "text": "In 1992, the First Division clubs resigned from the Football League en masse and on 27 May 1992 the FA Premier League was formed as a limited company working out of an office at the Football Association's then headquarters in Lancaster Gate. This meant a break-up of the 104-year-old Football League that had operated until then with four divisions; the Premier League would operate with a single division and the Football League with three. There was no change in competition format; the same number of teams competed in the top flight, and promotion and relegation between the Premier League and the new First Division remained the same as the old First and Second Divisions with three teams relegated from the league and three promoted."
+            },
+            "charSpans": [
+                [
+                    334,
+                    337
+                ]
+            ],
+            "texts": [
+                "four"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-2.1827873e-09",
+                "max entropy": "0.00019861548",
+                "max variation": "0.99997985",
+                "mean stddev": "5.8766308e-12",
+                "new": false,
+                "question": "By the end of this period, about what percentage of Western Europeans were serfs?",
+                "text": "Society throughout Europe was disturbed by the dislocations caused by the Black Death. Lands that had been marginally productive were abandoned, as the survivors were able to acquire more fertile areas. Although serfdom declined in Western Europe it became more common in Eastern Europe, as landlords imposed it on those of their tenants who had previously been free. Most peasants in Western Europe managed to change the work they had previously owed to their landlords into cash rents. The percentage of serfs amongst the peasantry declined from a high of 90 to closer to 50 per cent by the end of the period. Landlords also became more conscious of common interests with other landholders, and they joined together to extort privileges from their governments. Partly at the urging of landlords, governments attempted to legislate a return to the economic conditions that existed before the Black Death. Non-clergy became increasingly literate, and urban populations began to imitate the nobility's interest in chivalry."
+            },
+            "charSpans": [
+                [
+                    574,
+                    584
+                ]
+            ],
+            "texts": [
+                "50 per cent"
+            ]
+        }
+    },
+    "startClickTime": "04-26-2021_11:01:04",
+    "2": {
+        "time": "04-26-2021_11:17:13",
+        "mean_bald": -8.396318812373641e-10,
+        "accuracy": 0.8037860665495153,
+        "0": {
+            "data": {
+                "bald": "2.910383e-11",
+                "max entropy": "0.00030688508",
+                "max variation": "0.99997985",
+                "mean stddev": "3.9721165e-12",
+                "new": false,
+                "question": "Which metal important to the ancients is the hardest one?",
+                "text": "Iron is usually found as iron ore on Earth, except for one deposit of native iron in Greenland, which was used by the Inuit people. Native copper, however, was found worldwide, along with silver, gold and platinum, which were also used to make tools, jewelry, and other objects since Neolithic times. Copper was the hardest of these metals, and the most widely distributed. It became one of the most important metals to the ancients. Eventually, humans learned to smelt metals such as copper and tin from ore, and, around 2500 BC, began alloying the two metals to form bronze, which is much harder than its ingredients. Tin was rare, however, being found mostly in Great Britain. In the Middle East, people began alloying copper with zinc to form brass. Ancient civilizations took into account the mixture and the various properties it produced, such as hardness, toughness and melting point, under various conditions of temperature and work hardening, developing much of the information contained in modern alloy phase diagrams. Arrowheads from the Chinese Qin dynasty (around 200 BC) were often constructed with a hard bronze-head, but a softer bronze-tang, combining the alloys to prevent both dulling and breaking during use."
+            },
+            "charSpans": [
+                [
+                    301,
+                    306
+                ]
+            ],
+            "texts": [
+                "Copper"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-1.2805685e-09",
+                "max entropy": "0.00013786546",
+                "max variation": "0.9999259",
+                "mean stddev": "7.0774975e-10",
+                "new": false,
+                "question": "What other ethic minority did white american's treat poorly?",
+                "text": "Around the start of the 20th century, a growing population of Asian Americans lived in or near Santa Monica and Venice. A Japanese fishing village was located near the Long Wharf while small numbers of Chinese lived or worked in both Santa Monica and Venice. The two ethnic minorities were often viewed differently by White Americans who were often well-disposed towards the Japanese but condescending towards the Chinese. The Japanese village fishermen were an integral economic part of the Santa Monica Bay community."
+            },
+            "charSpans": [
+                [
+                    414,
+                    420
+                ]
+            ],
+            "texts": [
+                "Chinese"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "2.9685907e-09",
+                "max entropy": "0.00030678534",
+                "max variation": "0.9999259",
+                "mean stddev": "7.0540607e-10",
+                "new": false,
+                "question": "Where do flying toilets end up after use?",
+                "text": "Apart from residences for upper and middle class households, sanitation is insufficient in most residential areas. Private flush toilets are too expensive for virtually all residents in townships due to their water consumption and installation cost. As a result, access to improved sanitation has not increased much since independence: In Namibia's rural areas 13% of the population had more than basic sanitation, up from 8% in 1990. Many of Namibia's inhabitants have to resort to \"flying toilets\", plastic bags to defecate which after use are flung into the bush. The use of open areas close to residential land to urinate and defecate is very common and has been identified as a major health hazard."
+            },
+            "charSpans": [
+                [
+                    546,
+                    564
+                ]
+            ],
+            "texts": [
+                "flung into the bush"
+            ]
+        }
+    },
+    "3": {
+        "time": "04-26-2021_11:22:09",
+        "mean_bald": -9.719788565174034e-10,
+        "accuracy": 0.8187860665495154,
+        "0": {
+            "data": {
+                "bald": "-2.8085196e-08",
+                "max entropy": "0.0004465815",
+                "max variation": "0.9999758",
+                "mean stddev": "4.6343294e-11",
+                "new": false,
+                "question": "In what year was a group of independent schools found guilty of price-sharing?",
+                "text": "In 2005, the Office of Fair Trading found fifty independent schools, including Eton, to have breached the Competition Act by \"regularly and systematically\" exchanging information about planned increases in school fees, which was collated and distributed among the schools by the bursar at Sevenoaks School. Following the investigation by the OFT, each school was required to pay around \u00a370,000, totalling around \u00a33.5 million, significantly less than the maximum possible fine. In addition, the schools together agreed to contribute another \u00a33m to a new charitable educational fund. The incident raised concerns over whether the charitable status of independent schools such as Eton should be reconsidered, and perhaps revoked. However, Jean Scott, the head of the Independent Schools Council, said that independent schools had always been exempt from anti-cartel rules applied to business, were following a long-established procedure in sharing the information with each other, and that they were unaware of the change to the law (on which they had not been consulted). She wrote to John Vickers, the OFT director-general, saying, \"They are not a group of businessmen meeting behind closed doors to fix the price of their products to the disadvantage of the consumer. They are schools that have quite openly continued to follow a long-established practice because they were unaware that the law had changed.\""
+            },
+            "charSpans": [
+                [
+                    3,
+                    6
+                ]
+            ],
+            "texts": [
+                "2005"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-3.8417056e-09",
+                "max entropy": "0.00038578693",
+                "max variation": "0.99997103",
+                "mean stddev": "3.7981795e-11",
+                "new": false,
+                "question": "What is the current height limitation in Paris in central areas?",
+                "text": "Paris' urbanism laws have been under strict control since the early 17th century, particularly where street-front alignment, building height and building distribution is concerned. In recent developments, a 1974-2010 building height limitation of 37 metres (121 ft) was raised to 50 m (160 ft) in central areas and 180 metres (590 ft) in some of Paris' peripheral quarters, yet for some of the city's more central quarters, even older building-height laws still remain in effect. The 210 metres (690 ft) Montparnasse tower was both Paris and France's tallest building until 1973, but this record has been held by the La D\u00e9fense quarter Tour First tower in Courbevoie since its 2011 construction. A new project for La Defense, called Hermitage Plaza, launched in 2009, proposes to build two towers, 85 and 86 stories or 320 metres high, which would be the tallest buildings in the European Union, just slightly shorter than the Eiffel Tower. They were scheduled for completion in 2019 or 2020, but as of January 2015 construction had not yet begun, and there were questions in the press about the future of the project."
+            },
+            "charSpans": [
+                [
+                    280,
+                    283
+                ]
+            ],
+            "texts": [
+                "50 m"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-5.355105e-09",
+                "max entropy": "0.00040422316",
+                "max variation": "0.99996674",
+                "mean stddev": "1.5492847e-10",
+                "new": false,
+                "question": "Who did Christoph Waltz portray in Spectre?",
+                "text": "Christoph Waltz was cast in the role of Franz Oberhauser, though he refused to comment on the nature of the part. It was later revealed with the film's release that he is Ernst Stavro Blofeld. Dave Bautista was cast as Mr. Hinx after producers sought an actor with a background in contact sports. After casting B\u00e9r\u00e9nice Lim Marlohe, a relative newcomer, as S\u00e9v\u00e9rine in Skyfall, Mendes consciously sought out a more experienced actor for the role of Madeleine Swann, ultimately casting L\u00e9a Seydoux in the role. Monica Bellucci joined the cast as Lucia Sciarra, becoming, at the age of fifty, the oldest actress to be cast as a Bond girl. In a separate interview with Danish website Euroman, Jesper Christensen revealed he would be reprising his role as Mr. White from Casino Royale and Quantum of Solace. Christensen's character was reportedly killed off in a scene intended to be used as an epilogue to Quantum of Solace, before it was removed from the final cut of the film, enabling his return in Spectre."
+            },
+            "charSpans": [
+                [
+                    40,
+                    55
+                ],
+                [
+                    171,
+                    190
+                ]
+            ],
+            "texts": [
+                "Franz Oberhauser",
+                "Ernst Stavro Blofeld"
+            ]
+        }
+    }
+}

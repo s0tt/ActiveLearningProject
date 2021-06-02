@@ -1,0 +1,198 @@
+{
+    "1": {
+        "time": "05-10-2021_22:42:13",
+        "mean_bald": "-7.406787484308031e-10",
+        "accuracy": "0.7908304093567252",
+        "0": {
+            "data": {
+                "bald": "-1.1059456e-09",
+                "max entropy": "6.3782354e-05",
+                "max variation": "0.9999042",
+                "mean stddev": "5.324716e-10",
+                "new": false,
+                "question": "What gender has a higher enrollment?",
+                "text": "Education is compulsory from the age of 7 to 13. The enrollment of boys is higher than that of girls. In 1998, the gross primary enrollment rate was 53.5%, with higher enrollment ratio for males (67.7%) compared to females (40%)."
+            },
+            "charSpans": [
+                [
+                    189,
+                    193
+                ]
+            ],
+            "texts": [
+                "males"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-5.675247e-09",
+                "max entropy": "0.00017774277",
+                "max variation": "0.99996156",
+                "mean stddev": "4.74642e-11",
+                "new": false,
+                "question": "What is the climate of Bermuda?",
+                "text": "Bermuda's economy is based on offshore insurance and reinsurance, and tourism, the two largest economic sectors. Bermuda had one of the world's highest GDP per capita for most of the 20th century and several years beyond. Recently, its economic status has been affected by the global recession. It has a subtropical climate. Bermuda is the northernmost point of the Bermuda Triangle, a region of sea in which, according to legend, a number of aircraft and surface vessels have disappeared under supposedly unexplained or mysterious circumstances. The island is in the hurricane belt and prone to severe weather. However, it is somewhat protected from the full force of a hurricane by the coral reef that surrounds the island."
+            },
+            "charSpans": [
+                [
+                    304,
+                    322
+                ]
+            ],
+            "texts": [
+                "subtropical climate"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "5.820766e-09",
+                "max entropy": "0.000146542",
+                "max variation": "0.99994576",
+                "mean stddev": "7.2222034e-11",
+                "new": false,
+                "question": "What is the average age that BYU students marry according to a 2005 study?",
+                "text": "One of the characteristics of BYU most often pointed out is its reputation for emphasizing a \"marriage culture\". Members of The Church of Jesus Christ of Latter-day Saints highly value marriage and family, especially marriage within the faith. Approximately 51 percent of the graduates in BYU's class of 2005 were married. This is compared to a national marriage average among college graduates of 11 percent. BYU students on average marry at the age of 22, according to a 2005 study, while the national average age is 25 years for men and 27 years for women."
+            },
+            "charSpans": [
+                [
+                    439,
+                    455
+                ]
+            ],
+            "texts": [
+                " at the age of 22"
+            ]
+        }
+    },
+    "startClickTime": "05-10-2021_22:35:31",
+    "2": {
+        "time": "05-10-2021_22:43:49",
+        "mean_bald": "-8.574282361522085e-10",
+        "accuracy": "0.8058304093567252",
+        "0": {
+            "data": {
+                "bald": "-1.5133992e-09",
+                "max entropy": "0.00020092884",
+                "max variation": "0.99995065",
+                "mean stddev": "5.8120925e-11",
+                "new": false,
+                "question": "What is the name of the island Napoleon was exiled to?",
+                "text": "In the Treaty of Fontainebleau, the Allies exiled him to Elba, an island of 12,000 inhabitants in the Mediterranean, 20 km (12 mi) off the Tuscan coast. They gave him sovereignty over the island and allowed him to retain the title of Emperor. Napoleon attempted suicide with a pill he had carried after nearly being captured by the Russians during the retreat from Moscow. Its potency had weakened with age, however, and he survived to be exiled while his wife and son took refuge in Austria. In the first few months on Elba he created a small navy and army, developed the iron mines, and issued decrees on modern agricultural methods."
+            },
+            "charSpans": [
+                [
+                    57,
+                    60
+                ]
+            ],
+            "texts": [
+                "Elba"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "7.625204e-09",
+                "max entropy": "0.00022790466",
+                "max variation": "0.999937",
+                "mean stddev": "2.9186684e-10",
+                "new": false,
+                "question": "Who wrote 'Ideals of the Samurai'?",
+                "text": "In his book \"Ideals of the Samurai\" translator William Scott Wilson states: \"The warriors in the Heike Monogatari served as models for the educated warriors of later generations, and the ideals depicted by them were not assumed to be beyond reach. Rather, these ideals were vigorously pursued in the upper echelons of warrior society and recommended as the proper form of the Japanese man of arms. With the Heike Monogatari, the image of the Japanese warrior in literature came to its full maturity.\" Wilson then translates the writings of several warriors who mention the Heike Monogatari as an example for their men to follow."
+            },
+            "charSpans": [
+                [
+                    47,
+                    66
+                ]
+            ],
+            "texts": [
+                "William Scott Wilson"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-5.355105e-09",
+                "max entropy": "0.00040422316",
+                "max variation": "0.99996674",
+                "mean stddev": "1.5492847e-10",
+                "new": false,
+                "question": "Who did Christoph Waltz portray in Spectre?",
+                "text": "Christoph Waltz was cast in the role of Franz Oberhauser, though he refused to comment on the nature of the part. It was later revealed with the film's release that he is Ernst Stavro Blofeld. Dave Bautista was cast as Mr. Hinx after producers sought an actor with a background in contact sports. After casting B\u00e9r\u00e9nice Lim Marlohe, a relative newcomer, as S\u00e9v\u00e9rine in Skyfall, Mendes consciously sought out a more experienced actor for the role of Madeleine Swann, ultimately casting L\u00e9a Seydoux in the role. Monica Bellucci joined the cast as Lucia Sciarra, becoming, at the age of fifty, the oldest actress to be cast as a Bond girl. In a separate interview with Danish website Euroman, Jesper Christensen revealed he would be reprising his role as Mr. White from Casino Royale and Quantum of Solace. Christensen's character was reportedly killed off in a scene intended to be used as an epilogue to Quantum of Solace, before it was removed from the final cut of the film, enabling his return in Spectre."
+            },
+            "charSpans": [
+                [
+                    40,
+                    55
+                ]
+            ],
+            "texts": [
+                "Franz Oberhauser"
+            ]
+        }
+    },
+    "3": {
+        "time": "05-10-2021_22:47:10",
+        "mean_bald": "-9.925803618757003e-10",
+        "accuracy": "0.8208304093567252",
+        "0": {
+            "data": {
+                "bald": "-5.529728e-10",
+                "max entropy": "0.00010275006",
+                "max variation": "0.99997103",
+                "mean stddev": "4.4235733e-11",
+                "new": false,
+                "question": "In what year was Plymouth's Catholic cathedral built?",
+                "text": "Plymouth has about 150 churches and its Roman Catholic cathedral (1858) is in Stonehouse. The city's oldest church is St Andrew's (Anglican) located at the top of Royal Parade\u2014it is the largest parish church in Devon and has been a site of gathering since AD 800. The city also includes five Baptist churches, over twenty Methodist chapels, and thirteen Roman Catholic churches. In 1831 the first Brethren assembly in England, a movement of conservative non-denominational Evangelical Christians, was established in the city, so that Brethren are often called Plymouth Brethren, although the movement did not begin locally."
+            },
+            "charSpans": [
+                [
+                    66,
+                    69
+                ]
+            ],
+            "texts": [
+                "1858"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-1.891749e-09",
+                "max entropy": "0.00012316754",
+                "max variation": "0.9999693",
+                "mean stddev": "1.2926393e-10",
+                "new": false,
+                "question": "In which city did Obregon sign a number of treaties?",
+                "text": "The uneasy alliance of Carranza, Obreg\u00f3n, Villa, and Zapata eventually led the rebels to victory. The fight against Huerta formally ended on August 15, 1914, when \u00c1lvaro Obreg\u00f3n signed a number of treaties in Teoloyucan in which the last of Huerta's forces surrendered to him and recognized the constitutional government. On August 20, 1914, Carranza made a triumphal entry into Mexico City. Carranza (supported by Obreg\u00f3n) was now the strongest candidate to fill the power vacuum and set himself up as head of the new government. This government successfully printed money, passed laws, etc."
+            },
+            "charSpans": [
+                [
+                    209,
+                    218
+                ]
+            ],
+            "texts": [
+                "Teoloyucan"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "2.910383e-09",
+                "max entropy": "0.00015993048",
+                "max variation": "0.9999426",
+                "mean stddev": "3.967775e-11",
+                "new": false,
+                "question": "Who won Armenia's first Olympic medal?",
+                "text": "During Soviet rule, Armenian athletes rose to prominence winning plenty of medals and helping the USSR win the medal standings at the Olympics on numerous occasions. The first medal won by an Armenian in modern Olympic history was by Hrant Shahinyan, who won two golds and two silvers in gymnastics at the 1952 Summer Olympics in Helsinki. In football, their most successful team was Yerevan's FC Ararat, which had claimed most of the Soviet championships in the 70s and had also gone to post victories against professional clubs like FC Bayern Munich in the Euro cup."
+            },
+            "charSpans": [
+                [
+                    234,
+                    248
+                ]
+            ],
+            "texts": [
+                "Hrant Shahinyan"
+            ]
+        }
+    }
+}

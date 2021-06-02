@@ -1,0 +1,198 @@
+{
+    "1": {
+        "time": "04-26-2021_17:32:15",
+        "mean_bald": -8.828675007886519e-10,
+        "accuracy": 0.8084782608695653,
+        "0": {
+            "data": {
+                "bald": "1.3795216e-08",
+                "max entropy": "0.00031270218",
+                "max variation": "0.99994576",
+                "mean stddev": "5.840586e-11",
+                "new": false,
+                "question": "For what purpose did American Indians use asphalt? ",
+                "text": "The first use of asphalt/bitumen in the New World was by indigenous peoples. On the west coast, as early as the 13th century, the Tongva, Luise\u00f1o and Chumash peoples collected the naturally occurring asphalt/bitumen that seeped to the surface above underlying petroleum deposits. All three used the substance as an adhesive. It is found on many different artifacts of tools and ceremonial items. For example, it was used on rattles to adhere gourds or turtle shells to rattle handles. It was also used in decorations. Small round shell beads were often set in asphaltum to provide decorations. It was used as a sealant on baskets to make them watertight for carrying water. Asphaltum was used also to seal the planks on ocean-going canoes."
+            },
+            "charSpans": [
+                [
+                    308,
+                    322
+                ]
+            ],
+            "texts": [
+                " as an adhesive"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "8.236384e-09",
+                "max entropy": "0.00028699505",
+                "max variation": "0.99995524",
+                "mean stddev": "2.2895345e-11",
+                "new": false,
+                "question": "How many staff members work for the University of Plymouth?",
+                "text": "The University of Plymouth enrolls 25,895 total students as of 2014/15 (22nd largest in the UK out of 165). It also employs 3,000 staff with an annual income of around \u00a3160 million. It was founded in 1992 from Polytechnic South West (formerly Plymouth Polytechnic) following the Further and Higher Education Act 1992. It has courses in maritime business, marine engineering, marine biology and Earth, ocean and environmental sciences, surf science, shipping and logistics. The university formed a joint venture with the fellow Devonian University of Exeter in 2000, establishing the Peninsula College of Medicine and Dentistry. The college is ranked 8th out of 30 universities in the UK in 2011 for medicine. Its dental school was established in 2006, which also provides free dental care in an attempt to improve access to dental care in the South West."
+            },
+            "charSpans": [
+                [
+                    124,
+                    128
+                ]
+            ],
+            "texts": [
+                "3,000"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "5.7043508e-09",
+                "max entropy": "0.0002863562",
+                "max variation": "0.99987245",
+                "mean stddev": "3.0020494e-10",
+                "new": false,
+                "question": "What 2 bodies of water does Suez connect?",
+                "text": "The Suez Canal is an artificial sea-level waterway in Egypt considered the most important centre of the maritime transport in the Middle East, connecting the Mediterranean Sea and the Red Sea. Opened in November 1869 after 10 years of construction work, it allows ship transport between Europe and Asia without navigation around Africa. The northern terminus is Port Said and the southern terminus is Port Tawfiq at the city of Suez. Ismailia lies on its west bank, 3 km (1.9 mi) from the half-way point."
+            },
+            "charSpans": [
+                [
+                    158,
+                    190
+                ]
+            ],
+            "texts": [
+                "Mediterranean Sea and the Red Sea"
+            ]
+        }
+    },
+    "startClickTime": "04-26-2021_17:26:51",
+    "2": {
+        "time": "04-26-2021_17:36:28",
+        "mean_bald": -9.33428643429971e-10,
+        "accuracy": 0.8143756967670012,
+        "0": {
+            "data": {
+                "bald": "-2.8085196e-08",
+                "max entropy": "0.0004465815",
+                "max variation": "0.9999758",
+                "mean stddev": "4.6343294e-11",
+                "new": false,
+                "question": "In what year was a group of independent schools found guilty of price-sharing?",
+                "text": "In 2005, the Office of Fair Trading found fifty independent schools, including Eton, to have breached the Competition Act by \"regularly and systematically\" exchanging information about planned increases in school fees, which was collated and distributed among the schools by the bursar at Sevenoaks School. Following the investigation by the OFT, each school was required to pay around \u00a370,000, totalling around \u00a33.5 million, significantly less than the maximum possible fine. In addition, the schools together agreed to contribute another \u00a33m to a new charitable educational fund. The incident raised concerns over whether the charitable status of independent schools such as Eton should be reconsidered, and perhaps revoked. However, Jean Scott, the head of the Independent Schools Council, said that independent schools had always been exempt from anti-cartel rules applied to business, were following a long-established procedure in sharing the information with each other, and that they were unaware of the change to the law (on which they had not been consulted). She wrote to John Vickers, the OFT director-general, saying, \"They are not a group of businessmen meeting behind closed doors to fix the price of their products to the disadvantage of the consumer. They are schools that have quite openly continued to follow a long-established practice because they were unaware that the law had changed.\""
+            },
+            "charSpans": [
+                [
+                    3,
+                    6
+                ]
+            ],
+            "texts": [
+                "2005"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "7.625204e-09",
+                "max entropy": "0.00022790466",
+                "max variation": "0.999937",
+                "mean stddev": "2.9186684e-10",
+                "new": false,
+                "question": "Who wrote 'Ideals of the Samurai'?",
+                "text": "In his book \"Ideals of the Samurai\" translator William Scott Wilson states: \"The warriors in the Heike Monogatari served as models for the educated warriors of later generations, and the ideals depicted by them were not assumed to be beyond reach. Rather, these ideals were vigorously pursued in the upper echelons of warrior society and recommended as the proper form of the Japanese man of arms. With the Heike Monogatari, the image of the Japanese warrior in literature came to its full maturity.\" Wilson then translates the writings of several warriors who mention the Heike Monogatari as an example for their men to follow."
+            },
+            "charSpans": [
+                [
+                    47,
+                    66
+                ]
+            ],
+            "texts": [
+                "William Scott Wilson"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "9.313226e-10",
+                "max entropy": "0.00029006938",
+                "max variation": "0.9999358",
+                "mean stddev": "4.874509e-10",
+                "new": false,
+                "question": "What happened to Buckingham after Queen Victoria left?",
+                "text": "Widowed in 1861, the grief-stricken Queen withdrew from public life and left Buckingham Palace to live at Windsor Castle, Balmoral Castle and Osborne House. For many years the palace was seldom used, even neglected. In 1864, a note was found pinned to the fence of Buckingham Palace, saying: \"These commanding premises to be let or sold, in consequence of the late occupant's declining business.\" Eventually, public opinion forced the Queen to return to London, though even then she preferred to live elsewhere whenever possible. Court functions were still held at Windsor Castle, presided over by the sombre Queen habitually dressed in mourning black, while Buckingham Palace remained shuttered for most of the year."
+            },
+            "charSpans": [
+                [
+                    677,
+                    716
+                ]
+            ],
+            "texts": [
+                "remained shuttered for most of the year."
+            ]
+        }
+    },
+    "3": {
+        "time": "04-26-2021_17:39:20",
+        "mean_bald": -1.0805603333506202e-09,
+        "accuracy": 0.8293756967670012,
+        "0": {
+            "data": {
+                "bald": "2.910383e-09",
+                "max entropy": "0.0001328849",
+                "max variation": "0.99987245",
+                "mean stddev": "2.9826816e-10",
+                "new": false,
+                "question": "Modern day instrument may be classified as brass, string, woodwind and what other classification?",
+                "text": "Many instruments originated during the Renaissance; others were variations of, or improvements upon, instruments that had existed previously. Some have survived to the present day; others have disappeared, only to be recreated in order to perform music of the period on authentic instruments. As in the modern day, instruments may be classified as brass, strings, percussion, and woodwind."
+            },
+            "charSpans": [
+                [
+                    364,
+                    373
+                ]
+            ],
+            "texts": [
+                "percussion"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "1.1641532e-10",
+                "max entropy": "0.00020805413",
+                "max variation": "0.99991816",
+                "mean stddev": "7.985844e-11",
+                "new": false,
+                "question": "Ibn Sina's Book of Healing was partially available in what language?",
+                "text": "His Book of Healing became available in Europe in partial Latin translation some fifty years after its composition, under the title Sufficientia, and some authors have identified a \"Latin Avicennism\" as flourishing for some time, paralleling the more influential Latin Averroism, but suppressed by the Parisian decrees of 1210 and 1215. Avicenna's psychology and theory of knowledge influenced William of Auvergne, Bishop of Paris and Albertus Magnus, while his metaphysics had an impact on the thought of Thomas Aquinas."
+            },
+            "charSpans": [
+                [
+                    58,
+                    62
+                ]
+            ],
+            "texts": [
+                "Latin"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-5.529728e-10",
+                "max entropy": "0.00010275006",
+                "max variation": "0.99997103",
+                "mean stddev": "4.4235733e-11",
+                "new": false,
+                "question": "In what year was Plymouth's Catholic cathedral built?",
+                "text": "Plymouth has about 150 churches and its Roman Catholic cathedral (1858) is in Stonehouse. The city's oldest church is St Andrew's (Anglican) located at the top of Royal Parade\u2014it is the largest parish church in Devon and has been a site of gathering since AD 800. The city also includes five Baptist churches, over twenty Methodist chapels, and thirteen Roman Catholic churches. In 1831 the first Brethren assembly in England, a movement of conservative non-denominational Evangelical Christians, was established in the city, so that Brethren are often called Plymouth Brethren, although the movement did not begin locally."
+            },
+            "charSpans": [
+                [
+                    66,
+                    69
+                ]
+            ],
+            "texts": [
+                "1858"
+            ]
+        }
+    }
+}

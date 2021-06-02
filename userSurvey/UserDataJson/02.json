@@ -1,0 +1,198 @@
+{
+    "1": {
+        "time": "04-26-2021_15:17:53",
+        "mean_bald": -9.413355471984962e-10,
+        "accuracy": 0.8150000000000001,
+        "0": {
+            "data": {
+                "bald": "-1.5133992e-09",
+                "max entropy": "0.00020092884",
+                "max variation": "0.99995065",
+                "mean stddev": "5.8120925e-11",
+                "new": false,
+                "question": "What is the name of the island Napoleon was exiled to?",
+                "text": "In the Treaty of Fontainebleau, the Allies exiled him to Elba, an island of 12,000 inhabitants in the Mediterranean, 20 km (12 mi) off the Tuscan coast. They gave him sovereignty over the island and allowed him to retain the title of Emperor. Napoleon attempted suicide with a pill he had carried after nearly being captured by the Russians during the retreat from Moscow. Its potency had weakened with age, however, and he survived to be exiled while his wife and son took refuge in Austria. In the first few months on Elba he created a small navy and army, developed the iron mines, and issued decrees on modern agricultural methods."
+            },
+            "charSpans": [
+                [
+                    57,
+                    60
+                ]
+            ],
+            "texts": [
+                "Elba"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-5.529728e-10",
+                "max entropy": "0.00010275006",
+                "max variation": "0.99997103",
+                "mean stddev": "4.4235733e-11",
+                "new": false,
+                "question": "In what year was Plymouth's Catholic cathedral built?",
+                "text": "Plymouth has about 150 churches and its Roman Catholic cathedral (1858) is in Stonehouse. The city's oldest church is St Andrew's (Anglican) located at the top of Royal Parade\u2014it is the largest parish church in Devon and has been a site of gathering since AD 800. The city also includes five Baptist churches, over twenty Methodist chapels, and thirteen Roman Catholic churches. In 1831 the first Brethren assembly in England, a movement of conservative non-denominational Evangelical Christians, was established in the city, so that Brethren are often called Plymouth Brethren, although the movement did not begin locally."
+            },
+            "charSpans": [
+                [
+                    66,
+                    69
+                ]
+            ],
+            "texts": [
+                "1858"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "1.2223609e-09",
+                "max entropy": "7.782467e-05",
+                "max variation": "0.99996674",
+                "mean stddev": "1.5737407e-10",
+                "new": false,
+                "question": "What US state prohibits the death penalty in its constitution?",
+                "text": "Puerto Rico's constitution expressly forbids capital punishment, stating \"The death penalty shall not exist\", setting it apart from all U.S. states and territories other than Michigan, which also has a constitutional prohibition (eleven other states and the District of Columbia have abolished capital punishment through statutory law). However, capital punishment is still applicable to offenses committed in Puerto Rico, if they fall under the jurisdiction of the federal government, though federal death penalty prosecutions there have generated significant controversy."
+            },
+            "charSpans": [
+                [
+                    175,
+                    182
+                ]
+            ],
+            "texts": [
+                "Michigan"
+            ]
+        }
+    },
+    "startClickTime": "04-26-2021_15:07:15",
+    "2": {
+        "time": "04-26-2021_15:31:05",
+        "mean_bald": -9.094641592479249e-10,
+        "accuracy": 0.8118474576271187,
+        "0": {
+            "data": {
+                "bald": "1.3795216e-08",
+                "max entropy": "0.00031270218",
+                "max variation": "0.99994576",
+                "mean stddev": "5.840586e-11",
+                "new": false,
+                "question": "For what purpose did American Indians use asphalt? ",
+                "text": "The first use of asphalt/bitumen in the New World was by indigenous peoples. On the west coast, as early as the 13th century, the Tongva, Luise\u00f1o and Chumash peoples collected the naturally occurring asphalt/bitumen that seeped to the surface above underlying petroleum deposits. All three used the substance as an adhesive. It is found on many different artifacts of tools and ceremonial items. For example, it was used on rattles to adhere gourds or turtle shells to rattle handles. It was also used in decorations. Small round shell beads were often set in asphaltum to provide decorations. It was used as a sealant on baskets to make them watertight for carrying water. Asphaltum was used also to seal the planks on ocean-going canoes."
+            },
+            "charSpans": [
+                [
+                    315,
+                    322
+                ]
+            ],
+            "texts": [
+                "adhesive"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-1.1059456e-09",
+                "max entropy": "6.3782354e-05",
+                "max variation": "0.9999042",
+                "mean stddev": "5.324716e-10",
+                "new": false,
+                "question": "What gender has a higher enrollment?",
+                "text": "Education is compulsory from the age of 7 to 13. The enrollment of boys is higher than that of girls. In 1998, the gross primary enrollment rate was 53.5%, with higher enrollment ratio for males (67.7%) compared to females (40%)."
+            },
+            "charSpans": [
+                [
+                    189,
+                    194
+                ]
+            ],
+            "texts": [
+                "males "
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "8.440111e-10",
+                "max entropy": "5.035954e-05",
+                "max variation": "0.9999758",
+                "mean stddev": "5.4311895e-11",
+                "new": false,
+                "question": "What did Jehovah's Witnesses persistent legal challenges result in, in the United States?",
+                "text": "In the United States, their persistent legal challenges prompted a series of state and federal court rulings that reinforced judicial protections for civil liberties. Among the rights strengthened by Witness court victories in the United States are the protection of religious conduct from federal and state interference, the right to abstain from patriotic rituals and military service, the right of patients to refuse medical treatment, and the right to engage in public discourse. Similar cases in their favor have been heard in Canada."
+            },
+            "charSpans": [
+                [
+                    101,
+                    108
+                ]
+            ],
+            "texts": [
+                "rulings "
+            ]
+        }
+    },
+    "3": {
+        "time": "04-26-2021_15:36:55",
+        "mean_bald": -1.049953635247748e-09,
+        "accuracy": 0.8265617433414044,
+        "0": {
+            "data": {
+                "bald": "-1.542503e-08",
+                "max entropy": "0.00036889114",
+                "max variation": "0.99990433",
+                "mean stddev": "3.9580997e-10",
+                "new": false,
+                "question": "How is toxicity sometimes visibly displayed by insects as a warning?",
+                "text": "Insects were among the earliest terrestrial herbivores and acted as major selection agents on plants. Plants evolved chemical defenses against this herbivory and the insects, in turn, evolved mechanisms to deal with plant toxins. Many insects make use of these toxins to protect themselves from their predators. Such insects often advertise their toxicity using warning colors. This successful evolutionary pattern has also been used by mimics. Over time, this has led to complex groups of coevolved species. Conversely, some interactions between plants and insects, like pollination, are beneficial to both organisms. Coevolution has led to the development of very specific mutualisms in such systems."
+            },
+            "charSpans": [
+                [
+                    370,
+                    375
+                ]
+            ],
+            "texts": [
+                "colors"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "5.7043508e-09",
+                "max entropy": "0.0002863562",
+                "max variation": "0.99987245",
+                "mean stddev": "3.0020494e-10",
+                "new": false,
+                "question": "What 2 bodies of water does Suez connect?",
+                "text": "The Suez Canal is an artificial sea-level waterway in Egypt considered the most important centre of the maritime transport in the Middle East, connecting the Mediterranean Sea and the Red Sea. Opened in November 1869 after 10 years of construction work, it allows ship transport between Europe and Asia without navigation around Africa. The northern terminus is Port Said and the southern terminus is Port Tawfiq at the city of Suez. Ismailia lies on its west bank, 3 km (1.9 mi) from the half-way point."
+            },
+            "charSpans": [
+                [
+                    154,
+                    190
+                ]
+            ],
+            "texts": [
+                "the Mediterranean Sea and the Red Sea"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "2.9685907e-09",
+                "max entropy": "0.00030678534",
+                "max variation": "0.9999259",
+                "mean stddev": "7.0540607e-10",
+                "new": false,
+                "question": "Where do flying toilets end up after use?",
+                "text": "Apart from residences for upper and middle class households, sanitation is insufficient in most residential areas. Private flush toilets are too expensive for virtually all residents in townships due to their water consumption and installation cost. As a result, access to improved sanitation has not increased much since independence: In Namibia's rural areas 13% of the population had more than basic sanitation, up from 8% in 1990. Many of Namibia's inhabitants have to resort to \"flying toilets\", plastic bags to defecate which after use are flung into the bush. The use of open areas close to residential land to urinate and defecate is very common and has been identified as a major health hazard."
+            },
+            "charSpans": [
+                [
+                    561,
+                    564
+                ]
+            ],
+            "texts": [
+                "bush"
+            ]
+        }
+    }
+}

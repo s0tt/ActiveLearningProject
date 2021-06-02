@@ -1,0 +1,198 @@
+{
+    "1": {
+        "time": "05-01-2021_10:15:17",
+        "mean_bald": "-7.228394116650767e-10",
+        "accuracy": "0.7884552598533641",
+        "0": {
+            "data": {
+                "bald": "8.440111e-10",
+                "max entropy": "5.035954e-05",
+                "max variation": "0.9999758",
+                "mean stddev": "5.4311895e-11",
+                "new": false,
+                "question": "What did Jehovah's Witnesses persistent legal challenges result in, in the United States?",
+                "text": "In the United States, their persistent legal challenges prompted a series of state and federal court rulings that reinforced judicial protections for civil liberties. Among the rights strengthened by Witness court victories in the United States are the protection of religious conduct from federal and state interference, the right to abstain from patriotic rituals and military service, the right of patients to refuse medical treatment, and the right to engage in public discourse. Similar cases in their favor have been heard in Canada."
+            },
+            "charSpans": [
+                [
+                    322,
+                    481
+                ]
+            ],
+            "texts": [
+                "the right to abstain from patriotic rituals and military service, the right of patients to refuse medical treatment, and the right to engage in public discourse"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-5.355105e-09",
+                "max entropy": "0.00040422316",
+                "max variation": "0.99996674",
+                "mean stddev": "1.5492847e-10",
+                "new": false,
+                "question": "Who did Christoph Waltz portray in Spectre?",
+                "text": "Christoph Waltz was cast in the role of Franz Oberhauser, though he refused to comment on the nature of the part. It was later revealed with the film's release that he is Ernst Stavro Blofeld. Dave Bautista was cast as Mr. Hinx after producers sought an actor with a background in contact sports. After casting B\u00e9r\u00e9nice Lim Marlohe, a relative newcomer, as S\u00e9v\u00e9rine in Skyfall, Mendes consciously sought out a more experienced actor for the role of Madeleine Swann, ultimately casting L\u00e9a Seydoux in the role. Monica Bellucci joined the cast as Lucia Sciarra, becoming, at the age of fifty, the oldest actress to be cast as a Bond girl. In a separate interview with Danish website Euroman, Jesper Christensen revealed he would be reprising his role as Mr. White from Casino Royale and Quantum of Solace. Christensen's character was reportedly killed off in a scene intended to be used as an epilogue to Quantum of Solace, before it was removed from the final cut of the film, enabling his return in Spectre."
+            },
+            "charSpans": [
+                [
+                    804,
+                    814
+                ]
+            ],
+            "texts": [
+                "Christensen"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-2.1827873e-09",
+                "max entropy": "0.00019861548",
+                "max variation": "0.99997985",
+                "mean stddev": "5.8766308e-12",
+                "new": false,
+                "question": "By the end of this period, about what percentage of Western Europeans were serfs?",
+                "text": "Society throughout Europe was disturbed by the dislocations caused by the Black Death. Lands that had been marginally productive were abandoned, as the survivors were able to acquire more fertile areas. Although serfdom declined in Western Europe it became more common in Eastern Europe, as landlords imposed it on those of their tenants who had previously been free. Most peasants in Western Europe managed to change the work they had previously owed to their landlords into cash rents. The percentage of serfs amongst the peasantry declined from a high of 90 to closer to 50 per cent by the end of the period. Landlords also became more conscious of common interests with other landholders, and they joined together to extort privileges from their governments. Partly at the urging of landlords, governments attempted to legislate a return to the economic conditions that existed before the Black Death. Non-clergy became increasingly literate, and urban populations began to imitate the nobility's interest in chivalry."
+            },
+            "charSpans": [
+                [
+                    574,
+                    584
+                ]
+            ],
+            "texts": [
+                "50 per cent"
+            ]
+        }
+    },
+    "startClickTime": "05-01-2021_10:02:34",
+    "2": {
+        "time": "05-01-2021_10:22:34",
+        "mean_bald": "-8.331133909566711e-10",
+        "accuracy": "0.8029951027265403",
+        "0": {
+            "data": {
+                "bald": "2.910383e-11",
+                "max entropy": "0.00030688508",
+                "max variation": "0.99997985",
+                "mean stddev": "3.9721165e-12",
+                "new": false,
+                "question": "Which metal important to the ancients is the hardest one?",
+                "text": "Iron is usually found as iron ore on Earth, except for one deposit of native iron in Greenland, which was used by the Inuit people. Native copper, however, was found worldwide, along with silver, gold and platinum, which were also used to make tools, jewelry, and other objects since Neolithic times. Copper was the hardest of these metals, and the most widely distributed. It became one of the most important metals to the ancients. Eventually, humans learned to smelt metals such as copper and tin from ore, and, around 2500 BC, began alloying the two metals to form bronze, which is much harder than its ingredients. Tin was rare, however, being found mostly in Great Britain. In the Middle East, people began alloying copper with zinc to form brass. Ancient civilizations took into account the mixture and the various properties it produced, such as hardness, toughness and melting point, under various conditions of temperature and work hardening, developing much of the information contained in modern alloy phase diagrams. Arrowheads from the Chinese Qin dynasty (around 200 BC) were often constructed with a hard bronze-head, but a softer bronze-tang, combining the alloys to prevent both dulling and breaking during use."
+            },
+            "charSpans": [
+                [
+                    301,
+                    306
+                ]
+            ],
+            "texts": [
+                "Copper"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-6.4028427e-10",
+                "max entropy": "0.00018119419",
+                "max variation": "0.99995524",
+                "mean stddev": "4.4106788e-11",
+                "new": false,
+                "question": "What airport is closest to Valencia?",
+                "text": "Public transport is provided by the Ferrocarrils de la Generalitat Valenciana (FGV), which operates the Metrovalencia and other rail and bus services. The Estaci\u00f3 del Nord (North Station) is the main railway terminus in Valencia. A new temporary station, Estaci\u00f3n de Val\u00e8ncia-Joaqu\u00edn Sorolla, has been built on land adjacent to this terminus to accommodate high speed AVE trains to and from Madrid, Barcelona, Seville and Alicante. Valencia Airport is situated 9 km (5.6 mi) west of Valencia city centre. Alicante Airport is situated about 170 km (110 mi) south of Valencia."
+            },
+            "charSpans": [
+                [
+                    432,
+                    448
+                ]
+            ],
+            "texts": [
+                "Valencia Airport "
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "9.313226e-10",
+                "max entropy": "0.00029006938",
+                "max variation": "0.9999358",
+                "mean stddev": "4.874509e-10",
+                "new": false,
+                "question": "What happened to Buckingham after Queen Victoria left?",
+                "text": "Widowed in 1861, the grief-stricken Queen withdrew from public life and left Buckingham Palace to live at Windsor Castle, Balmoral Castle and Osborne House. For many years the palace was seldom used, even neglected. In 1864, a note was found pinned to the fence of Buckingham Palace, saying: \"These commanding premises to be let or sold, in consequence of the late occupant's declining business.\" Eventually, public opinion forced the Queen to return to London, though even then she preferred to live elsewhere whenever possible. Court functions were still held at Windsor Castle, presided over by the sombre Queen habitually dressed in mourning black, while Buckingham Palace remained shuttered for most of the year."
+            },
+            "charSpans": [
+                [
+                    172,
+                    214
+                ]
+            ],
+            "texts": [
+                "the palace was seldom used, even neglected."
+            ]
+        }
+    },
+    "3": {
+        "time": "05-01-2021_10:31:38",
+        "mean_bald": "-8.338115091222414e-10",
+        "accuracy": "0.8032728805043181",
+        "0": {
+            "data": {
+                "bald": "7.625204e-09",
+                "max entropy": "0.00022790466",
+                "max variation": "0.999937",
+                "mean stddev": "2.9186684e-10",
+                "new": false,
+                "question": "Who wrote 'Ideals of the Samurai'?",
+                "text": "In his book \"Ideals of the Samurai\" translator William Scott Wilson states: \"The warriors in the Heike Monogatari served as models for the educated warriors of later generations, and the ideals depicted by them were not assumed to be beyond reach. Rather, these ideals were vigorously pursued in the upper echelons of warrior society and recommended as the proper form of the Japanese man of arms. With the Heike Monogatari, the image of the Japanese warrior in literature came to its full maturity.\" Wilson then translates the writings of several warriors who mention the Heike Monogatari as an example for their men to follow."
+            },
+            "charSpans": [
+                [
+                    540,
+                    555
+                ]
+            ],
+            "texts": [
+                "several warriors"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-1.2805685e-09",
+                "max entropy": "0.00013786546",
+                "max variation": "0.9999259",
+                "mean stddev": "7.0774975e-10",
+                "new": false,
+                "question": "What other ethic minority did white american's treat poorly?",
+                "text": "Around the start of the 20th century, a growing population of Asian Americans lived in or near Santa Monica and Venice. A Japanese fishing village was located near the Long Wharf while small numbers of Chinese lived or worked in both Santa Monica and Venice. The two ethnic minorities were often viewed differently by White Americans who were often well-disposed towards the Japanese but condescending towards the Chinese. The Japanese village fishermen were an integral economic part of the Santa Monica Bay community."
+            },
+            "charSpans": [
+                [
+                    410,
+                    420
+                ]
+            ],
+            "texts": [
+                "the Chinese"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-3.0559022e-09",
+                "max entropy": "0.00023397019",
+                "max variation": "0.9999666",
+                "mean stddev": "5.1330783e-11",
+                "new": false,
+                "question": "What is the term used to describe the attacks on Plymouth during the Second World War?",
+                "text": "Throughout the Industrial Revolution, Plymouth grew as a commercial shipping port, handling imports and passengers from the Americas, and exporting local minerals (tin, copper, lime, china clay and arsenic) while the neighbouring town of Devonport became a strategic Royal Naval shipbuilding and dockyard town. In 1914 three neighbouring independent towns, viz., the county borough of Plymouth, the county borough of Devonport, and the urban district of East Stonehouse were merged to form a single County Borough. The combined town took the name of Plymouth which, in 1928, achieved city status. The city's naval importance later led to its targeting and partial destruction during World War II, an act known as the Plymouth Blitz. After the war the city centre was completely rebuilt and subsequent expansion led to the incorporation of Plympton and Plymstock along with other outlying suburbs in 1967."
+            },
+            "charSpans": [
+                [
+                    717,
+                    730
+                ]
+            ],
+            "texts": [
+                "Plymouth Blitz"
+            ]
+        }
+    }
+}

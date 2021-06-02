@@ -1,0 +1,198 @@
+{
+    "1": {
+        "time": "04-27-2021_11:39:42",
+        "mean_bald": -7.54662249528413e-10,
+        "accuracy": 0.7926289682539683,
+        "0": {
+            "data": {
+                "bald": "-3.8417056e-09",
+                "max entropy": "0.00038578693",
+                "max variation": "0.99997103",
+                "mean stddev": "3.7981795e-11",
+                "new": false,
+                "question": "What is the current height limitation in Paris in central areas?",
+                "text": "Paris' urbanism laws have been under strict control since the early 17th century, particularly where street-front alignment, building height and building distribution is concerned. In recent developments, a 1974-2010 building height limitation of 37 metres (121 ft) was raised to 50 m (160 ft) in central areas and 180 metres (590 ft) in some of Paris' peripheral quarters, yet for some of the city's more central quarters, even older building-height laws still remain in effect. The 210 metres (690 ft) Montparnasse tower was both Paris and France's tallest building until 1973, but this record has been held by the La D\u00e9fense quarter Tour First tower in Courbevoie since its 2011 construction. A new project for La Defense, called Hermitage Plaza, launched in 2009, proposes to build two towers, 85 and 86 stories or 320 metres high, which would be the tallest buildings in the European Union, just slightly shorter than the Eiffel Tower. They were scheduled for completion in 2019 or 2020, but as of January 2015 construction had not yet begun, and there were questions in the press about the future of the project."
+            },
+            "charSpans": [
+                [
+                    819,
+                    828
+                ]
+            ],
+            "texts": [
+                "320 metres"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "1.0768417e-08",
+                "max entropy": "0.00032660848",
+                "max variation": "0.99992436",
+                "mean stddev": "7.7178895e-11",
+                "new": false,
+                "question": "How many divisions did the Premier League start out with at this time?",
+                "text": "In 1992, the First Division clubs resigned from the Football League en masse and on 27 May 1992 the FA Premier League was formed as a limited company working out of an office at the Football Association's then headquarters in Lancaster Gate. This meant a break-up of the 104-year-old Football League that had operated until then with four divisions; the Premier League would operate with a single division and the Football League with three. There was no change in competition format; the same number of teams competed in the top flight, and promotion and relegation between the Premier League and the new First Division remained the same as the old First and Second Divisions with three teams relegated from the league and three promoted."
+            },
+            "charSpans": [
+                [
+                    388,
+                    404
+                ]
+            ],
+            "texts": [
+                "a single division"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "8.236384e-09",
+                "max entropy": "0.00028699505",
+                "max variation": "0.99995524",
+                "mean stddev": "2.2895345e-11",
+                "new": false,
+                "question": "How many staff members work for the University of Plymouth?",
+                "text": "The University of Plymouth enrolls 25,895 total students as of 2014/15 (22nd largest in the UK out of 165). It also employs 3,000 staff with an annual income of around \u00a3160 million. It was founded in 1992 from Polytechnic South West (formerly Plymouth Polytechnic) following the Further and Higher Education Act 1992. It has courses in maritime business, marine engineering, marine biology and Earth, ocean and environmental sciences, surf science, shipping and logistics. The university formed a joint venture with the fellow Devonian University of Exeter in 2000, establishing the Peninsula College of Medicine and Dentistry. The college is ranked 8th out of 30 universities in the UK in 2011 for medicine. Its dental school was established in 2006, which also provides free dental care in an attempt to improve access to dental care in the South West."
+            },
+            "charSpans": [
+                [
+                    124,
+                    134
+                ]
+            ],
+            "texts": [
+                "3,000 staff"
+            ]
+        }
+    },
+    "startClickTime": "04-27-2021_11:29:08",
+    "2": {
+        "time": "04-27-2021_11:41:59",
+        "mean_bald": -8.736158866103292e-10,
+        "accuracy": 0.8076289682539683,
+        "0": {
+            "data": {
+                "bald": "5.8789738e-09",
+                "max entropy": "0.00029665686",
+                "max variation": "0.9999426",
+                "mean stddev": "3.290506e-11",
+                "new": false,
+                "question": "In what year was the city annexed to the German Empire?",
+                "text": "In 1871, after the end of the war, the city was annexed to the newly established German Empire as part of the Reichsland Elsass-Lothringen under the terms of the Treaty of Frankfurt. As part of Imperial Germany, Strasbourg was rebuilt and developed on a grand and representative scale, such as the Neue Stadt, or \"new city\" around the present Place de la R\u00e9publique. Historian Rodolphe Reuss and Art historian Wilhelm von Bode were in charge of rebuilding the municipal archives, libraries and museums. The University, founded in 1567 and suppressed during the French Revolution as a stronghold of German sentiment,[citation needed] was reopened in 1872 under the name Kaiser-Wilhelms-Universit\u00e4t."
+            },
+            "charSpans": [
+                [
+                    3,
+                    6
+                ]
+            ],
+            "texts": [
+                "1871"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "-5.820766e-10",
+                "max entropy": "0.00026267985",
+                "max variation": "0.99995065",
+                "mean stddev": "6.5218025e-11",
+                "new": false,
+                "question": "What is another name for Universal Studios Inc.?",
+                "text": "Universal Studios Inc. (also known as Universal Pictures) is an American film studio, owned by Comcast through its wholly owned subsidiary NBCUniversal, and is one of Hollywood's \"Big Six\" film studios. Its production studios are at 100 Universal City Plaza Drive in Universal City, California. Distribution and other corporate offices are in New York City. Universal Studios is a member of the Motion Picture Association of America (MPAA). Universal was founded in 1912 by the German Carl Laemmle (pronounced \"LEM-lee\"), Mark Dintenfass, Charles O. Baumann, Adam Kessel, Pat Powers, William Swanson, David Horsley, Robert H. Cochrane, and Jules Brulatour."
+            },
+            "charSpans": [
+                [
+                    38,
+                    55
+                ]
+            ],
+            "texts": [
+                "Universal Pictures"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "5.7043508e-09",
+                "max entropy": "0.0002863562",
+                "max variation": "0.99987245",
+                "mean stddev": "3.0020494e-10",
+                "new": false,
+                "question": "What 2 bodies of water does Suez connect?",
+                "text": "The Suez Canal is an artificial sea-level waterway in Egypt considered the most important centre of the maritime transport in the Middle East, connecting the Mediterranean Sea and the Red Sea. Opened in November 1869 after 10 years of construction work, it allows ship transport between Europe and Asia without navigation around Africa. The northern terminus is Port Said and the southern terminus is Port Tawfiq at the city of Suez. Ismailia lies on its west bank, 3 km (1.9 mi) from the half-way point."
+            },
+            "charSpans": [
+                [
+                    158,
+                    190
+                ]
+            ],
+            "texts": [
+                "Mediterranean Sea and the Red Sea"
+            ]
+        }
+    },
+    "3": {
+        "time": "04-27-2021_11:44:15",
+        "mean_bald": -9.2570523384947e-10,
+        "accuracy": 0.8137400793650794,
+        "0": {
+            "data": {
+                "bald": "2.910383e-11",
+                "max entropy": "0.00030688508",
+                "max variation": "0.99997985",
+                "mean stddev": "3.9721165e-12",
+                "new": false,
+                "question": "Which metal important to the ancients is the hardest one?",
+                "text": "Iron is usually found as iron ore on Earth, except for one deposit of native iron in Greenland, which was used by the Inuit people. Native copper, however, was found worldwide, along with silver, gold and platinum, which were also used to make tools, jewelry, and other objects since Neolithic times. Copper was the hardest of these metals, and the most widely distributed. It became one of the most important metals to the ancients. Eventually, humans learned to smelt metals such as copper and tin from ore, and, around 2500 BC, began alloying the two metals to form bronze, which is much harder than its ingredients. Tin was rare, however, being found mostly in Great Britain. In the Middle East, people began alloying copper with zinc to form brass. Ancient civilizations took into account the mixture and the various properties it produced, such as hardness, toughness and melting point, under various conditions of temperature and work hardening, developing much of the information contained in modern alloy phase diagrams. Arrowheads from the Chinese Qin dynasty (around 200 BC) were often constructed with a hard bronze-head, but a softer bronze-tang, combining the alloys to prevent both dulling and breaking during use."
+            },
+            "charSpans": [
+                [
+                    301,
+                    306
+                ]
+            ],
+            "texts": [
+                "Copper"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "1.2223609e-09",
+                "max entropy": "7.782467e-05",
+                "max variation": "0.99996674",
+                "mean stddev": "1.5737407e-10",
+                "new": false,
+                "question": "What US state prohibits the death penalty in its constitution?",
+                "text": "Puerto Rico's constitution expressly forbids capital punishment, stating \"The death penalty shall not exist\", setting it apart from all U.S. states and territories other than Michigan, which also has a constitutional prohibition (eleven other states and the District of Columbia have abolished capital punishment through statutory law). However, capital punishment is still applicable to offenses committed in Puerto Rico, if they fall under the jurisdiction of the federal government, though federal death penalty prosecutions there have generated significant controversy."
+            },
+            "charSpans": [
+                [
+                    175,
+                    182
+                ]
+            ],
+            "texts": [
+                "Michigan"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "-1.1059456e-09",
+                "max entropy": "6.3782354e-05",
+                "max variation": "0.9999042",
+                "mean stddev": "5.324716e-10",
+                "new": false,
+                "question": "What gender has a higher enrollment?",
+                "text": "Education is compulsory from the age of 7 to 13. The enrollment of boys is higher than that of girls. In 1998, the gross primary enrollment rate was 53.5%, with higher enrollment ratio for males (67.7%) compared to females (40%)."
+            },
+            "charSpans": [
+                [
+                    189,
+                    193
+                ]
+            ],
+            "texts": [
+                "males"
+            ]
+        }
+    }
+}

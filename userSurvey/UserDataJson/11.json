@@ -1,0 +1,198 @@
+{
+    "1": {
+        "time": "05-02-2021_13:12:12",
+        "mean_bald": "-7.9871026028537e-10",
+        "accuracy": "0.7984421921921923",
+        "0": {
+            "data": {
+                "bald": "1.3795216e-08",
+                "max entropy": "0.00031270218",
+                "max variation": "0.99994576",
+                "mean stddev": "5.840586e-11",
+                "new": false,
+                "question": "For what purpose did American Indians use asphalt? ",
+                "text": "The first use of asphalt/bitumen in the New World was by indigenous peoples. On the west coast, as early as the 13th century, the Tongva, Luise\u00f1o and Chumash peoples collected the naturally occurring asphalt/bitumen that seeped to the surface above underlying petroleum deposits. All three used the substance as an adhesive. It is found on many different artifacts of tools and ceremonial items. For example, it was used on rattles to adhere gourds or turtle shells to rattle handles. It was also used in decorations. Small round shell beads were often set in asphaltum to provide decorations. It was used as a sealant on baskets to make them watertight for carrying water. Asphaltum was used also to seal the planks on ocean-going canoes."
+            },
+            "charSpans": [
+                [
+                    249,
+                    277
+                ]
+            ],
+            "texts": [
+                "underlying petroleum deposits"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "9.895302e-09",
+                "max entropy": "0.00024789321",
+                "max variation": "0.9999666",
+                "mean stddev": "5.04636e-11",
+                "new": false,
+                "question": "How often are pesticides produced more recently evaluated for safety?",
+                "text": "In the United States, the Environmental Protection Agency (EPA) is responsible for regulating pesticides under the Federal Insecticide, Fungicide, and Rodenticide Act (FIFRA) and the Food Quality Protection Act (FQPA). Studies must be conducted to establish the conditions in which the material is safe to use and the effectiveness against the intended pest(s). The EPA regulates pesticides to ensure that these products do not pose adverse effects to humans or the environment. Pesticides produced before November 1984 continue to be reassessed in order to meet the current scientific and regulatory standards. All registered pesticides are reviewed every 15 years to ensure they meet the proper standards. During the registration process, a label is created. The label contains directions for proper use of the material in addition to safety restrictions. Based on acute toxicity, pesticides are assigned to a Toxicity Class."
+            },
+            "charSpans": [
+                [
+                    651,
+                    664
+                ]
+            ],
+            "texts": [
+                "every 15 years"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "1.0768417e-08",
+                "max entropy": "0.00032660848",
+                "max variation": "0.99992436",
+                "mean stddev": "7.7178895e-11",
+                "new": false,
+                "question": "How many divisions did the Premier League start out with at this time?",
+                "text": "In 1992, the First Division clubs resigned from the Football League en masse and on 27 May 1992 the FA Premier League was formed as a limited company working out of an office at the Football Association's then headquarters in Lancaster Gate. This meant a break-up of the 104-year-old Football League that had operated until then with four divisions; the Premier League would operate with a single division and the Football League with three. There was no change in competition format; the same number of teams competed in the top flight, and promotion and relegation between the Premier League and the new First Division remained the same as the old First and Second Divisions with three teams relegated from the league and three promoted."
+            },
+            "charSpans": [
+                [
+                    388,
+                    404
+                ]
+            ],
+            "texts": [
+                "a single division"
+            ]
+        }
+    },
+    "startClickTime": "05-02-2021_12:47:15",
+    "2": {
+        "time": "05-02-2021_13:20:46",
+        "mean_bald": "-7.990997629040782e-10",
+        "accuracy": "0.798672455350087",
+        "0": {
+            "data": {
+                "bald": "7.858034e-09",
+                "max entropy": "0.00036264374",
+                "max variation": "0.9999693",
+                "mean stddev": "1.289202e-10",
+                "new": false,
+                "question": "In 2003 what well known U.S. Secretary of State declared the situation in Darfur as an act of genocide?",
+                "text": "There has been much debate over categorizing the situation in Darfur as genocide. The ongoing conflict in Darfur, Sudan, which started in 2003, was declared a \"genocide\" by United States Secretary of State Colin Powell on 9 September 2004 in testimony before the Senate Foreign Relations Committee. Since that time however, no other permanent member of the UN Security Council followed suit. In fact, in January 2005, an International Commission of Inquiry on Darfur, authorized by UN Security Council Resolution 1564 of 2004, issued a report to the Secretary-General stating that \"the Government of the Sudan has not pursued a policy of genocide.\" Nevertheless, the Commission cautioned that \"The conclusion that no genocidal policy has been pursued and implemented in Darfur by the Government authorities, directly or through the militias under their control, should not be taken in any way as detracting from the gravity of the crimes perpetrated in that region. International offences such as the crimes against humanity and war crimes that have been committed in Darfur may be no less serious and heinous than genocide.\""
+            },
+            "charSpans": [
+                [
+                    173,
+                    217
+                ]
+            ],
+            "texts": [
+                "United States Secretary of State Colin Powell"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "8.236384e-09",
+                "max entropy": "0.00028699505",
+                "max variation": "0.99995524",
+                "mean stddev": "2.2895345e-11",
+                "new": false,
+                "question": "How many staff members work for the University of Plymouth?",
+                "text": "The University of Plymouth enrolls 25,895 total students as of 2014/15 (22nd largest in the UK out of 165). It also employs 3,000 staff with an annual income of around \u00a3160 million. It was founded in 1992 from Polytechnic South West (formerly Plymouth Polytechnic) following the Further and Higher Education Act 1992. It has courses in maritime business, marine engineering, marine biology and Earth, ocean and environmental sciences, surf science, shipping and logistics. The university formed a joint venture with the fellow Devonian University of Exeter in 2000, establishing the Peninsula College of Medicine and Dentistry. The college is ranked 8th out of 30 universities in the UK in 2011 for medicine. Its dental school was established in 2006, which also provides free dental care in an attempt to improve access to dental care in the South West."
+            },
+            "charSpans": [
+                [
+                    124,
+                    134
+                ]
+            ],
+            "texts": [
+                "3,000 staff"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "7.625204e-09",
+                "max entropy": "0.00022790466",
+                "max variation": "0.999937",
+                "mean stddev": "2.9186684e-10",
+                "new": false,
+                "question": "Who wrote 'Ideals of the Samurai'?",
+                "text": "In his book \"Ideals of the Samurai\" translator William Scott Wilson states: \"The warriors in the Heike Monogatari served as models for the educated warriors of later generations, and the ideals depicted by them were not assumed to be beyond reach. Rather, these ideals were vigorously pursued in the upper echelons of warrior society and recommended as the proper form of the Japanese man of arms. With the Heike Monogatari, the image of the Japanese warrior in literature came to its full maturity.\" Wilson then translates the writings of several warriors who mention the Heike Monogatari as an example for their men to follow."
+            },
+            "charSpans": [
+                [
+                    47,
+                    66
+                ]
+            ],
+            "texts": [
+                "William Scott Wilson"
+            ]
+        }
+    },
+    "3": {
+        "time": "05-02-2021_13:25:43",
+        "mean_bald": "-8.506544105621647e-10",
+        "accuracy": "0.8052049228825545",
+        "0": {
+            "data": {
+                "bald": "5.7043508e-09",
+                "max entropy": "0.0002863562",
+                "max variation": "0.99987245",
+                "mean stddev": "3.0020494e-10",
+                "new": false,
+                "question": "What 2 bodies of water does Suez connect?",
+                "text": "The Suez Canal is an artificial sea-level waterway in Egypt considered the most important centre of the maritime transport in the Middle East, connecting the Mediterranean Sea and the Red Sea. Opened in November 1869 after 10 years of construction work, it allows ship transport between Europe and Asia without navigation around Africa. The northern terminus is Port Said and the southern terminus is Port Tawfiq at the city of Suez. Ismailia lies on its west bank, 3 km (1.9 mi) from the half-way point."
+            },
+            "charSpans": [
+                [
+                    154,
+                    190
+                ]
+            ],
+            "texts": [
+                "the Mediterranean Sea and the Red Sea"
+            ]
+        },
+        "1": {
+            "data": {
+                "bald": "5.820766e-09",
+                "max entropy": "0.000146542",
+                "max variation": "0.99994576",
+                "mean stddev": "7.2222034e-11",
+                "new": false,
+                "question": "What is the average age that BYU students marry according to a 2005 study?",
+                "text": "One of the characteristics of BYU most often pointed out is its reputation for emphasizing a \"marriage culture\". Members of The Church of Jesus Christ of Latter-day Saints highly value marriage and family, especially marriage within the faith. Approximately 51 percent of the graduates in BYU's class of 2005 were married. This is compared to a national marriage average among college graduates of 11 percent. BYU students on average marry at the age of 22, according to a 2005 study, while the national average age is 25 years for men and 27 years for women."
+            },
+            "charSpans": [
+                [
+                    447,
+                    455
+                ]
+            ],
+            "texts": [
+                "age of 22"
+            ]
+        },
+        "2": {
+            "data": {
+                "bald": "5.8789738e-09",
+                "max entropy": "0.00029665686",
+                "max variation": "0.9999426",
+                "mean stddev": "3.290506e-11",
+                "new": false,
+                "question": "In what year was the city annexed to the German Empire?",
+                "text": "In 1871, after the end of the war, the city was annexed to the newly established German Empire as part of the Reichsland Elsass-Lothringen under the terms of the Treaty of Frankfurt. As part of Imperial Germany, Strasbourg was rebuilt and developed on a grand and representative scale, such as the Neue Stadt, or \"new city\" around the present Place de la R\u00e9publique. Historian Rodolphe Reuss and Art historian Wilhelm von Bode were in charge of rebuilding the municipal archives, libraries and museums. The University, founded in 1567 and suppressed during the French Revolution as a stronghold of German sentiment,[citation needed] was reopened in 1872 under the name Kaiser-Wilhelms-Universit\u00e4t."
+            },
+            "charSpans": [
+                [
+                    3,
+                    6
+                ]
+            ],
+            "texts": [
+                "1871"
+            ]
+        }
+    }
+}
