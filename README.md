@@ -4,7 +4,7 @@
 ```
 git clone --recurse-submodules -j8 https://github.com/s0tt/ActiveLearningProject.git
 ```
-After the repository is cloned change into the root directory ActiveLearningProject/ and run the following command
+After the repository is cloned change into the project root directory *ActiveLearningProject/* and run the following command
 ```
 git submodule update --remote --merge
 ```
@@ -39,7 +39,7 @@ For explanation on how to use PyTorch models in the modAL work flow check the co
 
 ## label-studio with PyTorch and modAL 
 
-For explanation on how to use label-studio and modAL together with a PyTorch check the comments in: `ActiveLearningProject/Examples/modAL_example/multi_metric_PyTorch_label_example.py`
+For explanation on how to use label-studio and modAL together with a PyTorch check the comments in: `ActiveLearningProject/Examples/modAL_labelStudio_example/multi_metric_PyTorch_label_example.py`
 
 ## BERT-QA with modAL and label-studio
 
