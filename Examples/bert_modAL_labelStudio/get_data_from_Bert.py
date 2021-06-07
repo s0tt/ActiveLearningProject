@@ -12,9 +12,7 @@ from operator import attrgetter
 import sys 
 import os
 
-# change this to the location where your files from mrqa-basline are placed
-#sys.path.append("/Users/maxkeller/Documents/Uni/Softwaretechnik/Projektarbeiten/mrqa-baseline/modAL_prototype_test/get_bert_data_test")
-# special imports from maximilians code 
+
 from data import (BertQASampler, MRQADataset, SlidingWindowHandler,
                   normalize_answer, pad_batch, Dataset, SharedTaskDatasetReader)
 from agent import MRQAAgent
@@ -103,40 +101,17 @@ def match_datasets(data_dir: str, search: Union[None, str], no_checks: bool = Fa
 eval_seed = 1234
 seed = 3957113738
 model="models"
-cache_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../cache')
+cache_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../cache')
 pretrained_model = None
 nocuda = False
 results = "results"
 datasets = ['SQuAD-train']
-data_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../datasets')
+data_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../datasets')
 pre_process = False
 
-training_steps = 10
-train_steps = 5
 device = "cuda" if torch.cuda.is_available() else "cpu"
 batch_size = 5
 
-"""
-#maybe later
-# set up tensorboard writer for interactive visualization
-writer = setup_writer(args.logdir, seed, purge_step=agent.training_steps, debug=args.debug)
-agent.add_tb_writer(writer)
-"""
-
-
-# loads the dataset into data_train, data_split is not further needed 
-"""
-In the metadata there is the full SQAD sample
-additional we will hava a: 
-mask (1, were there is real data, 0 when it is just a padding),
-segments, 
-label_multi, 
-segments, 
-wordpiece_to_token_idx, 
-token_to_context_idx, 
-input, 
-label (Maybe token-ids but I do not know this in detail ...), 
-"""
 
 def get_dataloader():
     agent = MRQAAgent(model, cache_dir, pretrained_model_dir=pretrained_model, disable_cuda=nocuda, results=results)
@@ -146,13 +121,10 @@ def get_dataloader():
     data_train = reduce(lambda x, y: x + y, data_train)
 
 
-    #data_train: MRQADataset # needs still to be added
-
     batch_sampler = BertQASampler(data_source=data_train, batch_size=batch_size, training=True, shuffle=True, drop_last=False, fill_last=True, repeat=True)
     batch_sampler_iterator = iter(batch_sampler)
     dataloader = DataLoader(data_train, batch_sampler=batch_sampler_iterator, collate_fn=pad_batch)
 
-    #data_iter = iter(dataloader) # create iterator so that the same can be used in all function calls (also working with zip)
 
     return dataloader
 

@@ -15,7 +15,7 @@ from skorch import NeuralNet
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../modAL'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../Annotation_Interface'))
 
-from modAL.dropout import mc_dropout_bald, mc_dropout_mean_st, mc_dropout_max_variationRatios, mc_dropout_max_entropy
+from modAL.dropout import mc_dropout_bald
 from modAL.models import DeepActiveLearner
 from transformers import BertModel
 
@@ -30,39 +30,7 @@ from get_data_from_Bert import get_dataloader
 from LabelingClass import LabelInstance
 from Labeling import getLabelList
 
-labels='single' # at the moment this is just set by hand ... 
 device = "cuda" if torch.cuda.is_available() else "cpu"
-
-
-def loss_function(output, target): 
-    start_logits = output[0]
-    end_logits = output[1]
-
-    """
-    we just use the single lable crossEntropyLoss
-
-      if labels == 'single':
-        loss_fn = torch.nn.CrossEntropyLoss(ignore_index=-1) # ignore out of context index
-    else:
-        loss_fn = torch.nn.MultiLabelSoftMarginLoss()
-    """
-
-    loss_fn = torch.nn.CrossEntropyLoss(ignore_index=-1) # ignore out of context index
-
-    # extract label
-    # NOTE label contains offset for question + tokens
-    if isinstance(loss_fn, (torch.nn.MultiLabelMarginLoss, torch.nn.MultiLabelSoftMarginLoss)):
-        label_start, label_end = target.to(device).split(1, dim=1) # before: batch['label_multi'].to(self.device).split(1, dim=1) # all spans for this sample
-    else:
-        label_start, label_end = target.to(device).split(1, dim=1) # before batch['label'].to(self.device).split(1, dim=1) # one span
-
-    # compute loss
-    start_loss = loss_fn(start_logits, label_start.squeeze(1))
-
-
-    end_loss = loss_fn(end_logits, label_end.squeeze(1))
-    loss = start_loss + end_loss # TODO mean instead of sum?
-    return loss 
 
 def extract_span(logits: torch.Tensor, batch, maximilian: bool = False, softmax_applied: bool = False, topk: int = 1, extract_answer: bool = False, answer_only: bool = True, get_label:bool=False):
     if get_label:
@@ -167,10 +135,6 @@ class BertQA(torch.nn.Module):
         # only use context tokens for span prediction
         logits = self.qa_outputs(embedding)
 
-        ##### NEW Change output of BERT QA to 1dim ######
-        # start_logits, end_logits = logits.transpose(1, 2).split(1, dim=1)
-        # batch = {'input' : inputs, 'segments': segments, 'mask': masks}
-        # unpadded_probabilities = extract_span(start_logits, end_logits, batch, softmax_applied=True, maximilian=False, answer_only=True)
         return logits
 
 
@@ -202,12 +166,6 @@ labelSystem = LabelInstance(80, {'text': 'Text', 'question': 'Text'},
                     '{"bald": "Divergence factor represents uncertainty. Lower is better."}'
                     )
 
-# labelSystem = LabelInstance(80, {'text': 'Text', 'question': 'Text'}, 
-#                     '[["mean_bald_uncertainty", "bald_score"], ["accuracy", "percent"]]',
-#                     '{"bald": "Divergence facotor represents uncertainty. Lower is better.", "mean stddev": "Mean standard deviation between sample runs. Lower is better","max entropy": "Maximum entropy between sample runs. Lower is better","max variation": "Maximium variation between sample runs. Lower is better"}'
-#                     )
-
-
 ##### Load and process modell training data ####
 data_loader = get_dataloader()
 data_iter = iter(data_loader) # create iterator so that the same can be used in all function calls (also working with zip)
@@ -220,6 +178,7 @@ for batch in data_iter:
     labels = batch['label']
     segments = batch['segments']
     masks = batch['mask']
+    
     train_batch = {'inputs' : inputs, 'segments': segments, 'masks': masks}
     labels = batch['label']
     

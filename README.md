@@ -4,11 +4,11 @@
 ```
 git clone --recurse-submodules -j8 https://github.com/s0tt/ActiveLearningProject.git
 ```
-## Update submodules to latest commit 
+After the repository is cloned change into the root directory ActiveLearningProject/ and run the following command
 ```
 git submodule update --remote --merge
 ```
-
+to update the submodules to the latest commit. 
 # Requirements 
 
 **Python >= 3.73** should be used. The framework/ the extensions were explicitly developed and tested with **Python 3.73**.
@@ -19,19 +19,19 @@ For **modAL** execute the command from the root directory
 ```
 <python3-interpreter> -m pip install -r modAL/rtd_requirements.txt
 ```
-For **label-studio** execute the command from the root directory 
+For **label-studio** execute the following command from the root directory 
 ```
-<python3-interpreter> label-studio/setup.py install
+<python3-interpreter> -m pip install -e label-studio/
 ```
 
-To use the examples torchvision and matplotlib are additionally required. Install: 
+To use the examples additional python libraries are required. Install them with: 
 ```
-<python3-interpreter> -m pip install torchvision matplotlib
+<python3-interpreter> -m pip install torchvision matplotlib jsonlines psutil tensorboard transformers==2.9.0
 ```
 
 # Examples
 
-Code examples can be found under *ActiveLearningProject/Examples/*. For caching and datasets the folders *ActiveLearningProject/cache/* and *ActiveLearningProject/datasets/* can be used.
+Code examples can be found under *ActiveLearningProject/Examples/*. For caching and datasets the folders *ActiveLearningProject/cache/* and *ActiveLearningProject/datasets/* are provided.
 
 ## Basic PyTorch model usage in modAL 
 
@@ -44,9 +44,9 @@ For explanation on how to use label-studio and modAL together with a PyTorch che
 
 # Documentation 
 
-The full **modAL** documentation can be found on <https://modal-python.readthedocs.io/en/latest/>.
+The full **modAL** documentation can be found on [here](https://modal-python.readthedocs.io/en/latest/).
 
-The documentation for **label-studio** can be found here <https://labelstud.io/guide/>.
+The documentation for **label-studio** can be found  [here](https://labelstud.io/guide/).
 
 
 
