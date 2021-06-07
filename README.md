@@ -2,7 +2,11 @@
 
 ## Clone with Submodules: 
 ```
-git clone --recurse-submodules -j8 https://github.com/s0tt/ActiveLearningProject.git 
+git clone --recurse-submodules -j8 https://github.com/s0tt/ActiveLearningProject.git
+```
+## Update submodules to latest commit 
+```
+git submodule update --remote --merge
 ```
 
 # Requirements 
@@ -16,11 +20,18 @@ For **modAL** execute the command from the root directory
 <python3-interpreter> -m pip install -r modAL/rtd_requirements.txt
 ```
 For **label-studio** execute the command from the root directory 
+```
+<python3-interpreter> label-studio/setup.py install
+```
 
+To use the examples torchvision and matplotlib are additionally required. Install: 
+```
+<python3-interpreter> -m pip install torchvision matplotlib
+```
 
 # Examples
 
-Code examples can be found under *ActiveLearningProject/Examples/*. For caching and datasets the folders *ActiveLearningProject/cache/* and *ActiveLearningProject/datasets/* can be used. 
+Code examples can be found under *ActiveLearningProject/Examples/*. For caching and datasets the folders *ActiveLearningProject/cache/* and *ActiveLearningProject/datasets/* can be used.
 
 ## Basic PyTorch model usage in modAL 
 
