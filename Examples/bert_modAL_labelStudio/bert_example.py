@@ -1,16 +1,11 @@
-# delay evaluation of annotation
-from __future__ import annotations
-
 import sys 
 import os
-import re
 import numpy as np
 
-from typing import Dict, OrderedDict, Tuple, Union
+from typing import Union
 
 import torch 
 from skorch import NeuralNetClassifier
-from skorch import NeuralNet
 
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../modAL'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../Annotation_Interface'))
@@ -19,31 +14,31 @@ from modAL.dropout import mc_dropout_bald
 from modAL.models import DeepActiveLearner
 from transformers import BertModel
 
-from torch.utils.data import DataLoader
-from torchvision.transforms import ToTensor
-from torchvision.datasets import MNIST
+from transformers import AdamW
 
-from transformers import AdamW, BertTokenizer, get_linear_schedule_with_warmup
-
-from get_data_from_Bert import get_dataloader
+from data_preprocessing.dataloader import get_dataloader
 
 from LabelingClass import LabelInstance
 from Labeling import getLabelList
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+batch_size = 5
 
-def extract_span(logits: torch.Tensor, batch, maximilian: bool = False, softmax_applied: bool = False, topk: int = 1, extract_answer: bool = False, answer_only: bool = True, get_label:bool=False):
+
+def extract_span(logits: torch.Tensor, batch, addition_instead_of_multiplication: bool = False, softmax_applied: bool = False, get_label:bool=False):
+
+    """
+        Logits adapter funktion for BERT-QA. 
+        In general a logits adaptor function is needed, in the learner.query method, when the output of a forward pass is not a trivial 
+        logit vector as in multi class classification tasks. 
+    """
+
     if get_label:
         start_logits, end_logits = logits.split(1, dim=1)
     else:
         start_logits, end_logits = logits.transpose(1, 2).split(1, dim=1)
     
     num_samples = start_logits.size(0)
-    scores = [None] * num_samples
-    scores_all = [None] * num_samples
-    spans = [None] * num_samples
-    answers = [None] * num_samples
-    max_score_start, max_spans_start = start_logits.max(dim=1)
 
     unified_len = round((len(batch['inputs'][0]) * (len(batch['inputs'][0]) + 1))/2)  #Gaussian sum formula for sequences
     if get_label:
@@ -55,12 +50,10 @@ def extract_span(logits: torch.Tensor, batch, maximilian: bool = False, softmax_
         # vectorize by broadcasting start/end token probabilites to matrix and adding both
         # afterward we can take the maximum of the upper half including the diagonal (end > start)
         
-        #TODO: [CLS] Hwhere is the city? [SEP] the city is there
         mask = batch['masks'][sample_id]
         nr_mask = np.sum(mask.numpy()) #sum mask to get nr of total valid tokens
         nr_segments = np.sum(batch['segments'][sample_id][mask == 1].numpy()) #sum masked segments to get nr of answer tokens
 
-        slice_relevant_tokens = np.arange(nr_mask-nr_segments,nr_mask)
         start_idx = nr_mask-nr_segments
         end_idx = nr_mask-1-1 #index is mask nr-1 and one more -1 for excluding [SEP]
         len_relevant_tokens = end_idx-start_idx
@@ -70,7 +63,7 @@ def extract_span(logits: torch.Tensor, batch, maximilian: bool = False, softmax_
         start_score_matrix = start_logits[sample_id][0][start_idx:end_idx].unsqueeze(1).expand(len_relevant_tokens, len_relevant_tokens).double()
         end_score_matrix = end_logits[sample_id][0][start_idx:end_idx].unsqueeze(1).transpose(0, 1).expand(len_relevant_tokens, len_relevant_tokens).double() # new dimension is by default added to the front
 
-        if maximilian: 
+        if addition_instead_of_multiplication: 
             score_matrix = (start_score_matrix + end_score_matrix).triu() # return upper triangular part including diagonal, rest is 0
         else: 
             score_matrix = (start_score_matrix*end_score_matrix).triu() # return upper triangular part including diagonal, rest is 0
@@ -79,15 +72,13 @@ def extract_span(logits: torch.Tensor, batch, maximilian: bool = False, softmax_
         score_array = score_matrix_pad[torch.triu(torch.ones_like(score_matrix_pad) == 1)]
         
         # values can be lower than 0 -> make sure to set lower triangular matrix to very low value
-        #lower_triangular_matrix = torch.tril(torch.ones_like(score_matrix, dtype=torch.long), diagonal=-1)
-        #score_matrix.masked_fill_(lower_triangular_matrix, float("-inf")) # make sure that lower triangular matrix is set -inf to ensure end >= start
-        
+
         if softmax_applied: 
             score_array[~score_array.isnan()] = score_array[~score_array.isnan()].softmax(0)
             probabilities = score_array
         else: 
             probabilities = score_array
-        # TODO add maximum span length (mask diagonal)
+
         if get_label:
             probabilities[probabilities.isnan()] = -1 #set to -1 for argmax to work correctly
             unpadded_probabilities[sample_id, 0] = torch.argmax(probabilities)
@@ -109,18 +100,16 @@ class BertQA(torch.nn.Module):
     def forward(self, inputs, segments, masks): 
 
         """
-            I modified the input as well as the output of the forward function so that it can match with the input of my loss function and that it can accept the full batch
-
-            token_ids: 
+            inputs: 
                 The input ids are often the only required parameters to be passed to the model as input. 
                 They are token indices, numerical representations of tokens building the sequences that will be used as input by the model.
                 See: (https://huggingface.co/transformers/glossary.html)
-            attention_mask: 
+            masks: 
                 The attention mask is an optional argument used when batching sequences together. 
                 This argument indicates to the model which tokens should be attended to, and which should not.
                 1 indicates a value that should be attended to, while 0 indicates a padded value.
                 See: (https://huggingface.co/transformers/glossary.html)
-            token_type_ids: 
+            segments: 
                 Some models’ purpose is to do sequence classification or question answering.
                 These require two different sequences to be joined in a single “input_ids” entry, which usually is performed with the help of special tokens,
                 such as the classifier ([CLS]) and separator ([SEP]) tokens.
@@ -128,9 +117,6 @@ class BertQA(torch.nn.Module):
                 The first sequence, the “context” used for the question, has all its tokens represented by a 0,
                 whereas the second sequence, corresponding to the “question”, has all its tokens represented by a 1.
         """
-
-        # input is batch x sequence
-        # NOTE the order of the arguments changed from the pytorch pretrained bert package to the transformers package
         embedding, _ = self.embedder(inputs, token_type_ids=segments, attention_mask=masks)
         # only use context tokens for span prediction
         logits = self.qa_outputs(embedding)
@@ -167,7 +153,7 @@ labelSystem = LabelInstance(80, {'text': 'Text', 'question': 'Text'},
                     )
 
 ##### Load and process modell training data ####
-data_loader = get_dataloader()
+data_loader = get_dataloader(batch_size)
 data_iter = iter(data_loader) # create iterator so that the same can be used in all function calls (also working with zip)
 
 
@@ -203,7 +189,7 @@ for batch in data_iter:
     labelList = getLabelList(context, question, [bald_idx], [bald_metric], ["bald"])
     oracle_responses = labelSystem.label(labelList, [score])
     
-
+    
     new_train_idxs = []
     new_labels = torch.empty((len(oracle_responses), 2), dtype=torch.int64)
     for idx, response in enumerate(oracle_responses):

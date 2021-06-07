@@ -13,10 +13,10 @@ from torch.utils.tensorboard.writer import SummaryWriter
 from tqdm import tqdm
 from transformers import AdamW, BertTokenizer, get_linear_schedule_with_warmup
 
-from data import (BertQASampler, MRQADataset, SlidingWindowHandler,
+from data_preprocessing.data import (BertQASampler, MRQADataset, SlidingWindowHandler,
                   normalize_answer, pad_batch)
-from model import BertQA
-from utils import extract_span, store_metrics
+from data_preprocessing.model import BertQA
+from data_preprocessing.utils import extract_span, store_metrics
 
 
 class Metrics():

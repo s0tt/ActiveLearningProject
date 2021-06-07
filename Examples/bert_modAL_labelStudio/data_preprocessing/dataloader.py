@@ -2,44 +2,24 @@
 import torch
 from torch.utils.data import DataLoader
 import numpy 
-from transformers import BertTokenizer, PreTrainedTokenizer
+from transformers import PreTrainedTokenizer
 from typing import Set, Union
 from functools import reduce
 import re 
 from dataclasses import replace
-from collections import Counter, defaultdict
-from operator import attrgetter
-import sys 
 import os
+import urllib
 
 
-from data import (BertQASampler, MRQADataset, SlidingWindowHandler,
-                  normalize_answer, pad_batch, Dataset, SharedTaskDatasetReader)
-from agent import MRQAAgent
+from data_preprocessing.data import (BertQASampler, MRQADataset, pad_batch, Dataset, SharedTaskDatasetReader)
+from data_preprocessing.agent import MRQAAgent
 
 
 reader = SharedTaskDatasetReader(answer_first_occurence_only = True)
 
 DATASETS = [
 Dataset('SQuAD-train', 'train/SQuAD.jsonl.gz', reader),
-Dataset('SQuAD-dev', 'dev/SQuAD.jsonl.gz', reader),
-Dataset('HotpotQA-train', 'train/HotpotQA.jsonl.gz', reader),
-Dataset('HotpotQA-dev', 'dev/HotpotQA.jsonl.gz', reader),
-Dataset('TriviaQA-train', 'train/TriviaQA.jsonl.gz', reader),
-Dataset('TriviaQA-dev', 'dev/TriviaQA.jsonl.gz', reader),
-Dataset('NewsQA-train', 'train/NewsQA.jsonl.gz', reader),
-Dataset('NewsQA-dev', 'dev/NewsQA.jsonl.gz', reader),
-Dataset('SearchQA-train', 'train/SearchQA.jsonl.gz', reader),
-Dataset('SearchQA-dev', 'dev/SearchQA.jsonl.gz', reader),
-Dataset('NaturalQuestionsShort-train', 'train/NaturalQuestions.jsonl.gz', reader),
-Dataset('NaturalQuestionsShort-dev', 'dev/NaturalQuestions.jsonl.gz', reader),
-Dataset('DROP-dev', 'dev/DROP.jsonl.gz', reader),
-Dataset('RACE-dev', 'dev/RACE.jsonl.gz', reader),
-Dataset('BioASQ-dev', 'dev/BioASQ.jsonl.gz', reader),
-Dataset('TextbookQA-dev', 'dev/TextbookQA.jsonl.gz', reader),
-Dataset('RelationExtraction-dev', 'dev/RelationExtraction.jsonl.gz', reader),
-Dataset('DuoRC-dev', 'dev/DuoRC.jsonl.gz', reader),
-
+Dataset('SQuAD-dev', 'dev/SQuAD.jsonl.gz', reader)
 ]
 
 
@@ -94,26 +74,27 @@ def match_datasets(data_dir: str, search: Union[None, str], no_checks: bool = Fa
                         continue
 
                 datasets.add(replace(dataset, num_samples=num_samples, num_samples_eval=num_samples_eval))
-    dataset_names_duplicates = [name for name, count in Counter(map(attrgetter('name'), datasets)).items() if count > 1]
     return datasets
 
 
 eval_seed = 1234
 seed = 3957113738
 model="models"
-cache_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../cache')
+cache_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', '..', '..', 'cache')
 pretrained_model = None
 nocuda = False
 results = "results"
 datasets = ['SQuAD-train']
-data_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../datasets')
+data_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '..', '..', '..', 'datasets')
 pre_process = False
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
-batch_size = 5
 
 
-def get_dataloader():
+def get_dataloader(batch_size):
+
+    urllib.request.urlretrieve("https://s3.us-east-2.amazonaws.com/mrqa/release/v2/train/SQuAD.jsonl.gz", filename=os.path.join(data_dir, 'train', 'SQuAD.jsonl.gz'))
+
     agent = MRQAAgent(model, cache_dir, pretrained_model_dir=pretrained_model, disable_cuda=nocuda, results=results)
     datasets_train = match_datasets(data_dir, datasets) # returns just a set where the Dataset is inside!
     data_train, data_split = get_datasets(data_dir, cache_dir, agent.sample_processor, agent.tokenizer, datasets_train, seed=seed, force_preprocess=pre_process)

@@ -21,33 +21,17 @@ from torch.utils.tensorboard import SummaryWriter
 from tqdm import tqdm
 from transformers import BertTokenizer, PreTrainedTokenizer
 
-from agent import MRQAAgent
-from data import (Dataset, MRQADataset, SharedTaskDatasetReader,
+from data_preprocessing.agent import MRQAAgent
+from data_preprocessing.data import (Dataset, MRQADataset, SharedTaskDatasetReader,
                   SlidingWindowHandler)
-from utils import (GLOBAL_SEED, allocate_mem, init_random, store_metrics,
+from data_preprocessing.utils import (GLOBAL_SEED, allocate_mem, init_random, store_metrics,
                    update_dict)
 
 reader = SharedTaskDatasetReader(answer_first_occurence_only = True)
 
 DATASETS = [
 Dataset('SQuAD-train', 'train/SQuAD.jsonl.gz', reader),
-Dataset('SQuAD-dev', 'dev/SQuAD.jsonl.gz', reader),
-Dataset('HotpotQA-train', 'train/HotpotQA.jsonl.gz', reader),
-Dataset('HotpotQA-dev', 'dev/HotpotQA.jsonl.gz', reader),
-Dataset('TriviaQA-train', 'train/TriviaQA.jsonl.gz', reader),
-Dataset('TriviaQA-dev', 'dev/TriviaQA.jsonl.gz', reader),
-Dataset('NewsQA-train', 'train/NewsQA.jsonl.gz', reader),
-Dataset('NewsQA-dev', 'dev/NewsQA.jsonl.gz', reader),
-Dataset('SearchQA-train', 'train/SearchQA.jsonl.gz', reader),
-Dataset('SearchQA-dev', 'dev/SearchQA.jsonl.gz', reader),
-Dataset('NaturalQuestionsShort-train', 'train/NaturalQuestions.jsonl.gz', reader),
-Dataset('NaturalQuestionsShort-dev', 'dev/NaturalQuestions.jsonl.gz', reader),
-Dataset('DROP-dev', 'dev/DROP.jsonl.gz', reader),
-Dataset('RACE-dev', 'dev/RACE.jsonl.gz', reader),
-Dataset('BioASQ-dev', 'dev/BioASQ.jsonl.gz', reader),
-Dataset('TextbookQA-dev', 'dev/TextbookQA.jsonl.gz', reader),
-Dataset('RelationExtraction-dev', 'dev/RelationExtraction.jsonl.gz', reader),
-Dataset('DuoRC-dev', 'dev/DuoRC.jsonl.gz', reader),
+Dataset('SQuAD-dev', 'dev/SQuAD.jsonl.gz', reader)
 ]
 
 

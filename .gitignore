@@ -3,8 +3,10 @@ MNIST
 .vscode
 **/__pycache__/
 cache/*
-datasets/*
-!datasets/.gitkeep
+datasets/train/*
+datasets/test/*
+!datasets/train/.gitkeep
+!datasets/test/.gitkeep
 !cache/.gitkeep 
 
 processed 

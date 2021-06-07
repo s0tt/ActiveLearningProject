@@ -20,7 +20,7 @@ from torch.utils.data import DataLoader
 from torch.utils.data._utils.collate import default_collate
 from transformers import BertTokenizer
 
-from utils import print_mem_usage
+from data_preprocessing.utils import print_mem_usage
 
 
 @dataclass(frozen=True)
@@ -326,7 +326,7 @@ class MRQADataset(torch.utils.data.Dataset):
             # try loading preprocessed data
             if os.path.exists(cache_filepath):
                 # file exists -> check if we should continue loading it
-                if datetime.strptime(json.load(open('version', 'r'))['preprocessed_data'], '%d/%m/%y %H:%M:%S') > datetime.fromtimestamp(os.path.getmtime(cache_filepath)):
+                if datetime.strptime(json.load(open(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'version'), 'r'))['preprocessed_data'], '%d/%m/%y %H:%M:%S') > datetime.fromtimestamp(os.path.getmtime(cache_filepath)):
                     # preprocessed data is outdated
                     logging.info("Did not load preprocessed data for dataset %s: outdated", dataset.name)
                     preprocess = True

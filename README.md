@@ -31,7 +31,7 @@ To use the examples additional python libraries are required. Install them with:
 
 # Examples
 
-Code examples can be found under *ActiveLearningProject/Examples/*. For caching and datasets the folders *ActiveLearningProject/cache/* and *ActiveLearningProject/datasets/* are provided.
+Code examples can be found under *ActiveLearningProject/Examples/*. For caching and datasets the folders *ActiveLearningProject/cache/* and *ActiveLearningProject/datasets/* are provided. All examples can directly be executed as python scrips without the need to pass any parameters.
 
 ## Basic PyTorch model usage in modAL 
 
@@ -40,6 +40,11 @@ For explanation on how to use PyTorch models in the modAL work flow check the co
 ## label-studio with PyTorch and modAL 
 
 For explanation on how to use label-studio and modAL together with a PyTorch check the comments in: `ActiveLearningProject/Examples/modAL_example/multi_metric_PyTorch_label_example.py`
+
+## BERT-QA with modAL and label-studio
+
+For explanation on how to use a natural language processing model like BERT with label-studio (Question-Answering) and modAL check the comments in.: `ActiveLearningProject/Examples/bert_modAL_labelStudio/bert_example.py`
+
 
 
 # Documentation 
