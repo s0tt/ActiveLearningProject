@@ -7,7 +7,6 @@ from typing import Union
 import torch 
 from skorch import NeuralNetClassifier
 
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../modAL'))
 sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../Annotation_Interface'))
 
 from modAL.dropout import mc_dropout_bald

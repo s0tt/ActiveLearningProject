@@ -17,7 +17,7 @@ We have to install dependencies for modAL as well as label-studio.
 
 For **modAL** execute the command from the root directory
 ```
-<python3-interpreter> -m pip install -r modAL/rtd_requirements.txt
+<python3-interpreter> -m pip install -e modAL/
 ```
 For **label-studio** execute the following command from the root directory 
 ```

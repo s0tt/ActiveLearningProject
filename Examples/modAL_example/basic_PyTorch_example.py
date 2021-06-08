@@ -7,7 +7,6 @@ import os
 import torch
 from torch import nn
 from skorch import NeuralNetClassifier
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../../modAL'))
 
 from modAL.models import DeepActiveLearner, ActiveLearner
 
