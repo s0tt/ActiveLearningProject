@@ -1,10 +1,8 @@
 import requests
 import json
 
-import sys 
 import os
-sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)),'../label-studio/label_studio'))
-from server import main as serverStart
+from label_studio.server import main as serverStart
 import _thread
 import time
 
@@ -18,7 +16,7 @@ class mydict(dict):
         return json.dumps(self)
 
 
-"""
+""" 
 Data labeling class. 
 The Label-Studio Server is started when instantiating. 
 Then data can be labeled using the "label" function. 
